@@ -87,7 +87,7 @@ class SystemGenerator {
   /**
    * Replace file contents.
    *
-   * Replace refercnes to 'dcheroes', 'Boilerplate', and 'BOILERPLATE'
+   * Replace references to 'dcheroes', 'DCHeroes', and 'DCHEROES'
    * in files copied over to the build directory.
    */
   replaceFileContents() {
@@ -106,18 +106,18 @@ class SystemGenerator {
         replacement: this.packageName
       },
       {
-        pattern: 'Boilerplate',
+        pattern: 'DCHeroes',
         replacement: this.className
       },
       {
-        pattern: 'BOILERPLATE',
+        pattern: 'DCHEROES',
         replacement: this.constantName
       }
     ];
 
     // Update title in system.json.
     replace({
-      regex: 'Boilerplate',
+      regex: 'DCHeroes',
       replacement: this.titleName,
       paths: [`./build/${this.packageName}/system.json`],
       silent: true
@@ -232,7 +232,7 @@ inquirer
     // Clean out our build directory.
     generator.cleanBuildDir();
 
-    // Glob Boilerplate's files so that we can process them.
+    // Glob DCHeroes's files so that we can process them.
     glob('*', {ignore: 'node_modules/**' }).then(files => {
       // Copy all files into the build dir.
       generator.copyFiles(files);

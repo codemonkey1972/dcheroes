@@ -1,12 +1,12 @@
 // Import document classes.
-import { BoilerplateActor } from './documents/actor.mjs';
-import { BoilerplateItem } from './documents/item.mjs';
+import { DCHeroesActor } from './documents/actor.mjs';
+import { DCHeroesItem } from './documents/item.mjs';
 // Import sheet classes.
-import { BoilerplateActorSheet } from './sheets/actor-sheet.mjs';
-import { BoilerplateItemSheet } from './sheets/item-sheet.mjs';
+import { DCHeroesActorSheet } from './sheets/actor-sheet.mjs';
+import { DCHeroesItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
-import { BOILERPLATE } from './helpers/config.mjs';
+import { DCHEROES } from './helpers/config.mjs';
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -16,13 +16,13 @@ Hooks.once('init', function () {
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
   game.dcheroes = {
-    BoilerplateActor,
-    BoilerplateItem,
+    DCHeroesActor,
+    DCHeroesItem,
     rollItemMacro,
   };
 
   // Add custom constants for configuration.
-  CONFIG.BOILERPLATE = BOILERPLATE;
+  CONFIG.DCHEROES = DCHEROES;
 
   /**
    * Set an initiative formula for the system
@@ -34,8 +34,8 @@ Hooks.once('init', function () {
   };
 
   // Define custom Document classes
-  CONFIG.Actor.documentClass = BoilerplateActor;
-  CONFIG.Item.documentClass = BoilerplateItem;
+  CONFIG.Actor.documentClass = DCHeroesActor;
+  CONFIG.Item.documentClass = DCHeroesItem;
 
   // Active Effects are never copied to the Actor,
   // but will still apply to the Actor from within the Item
@@ -44,14 +44,14 @@ Hooks.once('init', function () {
 
   // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('dcheroes', BoilerplateActorSheet, {
+  Actors.registerSheet('dcheroes', DCHeroesActorSheet, {
     makeDefault: true,
-    label: 'BOILERPLATE.SheetLabels.Actor',
+    label: 'DCHEROES.SheetLabels.Actor',
   });
   Items.unregisterSheet('core', ItemSheet);
-  Items.registerSheet('dcheroes', BoilerplateItemSheet, {
+  Items.registerSheet('dcheroes', DCHeroesItemSheet, {
     makeDefault: true,
-    label: 'BOILERPLATE.SheetLabels.Item',
+    label: 'DCHEROES.SheetLabels.Item',
   });
 
   // Preload Handlebars templates.
