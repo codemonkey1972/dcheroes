@@ -8,10 +8,10 @@
       "discord": "murderhobo6226"
     }
   ],
-  "url": "Rhttps://github.com/codemonkey1972/foundry-dc-heroes",
+  "url": "Rhttps://github.com/codemonkey1972/dcheroes",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "https://github.com/codemonkey1972/foundry-dc-heroes/issues",
+  "bugs": "https://github.com/codemonkey1972/dcheroes/issues",
   "changelog": "CHANGELOG.md",
   "media": [
     {
@@ -37,7 +37,7 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "TODO: Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
+  "manifest": "https://github.com/codemonkey1972/dcheroes/blob/main/system.json",
   "download": "TODO: This must link to a .zip file of the current version",
   "background": "systems/dcheroes/assets/anvil-impact.png",
   "gridDistance": 5,
