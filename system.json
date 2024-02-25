@@ -1,7 +1,7 @@
 {
   "id": "dcheroes",
   "title": "DC Heroes",
-  "description": "The DC Heroes system for FoundryVTT!",
+  "description": "A totally unofficial, fan-made implementation of the DC Heroes RPG system for FoundryVTT!",
   "authors": [
     {
       "name": "Jeff Barnes",
