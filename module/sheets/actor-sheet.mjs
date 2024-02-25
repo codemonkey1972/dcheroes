@@ -12,7 +12,7 @@ export class DCHeroesActorSheet extends ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['dcheroes', 'sheet', 'actor'],
-      template: "systems/dcheroes/templates/actor/actor-character-sheet.hbs",
+      template: "systems/dcheroes/templates/actor/actor-sheet.html",
       width: 600,
       height: 600,
       tabs: [
