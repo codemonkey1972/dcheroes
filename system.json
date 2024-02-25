@@ -38,7 +38,7 @@
   "packFolders": [],
   "socket": false,
   "manifest": "https://raw.githubusercontent.com/codemonkey1972/dcheroes/main/system.json",
-  "download": "This must link to a .zip file of the current version",
+  "download": "https://github.com/codemonkey1972/dcheroes/zipball/master/",
   "background": "systems/dcheroes/assets/anvil-impact.png",
   "gridDistance": 5,
   "gridUnits": "ft",
