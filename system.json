@@ -4,14 +4,14 @@
   "description": "The DC Heroes system for FoundryVTT!",
   "authors": [
     {
-      "name": "Asacolips",
-      "discord": "asacolips"
+      "name": "Jeff Barnes",
+      "discord": "murderhobo6226"
     }
   ],
-  "url": "Replace this with a link to your public repository",
+  "url": "Rhttps://github.com/codemonkey1972/dcheroes",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "Replace this with a link to file issues or tickets",
+  "bugs": "https://github.com/codemonkey1972/dcheroes/issues",
   "changelog": "CHANGELOG.md",
   "media": [
     {
@@ -42,6 +42,6 @@
   "background": "systems/dcheroes/assets/anvil-impact.png",
   "gridDistance": 5,
   "gridUnits": "ft",
-  "primaryTokenAttribute": "health",
+  "primaryTokenAttribute": "current_body",
   "secondaryTokenAttribute": "power"
 }
