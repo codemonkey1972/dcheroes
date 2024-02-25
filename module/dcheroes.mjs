@@ -6,7 +6,7 @@ import { DCHeroesActorSheet } from './sheets/actor-sheet.mjs';
 import { DCHeroesItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
-import { DCHEROES } from './helpers/config.mjs';
+import { BOILERPLATE } from './helpers/config.mjs';
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -22,14 +22,14 @@ Hooks.once('init', function () {
   };
 
   // Add custom constants for configuration.
-  CONFIG.DCHEROES = DCHEROES;
+  CONFIG.BOILERPLATE = BOILERPLATE;
 
   /**
    * Set an initiative formula for the system
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: '1d10 + @attributes.dex.value + @attributes.int.value + @attributes.infl.value',
+    formula: '1d20 + @abilities.dex.mod',
     decimals: 2,
   };
 
@@ -46,12 +46,12 @@ Hooks.once('init', function () {
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('dcheroes', DCHeroesActorSheet, {
     makeDefault: true,
-    label: 'DCHEROES.SheetLabels.Actor',
+    label: 'BOILERPLATE.SheetLabels.Actor',
   });
   Items.unregisterSheet('core', ItemSheet);
   Items.registerSheet('dcheroes', DCHeroesItemSheet, {
     makeDefault: true,
-    label: 'DCHEROES.SheetLabels.Item',
+    label: 'BOILERPLATE.SheetLabels.Item',
   });
 
   // Preload Handlebars templates.

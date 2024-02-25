@@ -1,17 +1,17 @@
 {
   "id": "dcheroes",
-  "title": "DCHeroes",
+  "title": "DC Heroes",
   "description": "The DC Heroes system for FoundryVTT!",
   "authors": [
     {
-      "name": "Jeff Barnes",
-      "discord": "murderhobo6226"
+      "name": "Asacolips",
+      "discord": "asacolips"
     }
   ],
-  "url": "Rhttps://github.com/codemonkey1972/dcheroes",
+  "url": "Replace this with a link to your public repository",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "https://github.com/codemonkey1972/dcheroes/issues",
+  "bugs": "Replace this with a link to file issues or tickets",
   "changelog": "CHANGELOG.md",
   "media": [
     {
@@ -20,7 +20,7 @@
       "thumbnail": "systems/dcheroes/assets/anvil-impact.png"
     }
   ],
-  "version": "1.0.0",
+  "version": "1.3.0",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
@@ -37,8 +37,8 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "https://github.com/codemonkey1972/dcheroes/blob/main/system.json",
-  "download": "TODO: This must link to a .zip file of the current version",
+  "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
+  "download": "This must link to a .zip file of the current version",
   "background": "systems/dcheroes/assets/anvil-impact.png",
   "gridDistance": 5,
   "gridUnits": "ft",
