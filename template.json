@@ -3,45 +3,98 @@
     "types": ["character", "npc"],
     "templates": {
       "base": {
-        "health": {
+        "current_body": {
           "value": 10,
           "min": 0,
           "max": 10
         },
-        "power": {
+        "current_mind": {
           "value": 5,
           "min": 0,
           "max": 5
         },
-        "biography": ""
+        "current_spirit": {
+          "value": 5,
+          "min": 0,
+          "max": 5
+        },
+        "hero_point_base": 0,
+        "hero": false,
+        "villain": false,
+        "background": {
+          "character_name": "",
+          "alter_ego": "",
+          "occupation": "",
+          "marital_status": "",
+          "known_relatives": {
+          },
+          "group_affiliation": "",
+          "base_of_operations": "",
+          "height": {
+            "feet": 0,
+            "inches": 0
+          },
+          "weight": 0,
+          "eyes": "",
+          "hair": ""
+        },
+        "history": "",
+        "description": "",
+        "motivation": "",
+        "wealth": {
+          "aps": 0,
+          "approx_annual_income": 0
+        }
       }
     },
     "character": {
       "templates": ["base"],
       "attributes": {
-        "level": {
-          "value": 1
-        }
-      },
-      "abilities": {
-        "str": {
-          "value": 10
-        },
         "dex": {
-          "value": 10
+          "value": 0,
+          "factor_cost": 7,
+          "action_attribute": true
         },
-        "con": {
-          "value": 10
+        "str": {
+          "value": 0,
+          "factor_cost": 6,
+          "action_attribute": false
+        },
+        "body": {
+          "value": 0,
+          "factor_cost": 6,
+          "action_attribute": false
         },
         "int": {
-          "value": 10
+          "value": 0,
+          "factor_cost": 7,
+          "action_attribute": true
         },
-        "wis": {
-          "value": 10
+        "will": {
+          "value": 0,
+          "factor_cost": 6,
+          "action_attribute": false
+         },
+        "mind": {
+          "value": 0,
+          "factor_cost": 6,
+          "action_attribute": false
+         },
+        "infl": {
+          "value": 0,
+          "factor_cost": 7,
+          "action_attribute": true
         },
-        "cha": {
-          "value": 10
-        }
+        "aura": {
+          "value": 0,
+          "factor_cost": 6,
+          "action_attribute": false
+         },
+        "spirit": {
+          "value": 0,
+          "factor_cost": 6,
+          "action_attribute": false
+         }
       }
     },
     "npc": {
@@ -50,24 +103,33 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["power", "skill", "advantage", "wealth"],
     "templates": {
       "base": {
         "description": ""
+      },
+      "base_power_or_skill": {
+        "link": "",
+        "range": "",
+        "type": "",
+        "base_cost": 0,
+        "factor_cost": 0,
+        "aps": 0
       }
     },
-    "item": {
-      "templates": ["base"],
-      "quantity": 1,
-      "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+    "power": {
+      "templates": ["base", "base_power_or_skill"]
     },
-    "feature": {
-      "templates": ["base"]
+    "skill": {
+      "templates": ["base", "base_power_or_skill"]
     },
-    "spell": {
+    "advantage": {
       "templates": ["base"],
-      "spellLevel": 1
+      "cost": 0
+    },
+    "drawback": {
+      "templates": ["base"],
+      "cost": 0
     }
   }
 }

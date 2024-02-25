@@ -43,7 +43,7 @@ The `name` property in your `system.json` file is your system's package name. Th
 
 Alternatively, there's another build of this system that supports using Vue 3 components (ES module build target) for character sheet templates.
 
-Head over to the [Vue3DCHeroes System](https://gitlab.com/asacolips-projects/foundry-mods/vue3dcheroes) repo if you're interested in using Vue!
+Head over to the [Vue3DCHeroes System](https://gitlab.com/asacolips-projects/foundry-mods/vue3boilerplate) repo if you're interested in using Vue!
 
 ### Getting Help
 

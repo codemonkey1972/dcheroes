@@ -87,7 +87,7 @@ class SystemGenerator {
   /**
    * Replace file contents.
    *
-   * Replace refercnes to 'dcheroes', 'DCHeroes', and 'BOILERPLATE'
+   * Replace references to 'dcheroes', 'DCHeroes', and 'DCHEROES'
    * in files copied over to the build directory.
    */
   replaceFileContents() {
@@ -110,7 +110,7 @@ class SystemGenerator {
         replacement: this.className
       },
       {
-        pattern: 'BOILERPLATE',
+        pattern: 'DCHEROES',
         replacement: this.constantName
       }
     ];
