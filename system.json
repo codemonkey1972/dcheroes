@@ -1,26 +1,26 @@
 {
   "id": "dcheroes",
-  "title": "DC Heroes",
-  "description": "A totally unofficial, fan-made implementation of the DC Heroes RPG system for FoundryVTT!",
+  "title": "DCHeroes",
+  "description": "The DCHeroes system for FoundryVTT!",
   "authors": [
     {
-      "name": "Jeff Barnes",
-      "discord": "murderhobo6226"
+      "name": "Asacolips",
+      "discord": "asacolips"
     }
   ],
-  "url": "https://github.com/codemonkey1972/dcheroes",
+  "url": "Replace this with a link to your public repository",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "https://github.com/codemonkey1972/dcheroes/issues",
+  "bugs": "Replace this with a link to file issues or tickets",
   "changelog": "CHANGELOG.md",
   "media": [
     {
       "type": "setup",
-      "url": "https://raw.githubusercontent.com/codemonkey1972/dcheroes/main/system.json",
-      "thumbnail": "systems/dcheroes/assets/dchlogo.png"
+      "url": "systems/dcheroes/assets/anvil-impact.png",
+      "thumbnail": "systems/dcheroes/assets/anvil-impact.png"
     }
   ],
-  "version": "0.0.1",
+  "version": "1.3.0",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
@@ -37,11 +37,11 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "https://raw.githubusercontent.com/codemonkey1972/dcheroes/main/system.json",
-  "download": "https://github.com/codemonkey1972/dcheroes/zipball/master/",
-  "background": "systems/dcheroes/assets/dcheroescover.jpg",
+  "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
+  "download": "This must link to a .zip file of the current version",
+  "background": "systems/dcheroes/assets/anvil-impact.png",
   "gridDistance": 5,
   "gridUnits": "ft",
-  "primaryTokenAttribute": "current_body",
+  "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power"
 }
