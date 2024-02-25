@@ -29,7 +29,7 @@ Hooks.once('init', function () {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: '1d10 + @attributes.dex.value + @attributes.int.value + @attributes.infl.value',
+    formula: '1d10 + @attributes.dex.value + @attributes.int.value + @attributes.infl.value', // TODO more - calculated initiative bonus
     decimals: 2,
   };
 

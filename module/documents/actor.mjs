@@ -5,11 +5,15 @@
 export class DCHeroesActor extends Actor {
   /** @override */
   prepareData() {
-    // Prepare data for the actor. Calling the super version of this executes
-    // the following, in order: data reset (to clear active effects),
-    // prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
-    // prepareDerivedData().
     super.prepareData();
+
+    const actorData = this.data;
+    const data = actorData.data;
+    const flags = actorData.flags;
+
+    // Make separate methods for each Actor type (character, npc, etc.) to keep
+    // things organized.
+    if (actorData.type === 'character') this._prepareCharacterData(actorData);
   }
 
   /** @override */
@@ -42,17 +46,16 @@ export class DCHeroesActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    if (actorData.type !== 'character') return;
+    const data = actorData.data;
 
     // Make modifications to data here. For example:
-    const systemData = actorData.system;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(systemData.abilities)) {
+    for (let [key, ability] of Object.entries(data.abilities)) {
       // Calculate the modifier using d20 rules.
       ability.mod = Math.floor((ability.value - 10) / 2);
     }
-  }
+    }
 
   /**
    * Prepare NPC type specific data.
