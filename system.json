@@ -17,7 +17,7 @@
     {
       "type": "setup",
       "url": "https://raw.githubusercontent.com/codemonkey1972/dcheroes/main/system.json",
-      "thumbnail": "systems/dcheroes/assets/anvil-impact.png"
+      "thumbnail": "systems/dcheroes/assets/dchlogo.jpg"
     }
   ],
   "version": "0.0.1",
