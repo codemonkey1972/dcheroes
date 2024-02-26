@@ -6,9 +6,7 @@
       <div class="grid grid-2col">
         <div class="resource">
           <label class="resource-label">Link</label>
-          <input type="text" name="system.link" value="{{system.link}}"/>
-          <p>Actor={{@root.actor}}</p>
-           <select  class="resource-select"  name="system.link" data-type="String">
+          <select  class="resource-select"  name="system.link" data-type="String">
               {{#select system.link}}
               <option value="dex">Dexderity</option>
               <option value="str">Strength</option>
@@ -21,7 +19,6 @@
               <option value="spirit">Spirit</option>
               {{/select}}
           </select>
-
         </div>
         <div class="resource">
           <label class="resource-label">Range</label>
