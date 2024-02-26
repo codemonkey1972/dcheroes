@@ -19,8 +19,9 @@
   background-image: none;
 }
 
-.dcheroes input {
+.dcheroes input[type="text"] { 
   background-color: #ddebf6;
+  border: 1px solid #1f5079; 
 }
 
 .dcheroes label {
@@ -295,11 +296,19 @@
 }
 .dcheroes .resource-content {
   padding-top: 4px;
-  span {
-    font-size: 22px;
-    color: #1f5079;
+}
+.dcheroes .resource-content span {
+  font-size: 22px;
+  color: #1f5079;
+}
+
+.dcheroes .abilities .ability {
+  border: 2px solid #1f5079;
+  input {
+    border: none;
   }
 }
+
 .dcheroes .items-header {
   height: 28px;
   margin: 2px 0;
