@@ -255,7 +255,7 @@
 }
 .dcheroes .resource-label {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 24px;
 }
 .dcheroes .items-header {
   height: 28px;
@@ -267,7 +267,7 @@
   font-weight: bold;
 }
 .dcheroes .items-header > * {
-  font-size: 16px;
+  font-size: 26px;
   text-align: center;
 }
 .dcheroes .items-header .item-name {
@@ -293,7 +293,7 @@
   flex: 2;
   margin: 0;
   overflow: hidden;
-  font-size: 15px;
+  font-size: 24px;
   text-align: left;
   align-items: center;
   display: flex;
@@ -309,7 +309,7 @@
   justify-content: flex-end;
 }
 .dcheroes .items-list .item-controls a {
-  font-size: 14px;
+  font-size: 24px;
   text-align: center;
   margin: 0 6px;
 }
@@ -335,7 +335,7 @@
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
-  font-size: 14px;
+  font-size: 24px;
 }
 .dcheroes .items-list .items-header {
   height: 28px;
@@ -347,7 +347,7 @@
   font-weight: bold;
 }
 .dcheroes .items-list .items-header > * {
-  font-size: 14px;
+  font-size: 28px;
   text-align: center;
 }
 .dcheroes .items-list .items-header .item-name {
@@ -364,7 +364,7 @@
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
-  font-size: 14px;
+  font-size: 24px;
 }
 .dcheroes .effects .item .effect-controls {
   border: none;
