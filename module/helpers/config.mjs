@@ -1,23 +1,29 @@
-export const BOILERPLATE = {};
+export const DCHEROES = {};
 
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-BOILERPLATE.abilities = {
-  str: 'BOILERPLATE.Ability.Str.long',
-  dex: 'BOILERPLATE.Ability.Dex.long',
-  con: 'BOILERPLATE.Ability.Con.long',
-  int: 'BOILERPLATE.Ability.Int.long',
-  wis: 'BOILERPLATE.Ability.Wis.long',
-  cha: 'BOILERPLATE.Ability.Cha.long',
+DCHEROES.abilities = {
+  dex: 'DCHEROES.Ability.Dex.long',
+  str: 'DCHEROES.Ability.Str.long',
+  body: 'DCHEROES.Ability.Body.long',
+  int: 'DCHEROES.Ability.Int.long',
+  will: 'DCHEROES.Ability.Will.long',
+  mind: 'DCHEROES.Ability.Mind.long',
+  infl: 'DCHEROES.Ability.Infl.long',
+  aura: 'DCHEROES.Ability.Aura.long',
+  spirit: 'DCHEROES.Ability.Spirit.long',
 };
 
-BOILERPLATE.abilityAbbreviations = {
-  str: 'BOILERPLATE.Ability.Str.abbr',
-  dex: 'BOILERPLATE.Ability.Dex.abbr',
-  con: 'BOILERPLATE.Ability.Con.abbr',
-  int: 'BOILERPLATE.Ability.Int.abbr',
-  wis: 'BOILERPLATE.Ability.Wis.abbr',
-  cha: 'BOILERPLATE.Ability.Cha.abbr',
+DCHEROES.abilityAbbreviations = {
+  dex: 'DCHEROES.Ability.Dex.abbr',
+  str: 'DCHEROES.Ability.Str.abbr',
+  body: 'DCHEROES.Ability.Body.abbr',
+  int: 'DCHEROES.Ability.Int.abbr',
+  will: 'DCHEROES.Ability.Will.abbr',
+  mind: 'DCHEROES.Ability.Mind.abbr',
+  infl: 'DCHEROES.Ability.Infl.abbr',
+  aura: 'DCHEROES.Ability.Aura.abbr',
+  spirit: 'DCHEROES.Ability.Spirit.abbr',
 };

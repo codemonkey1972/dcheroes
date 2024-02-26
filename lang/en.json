@@ -1,5 +1,5 @@
 {
-  "BOILERPLATE": {
+  "DCHEROES": {
     "Ability": {
       "Dex": { "long": "Dexterity", "abbr": "dex" },
       "Str": { "long": "Strength", "abbr": "str" },
