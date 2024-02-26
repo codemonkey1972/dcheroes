@@ -255,6 +255,7 @@
 }
 .dcheroes .resource-label {
   font-weight: bold;
+  font-size: 16px;
 }
 .dcheroes .items-header {
   height: 28px;
