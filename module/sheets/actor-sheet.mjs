@@ -154,7 +154,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Render the item sheet for viewing/editing prior to the editable check.
     html.on('click', '.power-edit', (ev) => {
       const li = $(ev.currentTarget).parents('.power');
-      const item = this.actor.powers.get(li.data('powerId'));
+      const item = this.actor.items.get(li.data('powerId'));
       item.sheet.render(true);
     });
 
@@ -178,10 +178,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Delete Power
     html.on('click', '.power-delete', (ev) => {
-      console.log("***TEST***");
       const li = $(ev.currentTarget).parents('.power');
-      console.log(li.data('powerId'));
-      console.log(this.actor);
       const power = this.actor.items.get(li.data('powerId'));
       power.delete();
       li.slideUp(200, () => this.render(false));
@@ -221,7 +218,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     const header = event.currentTarget;
     // Get the type of item to create.
     const type = header.dataset.type;
-    console.log("TEST1: "+type);
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
     // Initialize a default name.
