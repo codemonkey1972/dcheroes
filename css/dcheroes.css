@@ -3,13 +3,17 @@
   font-family: DecoturaICG;
   src: url("../fonts/Decotura ICG Regular.ttf");
 }
+
 /* Global styles */
 .window-app {
   font-family: "DecoturaICG";
 }
-
 .window-app .window-content {
   background: #fff;
+}
+
+.window-header {
+  background-color: #1f5079;
 }
 
 .rollable:hover, .rollable:focus {
@@ -214,6 +218,7 @@
 /* Styles limited to dcheroes sheets */
 .dcheroes .item-form {
   font-family: "Roboto", sans-serif;
+  color: #1f5079;
 }
 .dcheroes .sheet-header {
   flex: 0 auto;
@@ -228,6 +233,7 @@
   flex: 0 0 120px;
   height: 120px;
   margin-right: 10px;
+  background-color: #ddebf6;
 }
 .dcheroes .sheet-header .header-fields {
   flex: 1;
