@@ -280,11 +280,17 @@
 }
 .dcheroes .sheet-tabs a.item {
   font-size: 24px;
+  color: #1f5079;
 }
 .dcheroes .sheet-body,
 .dcheroes .sheet-body .tab,
 .dcheroes .sheet-body .tab .editor {
   height: 100%;
+}
+.dcheroes .sheet-body .initiative-and-hp .initiative,
+.dcheroes .sheet-body .initiative-and-hp .hero-points  {
+  font-size: 24px;
+  color: #1f5079;
 }
 .dcheroes .tox .tox-editor-container {
   background: #fff;
