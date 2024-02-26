@@ -22,10 +22,12 @@
           "label": "Current Spirit"
         },
         "hero_points": {
-          "value": 10
+          "value": 10,
+          "label": "Hero Points"
         },
         "initiative": {
-          "value": 5
+          "value": 5,
+          "label": "Initiative"
         },
         "biography": ""
       }
