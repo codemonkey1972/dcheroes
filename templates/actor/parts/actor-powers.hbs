@@ -1,44 +1,44 @@
-<ol class='powers-list'>
-  <li class='power flexrow powers-header'>
-    <div class='power-name'>{{localize 'Name'}}</div>
-    <div class='power-formula'>{{localize 'Roll Formula'}}</div>
-    <div class='power-controls'>
+<ol class='items-list'>
+  <li class='item flexrow items-header'>
+    <div class='item-name'>{{localize 'Name'}}</div>
+    <div class='item-formula'>{{localize 'Roll Formula'}}</div>
+    <div class='item-controls'>
       <a
-        class='power-control power-create'
-        title='{{localize "DOCUMENT.Create" type='power'}}'
-        data-type='power'
+        class='item-control item-create'
+        title='{{localize "DOCUMENT.Create" type='Item'}}'
+        data-type='item'
       >
         <i class='fas fa-plus'></i>
-        {{localize 'DOCUMENT.New' type='power'}}
+        {{localize 'DOCUMENT.New' type='item'}}
       </a>
     </div>
   </li>
-  {{#each power as |power id|}}
-    <li class='power flexrow' data-power-id='{{power._id}}'>
-      <div class='power-name'>
-        <div class='power-image'>
-          <a class='rollable' data-roll-type='power'>
+  {{#each gear as |item id|}}
+    <li class='item flexrow' data-item-id='{{item._id}}'>
+      <div class='item-name'>
+        <div class='item-image'>
+          <a class='rollable' data-roll-type='item'>
             <img
-              src='{{power.img}}'
-              title='{{power.name}}'
+              src='{{item.img}}'
+              title='{{item.name}}'
               width='24'
               height='24'
             />
           </a>
         </div>
-        <h4>{{power.name}}</h4>
+        <h4>{{item.name}}</h4>
       </div>
-      <div class='power-formula power-prop'>{{power.system.formula}}</div>
-      <div class='power-controls'>
+      <div class='item-formula item-prop'>{{item.system.formula}}</div>
+      <div class='item-controls'>
         <a
-          class='power-control power-edit'
-          title='{{localize "DOCUMENT.Update" type='power'}}'
+          class='item-control item-edit'
+          title='{{localize "DOCUMENT.Update" type='Item'}}'
         >
           <i class='fas fa-edit'></i>
         </a>
         <a
-          class='power-control power-delete'
-          title='{{localize "DOCUMENT.Delete" type='power'}}'
+          class='item-control item-delete'
+          title='{{localize "DOCUMENT.Delete" type='Item'}}'
         >
           <i class='fas fa-trash'></i>
         </a>
