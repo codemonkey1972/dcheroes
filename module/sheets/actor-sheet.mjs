@@ -166,8 +166,10 @@ export class DCHeroesActorSheet extends ActorSheet {
     html.on('click', '.item-create', this._onItemCreate.bind(this));
 
     // Add Power Item
-    html.on('click', '.power-create', this._onItemCreate.bind(this));
-    
+    html.on('click', '.power-create', (ev) => {
+      this._onItemCreate.bind(this);
+   });
+
     // Delete Inventory Item
     html.on('click', '.item-delete', (ev) => {
       const li = $(ev.currentTarget).parents('.item');
@@ -182,7 +184,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       const li = $(ev.currentTarget).parents('.power');
       console.log(li.data('powerId'));
       console.log(this.actor);
-      const power = this.actor.powers.get(li.data('powerId'));
+      const power = this.actor.items.get(li.data('powerId'));
       power.delete();
       li.slideUp(200, () => this.render(false));
     });
