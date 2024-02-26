@@ -167,7 +167,6 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Add Power Item
     html.on('click', '.power-create', (ev) => {
-      console.log(header.dataset.type);
       this._onItemCreate.bind(this);
     });
 
