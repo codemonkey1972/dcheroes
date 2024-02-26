@@ -8,6 +8,10 @@
   font-family: "DecoturaICG";
 }
 
+.window-app .window-content {
+  background: #fff;
+}
+
 .rollable:hover, .rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;
@@ -221,8 +225,8 @@
   margin-bottom: 10px;
 }
 .dcheroes .sheet-header .profile-img {
-  flex: 0 0 100px;
-  height: 100px;
+  flex: 0 0 120px;
+  height: 120px;
   margin-right: 10px;
 }
 .dcheroes .sheet-header .header-fields {
