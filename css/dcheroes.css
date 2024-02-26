@@ -8,17 +8,22 @@
 .dcheroes {
   font-family: "DecoturaICG";
 }
-.dcheroes .window-content {
-  background: #fff;
-}
 
 .dcheroes .window-header {
   background-color: #1f5079;
 }
 
+.dcheroes .window-content {
+  background-color: #fff;
+}
+
+.dcheroes input {
+  background-color: #ddebf6;
+}
+
 .rollable:hover, .rollable:focus {
   color: #000;
-  text-shadow: 0 0 10px red;
+  text-shadow: 0 0 10px #ddebf6;
   cursor: pointer;
 }
 
