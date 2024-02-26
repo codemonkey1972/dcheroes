@@ -15,7 +15,8 @@
 }
 
 .dcheroes .window-app .window-content {
-  background: #fff;
+  background-color: #fff;
+  background-image: none;
 }
 
 .dcheroes input {
