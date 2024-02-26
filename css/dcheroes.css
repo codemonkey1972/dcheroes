@@ -14,16 +14,19 @@
 }
 
 .dcheroes .window-app .window-content {
-  background-color: #fff;
-  color: #1f5079;
+  background: #fff;
 }
 
 .dcheroes input {
   background-color: #ddebf6;
 }
 
+.dcheroes label {
+  color: #1f5079;
+}
+
 .rollable:hover, .rollable:focus {
-  color: #000;
+  color: #1f5079;
   text-shadow: 0 0 10px #ddebf6;
   cursor: pointer;
 }
