@@ -224,6 +224,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const header = event.currentTarget;
     // Get the type of item to create.
     const type = header.dataset.type;
+    consolelog("TEST1: "+header.dataset.type);
     // Grab any data associated with this control.
     const data = duplicate(header.dataset);
     // Initialize a default name.
