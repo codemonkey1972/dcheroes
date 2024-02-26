@@ -50,6 +50,7 @@ export class DCHeroesActor extends Actor {
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(systemData.abilities)) {
       // Calculate the modifier using d20 rules.
+      // TODO fix this
       ability.mod = Math.floor((ability.value - 10) / 2);
     }
   }
