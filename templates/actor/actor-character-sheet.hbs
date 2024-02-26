@@ -66,21 +66,20 @@
         <div class="ability flex-group-center">3</div>
       </section>
 
-      <section class="grid grid-3col">
-
-          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-          use both the "grid" and "grid-Ncol" class where "N" can be any number
-          from 1 to 12 and will create that number of columns.  --}}
-          <div class="abilities flexrow">
           {{#each system.abilities as |ability key|}}
-             <div class="ability flex-group-center">
-              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{@index}}: {{ability.label}}</label>
-              <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
-              <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
-            </div>
-          {{/each}}
+      {{#if (isDivisor 3 @index)}}
+       <section class="abilities grid grid-3col">
+      {{/if}}
+          <div class="ability flex-group-center">
+            <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{@index}}: {{ability.label}}</label>
+            <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+            <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
           </div>
- 
+      {{#if (isDivisor3 (sum @index 1))}}
+        </section>
+     {{/if}}
+          {{/each}}
+
 <!--
         {{!-- For the main features list, span the right two columns --}}
         <section class="main grid-span-2">
@@ -88,7 +87,6 @@
           {{> "systems/dcheroes/templates/actor/parts/actor-features.hbs"}}
         </section>
 -->
-      </section>
     </div>
 
     {{!-- Biography Tab --}}
