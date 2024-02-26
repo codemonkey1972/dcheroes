@@ -27,14 +27,21 @@
   color: #1f5079;
 }
 
+.dcheroes .tabs .item {
+  color: 1f5079;
+}
+
+.dcheroes .tabs .item:hover {
+  text-shadow: 0 0 10px #ddebf6;
+}
+
 .dcheroes .tabs .item.active {
   text-shadow: 0 0 10px #ddebf6;
 }
 
-
 .rollable:hover, .rollable:focus {
   color: #1f5079;
-  text-shadow: 0 0 10px #ddebf6;
+  text-shadow: 0 0 10px #3092de;
   cursor: pointer;
 }
 
@@ -233,7 +240,6 @@
 
 /* Styles limited to dcheroes sheets */
 .dcheroes .item-form {
-  font-family: "Roboto", sans-serif;
   color: #1f5079;
 }
 .dcheroes .sheet-header {
@@ -286,6 +292,13 @@
 .dcheroes .resource-label {
   font-weight: bold;
   font-size: 24px;
+}
+.dcheroes .resource-content {
+  padding-top: 4px;
+  span {
+    font-size: 22px;
+    color: #1f5079;
+  }
 }
 .dcheroes .items-header {
   height: 28px;
