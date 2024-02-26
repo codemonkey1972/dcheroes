@@ -25,5 +25,5 @@ DCHEROES.abilityAbbreviations = {
   mind: 'DCHEROES.Ability.Mind.abbr',
   infl: 'DCHEROES.Ability.Infl.abbr',
   aura: 'DCHEROES.Ability.Aura.abbr',
-  spirit: 'DCHEROES.Ability.Spirit.abbr',
+  spirit: 'DCHEROES.Ability.Spirit.abSbr',
 };

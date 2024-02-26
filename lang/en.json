@@ -9,7 +9,7 @@
       "Mind": { "long": "Mind", "abbr": "mind" },
       "Infl": { "long": "Influence", "abbr": "infl" },
       "Aura": { "long": "Aura", "abbr": "aura" },
-      "Sprit": { "long": "Sprit", "abbr": "spirit" }
+      "Spirit": { "long": "Spirit", "abbr": "spirit" }
     },
     "SheetLabels": {
       "Actor": "DC Heroes Actor Sheet",
