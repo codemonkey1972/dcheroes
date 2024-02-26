@@ -45,9 +45,10 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
     <a class="item" data-tab="features">Abilities</a>
-    <a class="item" data-tab="items">Powers</a>
+    <a class="item" data-tab="powers">Powers</a>
     <a class="item" data-tab="spells">Skills</a>
     <a class="item" data-tab="effects">Advantages</a>
+    <a class="item" data-tab="items">Items</a>
     <a class="item" data-tab="description">Description</a>
   </nav>
 
@@ -56,6 +57,17 @@
 
     {{!-- Owned Features Tab --}}
     <div class="tab features" data-group="primary" data-tab="features">
+
+      <section class="grid grid-3col">
+        <div class="initiative flex-group-center">
+         <label for="system.hero_points.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@hero_points.mod" data-label="{{system.hero_points.label}}">{{system.hero_points.label}}</label>
+         <input type="text" name="system.hero_points.value" value="{{system.hero_points.value}}" data-dtype="Number"/>
+       </div>
+        <div class="hero-points flex-group-center">
+          
+        </div>
+      </section>
+
 
     {{#each system.abilities as |ability key|}}
       {{#if (isDivisor 3 @index)}}

@@ -21,6 +21,12 @@
           "max": 60,
           "label": "Current Spirit"
         },
+        "hero_points": {
+          "value": 10
+        },
+        "initiative": {
+          "value": 5
+        },
         "biography": ""
       }
     },
