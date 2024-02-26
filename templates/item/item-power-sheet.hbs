@@ -6,7 +6,6 @@
       <div class="grid grid-3col">
         <div class="resource">
           <label class="resource-label power-resource-label">Link</label>
-          Test123
           <select  class="resource-select"  name="system.link" data-type="String">
               {{#select system.link}}
               <option value="dex">Dexderity</option>
@@ -28,6 +27,13 @@
         <div class="resource">
           <label class="resource-label">Type</label>
           <input type="text" name="system.type" value="{{system.type}}"/>
+          <select  class="resource-select"  name="system.type" data-type="String">
+              {{#select system.type}}
+              <option value="auto">Auto</option>
+              <option value="dice">Dice</option>
+              <option value="both">A/D</option>
+              {{/select}}
+          </select>
         </div>
         <div class="resource">
           <label class="resource-label">Base Cost</label>
