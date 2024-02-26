@@ -107,9 +107,9 @@
     },
     "power": {
       "templates": ["base"],
-      "link": "str",
-      "range": "3",
-      "type": "Normal",
+      "link": "",
+      "range": "",
+      "type": "",
       "base_cost": 0,
       "factor_cost": 0,
       "example": "",
