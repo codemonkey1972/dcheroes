@@ -60,25 +60,20 @@
     {{!-- Owned Features Tab --}}
     <div class="tab features" data-group="primary" data-tab="features">
 
-      <section class="abilities grid grid-3col">
-        <div class="ability flex-group-center">1</div>
-        <div class="ability flex-group-center">2</div>
-        <div class="ability flex-group-center">3</div>
-      </section>
-
-          {{#each system.abilities as |ability key|}}
+    {{#each system.abilities as |ability key|}}
       {{#if (isDivisor 3 @index)}}
        <section class="abilities grid grid-3col">
       {{/if}}
           <div class="ability flex-group-center">
-            <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{@index}}: {{ability.label}}</label>
+            <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{ability.label}}</label>
             <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
-            <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+<!--            <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+-->
           </div>
       {{#if (isDivisor 3 (sum @index 1))}}
         </section>
      {{/if}}
-          {{/each}}
+   {{/each}}
 
 <!--
         {{!-- For the main features list, span the right two columns --}}

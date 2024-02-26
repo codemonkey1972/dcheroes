@@ -5,14 +5,14 @@
 }
 
 /* Global styles */
-.window-app {
+.dcheroes {
   font-family: "DecoturaICG";
 }
-.window-app .window-content {
+.dcheroes .window-content {
   background: #fff;
 }
 
-.window-header {
+.dcheroes .window-header {
   background-color: #1f5079;
 }
 
