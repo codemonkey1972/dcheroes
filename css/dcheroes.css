@@ -235,6 +235,7 @@
   border-bottom: 0;
 }
 .dcheroes .sheet-header h1.charname input {
+  font-size: 32px;
   width: 100%;
   height: 100%;
   margin: 0;
