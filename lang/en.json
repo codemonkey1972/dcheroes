@@ -1,16 +1,19 @@
 {
   "BOILERPLATE": {
     "Ability": {
-      "Str": { "long": "Strength", "abbr": "str" },
-      "Con": { "long": "Constitution", "abbr": "con" },
       "Dex": { "long": "Dexterity", "abbr": "dex" },
+      "Str": { "long": "Strength", "abbr": "str" },
+      "Body": { "long": "Body", "abbr": "body" },
       "Int": { "long": "Intelligence", "abbr": "int" },
-      "Wis": { "long": "Wisdom", "abbr": "wis" },
-      "Cha": { "long": "Charisma", "abbr": "cha" }
+      "Will": { "long": "Will", "abbr": "will" },
+      "Mind": { "long": "Mind", "abbr": "mind" },
+      "Infl": { "long": "Influence", "abbr": "infl" },
+      "Aura": { "long": "Aura", "abbr": "aura" },
+      "Sprit": { "long": "Sprit", "abbr": "spirit" }
     },
     "SheetLabels": {
-      "Actor": "DCHeroes Actor Sheet",
-      "Item": "DCHeroes Item Sheet"
+      "Actor": "DC Heroes Actor Sheet",
+      "Item": "DC Heroes Item Sheet"
     },
     "Item": {
       "Spell": {
