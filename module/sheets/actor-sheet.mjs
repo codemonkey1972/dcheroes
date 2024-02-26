@@ -180,6 +180,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     html.on('click', '.power-delete', (ev) => {
       console.log("***TEST***");
       const li = $(ev.currentTarget).parents('.power');
+      console.log(li);
       const power = this.actor.powers.get(li.data('powerId'));
       power.delete();
       li.slideUp(200, () => this.render(false));
