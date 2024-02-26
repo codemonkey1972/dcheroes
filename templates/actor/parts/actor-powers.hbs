@@ -1,0 +1,48 @@
+<ol class='powers-list'>
+  <li class='power flexrow powers-header'>
+    <div class='power-name'>{{localize 'Name'}}</div>
+    <div class='power-formula'>{{localize 'Roll Formula'}}</div>
+    <div class='power-controls'>
+      <a
+        class='power-control power-create'
+        title='{{localize "DOCUMENT.Create" type='power'}}'
+        data-type='power'
+      >
+        <i class='fas fa-plus'></i>
+        {{localize 'DOCUMENT.New' type='power'}}
+      </a>
+    </div>
+  </li>
+  {{#each power as |power id|}}
+    <li class='power flexrow' data-power-id='{{power._id}}'>
+      <div class='power-name'>
+        <div class='power-image'>
+          <a class='rollable' data-roll-type='power'>
+            <img
+              src='{{power.img}}'
+              title='{{power.name}}'
+              width='24'
+              height='24'
+            />
+          </a>
+        </div>
+        <h4>{{power.name}}</h4>
+      </div>
+      <div class='power-formula power-prop'>{{power.system.formula}}</div>
+      <div class='power-controls'>
+        <a
+          class='power-control power-edit'
+          title='{{localize "DOCUMENT.Update" type='power'}}'
+        >
+          <i class='fas fa-edit'></i>
+        </a>
+        <a
+          class='power-control power-delete'
+          title='{{localize "DOCUMENT.Delete" type='power'}}'
+        >
+          <i class='fas fa-trash'></i>
+        </a>
+      </div>
+    </li>
+  {{/each}}
+</ol>

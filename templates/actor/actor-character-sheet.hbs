@@ -58,13 +58,14 @@
     {{!-- Owned Features Tab --}}
     <div class="tab features" data-group="primary" data-tab="features">
 
-      <section class="grid grid-2col">
+      <section class="initiative_and_hp grid grid-2col">
         <div class="initiative flex-group-center">
-         <label for="system.hero_points.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@hero_points.mod" data-label="{{system.hero_points.label}}">{{system.hero_points.label}}</label>
-         <input type="text" name="system.hero_points.value" value="{{system.hero_points.value}}" data-dtype="Number"/>
+         <label for="system.initiative.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@initiative.mod" data-label="{{system.initiative.label}}">{{system.initiative.label}}</label>
+         <input type="text" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number"/>
        </div>
         <div class="hero-points flex-group-center">
-          
+         <label for="system.hero_points.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@hero_points.mod" data-label="{{system.hero_points.label}}">{{system.hero_points.label}}</label>
+         <input type="text" name="system.hero_points.value" value="{{system.hero_points.value}}" data-dtype="Number"/>
         </div>
       </section>
 
