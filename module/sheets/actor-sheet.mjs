@@ -95,6 +95,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
+    const powers = [];
     const spells = {
       0: [],
       1: [],
@@ -114,6 +115,9 @@ export class DCHeroesActorSheet extends ActorSheet {
       // Append to gear.
       if (i.type === 'item') {
         gear.push(i);
+      } 
+      else if (i.type === 'power') {
+        powers.push(i);
       }
       // Append to features.
       else if (i.type === 'feature') {
@@ -129,6 +133,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Assign and return
     context.gear = gear;
+    context.powers = powers;
     context.features = features;
     context.spells = spells;
   }
@@ -146,6 +151,13 @@ export class DCHeroesActorSheet extends ActorSheet {
       item.sheet.render(true);
     });
 
+    // Render the item sheet for viewing/editing prior to the editable check.
+    html.on('click', '.power-edit', (ev) => {
+      const li = $(ev.currentTarget).parents('.power');
+      const item = this.actor.items.get(li.data('powerId'));
+      item.sheet.render(true);
+    });
+
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
@@ -153,11 +165,22 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Add Inventory Item
     html.on('click', '.item-create', this._onItemCreate.bind(this));
 
+    // Add Power Item
+    html.on('click', '.power-create', this._onItemCreate.bind(this));
+
     // Delete Inventory Item
     html.on('click', '.item-delete', (ev) => {
       const li = $(ev.currentTarget).parents('.item');
       const item = this.actor.items.get(li.data('itemId'));
       item.delete();
+      li.slideUp(200, () => this.render(false));
+    });
+
+    // Delete Power
+    html.on('click', '.power-delete', (ev) => {
+      const li = $(ev.currentTarget).parents('.power');
+      const power = this.actor.powers.get(li.data('powerId'));
+      power.delete();
       li.slideUp(200, () => this.render(false));
     });
 
