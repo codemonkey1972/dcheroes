@@ -27,6 +27,11 @@
   color: #1f5079;
 }
 
+.dcheroes .tabs .item.active {
+  text-shadow: 0 0 10px #ddebf6;
+}
+
+
 .rollable:hover, .rollable:focus {
   color: #1f5079;
   text-shadow: 0 0 10px #ddebf6;
