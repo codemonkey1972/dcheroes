@@ -6,11 +6,19 @@
       <div class="grid grid-2col">
         <div class="resource">
           <label class="resource-label">Link</label>
-          <input type="text" name="item.link" value="{{item.link}}" data-dtype="Number"/>
+          <input type="text" name="item.link" value="{{item.link}}"/>
+          <select  class="resource-select"  name="item.link"  data-type="String">
+              {{#select item.link}}
+                  {{#each actor.data.abilities as |race key|}}
+                  <option  value="{{key}}">{{key}}</option>
+                  {{/each}}
+              {{/select}}
+          </select>
+
         </div>
         <div class="resource">
           <label class="resource-label">Range</label>
-          <input type="text" name="item.range" value="{{item.range}}" data-dtype="Number"/>
+          <input type="text" name="item.range" value="{{item.range}}"/>
         </div>
       </div>
     </div>
