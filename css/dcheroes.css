@@ -32,11 +32,11 @@
 }
 
 .dcheroes .tabs .item:hover {
-  text-shadow: 0 0 10px #ddebf6;
+  text-shadow: 0 0 10px #2c8dda;
 }
 
 .dcheroes .tabs .item.active {
-  text-shadow: 0 0 10px #ddebf6;
+  text-shadow: 0 0 10px #2c8dda;
 }
 
 .rollable:hover, .rollable:focus {
