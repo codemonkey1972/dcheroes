@@ -287,10 +287,12 @@
 .dcheroes .sheet-body .tab .editor {
   height: 100%;
 }
-.dcheroes .sheet-body .initiative-and-hp .initiative,
-.dcheroes .sheet-body .initiative-and-hp .hero-points  {
+.dcheroes .sheet-body .initiative-and-hp label  {
   font-size: 24px;
   color: #1f5079;
+}
+.dcheroes .sheet-body .initiative-and-hp input  {
+  font-size: 22px;
 }
 .dcheroes .tox .tox-editor-container {
   background: #fff;
