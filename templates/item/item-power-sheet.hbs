@@ -9,7 +9,7 @@
           <input type="text" name="item.link" value="{{item.link}}"/>
           <select  class="resource-select"  name="item.link"  data-type="String">
               {{#select item.link}}
-                  {{#each actor.abilities as |ability key|}}
+                  {{#each system.abilities as |ability key|}}
                   <option  value="{{key}}">{{key}}</option>
                   {{/each}}
               {{/select}}
