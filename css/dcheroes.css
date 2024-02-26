@@ -292,6 +292,10 @@
   font-weight: bold;
   font-size: 24px;
 }
+.dcheroes .resources .resource-select {
+  width: 100%;
+}
+
 .dcheroes .resource-content {
   padding-top: 4px;
 }
