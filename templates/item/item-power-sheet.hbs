@@ -6,20 +6,23 @@
       <div class="grid grid-2col">
         <div class="resource">
           <label class="resource-label">Link</label>
-          <input type="text" name="item.link" value="{{item.link}}"/>
-          <p>actor = {{actor}}</p>
-          <select  class="resource-select"  name="item.link" data-type="String">
-              {{#select item.link}}
-                  {{#each system.abilities as |ability key|}}
-                  <option  value="{{key}}">{{key}}</option>
-                  {{/each}}
-              {{/select}}
+          <input type="text" name="item.link" value="{{system.link}}"/>
+           <select  class="resource-select"  name="item.link" data-type="String">
+              <option value="dex">Dexderity</option>
+              <option value="str">Strength</option>
+              <option value="body">Body</option>
+              <option value="int">Intelligence</option>
+              <option value="will">Will</option>
+              <option value="mind">Mind</option>
+              <option value="infl">Influence</option>
+              <option value="aura">Aura</option>
+              <option value="spirit">Spirit</option>
           </select>
 
         </div>
         <div class="resource">
           <label class="resource-label">Range</label>
-          <input type="text" name="item.range" value="{{item.range}}"/>
+          <input type="text" name="item.range" value="{{system.range}}"/>
         </div>
       </div>
     </div>
