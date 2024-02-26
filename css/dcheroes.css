@@ -7,6 +7,7 @@
 /* Global styles */
 .dcheroes {
   font-family: "DecoturaICG";
+  background-image: none;
 }
 
 .dcheroes .window-header {
@@ -15,7 +16,6 @@
 
 .dcheroes .window-app .window-content {
   background: #fff;
-  background-image: none;
 }
 
 .dcheroes input {
