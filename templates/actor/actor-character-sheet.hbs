@@ -64,8 +64,15 @@
           {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
           use both the "grid" and "grid-Ncol" class where "N" can be any number
           from 1 to 12 and will create that number of columns.  --}}
+          {{#each system.abilities as |ability key|}}
+          
+          {{#if (isDivisor 3 @index)}}
+            {{if (notCond @index 0)}}
+          </div>
+            {{/if}}
           <div class="abilities flexrow">
-            {{#each system.abilities as |ability key|}}
+          {{/if}}
+
             <div class="ability flexcol flex-group-center">
               <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.mod" data-label="{{ability.label}}">{{@index}}: {{ability.label}}</label>
               <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>

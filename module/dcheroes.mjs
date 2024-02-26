@@ -28,6 +28,7 @@ Hooks.once('init', function () {
    * Set an initiative formula for the system
    * @type {String}
    */
+  // TODO fix this
   CONFIG.Combat.initiative = {
     formula: '1d20 + @abilities.dex.mod',
     decimals: 2,
@@ -66,6 +67,24 @@ Hooks.once('init', function () {
 Handlebars.registerHelper('toLowerCase', function (str) {
   return str.toLowerCase();
 });
+
+Handlebars.registerHelper('sum', function () {
+  return Array.prototype.slice.call(arguments, 0, -1).reduce((acc, num) => acc += num);
+});
+
+Handlebars.registerHelper('isDivisor', function (num1, num2) {
+  return num1 !== 0 && num2 % num1 === 0;
+});
+
+Handlebars.registerHelper('ifCond', function(v1, v2) {
+  return (v1 === v2);
+});
+
+
+Handlebars.registerHelper('notCond', function(v1, v2) {
+  return (v1 !== v2);
+});
+
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
