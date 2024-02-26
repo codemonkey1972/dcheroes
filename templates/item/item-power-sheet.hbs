@@ -8,15 +8,9 @@
           <label class="resource-label power-resource-label">Link</label>
           <select  class="resource-select"  name="system.link" data-type="String">
               {{#select system.link}}
-              <option value="dex">Dexderity</option>
-              <option value="str">Strength</option>
-              <option value="body">Body</option>
-              <option value="int">Intelligence</option>
-              <option value="will">Will</option>
-              <option value="mind">Mind</option>
-              <option value="infl">Influence</option>
-              <option value="aura">Aura</option>
-              <option value="spirit">Spirit</option>
+                  {{#each abilities as |ability key|}}
+                  <option  value="{{key}}">{{ability.label}}</option>
+                  {{/each}}
               {{/select}}
           </select>
         </div>

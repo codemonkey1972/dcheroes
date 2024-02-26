@@ -43,47 +43,56 @@
         "dex": {
           "value": 0,
           "factor_cost": 7,
-          "action_attribute": true
+          "action_attribute": true,
+          "label": "Dexterity"
         },
         "str": {
           "value": 0,
           "factor_cost": 6,
-          "action_attribute": false
+          "action_attribute": false,
+          "label": "Strength"
         },
         "body": {
           "value": 0,
           "factor_cost": 6,
-          "action_attribute": false
+          "action_attribute": false,
+          "label": "Body"
         },
         "int": {
           "value": 0,
           "factor_cost": 7,
-          "action_attribute": true
+          "action_attribute": true,
+          "label": "Intelligence"
         },
         "will": {
           "value": 0,
           "factor_cost": 6,
-          "action_attribute": false
+          "action_attribute": false,
+          "label": "Will"
          },
         "mind": {
           "value": 0,
           "factor_cost": 6,
-          "action_attribute": false
+          "action_attribute": false,
+          "label": "Mind"
          },
         "infl": {
           "value": 0,
           "factor_cost": 7,
-          "action_attribute": true
+          "action_attribute": true,
+          "label": "Influence"
         },
         "aura": {
           "value": 0,
           "factor_cost": 6,
-          "action_attribute": false
+          "action_attribute": false,
+          "label": "Aura"
          },
         "spirit": {
           "value": 0,
           "factor_cost": 6,
-          "action_attribute": false
+          "action_attribute": false,
+          "label": "Spirit"
          }
       }
     },
