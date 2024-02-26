@@ -52,7 +52,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     context.system = itemData.system;
     context.flags = itemData.flags;
     console.log("TEST**********************************");
-    console.log(context.system);
+    console.log(context);
 
     // Prepare active effects for easier access
     context.effects = prepareActiveEffectCategories(this.item.effects);
