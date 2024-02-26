@@ -304,9 +304,15 @@
 
 .dcheroes .abilities .ability {
   border: 2px solid #1f5079;
-  input {
-    border: none;
-  }
+}
+
+.dcheroes .abilities .ability label {
+  border: 1px solid #1f5079;
+}
+
+.dcheroes .abilities .ability input {
+  border: none;
+  padding: 0;
 }
 
 .dcheroes .items-header {
