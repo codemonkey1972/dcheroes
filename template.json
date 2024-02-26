@@ -6,17 +6,20 @@
         "current_body": {
           "value": 2,
           "min": 0,
-          "max": 60
+          "max": 60,
+          "label": "Current Body"
         },
         "current_mind": {
           "value": 2,
           "min": 0,
-          "max": 60
+          "max": 60,
+          "label": "Current Mind"
         },
         "current_spirit": {
           "value": 2,
           "min": 0,
-          "max": 60
+          "max": 60,
+          "label": "Current Spirit"
         },
         "biography": ""
       }
