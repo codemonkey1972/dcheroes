@@ -56,6 +56,7 @@ export class DCHeroesItemSheet extends ItemSheet {
 
     console.log("TEST**********************************");
     console.log(context.document.parent.system.abilities);
+    context.abilities = context.document.parent.system.abilities;
 
     // Prepare active effects for easier access
     context.effects = prepareActiveEffectCategories(this.item.effects);
