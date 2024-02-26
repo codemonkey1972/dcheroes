@@ -243,6 +243,9 @@
 .dcheroes .sheet-tabs {
   flex: 0;
 }
+.dcheroes .sheet-tabs a.item {
+  font-size: 24px;
+}
 .dcheroes .sheet-body,
 .dcheroes .sheet-body .tab,
 .dcheroes .sheet-body .tab .editor {
