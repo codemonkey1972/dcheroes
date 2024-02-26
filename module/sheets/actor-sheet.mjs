@@ -181,7 +181,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       console.log("***TEST***");
       const li = $(ev.currentTarget).parents('.power');
       console.log(li.data('powerId'));
-      console.log(this.actor.powers);
+      console.log(this.actor);
       const power = this.actor.powers.get(li.data('powerId'));
       power.delete();
       li.slideUp(200, () => this.render(false));
