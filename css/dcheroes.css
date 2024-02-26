@@ -12,6 +12,7 @@
 
 .dcheroes .window-header {
   background-color: #1f5079;
+  font-size: 20px;
 }
 
 .dcheroes.window-app .window-content {
@@ -250,13 +251,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: 10px;  
 }
 .dcheroes .sheet-header .profile-img {
   flex: 0 0 120px;
   height: 120px;
   margin-right: 10px;
   background-color: #ddebf6;
+  border: 1px solid #1f5079;
 }
 .dcheroes .sheet-header .header-fields {
   flex: 1;
@@ -290,13 +292,17 @@
 .dcheroes .tox .tox-edit-area {
   padding: 0 8px;
 }
-.dcheroes .resource-label {
+.dcheroes .resources .resource-label {
   font-weight: bold;
   font-size: 24px;
 }
 .dcheroes .resource-content {
   padding-top: 4px;
 }
+.dcheroes .resource-content input {
+  font-size: 20px;
+}
+
 .dcheroes .resource-content span {
   font-size: 22px;
   color: #1f5079;
@@ -307,12 +313,13 @@
 }
 
 .dcheroes .abilities .ability label {
-  border: 1px solid #1f5079;
+  border-bottom: 1px solid #1f5079;
 }
 
 .dcheroes .abilities .ability input {
   border: none;
   padding: 0;
+  font-size: 22px;
 }
 
 .dcheroes .items-header {
