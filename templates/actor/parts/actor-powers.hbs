@@ -26,7 +26,12 @@
             />
           </a>
         </div>
-        <h4>{{item.name}}</h4>
+        <a
+          class='item-control item-edit'
+          title='{{localize "DOCUMENT.Update" type='Item'}}'
+        >
+          {{item.name}}
+        </a>
       </div>
       <div class='item-formula item-prop'>{{system.short_description}}</div>
       <div class='item-controls'>
