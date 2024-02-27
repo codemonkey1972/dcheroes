@@ -358,7 +358,7 @@
   padding: 0;
 }
 .dcheroes .items-list .item-name {
-  flex: 3 0 150px;
+  flex: 2 0 150px;
   margin: 0;
   overflow: hidden;
   font-size: 20px;
@@ -416,10 +416,11 @@
   text-align: center;
 }
 .dcheroes .items-list .items-header .item-name {
+  flex: 2 0 150px;
   padding-left: 5px;
   text-align: left;
 }
-.dcheroes .item-formula {
+.dcheroes .item-formula, .dcheroes .item-description {
   flex: 2 0 200px;
   padding: 0 8px;
 }
