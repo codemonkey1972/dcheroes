@@ -319,8 +319,7 @@
 .dcheroes .sheet-body .initiative-and-hp label,
 .dcheroes .abilities .ability label {
   font-size: 24px;
-  color: #fff;
-  background-color: #1f5079;
+  color: #1f5079;
 }
 
 .dcheroes .sheet-body .initiative-and-hp input,
@@ -391,12 +390,12 @@
   border-bottom: none;
 }
 .dcheroes .items-list .item .item-name .item-image {
-  flex: 0 0 30px;
-  height: 30px;
+  flex: 0 0 24px;
+  height: 24px;
   background-size: 30px;
   background-color: #ddebf6;
   border: none;
-  margin-right: 5px;
+  margin: 3px 5px 4px 0;
 }
 .dcheroes .items-list .item-prop {
   text-align: center;
