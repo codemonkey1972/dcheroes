@@ -439,3 +439,9 @@
 .dcheroes .effects .item .effect-controls {
   border: none;
 }
+
+.dcheroes .powers-header div {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+}
