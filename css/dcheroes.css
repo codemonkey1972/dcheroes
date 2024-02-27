@@ -319,7 +319,8 @@
 .dcheroes .sheet-body .initiative-and-hp label,
 .dcheroes .abilities .ability label {
   font-size: 24px;
-  color: #1f5079;
+  color: #fff;
+  background-color: #1f5079;
 }
 
 .dcheroes .sheet-body .initiative-and-hp input,
