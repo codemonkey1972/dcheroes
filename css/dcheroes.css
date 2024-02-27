@@ -329,7 +329,6 @@
 }
 
 .dcheroes .items-header {
-  height: 28px;
   margin: 2px 0;
   padding: 0;
   align-items: center;
@@ -338,7 +337,7 @@
   font-weight: bold;
 }
 .dcheroes .items-header > * {
-  font-size: 26px;
+  font-size: 20px;
   text-align: center;
 }
 .dcheroes .items-header .item-name {
@@ -363,7 +362,7 @@
   flex: 2;
   margin: 0;
   overflow: hidden;
-  font-size: 24px;
+  font-size: 20px;
   text-align: left;
   align-items: center;
   display: flex;
@@ -379,7 +378,7 @@
   justify-content: flex-end;
 }
 .dcheroes .items-list .item-controls a {
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
   margin: 0 6px;
 }
@@ -402,10 +401,10 @@
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
-  font-size: 24px;
+  font-size: 20px;
 }
 .dcheroes .items-list .items-header {
-  height: 28px;
+  height: 20px;
   margin: 2px 0;
   padding: 0;
   align-items: center;
