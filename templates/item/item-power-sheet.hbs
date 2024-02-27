@@ -51,6 +51,8 @@
 
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
+      <h1 class="charname"><input name="short_description" type="short_description" value="{{system.short_description}}" placeholder="Short description"/></h1>
+
       {{!-- To render inline rolls in a TinyMCE editor, you need to pass the parent actor's (if any) roll data to the rollData prop. --}}
       {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
