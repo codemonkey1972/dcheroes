@@ -390,9 +390,6 @@
 .dcheroes .items-list .item:last-child {
   border-bottom: none;
 }
-.dcheroes .items-list .item .item-name {
-  color: #191813;
-}
 .dcheroes .items-list .item .item-name .item-image {
   flex: 0 0 30px;
   height: 30px;
@@ -413,7 +410,6 @@
   align-items: center;
   background: #1f5079;
   border: 2px groove #eeede0;
-  font-weight: bold;
   color: #fff;
 }
 .dcheroes .items-list .items-header > * {
