@@ -1,11 +1,11 @@
 <ol class='powers-list'>
   <li class='power flexrow powers-header'>
     <div class='power-name align-left'>{{localize 'Name'}}</div>
-    <div class='power-link'>{{localize 'Link'}}</div>
-    <div class='power-range'>{{localize 'Range'}}</div>
-    <div class='power-base-cost'>{{localize 'Base Cost'}}</div>
-    <div class='power-factor-cost'>{{localize 'Factor Cost'}}</div>
-    <div class='power-controls'>
+    <div class='power-link align-center'>{{localize 'Link'}}</div>
+    <div class='power-range align-center'>{{localize 'Range'}}</div>
+    <div class='power-base-cost align-center'>{{localize 'Base Cost'}}</div>
+    <div class='power-factor-cost align-center'>{{localize 'Factor Cost'}}</div>
+    <div class='power-controls align-center'>
       <a
         class='power-control power-create'
         title='{{localize "DOCUMENT.Create" type='power'}}'
@@ -18,7 +18,7 @@
   </li>
   {{#each powers as |power id|}}
     <li class='power flexrow' data-power-id='{{power._id}}'>
-      <div class='power-name align-center'>
+      <div class='power-name align-left'>
         <div class='power-image'>
           <a class='rollable' data-roll-type='power'>
 <!--            <img
