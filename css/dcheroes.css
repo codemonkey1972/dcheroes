@@ -8,6 +8,7 @@
 .dcheroes {
   font-family: "DecoturaICG";
   background-image: none;
+  letter-spacing: 0.05em;
 }
 
 .dcheroes .window-header {
