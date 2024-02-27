@@ -358,7 +358,7 @@
   padding: 0;
 }
 .dcheroes .items-list .item-name {
-  flex: 2;
+  flex: 1;
   margin: 0;
   overflow: hidden;
   font-size: 20px;
@@ -420,7 +420,7 @@
   text-align: left;
 }
 .dcheroes .item-formula {
-  flex: 0 0 200px;
+  flex: 2 0 200px;
   padding: 0 8px;
 }
 .dcheroes .effects .item .effect-source,
