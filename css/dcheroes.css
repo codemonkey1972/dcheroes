@@ -357,7 +357,7 @@
   color: #1f5079;
 }
 .dcheroes .items-list > li.item-row:nth-of-type(odd) {
-  background: #e0e0e0;
+  background: #ddebf6;
 }
 .dcheroes .items-list .item-list {
   list-style: none;
