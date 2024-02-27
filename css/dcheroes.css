@@ -354,7 +354,6 @@
 }
 .dcheroes .items-list .item-row {
   font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
   color: #1f5079;
 }
 .dcheroes .items-list .item-list {
@@ -366,9 +365,10 @@
   flex: 2 0 150px;
   margin: 0;
   overflow: hidden;
-  font-size: 20px;
+  font-size: 14px;
   text-align: left;
   align-items: center;
+  font-weight: bold;
   display: flex;
 }
 .dcheroes .items-list .item-name h3, .dcheroes .items-list .item-name h4 {
@@ -406,7 +406,7 @@
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
-  font-size: 20px;
+  font-size: 14px;
 }
 .dcheroes .items-list .items-header {
   margin: 2px 0;
