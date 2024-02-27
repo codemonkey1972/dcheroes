@@ -441,13 +441,17 @@
 }
 
 .dcheroes .powers-header div {
-  background-color: #000;
+  background-color: #1f5079;
   color: #fff;
   font-size: 20px;
-  font-weight: bold;
-  text-decoration: underline;
-}
+  text-align: center;
+  padding: 3px;
+ }
 
 .dcheroes .powers-header div > div:nth-of-type(odd) {
   background: #ddebf6;
+}
+
+.dcheroes li.power div {
+  padding: 3px;
 }
