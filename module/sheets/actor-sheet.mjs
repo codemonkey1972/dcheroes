@@ -78,9 +78,9 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterData(context) {
-    // Handle ability scores.
-    for (let [k, v] of Object.entries(context.system.abilities)) {
-      v.label = game.i18n.localize(CONFIG.DCHEROES.abilities[k]) ?? k;
+    // Handle attribute scores.
+    for (let [k, v] of Object.entries(context.system.attributes)) {
+      v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
   }
 
@@ -194,7 +194,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       onManageActiveEffect(ev, document);
     });
 
-    // Rollable abilities.
+    // Rollable attributes.
     html.on('click', '.rollable', this._onRoll.bind(this));
 
     // Drag events for macros.
@@ -256,7 +256,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      let label = dataset.label ? `[ability] ${dataset.label}` : '';
+      let label = dataset.label ? `[attribute] ${dataset.label}` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),

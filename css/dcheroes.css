@@ -312,18 +312,18 @@
 
 .dcheroes .sheet-body .initiative-and-hp .initiative,
 .dcheroes .sheet-body .initiative-and-hp .hero-points,
-.dcheroes .abilities .ability {
+.dcheroes .attributes .attribute {
   border: 2px solid #1f5079;
 }
 
 .dcheroes .sheet-body .initiative-and-hp label,
-.dcheroes .abilities .ability label {
+.dcheroes .attributes .attribute label {
   font-size: 24px;
   color: #1f5079;
 }
 
 .dcheroes .sheet-body .initiative-and-hp input,
-.dcheroes .abilities .ability input {
+.dcheroes .attributes .attribute input {
   border: none;
   padding: 0;
   font-size: 22px;

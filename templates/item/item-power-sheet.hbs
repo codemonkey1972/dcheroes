@@ -8,8 +8,8 @@
           <label class="resource-label power-resource-label">Link</label>
           <select  class="resource-select"  name="system.link" data-type="String">
               {{#select system.link}}
-                  {{#each abilities as |ability key|}}
-                  <option  value="{{key}}">{{ability.label}}</option>
+                  {{#each attributes as |attribute key|}}
+                  <option  value="{{key}}">{{attribute.label}}</option>
                   {{/each}}
               {{/select}}
           </select>

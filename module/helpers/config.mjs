@@ -4,7 +4,7 @@ export const DCHEROES = {};
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
-DCHEROES.abilities = {
+DCHEROES.attributes = {
   dex: 'DCHEROES.Ability.Dex.long',
   str: 'DCHEROES.Ability.Str.long',
   body: 'DCHEROES.Ability.Body.long',

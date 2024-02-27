@@ -35,64 +35,77 @@
     "character": {
       "templates": ["base"],
       "attributes": {
-        "level": {
-          "value": 1
-        }
-      },
-      "abilities": {
         "dex": {
           "value": 0,
           "factor_cost": 7,
           "action_attribute": true,
-          "label": "Dexterity"
+          "label": "Dexterity",
+          "type": "physical",
+          "rolls": ["action", "opposing"]
         },
         "str": {
           "value": 0,
           "factor_cost": 6,
           "action_attribute": false,
-          "label": "Strength"
+          "label": "Strength",
+          "type": "physical",
+          "rolls": ["effect"]
         },
         "body": {
           "value": 0,
           "factor_cost": 6,
           "action_attribute": false,
-          "label": "Body"
+          "label": "Body",
+          "type": "physical",
+          "rolls": ["resistance"]
         },
         "int": {
           "value": 0,
           "factor_cost": 7,
           "action_attribute": true,
-          "label": "Intelligence"
+          "label": "Intelligence",
+          "type": "mental",
+          "rolls": ["action", "opposing"]
         },
         "will": {
           "value": 0,
           "factor_cost": 6,
           "action_attribute": false,
-          "label": "Will"
+          "label": "Will",
+          "type": "mental",
+          "rolls": ["effect"]
          },
         "mind": {
           "value": 0,
           "factor_cost": 6,
           "action_attribute": false,
-          "label": "Mind"
+          "label": "Mind",
+          "type": "mental",
+          "rolls": ["resistance"]
          },
         "infl": {
           "value": 0,
           "factor_cost": 7,
           "action_attribute": true,
-          "label": "Influence"
+          "label": "Influence",
+          "type": "mystical",
+          "rolls": ["action", "opposing"]
         },
         "aura": {
           "value": 0,
           "factor_cost": 6,
           "action_attribute": false,
-          "label": "Aura"
+          "label": "Aura",
+          "type": "mystical",
+          "rolls": ["effect"]
          },
         "spirit": {
           "value": 0,
           "factor_cost": 6,
           "action_attribute": false,
-          "label": "Spirit"
+          "label": "Spirit",
+          "type": "mystical",
+          "rolls": ["resistance"]
          }
       }
     },

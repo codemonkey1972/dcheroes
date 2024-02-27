@@ -53,7 +53,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     context.flags = itemData.flags;
     
     // Get attributes list
-   context.abilities = context.document.parent.system.abilities;
+   context.attributes = context.document.parent.system.attributes;
 
     // Prepare active effects for easier access
     context.effects = prepareActiveEffectCategories(this.item.effects);
