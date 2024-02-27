@@ -334,7 +334,6 @@
   align-items: center;
   background: rgba(0, 0, 0, 0.05);
   border: 2px groove #eeede0;
-  font-weight: bold;
 }
 .dcheroes .items-header > * {
   font-size: 20px;
