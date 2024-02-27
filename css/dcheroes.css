@@ -257,7 +257,7 @@
   border: 1px solid #1f5079;
 }
 .dcheroes .sheet-header .header-fields {
-  flex: 1 0 150px;
+  flex: 1;
 }
 .dcheroes .sheet-header h1.charname {
   height: 50px;
@@ -358,7 +358,7 @@
   padding: 0;
 }
 .dcheroes .items-list .item-name {
-  flex: 1;
+  flex: 3 0 200px;
   margin: 0;
   overflow: hidden;
   font-size: 20px;
