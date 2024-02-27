@@ -257,7 +257,7 @@
   border: 1px solid #1f5079;
 }
 .dcheroes .sheet-header .header-fields {
-  flex: 1;
+  flex: 1 0 150px;
 }
 .dcheroes .sheet-header h1.charname {
   height: 50px;
