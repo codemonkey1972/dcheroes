@@ -105,7 +105,8 @@
     "types": ["item", "feature", "spell", "power"],
     "templates": {
       "base": {
-        "description": ""
+        "description": "",
+        "short_description": ""
       }
     },
     "item": {
@@ -123,7 +124,6 @@
       "factor_cost": 0,
       "example": "",
       "formula": "d10",
-      "short_description": ""
     },
     "feature": {
       "templates": ["base"]
