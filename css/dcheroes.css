@@ -358,7 +358,7 @@
   padding: 0;
 }
 .dcheroes .items-list .item-name {
-  flex: 3 0 200px;
+  flex: 3 0 150px;
   margin: 0;
   overflow: hidden;
   font-size: 20px;
