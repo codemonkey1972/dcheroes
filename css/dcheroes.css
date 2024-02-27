@@ -354,6 +354,8 @@
 }
 .dcheroes .items-list .item-row {
   font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 14pt;
+  color: #1f5079;
 }
 .dcheroes .items-list .item-list {
   list-style: none;
