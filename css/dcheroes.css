@@ -444,14 +444,13 @@
   background-color: #1f5079;
   color: #fff;
   font-size: 20px;
-  text-align: center;
   padding: 3px;
  }
 
-.dcheroes .powers-header div > div:nth-of-type(odd) {
+.dcheroes ol.powers-list  > li.power:nth-of-type(even) {
   background: #ddebf6;
 }
 
-.dcheroes li.power div {
+.dcheroes ol.powers-list li.power div {
   padding: 3px;
 }
