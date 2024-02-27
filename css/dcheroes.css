@@ -352,7 +352,6 @@
   padding: 0;
   overflow-y: auto;
   scrollbar-width: thin;
-  color: #444;
 }
 .dcheroes .items-list .item-list {
   list-style: none;
@@ -412,12 +411,13 @@
   margin: 2px 0;
   padding: 0;
   align-items: center;
-  background: rgba(0, 0, 0, 0.05);
+  background: #1f5079;
   border: 2px groove #eeede0;
   font-weight: bold;
+  color: #fff;
 }
 .dcheroes .items-list .items-header > * {
-  font-size: 28px;
+  font-size: 20px;
   text-align: center;
 }
 .dcheroes .items-list .items-header .item-name {
@@ -434,14 +434,17 @@
   text-align: center;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
-  font-size: 24px;
+  font-size: 20px;
 }
 .dcheroes .effects .item .effect-controls {
   border: none;
 }
 
+
+.DELETE_THE_BELOW{align:left;}
+
 .dcheroes .powers-header div,
-.dcheroes .items-header div{
+.dcheroes .items-header div {
   background-color: #1f5079;
   color: #fff;
   font-size: 20px;
