@@ -441,7 +441,13 @@
 }
 
 .dcheroes .powers-header div {
+  background-color: #000;
+  color: #fff;
   font-size: 20px;
   font-weight: bold;
   text-decoration: underline;
+}
+
+.dcheroes .powers-header div > div:nth-of-type(odd) {
+  background: #ddebf6;
 }
