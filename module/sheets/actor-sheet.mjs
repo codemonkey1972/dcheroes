@@ -153,7 +153,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Render the item sheet for viewing/editing prior to the editable check.
     html.on('click', '.power-edit', (ev) => {
-      const li = $(ev.currentTarget).parents('.power');
+      const li = $(ev.currentTarget).parents('.item');
       const item = this.actor.items.get(li.data('itemId'));
       item.sheet.render(true);
     });
