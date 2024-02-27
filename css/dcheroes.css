@@ -434,24 +434,3 @@
 .dcheroes .effects .item .effect-controls {
   border: none;
 }
-
-
-.DELETE_THE_BELOW{align:left;}
-
-.dcheroes .powers-header div,
-.dcheroes .items-header div {
-  background-color: #1f5079;
-  color: #fff;
-  font-size: 20px;
-  padding: 3px;
- }
-
-.dcheroes ol.powers-list  > li.power:nth-of-type(even),
-.dcheroes ol.items-list  > li.item:nth-of-type(even) {
-    background: #ddebf6;
-}
-
-.dcheroes ol.powers-list li.power div,
-.dcheroes ol.items-list li.item div {
-    padding: 3px;
-}
