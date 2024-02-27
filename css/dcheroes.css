@@ -435,3 +435,16 @@
 .dcheroes .effects .item .effect-controls {
   border: none;
 }
+
+.dcheroes .sheet-body .short_description {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+.dcheroes .sheet-body .short_description input {
+  font-size: 32px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
