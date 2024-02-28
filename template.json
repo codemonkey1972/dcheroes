@@ -1,27 +1,27 @@
 {
-  "Actor": {
+   "Actor": {
     "types": ["character", "npc"],
     "templates": {
-      "base": {
-        "current_body": {
+      "baseCharacter": {
+        "currentBody": {
           "value": 2,
           "min": 0,
           "max": 60,
           "label": "Current Body"
         },
-        "current_mind": {
+        "currentMind": {
           "value": 2,
           "min": 0,
           "max": 60,
           "label": "Current Mind"
         },
-        "current_spirit": {
+        "currentSpirit": {
           "value": 2,
           "min": 0,
           "max": 60,
           "label": "Current Spirit"
         },
-        "hero_points": {
+        "heroPoints": {
           "value": 10,
           "label": "Hero Points"
         },
@@ -33,76 +33,76 @@
       }
     },
     "character": {
-      "templates": ["base"],
+      "templates": ["baseCharacter"],
       "attributes": {
         "dex": {
           "value": 0,
-          "factor_cost": 7,
-          "action_attribute": true,
+          "factorCost": 7,
+          "isActionAttribute": true,
           "label": "Dexterity",
           "type": "physical",
           "rolls": ["action", "opposing"]
         },
         "str": {
           "value": 0,
-          "factor_cost": 6,
-          "action_attribute": false,
+          "factorCost": 6,
+          "isActionAttribute": false,
           "label": "Strength",
           "type": "physical",
           "rolls": ["effect"]
         },
         "body": {
           "value": 0,
-          "factor_cost": 6,
-          "action_attribute": false,
+          "factorCost": 6,
+          "isActionAttribute": false,
           "label": "Body",
           "type": "physical",
           "rolls": ["resistance"]
         },
         "int": {
           "value": 0,
-          "factor_cost": 7,
-          "action_attribute": true,
+          "factorCost": 7,
+          "isActionAttribute": true,
           "label": "Intelligence",
           "type": "mental",
           "rolls": ["action", "opposing"]
         },
         "will": {
           "value": 0,
-          "factor_cost": 6,
-          "action_attribute": false,
+          "factorCost": 6,
+          "isActionAttribute": false,
           "label": "Will",
           "type": "mental",
           "rolls": ["effect"]
          },
         "mind": {
           "value": 0,
-          "factor_cost": 6,
-          "action_attribute": false,
+          "factorCost": 6,
+          "isActionAttribute": false,
           "label": "Mind",
           "type": "mental",
           "rolls": ["resistance"]
          },
         "infl": {
           "value": 0,
-          "factor_cost": 7,
-          "action_attribute": true,
+          "factorCost": 7,
+          "isActionAttribute": true,
           "label": "Influence",
           "type": "mystical",
           "rolls": ["action", "opposing"]
         },
         "aura": {
           "value": 0,
-          "factor_cost": 6,
-          "action_attribute": false,
+          "factorCost": 6,
+          "isActionAttribute": false,
           "label": "Aura",
           "type": "mystical",
           "rolls": ["effect"]
          },
         "spirit": {
           "value": 0,
-          "factor_cost": 6,
-          "action_attribute": false,
+          "factorCost": 6,
+          "isActionAttribute": false,
           "label": "Spirit",
           "type": "mystical",
           "rolls": ["resistance"]
@@ -110,14 +110,14 @@
       }
     },
     "npc": {
-      "templates": ["base"],
+      "templates": ["baseCharacter"],
       "cr": 0
     }
   },
   "Item": {
     "types": ["item", "feature", "skill", "power", "advantage"],
     "templates": {
-      "base": {
+      "baseItem": {
         "description": "",
         "short_description": "",
         "attributes": {
@@ -161,19 +161,19 @@
       }
     },
     "item": {
-      "templates": ["base"],
+      "templates": ["baseItem"],
       "quantity": 1,
       "weight": 0
     },
     "power": {
-      "templates": ["base"],
+      "templates": ["baseItem"],
       "img": "systems/dcheroes/assets/images/icons/power.png",
       "link": "",
       "range": "",
       "type": "",
       "source": "",
       "base_cost": 0,
-      "factor_cost": 0,
+      "factorCost": 0,
       "example": "",
       "formula": "2d10",
       "aps": 0,
@@ -181,16 +181,16 @@
       "limitations": []
     },
     "feature": {
-      "templates": ["base"]
+      "templates": ["baseItem"]
     },
     "skill": {
-      "templates": ["base"],
+      "templates": ["baseItem"],
       "img": "icons/svg/light.svg",
       "link": "",
       "range": "",
       "type": "",
       "base_cost": 0,
-      "factor_cost": 0,
+      "factorCost": 0,
       "example": "",
       "formula": "2d10",
       "aps": 0,
@@ -200,11 +200,11 @@
       "subskills": []
     },
     "subskill": {
-      "templates": ["base"],
+      "templates": ["baseItem"],
       "aps": 0
     },
     "advantage": {
-      "templates": ["base"],
+      "templates": ["baseItem"],
       "img": "icons/svg/regen.svg",
       "drawback": false
     }
