@@ -115,7 +115,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell", "power"],
+    "types": ["item", "feature", "skill", "power"],
     "templates": {
       "base": {
         "description": "",
@@ -141,7 +141,7 @@
     "feature": {
       "templates": ["base"]
     },
-    "spell": {
+    "skill": {
       "templates": ["base"],
       "spellLevel": 1
     }

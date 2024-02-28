@@ -16,7 +16,7 @@
       "Item": "DC Heroes Item Sheet"
     },
     "Item": {
-      "Spell": {
+      "Skill": {
         "SpellLVL": "Level {level} Spells",
         "AddLVL": "Add LVL {level}"
       }
@@ -38,7 +38,7 @@
     "Item": {
       "item": "Item",
       "feature": "Feature",
-      "spell": "Spell",
+      "skill": "Skill",
       "power": "Power",
       "skill": "Skill"
     }
