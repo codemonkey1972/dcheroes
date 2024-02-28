@@ -13,6 +13,20 @@ export class DCHeroesItem extends Item {
   }
 
   /**
+   * @override
+   * Augment the item source data with additional dynamic data. Typically,
+   * you'll want to handle most of your calculated/derived data in this step.
+   * Data calculated in this step should generally not exist in template.json
+   * (such as attribute modifiers rather than attribute scores) and should be
+   * available both inside and outside of character sheets (such as if an actor
+   * is queried and has a roll executed directly from it).
+   */
+
+  prepareDerivedData() {
+    console.log(this);
+  }
+
+  /**
    * Prepare a data object which defines the data schema used by dice roll commands against this Item
    * @override
    */
