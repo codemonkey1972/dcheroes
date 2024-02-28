@@ -56,7 +56,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     // TODO error?
     //context.attributes = context.document.parent.system.attributes;
     console.log("*******TEST********");
-    console.log(context.document);
+    console.log(context);
 
     // Prepare active effects for easier access
     context.effects = prepareActiveEffectCategories(this.item.effects);
