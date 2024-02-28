@@ -128,6 +128,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     context.powers = powers;
     context.features = features;
     context.skills = skills;
+    context.advantages = advantages;
   }
 
   /* -------------------------------------------- */

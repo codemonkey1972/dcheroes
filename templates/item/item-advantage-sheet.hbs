@@ -22,9 +22,9 @@
           <label class="resource-label">Type</label>
           <select  class="resource-select"  name="system.type" data-type="String">
               {{#select system.type}}
-              <option value="auto">Auto</option>
-              <option value="dice">Dice</option>
-              <option value="both">A/D</option>
+              <option value="auto">{{localize 'Auto'}}</option>
+              <option value="dice">{{localize 'Dice'}}</option>
+              <option value="both">{{localize 'A/D'}}</option>
               {{/select}}
           </select>
         </div>
