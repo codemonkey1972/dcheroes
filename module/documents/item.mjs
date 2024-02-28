@@ -27,7 +27,10 @@ export class DCHeroesItem extends Item {
     const itemData = this;
     const systemData = itemData.system;
 
-    this.img = systemData.img;
+    if (this.img === "icons/svg/item-bag.svg") {
+      this.img = systemData.img;
+    }
+    
   }
 
   /**
