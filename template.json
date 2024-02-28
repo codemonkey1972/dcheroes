@@ -125,10 +125,27 @@
     "item": {
       "templates": ["base"],
       "quantity": 1,
-      "weight": 0,
-      "formula": "d10"
+      "weight": 0
     },
     "power": {
+      "templates": ["base"],
+      "img": "systems/dcheroes/assets/images/icons/power.png",
+      "link": "",
+      "range": "",
+      "type": "",
+      "source": "",
+      "base_cost": 0,
+      "factor_cost": 0,
+      "example": "",
+      "formula": "2d10",
+      "aps": 0,
+      "bonuses": [],
+      "limitations": []
+    },
+    "feature": {
+      "templates": ["base"]
+    },
+    "skill": {
       "templates": ["base"],
       "img": "systems/dcheroes/assets/images/icons/power.png",
       "link": "",
@@ -137,14 +154,20 @@
       "base_cost": 0,
       "factor_cost": 0,
       "example": "",
-      "formula": "d10"
+      "formula": "2d10",
+      "aps": 0,
+      "bonuses": [],
+      "limitations": [],
+      "unskilled": true,
+      "subskills": []
     },
-    "feature": {
-      "templates": ["base"]
-    },
-    "skill": {
+    "subskill": {
       "templates": ["base"],
-      "spellLevel": 1
+      "aps": 0
+    },
+    "advantage": {
+      "templates": ["base"],
+      "drawback": false
     }
   }
 }
