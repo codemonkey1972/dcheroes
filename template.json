@@ -185,7 +185,7 @@
     },
     "skill": {
       "templates": ["base"],
-      "img": "systems/dcheroes/assets/images/icons/power.png",
+      "img": "icons/svg/light.svg",
       "link": "",
       "range": "",
       "type": "",
@@ -205,6 +205,7 @@
     },
     "advantage": {
       "templates": ["base"],
+      "img": "icons/svg/regen.svg",
       "drawback": false
     }
   }
