@@ -10,8 +10,8 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/dcheroes/templates/actor/parts/actor-powers.hbs',
     'systems/dcheroes/templates/actor/parts/actor-items.hbs',
     'systems/dcheroes/templates/actor/parts/actor-skills.hbs',
-    'systems/dcheroes/templates/actor/parts/actor-effects.hbs',
+    'systems/dcheroes/templates/actor/parts/actor-advantages.hbs',
     // Item partials
-    'systems/dcheroes/templates/item/parts/item-effects.hbs',
+    // TODO 'systems/dcheroes/templates/item/parts/item-effects.hbs',
   ]);
 };

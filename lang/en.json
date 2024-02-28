@@ -40,7 +40,7 @@
       "feature": "Feature",
       "skill": "Skill",
       "power": "Power",
-      "skill": "Skill"
+      "advantage": "Advantage"
     }
   }
 }

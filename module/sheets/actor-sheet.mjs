@@ -97,6 +97,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const features = [];
     const powers = [];
     const skills = [];
+    const advantages = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -115,6 +116,10 @@ export class DCHeroesActorSheet extends ActorSheet {
       // Append to skills.
       else if (i.type === 'skill') {
         skills.push(i);
+      }
+      // Append to advantages.
+      else if (i.type === 'advantage') {
+        advantages.push(i);
       }
     }
 

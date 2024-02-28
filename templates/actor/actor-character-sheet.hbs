@@ -47,7 +47,7 @@
     <a class="item" data-tab="features">Abilities</a>
     <a class="item" data-tab="powers">Powers</a>
     <a class="item" data-tab="skills">Skills</a>
-    <a class="item" data-tab="effects">Advantages</a>
+    <a class="item" data-tab="advanatges">Advantages</a>
     <a class="item" data-tab="items">Items</a>
     <a class="item" data-tab="description">Description</a>
   </nav>
@@ -97,10 +97,14 @@
     </div>
 
     {{!-- Advantages Tab --}}
-    {{!-- TODO: change to adavnatges from effects--}}
+     <div class="tab advantages" data-group="primary" data-tab="advantages">
+       {{> "systems/dcheroes/templates/actor/parts/actor-advantages.hbs"}}
+    </div>
+    
+   {{!-- TODO: figure out what to do with effects
     <div class="tab effects flexcol" data-group="primary" data-tab="effects">
       {{> "systems/dcheroes/templates/actor/parts/actor-effects.hbs"}}
-    </div>
+    </div> --}}
 
     {{!-- Owned Items Tab --}}
     <div class="tab items" data-group="primary" data-tab="items">

@@ -115,7 +115,7 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "skill", "power"],
+    "types": ["item", "feature", "skill", "power", "advantage"],
     "templates": {
       "base": {
         "description": "",
