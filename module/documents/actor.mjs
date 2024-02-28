@@ -47,12 +47,7 @@ export class DCHeroesActor extends Actor {
     // Make modifications to data here. For example:
     const systemData = actorData.system;
 
-    // Loop through attribute scores, and add their modifiers to our sheet output.
-    for (let [key, attribute] of Object.entries(systemData.attributes)) {
-      // Calculate the modifier using d20 rules.
-      // TODO fix this
-      //attribute.mod = Math.floor((attribute.value - 10) / 2);
-    }
+    // TODO derived data goes here: initiative, etc.
   }
 
   /**
