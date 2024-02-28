@@ -23,8 +23,11 @@ export class DCHeroesItem extends Item {
    */
 
   prepareDerivedData() {
-    this.img = system.img;
     console.log(this);
+    const itemData = this;
+    const systemData = itemData.system;
+
+    this.img = systemData.img;
   }
 
   /**
