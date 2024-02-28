@@ -130,6 +130,7 @@
     },
     "power": {
       "templates": ["base"],
+      "img": "systems/dcheroes/assets/images/icons/power.png",
       "link": "",
       "range": "",
       "type": "",
