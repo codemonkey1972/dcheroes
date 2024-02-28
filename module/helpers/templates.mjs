@@ -9,7 +9,7 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/dcheroes/templates/actor/parts/actor-features.hbs',
     'systems/dcheroes/templates/actor/parts/actor-powers.hbs',
     'systems/dcheroes/templates/actor/parts/actor-items.hbs',
-    'systems/dcheroes/templates/actor/parts/actor-spells.hbs',
+    'systems/dcheroes/templates/actor/parts/actor-skills.hbs',
     'systems/dcheroes/templates/actor/parts/actor-effects.hbs',
     // Item partials
     'systems/dcheroes/templates/item/parts/item-effects.hbs',

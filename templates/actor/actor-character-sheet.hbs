@@ -46,7 +46,7 @@
     {{!-- Default tab is specified in actor-sheet.mjs --}}
     <a class="item" data-tab="features">Abilities</a>
     <a class="item" data-tab="powers">Powers</a>
-    <a class="item" data-tab="spells">Skills</a>
+    <a class="item" data-tab="skills">Skills</a>
     <a class="item" data-tab="effects">Advantages</a>
     <a class="item" data-tab="items">Items</a>
     <a class="item" data-tab="description">Description</a>
@@ -92,9 +92,8 @@
     </div>
 
     {{!-- Owned Skills Tab --}}
-    {{!-- TODO: change to skills from spells--}}
-    <div class="tab spells" data-group="primary" data-tab="spells">
-      {{> "systems/dcheroes/templates/actor/parts/actor-spells.hbs"}}
+    <div class="tab skills" data-group="primary" data-tab="skills">
+      {{> "systems/dcheroes/templates/actor/parts/actor-skills.hbs"}}
     </div>
 
     {{!-- Advantages Tab --}}

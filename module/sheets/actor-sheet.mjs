@@ -96,18 +96,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const gear = [];
     const features = [];
     const powers = [];
-    const spells = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: [],
-    };
+    const skills = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -123,11 +112,9 @@ export class DCHeroesActorSheet extends ActorSheet {
       else if (i.type === 'feature') {
         features.push(i);
       }
-      // Append to spells.
-      else if (i.type === 'spell') {
-        if (i.system.spellLevel != undefined) {
-          spells[i.system.spellLevel].push(i);
-        }
+      // Append to skills.
+      else if (i.type === 'skill') {
+        skills.push(i);
       }
     }
 
@@ -135,7 +122,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     context.gear = gear;
     context.powers = powers;
     context.features = features;
-    context.spells = spells;
+    context.skills = skills;
   }
 
   /* -------------------------------------------- */
