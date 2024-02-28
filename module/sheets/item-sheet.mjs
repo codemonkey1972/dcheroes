@@ -55,6 +55,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     // Get attributes list
     // TODO there's got to be a better way to do this
     context.attributes = context.system.attributes;
+    console.log(this.system);
     
     // Prepare active effects for easier access
     context.effects = prepareActiveEffectCategories(this.item.effects);
