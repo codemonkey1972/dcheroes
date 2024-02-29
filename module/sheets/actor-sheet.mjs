@@ -99,7 +99,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     const skills = [];
     const advantages = [];
     const drawbacks = [];
-    const limitations = [];
     const subskills = [];
 
     // Iterate through items, allocating to containers
@@ -129,10 +128,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       else if (i.type === 'drawback') {
         drawbacks.push(i);
       }
-      // Append to drawbacks.
-      else if (i.type === 'limitation') {
-        limitations.push(i);
-      }
       // Append to subskills.
       else if (i.type === 'subskill') {
         subskills.push(i);
@@ -150,7 +145,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     context.skills = skills;
     context.advantages = advantages;
     context.drawbacks = drawbacks;
-    context.limitations = limitations;
     context.subskills = subskills;
     context.gadgets = gadgets;
   }

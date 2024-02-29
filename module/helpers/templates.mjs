@@ -10,7 +10,6 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/dcheroes/templates/actor/parts/actor-features.hbs', // TODO remove
     'systems/dcheroes/templates/actor/parts/actor-gadgets.hbs',
     'systems/dcheroes/templates/actor/parts/actor-items.hbs', // TODO remove
-    'systems/dcheroes/templates/actor/parts/actor-limitations.hbs',
     'systems/dcheroes/templates/actor/parts/actor-powers.hbs',
     'systems/dcheroes/templates/actor/parts/actor-skills.hbs',
     // Item partials

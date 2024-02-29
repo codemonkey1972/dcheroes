@@ -184,7 +184,7 @@
        "scalable": {
           "factorCost": 0,
           "aps": 0
-        }
+       }
     },
     "item": {
       "templates": ["baseItem"],
@@ -216,9 +216,16 @@
       "templates": ["baseItem", "purchasable"],
       "img": "icons/svg/degen.svg"
     },
+    "bonus": {
+      "templates": ["baseItem"],
+      "img": "icons/svg/regen.svg",
+      "factorCostMod": 0,
+      "link": ""
+    },
     "limitation": {
       "templates": ["baseItem"],
       "img": "icons/svg/degen.svg",
+      "factorCostMod": 0,
       "link": ""
     },
     "gadget": {

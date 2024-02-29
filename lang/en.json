@@ -44,6 +44,7 @@
       "advantage": "Advantage",
       "subskill": "Subskill",
       "drawback": "Drawback",
+      "bonus": "Bonus",
       "limitation": "Limitation",
       "gadget": "Gadget"
     }
