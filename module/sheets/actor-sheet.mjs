@@ -79,10 +79,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    */
   _prepareCharacterData(context) {
     // Handle attribute scores.
-    console.log(context.system);
     for (let [k, v] of Object.entries(context.system.attributes)) {
-      console.log(k);
-      console.log(CONFIG.DCHEROES);
       v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
   }
@@ -203,6 +200,8 @@ export class DCHeroesActorSheet extends ActorSheet {
       power.delete();
       li.slideUp(200, () => this.render(false));
     });
+
+    // TODO add and delete for other pages
 
     // Active Effect management
     html.on('click', '.effect-control', (ev) => {

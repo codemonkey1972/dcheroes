@@ -4,25 +4,25 @@
     "templates": {
       "baseCharacter": {
         "currentBody": {
-          "value": 2,
+          "value": 0,
           "min": 0,
           "max": 60,
           "label": "Current Body"
         },
         "currentMind": {
-          "value": 2,
+          "value": 0,
           "min": 0,
           "max": 60,
           "label": "Current Mind"
         },
         "currentSpirit": {
-          "value": 2,
+          "value": 0,
           "min": 0,
           "max": 60,
           "label": "Current Spirit"
         },
         "heroPoints": {
-          "value": 10,
+          "value": 0,
           "label": "Hero Points"
         },
         "initiative": {
