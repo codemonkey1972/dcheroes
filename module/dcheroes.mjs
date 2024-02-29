@@ -74,6 +74,10 @@ Handlebars.registerHelper('sum', function () {
   return Array.prototype.slice.call(arguments, 0, -1).reduce((acc, num) => acc += num);
 });
 
+Handlebars.registerHelper('multiply', function (num1, num2) {
+  return num1 * num2;
+});
+
 Handlebars.registerHelper('isDivisor', function (num1, num2) {
   return num1 !== 0 && num2 % num1 === 0;
 });
