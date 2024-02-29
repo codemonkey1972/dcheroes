@@ -213,7 +213,7 @@
       "img": "icons/svg/regen.svg"
     },
     "drawback": {
-      "templates": ["baseItem"],
+      "templates": ["baseItem", "purchasable"],
       "img": "icons/svg/degen.svg"
     },
     "limitation": {
