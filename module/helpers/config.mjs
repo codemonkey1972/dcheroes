@@ -30,3 +30,8 @@ DCHEROES.attributeAbbreviations = {
   spirit: 'DCHEROES.Attribute.Spirit.abSbr',
 };
 
+DCHEROES.powerTypes = {
+  auto: "Auto",
+  dice: "Dice",
+  both: "Both"
+}

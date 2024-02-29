@@ -87,7 +87,7 @@ class SystemGenerator {
   /**
    * Replace file contents.
    *
-   * Replace refercnes to 'dcheroes', 'DCHeroes', and 'DCHEROES'
+   * Replace refercnes to 'boilerplate', 'Boilerplate', and 'BOILERPLATE'
    * in files copied over to the build directory.
    */
   replaceFileContents() {

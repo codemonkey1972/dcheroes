@@ -1,3 +1,5 @@
+import { DCHEROES } from "../helpers/config.mjs";
+
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -41,7 +43,8 @@ export class DCHeroesItem extends Item {
       this.totalCost = systemData.totalCost;
     }
 
-    
+    console.log("***************TEST*******************");
+    console.log(DCHEROES);
 
     // TODO initiative
     
