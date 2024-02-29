@@ -173,16 +173,15 @@
         "link": "",
         "range": "",
         "type": "",
-        "example": "",
-        "formula": "2d10"       
+        "formula": "2d10"  
       }, 
       "purchasable": {
         "baseCost": 0,
         "totalCost": 0
        }, 
        "scalable": {
-          "factorCost": 0,
-          "aps": 0
+        "factorCost": 0,
+        "aps": 0
        }
     },
     "item": {

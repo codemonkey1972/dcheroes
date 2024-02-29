@@ -35,3 +35,16 @@ DCHEROES.powerTypes = {
   dice: "Dice",
   both: "Both"
 }
+
+DCHEROES.powerSources = {
+  physical: "Physical",
+  mental: "Mental",
+  mystical: "Mystical"
+}
+
+DCHEROES.ranges = {
+  normal: "Normal",
+  self: "Self",
+  special: "Special",
+  touch: "Touch"
+}

@@ -69,7 +69,15 @@
 
         <div class="attribute flex-group-center">
           <label for="system.range" class="resource-label rollable flexlarge align-left" data-roll="d20+@heroPoints.mod" data-label="{{system.range}}">{{localize 'Range'}}</label>
-          <input type="text" name="system.range" value="{{system.range}}" data-dtype="Number"/>
+          <div>
+            <select  class="resource-select"  name="system.range" data-type="String">
+              {{#select system.range}}
+                  {{#each ranges as |range key|}}
+                  <option  value="{{key}}">{{range}}</option>
+                  {{/each}}
+              {{/select}}
+            </select>
+          </div>
         </div>
 
         <div class="attribute flex-group-center">
@@ -79,6 +87,19 @@
             {{#select system.type}}
               {{#each system.powerTypes as |powerType key|}}
             <option value="{{key}}">{{powerType}}</option>
+              {{/each}}
+            {{/select}}
+          </select>
+          </div>
+        </div>
+
+        <div class="attribute flex-group-center">
+          <label for="system.source" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Source'}}">{{localize 'Source'}}</label>
+           <div>
+          <select  class="resource-select"  name="system.source" data-type="String">
+            {{#select system.source}}
+              {{#each system.powerSources as |powerSource key|}}
+            <option value="{{key}}">{{powerSource}}</option>
               {{/each}}
             {{/select}}
           </select>
