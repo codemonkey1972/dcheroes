@@ -4,7 +4,7 @@
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
  
-      <div class="resources grid grid-3col">
+      <div class="resources grid grid-4col">
 
         <div class="resource flex-group-center">
           <label for="system.currentBody.value" class="resource-label">{{localize 'Base Cost'}}</label>
@@ -17,6 +17,13 @@
           <label for="system.currentBody.value" class="resource-label">{{localize 'Factor Cost'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
           <input type="text" name="system.factorCost" value="{{system.factorCost}}" data-dtype="Number"/>
+           </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.currentBody.value" class="resource-label">{{localize 'APs'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.aps" value="{{system.aps}}" data-dtype="Number"/>
            </div>
         </div>
 
