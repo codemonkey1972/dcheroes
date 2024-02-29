@@ -37,78 +37,80 @@
         "apLevel": 0
       },
       "attributes": {
-        "dex": {
-          "value": 0,
-          "factorCost": 7,
-          "isActionAttribute": true,
-          "label": "Dexterity",
-          "type": "physical",
-          "rolls": ["action", "opposing"]
-        },
-        "str": {
-          "value": 0,
-          "factorCost": 6,
-          "isActionAttribute": false,
-          "label": "Strength",
-          "type": "physical",
-          "rolls": ["effect"]
-        },
-        "body": {
-          "value": 0,
-          "factorCost": 6,
-          "isActionAttribute": false,
-          "label": "Body",
-          "type": "physical",
-          "rolls": ["resistance"]
-        },
-        "int": {
-          "value": 0,
-          "factorCost": 7,
-          "isActionAttribute": true,
-          "label": "Intelligence",
-          "type": "mental",
-          "rolls": ["action", "opposing"]
-        },
-        "will": {
-          "value": 0,
-          "factorCost": 6,
-          "isActionAttribute": false,
-          "label": "Will",
-          "type": "mental",
-          "rolls": ["effect"]
-         },
-        "mind": {
-          "value": 0,
-          "factorCost": 6,
-          "isActionAttribute": false,
-          "label": "Mind",
-          "type": "mental",
-          "rolls": ["resistance"]
-         },
-        "infl": {
-          "value": 0,
-          "factorCost": 7,
-          "isActionAttribute": true,
-          "label": "Influence",
-          "type": "mystical",
-          "rolls": ["action", "opposing"]
-        },
-        "aura": {
-          "value": 0,
-          "factorCost": 6,
-          "isActionAttribute": false,
-          "label": "Aura",
-          "type": "mystical",
-          "rolls": ["effect"]
-         },
-        "spirit": {
-          "value": 0,
-          "factorCost": 6,
-          "isActionAttribute": false,
-          "label": "Spirit",
-          "type": "mystical",
-          "rolls": ["resistance"]
-         }
+        "attributes": {
+            "dex": {
+            "value": 0,
+            "factorCost": 7,
+            "isActionAttribute": true,
+            "label": "Dexterity",
+            "type": "physical",
+            "rolls": ["action", "opposing"]
+          },
+          "str": {
+            "value": 0,
+            "factorCost": 6,
+            "isActionAttribute": false,
+            "label": "Strength",
+            "type": "physical",
+            "rolls": ["effect"]
+          },
+          "body": {
+            "value": 0,
+            "factorCost": 6,
+            "isActionAttribute": false,
+            "label": "Body",
+            "type": "physical",
+            "rolls": ["resistance"]
+          },
+          "int": {
+            "value": 0,
+            "factorCost": 7,
+            "isActionAttribute": true,
+            "label": "Intelligence",
+            "type": "mental",
+            "rolls": ["action", "opposing"]
+          },
+          "will": {
+            "value": 0,
+            "factorCost": 6,
+            "isActionAttribute": false,
+            "label": "Will",
+            "type": "mental",
+            "rolls": ["effect"]
+          },
+          "mind": {
+            "value": 0,
+            "factorCost": 6,
+            "isActionAttribute": false,
+            "label": "Mind",
+            "type": "mental",
+            "rolls": ["resistance"]
+          },
+          "infl": {
+            "value": 0,
+            "factorCost": 7,
+            "isActionAttribute": true,
+            "label": "Influence",
+            "type": "mystical",
+            "rolls": ["action", "opposing"]
+          },
+          "aura": {
+            "value": 0,
+            "factorCost": 6,
+            "isActionAttribute": false,
+            "label": "Aura",
+            "type": "mystical",
+            "rolls": ["effect"]
+          },
+          "spirit": {
+            "value": 0,
+            "factorCost": 6,
+            "isActionAttribute": false,
+            "label": "Spirit",
+            "type": "mystical",
+            "rolls": ["resistance"]
+          }
+        }
       }
     },
     "character": {
@@ -129,42 +131,44 @@
         "short_description": ""
       },
       "attributes": {
-        "dex": {
-          "label": "Dexterity",
-          "type": "physical"
-        },
-        "str": {
-          "label": "Strength",
-          "type": "physical"
-        },
-        "body": {
-          "label": "Body",
-          "type": "physical"
-        },
-        "int": {
-          "label": "Intelligence",
-          "type": "mental"
-        },
-        "will": {
-          "label": "Will",
-          "type": "mental"
-         },
-        "mind": {
-          "label": "Mind",
-          "type": "mental"
-         },
-        "infl": {
-          "label": "Influence",
-          "type": "mystical"
-        },
-        "aura": {
-          "label": "Aura",
-          "type": "mystical"
-         },
-        "spirit": {
-          "label": "Spirit",
-          "type": "mystical"
-         }
+        "attributes": {
+          "dex": {
+            "label": "Dexterity",
+            "type": "physical"
+          },
+          "str": {
+            "label": "Strength",
+            "type": "physical"
+          },
+          "body": {
+            "label": "Body",
+            "type": "physical"
+          },
+          "int": {
+            "label": "Intelligence",
+            "type": "mental"
+          },
+          "will": {
+            "label": "Will",
+            "type": "mental"
+          },
+          "mind": {
+            "label": "Mind",
+            "type": "mental"
+          },
+          "infl": {
+            "label": "Influence",
+            "type": "mystical"
+          },
+          "aura": {
+            "label": "Aura",
+            "type": "mystical"
+          },
+          "spirit": {
+            "label": "Spirit",
+            "type": "mystical"
+          }
+        }
       },
       "abilities": {
         "link": "",
