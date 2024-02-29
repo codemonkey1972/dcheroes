@@ -41,7 +41,10 @@
       "feature": "Feature",
       "skill": "Skill",
       "power": "Power",
-      "advantage": "Advantage"
+      "advantage": "Advantage",
+      "subskill": "Subskill",
+      "drawback": "Drawback",
+      "limitation": "Limitation"
     }
   }
 }
