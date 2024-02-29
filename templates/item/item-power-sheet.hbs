@@ -54,6 +54,7 @@
 
         <div class="attribute flex-group-center">
           <label for="system.link" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Linked Attribute'}}">{{localize 'Link'}}</label>
+          <div>
           <select  class="resource-select"  name="system.link" data-type="String">
             {{#select system.link}}
                 {{#each attributes as |attribute key|}}
@@ -61,15 +62,17 @@
                 {{/each}}
             {{/select}}
           </select>
+          </div>
         </div>
 
-        <div class="hero-points flex-group-center">
+        <div class="attribute flex-group-center">
           <label for="system.range" class="resource-label rollable flexlarge align-left" data-roll="d20+@heroPoints.mod" data-label="{{system.range}}">{{localize 'Range'}}</label>
           <input type="text" name="system.range" value="{{system.range}}" data-dtype="Number"/>
         </div>
 
         <div class="attribute flex-group-center">
           <label for="system.type" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Type'}}">{{localize 'Type'}}</label>
+           <div>
           <select  class="resource-select"  name="system.type" data-type="String">
             {{#select system.type}}
             <option value="auto">Auto</option>
@@ -77,6 +80,7 @@
             <option value="both">A/D</option>
             {{/select}}
           </select>
+          </div>
         </div>
               
       </section>
