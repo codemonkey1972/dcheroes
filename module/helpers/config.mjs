@@ -1,5 +1,7 @@
 export const DCHEROES = {};
 
+// TODO add constants here
+
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
@@ -27,3 +29,4 @@ DCHEROES.abilityAbbreviations = {
   aura: 'DCHEROES.Ability.Aura.abbr',
   spirit: 'DCHEROES.Ability.Spirit.abSbr',
 };
+

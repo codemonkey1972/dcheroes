@@ -94,23 +94,23 @@ class SystemGenerator {
     // Set patterns to iterate over later.
     const replacements = [
       {
-        pattern: new RegExp(/game\.dcheroes/g),
+        pattern: new RegExp(/game\.boilerplate/g),
         replacement: `game.${this.propName}`
       },
       {
-        pattern: new RegExp(/flags\.dcheroes/g),
+        pattern: new RegExp(/flags\.Boilerplate/g),
         replacement: `flags.${this.propName}`
       },
       {
-        pattern: 'dcheroes',
+        pattern: 'boilerplate',
         replacement: this.packageName
       },
       {
-        pattern: 'DCHeroes',
+        pattern: 'Boilerplate',
         replacement: this.className
       },
       {
-        pattern: 'DCHEROES',
+        pattern: 'BOILERPLATE',
         replacement: this.constantName
       }
     ];
