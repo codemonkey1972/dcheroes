@@ -32,8 +32,9 @@
 
   "TYPES": {
     "Actor": {
-      "character": "Character",
-      "npc": "NPC"
+      "character": "Hero",
+      "npc": "NPC",
+      "villain": "Villain"
     },
     "Item": {
       "item": "Item",
