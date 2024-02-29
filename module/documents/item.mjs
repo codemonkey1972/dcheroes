@@ -23,7 +23,6 @@ export class DCHeroesItem extends Item {
    */
 
   prepareDerivedData() {
-    console.log(this);
     const itemData = this;
     const systemData = itemData.system;
 
@@ -35,6 +34,7 @@ export class DCHeroesItem extends Item {
 
     if (systemData.hasOwnProperty("baseCost")) {
       if (systemData.hasOwnProperty("factorCost") && systemData.hasOwnProperty("aps")) {
+        console.log(systemData.baseCost + " | " + systemData.factorCost + " | " + systemData.aps);
         this.totalCost = systemData.baseCost + (systemData.factorCost * systemData.aps);
       } else {
         this.totalCost = systemData.baseCost;
