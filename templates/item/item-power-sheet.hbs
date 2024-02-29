@@ -59,7 +59,7 @@
           <div>
             <select  class="resource-select"  name="system.link" data-type="String">
               {{#select system.link}}
-                  {{#each attributes as |attribute key|}}
+                  {{#each system.attributes as |attribute key|}}
                   <option  value="{{key}}">{{attribute.label}}</option>
                   {{/each}}
               {{/select}}
@@ -72,7 +72,7 @@
           <div>
             <select  class="resource-select"  name="system.range" data-type="String">
               {{#select system.range}}
-                  {{#each ranges as |range key|}}
+                  {{#each #system.ranges as |range key|}}
                   <option  value="{{key}}">{{range}}</option>
                   {{/each}}
               {{/select}}
