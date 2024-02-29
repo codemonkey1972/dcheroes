@@ -30,8 +30,13 @@
   color: #1f5079;
 }
 
+.dcheroes select {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  color: #1f5079;
+}
+
 .dcheroes .tabs .item {
-  color: 1f5079;
+  color: #1f5079;
 }
 
 .dcheroes .tabs .item.active {
