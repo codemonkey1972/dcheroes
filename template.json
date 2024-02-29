@@ -174,10 +174,12 @@
         "link": "",
         "range": "",
         "type": "",
+        "example": "",
+        "formula": "2d10"       
+      }, 
+      "purchasable": {
         "baseCost": 0,
         "factorCost": 0,
-        "example": "",
-        "formula": "2d10",
         "aps": 0
       }
     },
@@ -190,19 +192,18 @@
       "templates": ["baseItem"]
     },
     "power": {
-      "templates": ["baseItem", "attributes"],
+      "templates": ["baseItem", "attributes", "abilities", "purchasable"],
       "img": "systems/dcheroes/assets/images/icons/power.png",
       "source": ""
     },
     "skill": {
-      "templates": ["baseItem", "attributes"],
+      "templates": ["baseItem", "attributes", "abilities", "purchasable"],
       "img": "icons/svg/light.svg",
       "unskilled": true
     },
     "subskill": {
-      "templates": ["baseItem"],
-      "link": "",
-      "aps": 0
+      "templates": ["baseItem", "purchasable"],
+      "link": ""
     },
     "advantage": {
       "templates": ["baseItem"],
