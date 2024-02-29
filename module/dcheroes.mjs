@@ -87,6 +87,7 @@ Handlebars.registerHelper('notCond', function(v1, v2) {
 });
 
 Handlebars.registerHelper('doesSubskillBelongToSkill', function(subskill, skillName) {
+  console.log("TEST: " + subskill.link + " | " + skillName);
   return (subskill.link === skillName);
 });
 
