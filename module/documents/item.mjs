@@ -34,10 +34,10 @@ export class DCHeroesItem extends Item {
 
     if (systemData.hasOwnProperty("baseCost")) {
       if (systemData.hasOwnProperty("factorCost") && systemData.hasOwnProperty("aps")) {
-        console.log(systemData.baseCost + " | " + systemData.factorCost + " | " + systemData.aps);
-        this.totalCost = systemData.baseCost + (systemData.factorCost * systemData.aps);
+        systemData.totalCost = systemData.baseCost + (systemData.factorCost * systemData.aps);
+        console.log(systemData.baseCost + " + (" + systemData.factorCost + " * " + systemData.aps) + ") = " + systemData.totalCost + " | " + this.totalCost;
       } else {
-        this.totalCost = systemData.baseCost;
+        systemData.totalCost = systemData.baseCost;
       }
     }  
     
