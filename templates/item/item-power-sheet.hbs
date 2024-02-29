@@ -48,37 +48,38 @@
   </nav>
 
   {{!-- Sheet Body --}}
-  <section class="sheet-body">
+    <div class="tab" data-group="primary" data-tab="description">
+      <section class="sheet-body">
 
-    <div class="tab" data-group="primary" data-tab="characteristics">
+      <div class="tab" data-group="primary" data-tab="characteristics">
 
-    <!-- TODO move this out -->
-      <div class="grid grid-3col">
-        <div class="resource">
-          <label class="resource-label power-resource-label">Link</label>
+      <!-- TODO move this out -->
+      <section class="attributes grid grid-3col">
+
+        <div class="attribute flex-group-center">
+          <label for="system.link" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Linked Attribute'}}">{{localize 'Link'}}</label>
           <select  class="resource-select"  name="system.link" data-type="String">
-              {{#select system.link}}
-                  {{#each attributes as |attribute key|}}
-                  <option  value="{{key}}">{{attribute.label}}</option>
-                  {{/each}}
-              {{/select}}
+            {{#select system.link}}
+                {{#each attributes as |attribute key|}}
+                <option  value="{{key}}">{{attribute.label}}</option>
+                {{/each}}
+            {{/select}}
           </select>
         </div>
-        <div class="resource">
-          <label class="resource-label">Range</label>
-          <input type="text" name="system.range" value="{{system.range}}"/>
-        </div>
-        <div class="resource">
-          <label class="resource-label">Type</label>
+
+        <div class="attribute flex-group-center">
+          <label for="system.link" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Type'}}">{{localize 'Type'}}</label>
           <select  class="resource-select"  name="system.type" data-type="String">
-              {{#select system.type}}
-              <option value="auto">Auto</option>
-              <option value="dice">Dice</option>
-              <option value="both">A/D</option>
-              {{/select}}
+            {{#select system.type}}
+            <option value="auto">Auto</option>
+            <option value="dice">Dice</option>
+            <option value="both">A/D</option>
+            {{/select}}
           </select>
         </div>
-      </div>
+              
+      </section>
+    </div>
  
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
