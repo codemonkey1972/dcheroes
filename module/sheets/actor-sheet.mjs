@@ -80,6 +80,8 @@ export class DCHeroesActorSheet extends ActorSheet {
   _prepareCharacterData(context) {
     // Handle attribute scores.
     for (let [k, v] of Object.entries(context.system.attributes)) {
+      console.log(k);
+      console.log(CONFIG.DCHEROES);
       v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
   }
