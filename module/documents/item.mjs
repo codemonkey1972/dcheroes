@@ -32,7 +32,7 @@ export class DCHeroesItem extends Item {
         this.img = systemData.img;
       }
     }
-
+/* TODO
     if (systemData.hasOwnProperty("baseCost")) {
       if (systemData.hasOwnProperty("factorCost") && systemData.hasOwnProperty("aps")) {
         this.totalCost = systemData.baseCost + (systemData.factorCost * systemData.aps);
@@ -40,7 +40,7 @@ export class DCHeroesItem extends Item {
         this.totalCost = systemData.baseCost;
       }
     }
-    
+*/    
     
   }
 
