@@ -79,6 +79,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    */
   _prepareCharacterData(context) {
     // Handle attribute scores.
+    console.log(context.system);
     for (let [k, v] of Object.entries(context.system.attributes)) {
       console.log(k);
       console.log(CONFIG.DCHEROES);
