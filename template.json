@@ -127,8 +127,7 @@
     "types": ["advantage", "drawback", "feature", "gadget", "limitation", "power", "skill", "subskill"],
     "templates": {
       "baseItem": {
-        "description": "",
-        "shortDescription": ""
+        "description": ""
       },
       "attributes": {
         "attributes": {
