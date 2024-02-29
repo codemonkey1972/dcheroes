@@ -42,6 +42,7 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="characteristics">Characteristics</a>
     <a class="item" data-tab="description">Description</a>
     <a class="item" data-tab="subskills">Subskills</a>
     <a class="item" data-tab="attributes">Attributes</a>
@@ -49,6 +50,45 @@
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
+
+    <div class="tab" data-group="primary" data-tab="characteristics">
+
+      <section class="attributes grid grid-3col">
+
+        <div class="attribute flex-group-center">
+          <label for="system.link" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Linked Attribute'}}">{{localize 'Link'}}</label>
+          <div>
+          <select  class="resource-select"  name="system.link" data-type="String">
+            {{#select system.link}}
+                {{#each attributes as |attribute key|}}
+                <option  value="{{key}}">{{attribute.label}}</option>
+                {{/each}}
+            {{/select}}
+          </select>
+          </div>
+        </div>
+
+        <div class="attribute flex-group-center">
+          <label for="system.range" class="resource-label rollable flexlarge align-left" data-roll="d20+@heroPoints.mod" data-label="{{system.range}}">{{localize 'Range'}}</label>
+          <input type="text" name="system.range" value="{{system.range}}" data-dtype="Number"/>
+        </div>
+
+        <div class="attribute flex-group-center">
+          <label for="system.type" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Type'}}">{{localize 'Type'}}</label>
+           <div>
+          <select  class="resource-select"  name="system.type" data-type="String">
+            {{#select system.type}}
+              {{#each system.powerTypes as |powerType key|}}
+            <option value="{{key}}">{{powerType}}</option>
+              {{/each}}
+            {{/select}}
+          </select>
+          </div>
+        </div>
+              
+      </section>
+
+    </div>
 
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
