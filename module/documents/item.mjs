@@ -39,7 +39,11 @@ export class DCHeroesItem extends Item {
         systemData.totalCost = systemData.baseCost;
       }
       this.totalCost = systemData.totalCost;
-    }  
+    }
+
+    
+
+    // TODO initiative
     
   }
 

@@ -31,7 +31,12 @@
 }
 
 .dcheroes select {
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 22px;
+  color: #1f5079;
+}
+
+.dcheroes .editor-content {
+  font-size: 22px;
   color: #1f5079;
 }
 
