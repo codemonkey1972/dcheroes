@@ -36,6 +36,10 @@ export class DCHeroesActor extends Actor {
     // things organized.
     this._prepareCharacterData(actorData);
     this._prepareNpcData(actorData);
+
+    
+    // TODO initiative
+  
   }
 
   /**

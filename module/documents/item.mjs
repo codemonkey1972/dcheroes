@@ -44,9 +44,6 @@ export class DCHeroesItem extends Item {
     }
 
     systemData.powerTypes = DCHEROES.powerTypes;
-
-    // TODO initiative
-    
   }
 
   /**
