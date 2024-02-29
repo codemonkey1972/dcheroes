@@ -10,6 +10,7 @@ import {
 export class DCHeroesItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
+    // TODO make sure there is always a characteristics tab for items
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['dcheroes', 'sheet', 'item'],
       width: 520,
@@ -18,7 +19,7 @@ export class DCHeroesItemSheet extends ItemSheet {
         {
           navSelector: '.sheet-tabs',
           contentSelector: '.sheet-body',
-          initial: 'description',
+          initial: 'characteristics',
         },
       ],
     });
