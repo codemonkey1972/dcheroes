@@ -122,7 +122,7 @@
     }
   },
   "Item": {
-    "types": ["advantage", "drawback", "feature", "item", "limitation", "power", "skill", "subskill"],
+    "types": ["advantage", "drawback", "feature", "gadget", "limitation", "power", "skill", "subskill"],
     "templates": {
       "baseItem": {
         "description": "",
@@ -214,6 +214,11 @@
     "limitation": {
       "templates": ["baseItem"],
       "img": "icons/svg/degen.svg"
+    },
+    "gadget": {
+      "templates": ["baseItem", "attributes"],
+      "img": "icons/commodities/tech/cog-bronze.webp",
+      "source": ""
     }
   }
 }

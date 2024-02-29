@@ -93,18 +93,22 @@ export class DCHeroesActorSheet extends ActorSheet {
    */
   _prepareItems(context) {
     // Initialize containers.
-    const gear = [];
-    const features = [];
+    const gadgets = [];
+    const features = []; // TODO remove
     const powers = [];
     const skills = [];
     const advantages = [];
+    const drawbacks = [];
+    const limitations = [];
+    const subskills = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
       i.img = i.img || Item.DEFAULT_ICON;
-      // Append to gear.
+      // Append to items.
+      // TODO remove
       if (i.type === 'item') {
-        gear.push(i);
+        items.push(i);
       } 
       else if (i.type === 'power') {
         powers.push(i);
@@ -121,14 +125,34 @@ export class DCHeroesActorSheet extends ActorSheet {
       else if (i.type === 'advantage') {
         advantages.push(i);
       }
+      // Append to drawbacks.
+      else if (i.type === 'drawback') {
+        drawbacks.push(i);
+      }
+      // Append to drawbacks.
+      else if (i.type === 'limitation') {
+        limitations.push(i);
+      }
+      // Append to subskills.
+      else if (i.type === 'subskill') {
+        subskills.push(i);
+      }
+     // Append to gadgets.
+      else if (i.type === 'gadget') {
+        gadgets.push(i);
     }
+  }
 
     // Assign and return
-    context.gear = gear;
+    context.items = items; // TODO remove
     context.powers = powers;
     context.features = features;
     context.skills = skills;
     context.advantages = advantages;
+    context.drawbacks = drawbacks;
+    context.limitations = limitations;
+    context.subskills = subskills;
+    context.gadgets = gadgets;
   }
 
   /* -------------------------------------------- */

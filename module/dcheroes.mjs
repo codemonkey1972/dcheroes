@@ -55,7 +55,7 @@ Hooks.once('init', function () {
     label: 'DCHEROES.SheetLabels.Item',
   });
 
-  
+
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
@@ -85,6 +85,11 @@ Handlebars.registerHelper('ifCond', function(v1, v2) {
 Handlebars.registerHelper('notCond', function(v1, v2) {
   return (v1 !== v2);
 });
+
+Handlebars.registerHelper('doesSubskillBelongToSkill', function(subskill, skillName) {
+  return (subskill.link === skillName);
+});
+
 
 
 /* -------------------------------------------- */

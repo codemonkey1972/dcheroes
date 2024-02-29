@@ -37,14 +37,15 @@
       "villain": "Villain"
     },
     "Item": {
-      "item": "Item",
+      "item": "Gadget",
       "feature": "Feature",
       "skill": "Skill",
       "power": "Power",
       "advantage": "Advantage",
       "subskill": "Subskill",
       "drawback": "Drawback",
-      "limitation": "Limitation"
+      "limitation": "Limitation",
+      "gadget": "Gadget",
     }
   }
 }
