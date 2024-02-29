@@ -19,22 +19,25 @@
         <div class="resource flex-group-center">
         </div>
 
-        <div class="resource flex-group-center">
-          <label for="system.currentBody.value" class="resource-label">{{localize 'Total'}}</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <span>{{system.totalCost}}</span>
-          </div>
-        </div>
-
       </div>
  
       </div>
     </div>
   </header>
 
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+  </nav>
+
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-       {{!-- To render inline rolls in a TinyMCE editor, you need to pass the parent actor's (if any) roll data to the rollData prop. --}}
+
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description">
+
+      {{!-- To render inline rolls in a TinyMCE editor, you need to pass the parent actor's (if any) roll data to the rollData prop. --}}
       {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
   </section>
 </form>
