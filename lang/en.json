@@ -1,6 +1,6 @@
 {
   "DCHEROES": {
-    "Ability": {
+    "Attribute": {
       "Dex": { "long": "Dexterity", "abbr": "dex" },
       "Str": { "long": "Strength", "abbr": "str" },
       "Body": { "long": "Body", "abbr": "body" },
