@@ -3,39 +3,39 @@
     <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-      <div class="grid grid-3col">
-        <div class="resource">
-          <label class="resource-label skill-resource-label">Link</label>
-          <select  class="resource-select"  name="system.link" data-type="String">
-              {{#select system.link}}
-                  {{#each attributes as |attribute key|}}
-                  <option  value="{{key}}">{{attribute.label}}</option>
-                  {{/each}}
-              {{/select}}
-          </select>
+ 
+      <div class="resources grid grid-4col">
+
+        <div class="resource flex-group-center">
+          <label for="system.currentBody.value" class="resource-label">{{localize 'Base'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.baseCost" value="{{system.baseCost}}" data-dtype="Number"/>
+          </div>
         </div>
-        <div class="resource">
-          <label class="resource-label">Range</label>
-          <input type="text" name="system.range" value="{{system.range}}"/>
+
+        <div class="resource flex-group-center">
+          <label for="system.currentBody.value" class="resource-label">{{localize 'Factor'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.factorCost" value="{{system.factorCost}}" data-dtype="Number"/>
+           </div>
         </div>
-        <div class="resource">
-          <label class="resource-label">Type</label>
-          <select  class="resource-select"  name="system.type" data-type="String">
-              {{#select system.type}}
-              <option value="auto">Auto</option>
-              <option value="dice">Dice</option>
-              <option value="both">A/D</option>
-              {{/select}}
-          </select>
+
+        <div class="resource flex-group-center">
+          <label for="system.currentBody.value" class="resource-label">{{localize 'APs'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.aps" value="{{system.aps}}" data-dtype="Number"/>
+           </div>
         </div>
-        <div class="resource">
-          <label class="resource-label">Base Cost</label>
-          <input type="text" name="system.baseCost" value="{{system.baseCost}}"/>
+
+        <div class="resource flex-group-center">
+          <label for="system.currentBody.value" class="resource-label">{{localize 'Total'}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <span>{{system.totalCost}}</span>
+          </div>
         </div>
-        <div class="resource">
-          <label class="resource-label">Factor Cost</label>
-          <input type="text" name="system.factorCost" value="{{system.factorCost}}"/>
-        </div>
+
+      </div>
+ 
       </div>
     </div>
   </header>
