@@ -43,8 +43,7 @@ export class DCHeroesItem extends Item {
       this.totalCost = systemData.totalCost;
     }
 
-    console.log("***************TEST*******************");
-    console.log(DCHEROES);
+    systemData.powerTypes = DCHEROES.powerTypes;
 
     // TODO initiative
     
