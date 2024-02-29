@@ -31,8 +31,16 @@ export class DCHeroesItem extends Item {
       if (systemData.img !== "") {
         this.img = systemData.img;
       }
-      
     }
+
+    if (systemData.hasOwnProperty("baseCost")) {
+      if (systemData.hasOwnProperty("factorCost") && systemData.hasOwnProperty("aps")) {
+        this.totalCost = systemData.baseCost + (systemData.factorCost * systemData.aps);
+      } else {
+        this.totalCost = systemData.baseCost;
+      }
+    }
+    
     
   }
 

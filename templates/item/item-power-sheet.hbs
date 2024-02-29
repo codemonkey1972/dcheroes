@@ -7,10 +7,23 @@
       <div class="resources grid grid-3col">
 
         <div class="resource flex-group-center">
-          <label for="system.currentBody.value" class="resource-label">{{localize baseCost}}</label>
+          <label for="system.currentBody.value" class="resource-label">Base Cost</label>
           <div class="resource-content flexrow flex-center flex-between">
           <input type="text" name="system.baseCost" value="{{system.baseCost}}" data-dtype="Number"/>
-          <span> / {{system.baseCost}}</span>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.currentBody.value" class="resource-label">Factor Cost</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.factorCost" value="{{system.factorCost}}" data-dtype="Number"/>
+           </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.currentBody.value" class="resource-label">Total Cost</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <span>{{system.totalCost}}</span>
           </div>
         </div>
 
