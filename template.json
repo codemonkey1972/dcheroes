@@ -178,10 +178,7 @@
         "formula": "2d10"       
       }, 
       "purchasable": {
-        "baseCost": {
-          "value": 0,
-          "label": "Base Cost"
-        },
+        "baseCost": 0,
         "totalCost": 0
        }, 
        "scalable": {
