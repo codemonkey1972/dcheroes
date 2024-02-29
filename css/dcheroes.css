@@ -461,6 +461,12 @@
   border: none;
 }
 
+.dcheroes .sheet-body .grid-2col-header {
+  font-size: 20px;
+  color: #1f5079;
+}
+
+
 .dcheroes .sheet-body .shortDescription {
   height: 36px;
   padding: 0px;
