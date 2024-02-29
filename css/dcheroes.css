@@ -329,6 +329,11 @@
   font-size: 22px;
 }
 
+.dcheroes .attributes .attribute select {
+  width: 100%;
+  background-color: #ddebf6;
+}
+
 .dcheroes .items-header {
   margin: 2px 0;
   padding: 0;
