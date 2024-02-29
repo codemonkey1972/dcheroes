@@ -7,7 +7,6 @@ export const preloadHandlebarsTemplates = async function () {
   return loadTemplates([
     // Actor partials.
     'systems/dcheroes/templates/actor/parts/actor-advantages.hbs',
-    'systems/dcheroes/templates/actor/parts/actor-drawbacks.hbs',
     'systems/dcheroes/templates/actor/parts/actor-features.hbs', // TODO remove
     'systems/dcheroes/templates/actor/parts/actor-gadgets.hbs',
     'systems/dcheroes/templates/actor/parts/actor-items.hbs', // TODO remove
