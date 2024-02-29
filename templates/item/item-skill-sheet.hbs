@@ -62,9 +62,8 @@
 
     {{!-- Subskills Tab --}}
     <div class="tab subskills" data-group="primary" data-tab=" ">
-      {{!-- As you add new fields, add them in here! --}}
   {{#each subskills as |subskill id|}}
-  {{if doesSubskillBelongToSkill subskill.link }}
+  {{#if doesSubskillBelongToSkill subskill.link }}
     <li class='item flexrow item-row' data-item-id='{{subskill._id}}'>
       <div class='item-name'>
         <div class='item-image'>
