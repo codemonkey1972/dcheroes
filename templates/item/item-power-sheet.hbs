@@ -48,12 +48,8 @@
   </nav>
 
   {{!-- Sheet Body --}}
-    <div class="tab" data-group="primary" data-tab="description">
-      <section class="sheet-body">
+  <section class="sheet-body">
 
-      <div class="tab" data-group="primary" data-tab="characteristics">
-
-      <!-- TODO move this out -->
       <section class="attributes grid grid-3col">
 
         <div class="attribute flex-group-center">
@@ -67,8 +63,13 @@
           </select>
         </div>
 
+        <div class="hero-points flex-group-center">
+          <label for="system.range" class="resource-label rollable flexlarge align-left" data-roll="d20+@heroPoints.mod" data-label="{{system.range}}">{{localize 'Range'}}</label>
+          <input type="text" name="system.range" value="{{system.range}}" data-dtype="Number"/>
+        </div>
+
         <div class="attribute flex-group-center">
-          <label for="system.link" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Type'}}">{{localize 'Type'}}</label>
+          <label for="system.type" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Type'}}">{{localize 'Type'}}</label>
           <select  class="resource-select"  name="system.type" data-type="String">
             {{#select system.type}}
             <option value="auto">Auto</option>
