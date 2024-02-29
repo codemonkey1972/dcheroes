@@ -29,11 +29,13 @@
           "value": 5,
           "label": "Initiative"
         },
-        "biography": ""
-      }
-    },
-    "character": {
-      "templates": ["baseCharacter"],
+        "biography": "",
+        "wealth": 0,
+        "occupation": "",
+        "background": "",
+        "alter ego": null,
+        "apLevel": 0
+      },
       "attributes": {
         "dex": {
           "value": 0,
@@ -109,55 +111,72 @@
          }
       }
     },
+    "character": {
+      "templates": ["baseCharacter", "attributes"]
+    },
     "npc": {
-      "templates": ["baseCharacter"],
-      "cr": 0
+      "templates": ["baseCharacter", "attributes"]
+    },
+    "villain": {
+      "templates": ["baseCharacter", "attributes"]
     }
   },
   "Item": {
-    "types": ["item", "feature", "skill", "power", "advantage"],
+    "types": ["item", "feature", "power", "skill", "subskill", "advantage", "drawback", "limitation"],
     "templates": {
       "baseItem": {
         "description": "",
-        "short_description": "",
-        "attributes": {
-          "dex": {
-            "label": "Dexterity",
-            "type": "physical"
-          },
-          "str": {
-            "label": "Strength",
-            "type": "physical"
-          },
-          "body": {
-            "label": "Body",
-            "type": "physical"
-          },
-          "int": {
-            "label": "Intelligence",
-            "type": "mental"
-          },
-          "will": {
-            "label": "Will",
-            "type": "mental"
-           },
-          "mind": {
-            "label": "Mind",
-            "type": "mental"
-           },
-          "infl": {
-            "label": "Influence",
-            "type": "mystical"
-          },
-          "aura": {
-            "label": "Aura",
-            "type": "mystical"
-           },
-          "spirit": {
-            "label": "Spirit",
-            "type": "mystical"
-           }
-        }
+        "short_description": ""
+      },
+      "attributes": {
+        "dex": {
+          "label": "Dexterity",
+          "type": "physical"
+        },
+        "str": {
+          "label": "Strength",
+          "type": "physical"
+        },
+        "body": {
+          "label": "Body",
+          "type": "physical"
+        },
+        "int": {
+          "label": "Intelligence",
+          "type": "mental"
+        },
+        "will": {
+          "label": "Will",
+          "type": "mental"
+         },
+        "mind": {
+          "label": "Mind",
+          "type": "mental"
+         },
+        "infl": {
+          "label": "Influence",
+          "type": "mystical"
+        },
+        "aura": {
+          "label": "Aura",
+          "type": "mystical"
+         },
+        "spirit": {
+          "label": "Spirit",
+          "type": "mystical"
+         }
+      },
+      "abilities": {
+        "link": "",
+        "range": "",
+        "type": "",
+        "baseCost": 0,
+        "factorCost": 0,
+        "example": "",
+        "formula": "2d10",
+        "aps": 0,
+        "bonuses": [],  
+        "limitations": []
       }
     },
     "item": {
@@ -165,48 +184,36 @@
       "quantity": 1,
       "weight": 0
     },
-    "power": {
-      "templates": ["baseItem"],
-      "img": "systems/dcheroes/assets/images/icons/power.png",
-      "link": "",
-      "range": "",
-      "type": "",
-      "source": "",
-      "base_cost": 0,
-      "factorCost": 0,
-      "example": "",
-      "formula": "2d10",
-      "aps": 0,
-      "bonuses": [],
-      "limitations": []
-    },
     "feature": {
       "templates": ["baseItem"]
     },
+    "power": {
+      "templates": ["baseItem", "attributes"],
+      "img": "systems/dcheroes/assets/images/icons/power.png",
+      "source": ""
+    },
     "skill": {
-      "templates": ["baseItem"],
+      "templates": ["baseItem", "attributes"],
       "img": "icons/svg/light.svg",
-      "link": "",
-      "range": "",
-      "type": "",
-      "base_cost": 0,
-      "factorCost": 0,
-      "example": "",
-      "formula": "2d10",
-      "aps": 0,
-      "bonuses": [],
-      "limitations": [],
       "unskilled": true,
       "subskills": []
     },
     "subskill": {
       "templates": ["baseItem"],
+      "link": "",
       "aps": 0
     },
     "advantage": {
       "templates": ["baseItem"],
-      "img": "icons/svg/regen.svg",
-      "drawback": false
+      "img": "icons/svg/regen.svg"
+    },
+    "drawback": {
+      "templates": ["baseItem"],
+      "img": "icons/svg/degen.svg"
+    },
+    "limitation": {
+      "templates": ["baseItem"],
+      "img": "icons/svg/degen.svg"
     }
   }
 }
