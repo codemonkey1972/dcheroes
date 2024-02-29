@@ -44,6 +44,8 @@ export class DCHeroesItem extends Item {
     }
 
     systemData.powerTypes = DCHEROES.powerTypes;
+    systemData.powerSources = DCHEROES.powerSources;
+    systemData.ranges = DCHEROES.ranges;
   }
 
   /**
