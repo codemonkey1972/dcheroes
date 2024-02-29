@@ -178,9 +178,7 @@
         "factorCost": 0,
         "example": "",
         "formula": "2d10",
-        "aps": 0,
-        "bonuses": [],  
-        "limitations": []
+        "aps": 0
       }
     },
     "item": {
@@ -199,8 +197,7 @@
     "skill": {
       "templates": ["baseItem", "attributes"],
       "img": "icons/svg/light.svg",
-      "unskilled": true,
-      "subskills": []
+      "unskilled": true
     },
     "subskill": {
       "templates": ["baseItem"],
@@ -217,7 +214,8 @@
     },
     "limitation": {
       "templates": ["baseItem"],
-      "img": "icons/svg/degen.svg"
+      "img": "icons/svg/degen.svg",
+      "link": ""
     },
     "gadget": {
       "templates": ["baseItem", "attributes"],

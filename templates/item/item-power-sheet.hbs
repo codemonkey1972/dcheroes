@@ -5,6 +5,15 @@
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
  
       <div class="resources grid grid-3col">
+
+        <div class="resource flex-group-center">
+          <label for="system.currentBody.value" class="resource-label">{{localize baseCost}}</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="system.baseCost.value" value="{{system.baseCost.value}}" data-dtype="Number"/>
+          <span> / {{system.baseCost.value}}</span>
+          </div>
+        </div>
+        
       </div>
  
  
