@@ -7,16 +7,22 @@
       <div class="resources grid grid-2col">
 
         <div class="resource flex-group-center">
-          <label for="system.baseCost" class="resource-label">{{localize 'Initial Bonus'}}</label>
+          <label for="system.link" class="resource-label">{{localize 'Linked Power'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.baseCost" value="{{system.baseCost}}" data-dtype="Number"/>
+          <select  class="resource-select"  name="system.link" data-type="String">
+            {{#select system.link}}
+                {{#each powers as |power key|}}
+                <option  value="{{key}}">{{power.name}}</option>
+                {{/each}}
+            {{/select}}
+          </select>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.buybackCost" class="resource-label">{{localize 'Buyback Cost'}}</label>
+          <label for="system.factorCostMod" class="resource-label">{{localize 'Factor Cost Mod'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <span>{{multiply system.baseCost 5}}</span>
+            <span>{{system.factorCostMod}}</span>
           </div>
         </div>
 

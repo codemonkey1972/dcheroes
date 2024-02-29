@@ -7,28 +7,28 @@
       <div class="resources grid grid-4col">
 
         <div class="resource flex-group-center">
-          <label for="system.currentBody.value" class="resource-label">{{localize 'Base'}}</label>
+          <label for="system.baseCost" class="resource-label">{{localize 'Base'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
           <input type="text" name="system.baseCost" value="{{system.baseCost}}" data-dtype="Number"/>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.currentBody.value" class="resource-label">{{localize 'Factor'}}</label>
+          <label for="system.factorCost" class="resource-label">{{localize 'Factor'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
           <input type="text" name="system.factorCost" value="{{system.factorCost}}" data-dtype="Number"/>
            </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.currentBody.value" class="resource-label">{{localize 'APs'}}</label>
+          <label for="system.aps" class="resource-label">{{localize 'APs'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
           <input type="text" name="system.aps" value="{{system.aps}}" data-dtype="Number"/>
            </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="system.currentBody.value" class="resource-label">{{localize 'Total'}}</label>
+          <label for="system.totalCost" class="resource-label">{{localize 'Total'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
           <span>{{system.totalCost}}</span>
           </div>
@@ -57,13 +57,13 @@
         <div class="attribute flex-group-center">
           <label for="system.link" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Linked Attribute'}}">{{localize 'Link'}}</label>
           <div>
-          <select  class="resource-select"  name="system.link" data-type="String">
-            {{#select system.link}}
-                {{#each attributes as |attribute key|}}
-                <option  value="{{key}}">{{attribute.label}}</option>
-                {{/each}}
-            {{/select}}
-          </select>
+            <select  class="resource-select"  name="system.link" data-type="String">
+              {{#select system.link}}
+                  {{#each attributes as |attribute key|}}
+                  <option  value="{{key}}">{{attribute.label}}</option>
+                  {{/each}}
+              {{/select}}
+            </select>
           </div>
         </div>
 
