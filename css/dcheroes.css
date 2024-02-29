@@ -444,13 +444,13 @@
   border: none;
 }
 
-.dcheroes .sheet-body .short_description {
+.dcheroes .sheet-body .shortDescription {
   height: 36px;
   padding: 0px;
   margin: 5px 0;
   border-bottom: 0;
 }
-.dcheroes .sheet-body .short_description input {
+.dcheroes .sheet-body .shortDescription input {
   font-size: 24px;
   width: 100%;
   height: 100%;

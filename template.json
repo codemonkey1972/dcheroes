@@ -128,7 +128,7 @@
     "templates": {
       "baseItem": {
         "description": "",
-        "short_description": ""
+        "shortDescription": ""
       },
       "attributes": {
         "attributes": {

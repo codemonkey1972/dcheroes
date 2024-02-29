@@ -42,7 +42,7 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item active" data-tab="characteristics">Characteristics</a>
+    <a class="item" data-tab="characteristics">Characteristics</a>
     <a class="item" data-tab="description">Description</a>
     <a class="item" data-tab="attributes">Attributes</a>
   </nav>
@@ -82,8 +82,8 @@
  
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      <div class="short_description">
-        <input name="system.short_description" type="short_description" value="{{system.short_description}}" placeholder="Short description"/>
+      <div class="shortDescription">
+        <input name="system.shortDescription" type="shortDescription" value="{{system.shortDescription}}" placeholder="Short description"/>
       </div>
 
       {{!-- To render inline rolls in a TinyMCE editor, you need to pass the parent actor's (if any) roll data to the rollData prop. --}}
