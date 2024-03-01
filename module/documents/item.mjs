@@ -28,12 +28,14 @@ export class DCHeroesItem extends Item {
     const itemData = this;
     const systemData = itemData.system;
 
+    // replace default icon if another has been specified in template.json
     if (itemData.img === "icons/svg/item-bag.svg") {
       if (systemData.img !== "") {
         this.img = systemData.img;
       }
     }
 
+    // calculate total cost of the item
     if (systemData.hasOwnProperty("baseCost")) {
       if (systemData.hasOwnProperty("factorCost") && systemData.hasOwnProperty("aps")) {
         systemData.totalCost = systemData.baseCost + (systemData.factorCost * systemData.aps);
@@ -43,6 +45,9 @@ export class DCHeroesItem extends Item {
       this.totalCost = systemData.totalCost;
     }
 
+    console.log(itemData);
+
+    // import constants
     systemData.powerTypes = DCHEROES.powerTypes;
     systemData.powerSources = DCHEROES.powerSources;
     systemData.ranges = DCHEROES.ranges;
