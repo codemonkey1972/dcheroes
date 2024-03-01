@@ -141,7 +141,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Assign and return
     context.items = items; // TODO remove
     context.powers = powers;
-    context.features = features;
+    context.features = features; // TODO remove
     context.skills = skills;
     context.advantages = advantages;
     context.drawbacks = drawbacks;
