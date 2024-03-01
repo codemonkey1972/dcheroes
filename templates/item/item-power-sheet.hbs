@@ -55,6 +55,71 @@
       <section class="attributes grid grid-3col">
 
         <div class="attribute flex-group-center">
+          <label for="system.link" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Linked Attribute'}}">{{localize 'Link'}}</label>
+          <div>
+            <select  class="resource-select"  name="system.link" data-type="String">
+              {{#select system.link}}
+                  {{#each system.attributes as |attribute key|}}
+                  <option  value="{{key}}">{{attribute.label}}</option>
+                  {{/each}}
+              {{/select}}
+            </select>
+          </div>
+        </div>
+
+       <div class="attribute flex-group-center">
+          <label for="system.range" class="resource-label rollable flexlarge align-left" data-roll="d20+@heroPoints.mod" data-label="{{system.range}}">{{localize 'Range'}}</label>
+          <div>
+            <select  class="resource-select"  name="system.range" data-type="String">
+              {{#select system.range}}
+                  {{#each system.ranges as |range key|}}
+                  <option  value="{{key}}">{{range}}</option>
+                  {{/each}}
+              {{/select}}
+            </select>
+          </div>
+        </div>
+
+       <div class="attribute flex-group-center">
+          <label for="system.type" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Type'}}">{{localize 'Type'}}</label>
+           <div>
+          <select  class="resource-select"  name="system.type" data-type="String">
+            {{#select system.type}}
+              {{#each system.powerTypes as |powerType key|}}
+            <option value="{{key}}">{{powerType}}</option>
+              {{/each}}
+            {{/select}}
+          </select>
+          </div>
+        </div>
+
+        <div class="attribute flex-group-center">
+          <label for="system.source" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Source'}}">{{localize 'Source'}}</label>
+           <div>
+          <select  class="resource-select"  name="system.source" data-type="String">
+            {{#select system.source}}
+              {{#each system.powerSources as |powerSource key|}}
+            <option value="{{key}}">{{powerSource}}</option>
+              {{/each}}
+            {{/select}}
+          </select>
+          </div>
+        </div>
+              
+      </section>
+
+    </div>
+ 
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{!-- To render inline rolls in a TinyMCE editor, you need to pass the parent actor's (if any) roll data to the rollData prop. --}}
+      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+
+        <div class="attribute flex-group-center">
           <div class="resources grid grid-2col">
             <div class="attribute flex-group-center">
 
@@ -168,7 +233,7 @@
                 </ol>
               </div>
             </div>
-            <div class="attribute flex-group-center">
+
               <label for="system.range" class="resource-label rollable flexlarge align-left" data-roll="d20+@heroPoints.mod" data-label="{{system.range}}">{{localize 'Range'}}</label>
               <div>
                 <select  class="resource-select"  name="system.range" data-type="String">
@@ -182,49 +247,6 @@
             </div>
           </div>
         </div>
-
-        <div class="attribute flex-group-center">
-          <label for="system.type" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Type'}}">{{localize 'Type'}}</label>
-           <div>
-          <select  class="resource-select"  name="system.type" data-type="String">
-            {{#select system.type}}
-              {{#each system.powerTypes as |powerType key|}}
-            <option value="{{key}}">{{powerType}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-          </div>
-        </div>
-
-        <div class="attribute flex-group-center">
-          <label for="system.source" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Source'}}">{{localize 'Source'}}</label>
-           <div>
-          <select  class="resource-select"  name="system.source" data-type="String">
-            {{#select system.source}}
-              {{#each system.powerSources as |powerSource key|}}
-            <option value="{{key}}">{{powerSource}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-          </div>
-        </div>
-              
-      </section>
-
-    </div>
- 
-    {{!-- Description Tab --}}
-    <div class="tab" data-group="primary" data-tab="description">
-      {{!-- To render inline rolls in a TinyMCE editor, you need to pass the parent actor's (if any) roll data to the rollData prop. --}}
-      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
-    </div>
-
-    {{!-- Attributes Tab --}}
-    <div class="tab attributes" data-group="primary" data-tab="attributes">
-      <div class="resource">
-        <label class="resource-label">Roll Formula</label>
-        <input type="text" name="system.formula" value="{{system.formula}}" data-dtype="String"/>
-      </div>
     </div>
   </section>
 </form>
