@@ -162,12 +162,12 @@ export class DCHeroesActorSheet extends ActorSheet {
       item.sheet.render(true);
     });
 
-    // Render the item sheet for viewing/editing prior to the editable check.
-    html.on('click', '.power-edit', (ev) => {
-      const li = $(ev.currentTarget).parents('.item');
-      const item = this.actor.items.get(li.data('itemId'));
-      item.sheet.render(true);
-    });
+    // // Render the item sheet for viewing/editing prior to the editable check.
+    // html.on('click', '.power-edit', (ev) => {
+    //   const li = $(ev.currentTarget).parents('.item');
+    //   const item = this.actor.items.get(li.data('itemId'));
+    //   item.sheet.render(true);
+    // });
 
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
