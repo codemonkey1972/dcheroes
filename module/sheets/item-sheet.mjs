@@ -72,9 +72,16 @@ export class DCHeroesItemSheet extends ItemSheet {
 
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
+    
+    // Render the item sheet for viewing/editing prior to the editable check.
+    html.on('click', '.item-edit', (ev) => {
+      const li = $(ev.currentTarget).parents('.item');
+      const item = this.actor.items.get(li.data('itemId'));
+      item.sheet.render(true);
+    });
 
     // Add Sub-Item
-    html.on('click', '.item-create', this._onItemCreate.bind(this));
+    html.on('click', '.item-create', this._onSubItemCreate.bind(this));
 
     // Delete Sub-Item
     html.on('click', '.item-delete', (ev) => {
@@ -90,4 +97,33 @@ export class DCHeroesItemSheet extends ItemSheet {
       onManageActiveEffect(ev, this.item)
     );
   }
+
+  
+  /**
+   * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onSubItemCreate(event) {
+    event.preventDefault();
+    const header = event.currentTarget;
+    // Get the type of item to create.
+    const type = header.dataset.type;
+    // Grab any data associated with this control.
+    const data = duplicate(header.dataset);
+    // Initialize a default name.
+    const name = `New ${type.capitalize()}`;
+    // Prepare the item object.
+    const itemData = {
+      name: name,
+      type: type,
+      system: data,
+    };
+    // Remove the type from the dataset since it's in the itemData.type prop.
+    delete itemData.system['type'];
+
+    // Finally, create the item!
+    return await Item.create(itemData, { parent: this.actor });
+  }
+
 }
