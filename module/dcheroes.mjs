@@ -28,10 +28,9 @@ Hooks.once('init', function () {
    * Set an initiative formula for the system
    * @type {String}
    */
-  // TODO fix this
   CONFIG.Combat.initiative = {
-    formula: '1d10 + @attributes.dex.mod',
-    decimals: 2,
+    formula: '1d10 + @attributes.dex.value + @attributes.int.value + @attributes.infl.value + @initiativeBonus.value',
+    decimals: 0,
   };
 
   // Define custom Document classes

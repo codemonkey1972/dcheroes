@@ -25,8 +25,8 @@
           "value": 0,
           "label": "Hero Points"
         },
-        "initiative": {
-          "value": 5,
+        "initiativeBonus": {
+          "value": 0,
           "label": "Initiative"
         },
         "biography": "",

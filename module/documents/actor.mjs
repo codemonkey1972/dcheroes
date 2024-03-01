@@ -35,11 +35,7 @@ export class DCHeroesActor extends Actor {
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     this._prepareCharacterData(actorData);
-    this._prepareNpcData(actorData);
-
-    
-    // TODO initiative
-  
+    this._prepareNpcData(actorData);  
   }
 
   /**
@@ -52,6 +48,17 @@ export class DCHeroesActor extends Actor {
     const systemData = actorData.system;
 
     // TODO derived data goes here: initiative, etc.
+    //initiativeBonus.value
+
+    console.log("TEST for initiative: ");
+    console.log(actorData);
+
+        // TODO initiative
+    // Martial artist gives a +2
+    // Superspeed adds APs of their power
+    // Lightning Reflexes gives +2
+    // Water Freedom applies when submerged in water
+
   }
 
   /**

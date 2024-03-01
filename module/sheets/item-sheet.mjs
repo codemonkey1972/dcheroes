@@ -81,7 +81,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     if (!this.isEditable) return;
   
     // Render the item sheet for viewing/editing prior to the editable check.
-    html.on('click', '.item-edit', (ev) => {
+    html.on('click', '.bonus-edit', (ev) => {
       console.log("TEST3");
       const li = $(ev.currentTarget).parents('.item');
       const item = this.actor.items.get(li.data('itemId'));
@@ -115,7 +115,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     console.log("*****************TEST******************");
     console.log(context);
     // Iterate through items, allocating to containers
-    // TODO
+    // TODO bonus is not a valid choice
     // for (let i of context.items) {
     //   i.img = i.img || Item.DEFAULT_ICON;
     //   if (i.type === 'bonus') {
