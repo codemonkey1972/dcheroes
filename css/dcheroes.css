@@ -400,6 +400,7 @@
 .dcheroes .items-list .item-aps,
 .dcheroes .items-list .item-total-cost {
   display: flex;
+  justify-content: center;
   flex: 0 0 100px;
 }
 .dcheroes .items-list .item-controls {
