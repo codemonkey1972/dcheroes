@@ -40,6 +40,9 @@ export class DCHeroesItemSheet extends ItemSheet {
 
   /** @override */
   getData() {
+    console.log("**********TEST ITEM***********");
+    console.log(context);
+
     // Retrieve base data structure.
     const context = super.getData();
 
@@ -107,6 +110,7 @@ export class DCHeroesItemSheet extends ItemSheet {
 
   _prepareModifiers(context) {
     // Initialize containers.
+    const items = [];
     const bonuses = [];
     const limitations = [];
   
