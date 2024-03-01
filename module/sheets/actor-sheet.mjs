@@ -110,7 +110,6 @@ export class DCHeroesActorSheet extends ActorSheet {
         items.push(i);
       } 
       else if (i.type === 'power') {
-        console.log(i);
         powers.push(i);
       }
       // Append to features.
