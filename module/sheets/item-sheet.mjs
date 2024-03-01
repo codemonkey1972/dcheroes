@@ -40,11 +40,11 @@ export class DCHeroesItemSheet extends ItemSheet {
 
   /** @override */
   getData() {
-    console.log("**********TEST ITEM***********");
-    console.log(context);
-
     // Retrieve base data structure.
     const context = super.getData();
+
+    console.log("**********TEST ITEM***********");
+    console.log(context);
 
     // Use a safe clone of the item data for further operations.
     const itemData = context.data;
@@ -75,12 +75,10 @@ export class DCHeroesItemSheet extends ItemSheet {
 
   /** @override */
   activateListeners(html) {
-    console.log("TEST1");
-    super.activateListeners(html);
+     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
-    console.log("TEST2");    
   
     // Render the item sheet for viewing/editing prior to the editable check.
     html.on('click', '.item-edit', (ev) => {
