@@ -382,7 +382,7 @@
   padding: 0;
 }
 .dcheroes .items-list .item-name {
-  flex: 2 0 150px;
+  flex: 1 0 150px;
   margin: 0;
   overflow: hidden;
   font-size: 14px;
@@ -391,10 +391,16 @@
   font-weight: bold;
   display: flex;
 }
+/* TODO not needed? */
 .dcheroes .items-list .item-name h3, .dcheroes .items-list .item-name h4 {
   margin: 0;
   white-space: nowrap;
   overflow-x: hidden;
+}
+.dcheroes .items-list .item-aps,
+.dcheroes .items-list .item-total-cost {
+  display: flex;
+  flex: 0 0 100px;
 }
 .dcheroes .items-list .item-controls {
   display: flex;
