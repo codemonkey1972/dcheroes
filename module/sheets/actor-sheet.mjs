@@ -108,11 +108,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     for (let i of context.items) {
       i.img = i.img || Item.DEFAULT_ICON;
       // Append to items.
-      // TODO remove
-      if (i.type === 'item') {
-        items.push(i);
-      } 
-      else if (i.type === 'power') {
+      if (i.type === 'power') {
         powers.push(i);
       }
       // Append to features.
@@ -142,7 +138,6 @@ export class DCHeroesActorSheet extends ActorSheet {
   }
 
     // Assign and return
-    context.items = items; // TODO remove
     context.powers = powers;
     context.features = features; // TODO remove
     context.skills = skills;
@@ -165,15 +160,9 @@ export class DCHeroesActorSheet extends ActorSheet {
       item.sheet.render(true);
     });
 
-    // // Render the item sheet for viewing/editing prior to the editable check.
-    // html.on('click', '.power-edit', (ev) => {
-    //   const li = $(ev.currentTarget).parents('.item');
-    //   const item = this.actor.items.get(li.data('itemId'));
-    //   item.sheet.render(true);
-    // });
-
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
+
     if (!this.isEditable) return;
 
     // Add Inventory Item
@@ -189,17 +178,19 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Active Effect management
     // TODO delete
-    html.on('click', '.effect-control', (ev) => {
-      const row = ev.currentTarget.closest('li');
-      const document =
-        row.dataset.parentId === this.actor.id
-          ? this.actor
-          : this.actor.items.get(row.dataset.parentId);
-      onManageActiveEffect(ev, document);
-    });
+    // html.on('click', '.effect-control', (ev) => {
+    //   const row = ev.currentTarget.closest('li');
+    //   const document =
+    //     row.dataset.parentId === this.actor.id
+    //       ? this.actor
+    //       : this.actor.items.get(row.dataset.parentId);
+    //   onManageActiveEffect(ev, document);
+    // });
 
     // Rollable attributes.
-    html.on('click', '.rollable', this._onRoll.bind(this));
+    html.on('click', '.rollable', (ev) => {
+      this._onRoll.bind(this);
+    });
 
     // Drag events for macros.
     if (this.actor.isOwner) {
@@ -251,6 +242,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Handle item rolls.
     if (dataset.rollType) {
+      console.log("************TEST ITEM ROLL: "+dataset.rollType);
       if (dataset.rollType == 'item') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);

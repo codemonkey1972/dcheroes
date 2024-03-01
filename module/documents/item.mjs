@@ -62,6 +62,8 @@ export class DCHeroesItem extends Item {
     // Quit early if there's no parent actor
     if (!this.actor) return rollData;
 
+console.log(this);
+
     // If present, add the actor's roll data
     rollData.actor = this.actor.getRollData();
 

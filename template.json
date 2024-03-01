@@ -184,11 +184,6 @@
         "aps": 0
        }
     },
-    "item": {
-      "templates": ["baseItem"],
-      "quantity": 1,
-      "weight": 0
-    },
     "feature": {
       "templates": ["baseItem"]
     },
