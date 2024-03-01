@@ -448,7 +448,7 @@
   text-align: center;
 }
 .dcheroes .items-list .items-header .item-name {
-  flex: 2 0 150px;
+  flex: 1;
   padding-left: 5px;
   text-align: left;
 }
