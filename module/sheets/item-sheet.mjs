@@ -115,15 +115,16 @@ export class DCHeroesItemSheet extends ItemSheet {
     console.log("*****************TEST******************");
     console.log(context);
     // Iterate through items, allocating to containers
-    for (let i of context.items) {
-      i.img = i.img || Item.DEFAULT_ICON;
-      if (i.type === 'bonus') {
-        bonuses.push(i);
-      } 
-      else if (i.type === 'limitation') {
-        limitations.push(i);
-      }
-    }
+    // TODO
+    // for (let i of context.items) {
+    //   i.img = i.img || Item.DEFAULT_ICON;
+    //   if (i.type === 'bonus') {
+    //     bonuses.push(i);
+    //   } 
+    //   else if (i.type === 'limitation') {
+    //     limitations.push(i);
+    //   }
+    // }
 
     // Assign and return
     context.bonuses = bonuses;
