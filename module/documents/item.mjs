@@ -35,6 +35,7 @@ export class DCHeroesItem extends Item {
     }
 
     if (systemData.hasOwnProperty("baseCost")) {
+      console.log(systemData);
       if (systemData.hasOwnProperty("factorCost") && systemData.hasOwnProperty("aps")) {
         systemData.totalCost = systemData.baseCost + (systemData.factorCost * systemData.aps);
       } else {
