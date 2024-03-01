@@ -176,9 +176,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Add Inventory Item
     html.on('click', '.item-create', this._onItemCreate.bind(this));
 
-    // Add Power Item
-    html.on('click', '.power-create', this._onItemCreate.bind(this));
-
     // Delete Inventory Item
     html.on('click', '.item-delete', (ev) => {
       const li = $(ev.currentTarget).parents('.item');
@@ -187,17 +184,8 @@ export class DCHeroesActorSheet extends ActorSheet {
       li.slideUp(200, () => this.render(false));
     });
 
-    // Delete Power TODO remove
-    html.on('click', '.power-delete', (ev) => {
-      const li = $(ev.currentTarget).parents('.power');
-      const power = this.actor.items.get(li.data('powerId'));
-      power.delete();
-      li.slideUp(200, () => this.render(false));
-    });
-
-    // TODO add and delete for other pages
-
     // Active Effect management
+    // TODO delete
     html.on('click', '.effect-control', (ev) => {
       const row = ev.currentTarget.closest('li');
       const document =

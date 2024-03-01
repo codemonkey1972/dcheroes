@@ -73,9 +73,19 @@ export class DCHeroesItemSheet extends ItemSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
 
-    // Roll handlers, click handlers, etc. would go here.
+    // Add Sub-Item
+    html.on('click', '.item-create', this._onItemCreate.bind(this));
+
+    // Delete Sub-Item
+    html.on('click', '.item-delete', (ev) => {
+      const li = $(ev.currentTarget).parents('.item');
+      const item = this.actor.items.get(li.data('itemId'));
+      item.delete();
+      li.slideUp(200, () => this.render(false));
+    });
 
     // Active Effect management
+    // TODO remove?
     html.on('click', '.effect-control', (ev) =>
       onManageActiveEffect(ev, this.item)
     );
