@@ -45,9 +45,6 @@ export class DCHeroesItem extends Item {
       this.totalCost = systemData.totalCost;
     }
 
-    console.log("********TEST********");
-    console.log(itemData);
-
     // import constants
     systemData.powerTypes = DCHEROES.powerTypes;
     systemData.powerSources = DCHEROES.powerSources;

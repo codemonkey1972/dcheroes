@@ -52,6 +52,10 @@ export class DCHeroesItemSheet extends ItemSheet {
     // Add the item's data to context.data for easier access, as well as flags.
     context.system = itemData.system;
     context.flags = itemData.flags;
+
+    if (actorData.type == 'power') {
+      this._prepareModifiers(context);
+    }
     
     // Get attributes list
     // TODO there's got to be a better way to do this
@@ -68,13 +72,16 @@ export class DCHeroesItemSheet extends ItemSheet {
 
   /** @override */
   activateListeners(html) {
+    console.log("TEST1");
     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
-    
+    console.log("TEST2");    
+  
     // Render the item sheet for viewing/editing prior to the editable check.
     html.on('click', '.item-edit', (ev) => {
+      console.log("TEST3");
       const li = $(ev.currentTarget).parents('.item');
       const item = this.actor.items.get(li.data('itemId'));
       item.sheet.render(true);
@@ -98,6 +105,26 @@ export class DCHeroesItemSheet extends ItemSheet {
     );
   }
 
+  _prepareModifiers(context) {
+    // Initialize containers.
+    const bonuses = [];
+    const limitations = [];
+  
+    // Iterate through items, allocating to containers
+    for (let i of context.items) {
+      i.img = i.img || Item.DEFAULT_ICON;
+      if (i.type === 'bonus') {
+        bonuses.push(i);
+      } 
+      else if (i.type === 'limitation') {
+        limitations.push(i);
+      }
+    }
+
+    // Assign and return
+    context.bonuses = bonuses;
+    context.limitations = limitations;
+  }
   
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset

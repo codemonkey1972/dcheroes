@@ -99,7 +99,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const skills = [];
     const advantages = [];
     const drawbacks = [];
-    const subskills = [];
+    const subskills = []; // TODO move this to item-sheet.mjs
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
