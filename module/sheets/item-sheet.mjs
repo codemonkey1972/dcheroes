@@ -53,7 +53,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     context.system = itemData.system;
     context.flags = itemData.flags;
 
-    if (actorData.type == 'power') {
+    if (itemData.type == 'power') {
       this._prepareModifiers(context);
     }
     
