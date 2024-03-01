@@ -47,7 +47,7 @@
     <a class="item" data-tab="features">{{localize 'Abilities'}}</a>
     <a class="item" data-tab="powers">{{localize 'Powers'}}</a>
     <a class="item" data-tab="skills">{{localize 'Skills'}}</a>
-    <a class="item" data-tab="advantages">{{localize 'Situations'}}</a>
+    <a class="item" data-tab="traits">{{localize 'Traits'}}</a>
     <a class="item" data-tab="gadgets">{{localize 'Gadgets'}}</a>
     <a class="item" data-tab="description">{{localize 'Description'}}</a>
   </nav>
@@ -96,9 +96,9 @@
       {{> "systems/dcheroes/templates/actor/parts/actor-skills.hbs"}}
     </div>
 
-    {{!-- Advantages Tab --}}
-     <div class="tab advantages" data-group="primary" data-tab="advantages">
-       {{> "systems/dcheroes/templates/actor/parts/actor-advantages.hbs"}}
+    {{!-- Traits Tab --}}
+     <div class="tab traits" data-group="primary" data-tab="traits">
+       {{> "systems/dcheroes/templates/actor/parts/actor-traits.hbs"}}
     </div>
     
    {{!-- TODO: figure out what to do with effects
