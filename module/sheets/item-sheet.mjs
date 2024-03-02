@@ -112,9 +112,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     const bonuses = [];
     const limitations = [];
   
-    // console.log("*****************TEST******************");
-    // console.log(context);
-    // Iterate through items, allocating to containers
+      // Iterate through items, allocating to containers
     // TODO bonus is not a valid choice
     // for (let i of context.items) {
     //   i.img = i.img || Item.DEFAULT_ICON;

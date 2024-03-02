@@ -87,13 +87,10 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     // calculate initiative mod
-
-    
-    console.log("=====================TEST1 for initiative=====================");
-  CONFIG.Combat.initiative = {
-    formula: '1d10 + @attributes.dex.value + @attributes.int.value + @attributes.infl.value +@initiativeBonus.value',
-    decimals: 0,
-  };
+    CONFIG.Combat.initiative = {
+      formula: '1d10 + @attributes.dex.value + @attributes.int.value + @attributes.infl.value +@initiativeBonus.value',
+      decimals: 0,
+    };
 
         // TODO initiative
     // Martial artist gives a +2
@@ -253,7 +250,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    console.log("************TEST ITEM ROLL1: "+dataset.rollType);
+    console.log("************TEST ACTOR ROLL1: "+dataset.rollType);
 
     // Handle item rolls.
     if (dataset.rollType) {
@@ -261,6 +258,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) {
+          console.log("************TEST ACTOR ROLL5");
           console.log(item);
           return item.roll();
         }
@@ -269,15 +267,14 @@ export class DCHeroesActorSheet extends ActorSheet {
  
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      console.log("************TEST ITEM ROLL5");
-      let label = dataset.label ? `[attribute] ${dataset.label}` : '';
+       let label = dataset.label ? `[attribute] ${dataset.label}` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
         rollMode: game.settings.get('core', 'rollMode'),
       });
-      console.log("************TEST ITEM ROLL6");
+      console.log("************TEST ACTOR ROLL6");
       console.log(roll);
       return roll;
     }
