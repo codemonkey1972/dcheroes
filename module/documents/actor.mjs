@@ -90,6 +90,7 @@ export class DCHeroesActor extends Actor {
     }
 
     // TODO
+    console.error("************TEST: _getCharacterRollData");
     console.error(data);
   }
 
