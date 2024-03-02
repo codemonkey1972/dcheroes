@@ -87,9 +87,9 @@ export class DCHeroesActorSheet extends ActorSheet {
     // TODO initiative
     // Martial artist gives a +2
     let initiativeBonus = 0;
-    console.log("*************** TEST POWERS");
-    console.log(context);
-    
+    console.error("*************** TEST POWERS");
+    console.error(context);
+
     // Superspeed adds APs of their power
     if (this._hasAbility(context.powers, "Superspeed")) { // TODO use UID system for powers? also use constant
       initiativeBonus += this._getAbilityAPs(context.powers, "Superspeed");
@@ -111,11 +111,11 @@ export class DCHeroesActorSheet extends ActorSheet {
     array.forEach(attribute => {
       console.error(attribute.name);
       if (attribute.name === name) {
-        console.error("true");
+        console.error("_hasAbility: true");
         return true;
       }
     });
-    console.error("false");
+    console.error("_hasAbility: false");
     return false;
   }
 
@@ -127,7 +127,9 @@ export class DCHeroesActorSheet extends ActorSheet {
   _getAbilityAPs(array, name) {
     array.forEach(attribute => {
       if (attribute.name === "Superspeed") {
-        return attribute;
+        console.error("TEST: _getAbilityAPs");
+        console.error(attribute);
+        return attribute.aps;
       }
     });
     return false;
