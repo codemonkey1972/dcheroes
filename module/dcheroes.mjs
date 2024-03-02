@@ -28,8 +28,9 @@ Hooks.once('init', function () {
    * Set an initiative formula for the system
    * @type {String}
    */
+  // TODO remove 1 in formula below
   CONFIG.Combat.initiative = {
-    formula: '1d10 + 1 + @attributes.dex.value + @attributes.int.value + @attributes.infl.value +@initiativeBonus.value',
+    formula: '1d10 + 1 + @attributes.int.value + @attributes.infl.value +@initiativeBonus.value + @attributes.dex.value',
     decimals: 0,
   };
 

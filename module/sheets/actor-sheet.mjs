@@ -87,8 +87,9 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     // calculate initiative mod
+      // TODO remove 2 in formula below
     CONFIG.Combat.initiative = {
-      formula: '1d10 + 2 + @attributes.dex.value + @attributes.int.value + @attributes.infl.value +@initiativeBonus.value',
+      formula: '1d10 + 2 + @attributes.int.value + @attributes.infl.value +@initiativeBonus.value + @attributes.dex.value',
       decimals: 0,
     };
 
