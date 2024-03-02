@@ -87,6 +87,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     // TODO initiative
     // Martial artist gives a +2
     // Superspeed adds APs of their power
+    console.log("*************** TEST POWERS");
+    console.log(context);
     // Lightning Reflexes gives +2
     // Water Freedom applies when submerged in water
 
