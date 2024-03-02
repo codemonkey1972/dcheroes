@@ -122,14 +122,15 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @param {*} name 
    */
   _getAbilityAPs(array, name) {
+    let aps = 0;
     array.forEach(attribute => {
-      console.log("TEST: attribute = " + attribute.name);
       if (attribute.name === name) {
         console.error("TEST: attribute.system.aps = "+attribute.system.aps);
-        return attribute.system.aps;
+        aps = attribute.system.aps;
       }
     });
-    return 0;
+    console.error("TEST: aps = " + aps);
+    return aps;
 
   }
 
