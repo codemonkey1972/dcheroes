@@ -106,7 +106,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    */
   _hasAbility(array, name) {
     console.log(array);
-    hasAbility = false;
+    let hasAbility = false;
     array.forEach(attribute => {
        if (attribute.name === name) {
         hasAbility = true;
