@@ -83,14 +83,34 @@ export class DCHeroesActorSheet extends ActorSheet {
       v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
 
-    // calculate initiativeBonus
-    // TODO initiative
-    // Martial artist gives a +2
-    // Superspeed adds APs of their power
-    console.log("*************** TEST POWERS");
-    console.log(context);
-    // Lightning Reflexes gives +2
-    // Water Freedom applies when submerged in water
+  }
+
+  /**
+   * Loop through array to see if it contains designated power/skill
+   * @param {L} array 
+   * @param {*} name 
+   */
+  _hasAbility(array, name) {
+    array.forEach(attribute => {
+      if (attribute.name === "Superspeed") {
+        return true;
+      }
+    });
+    return false;
+  }
+
+  /**
+   * Loop through array to get number of APs in designated power/skill
+   * @param {*} array 
+   * @param {*} name 
+   */
+  _getAbilityAPs(array, name) {
+    array.forEach(attribute => {
+      if (attribute.name === "Superspeed") {
+        return true;
+      }
+    });
+    return false;
 
   }
 
@@ -152,6 +172,21 @@ export class DCHeroesActorSheet extends ActorSheet {
     context.drawbacks = drawbacks;
     context.subskills = subskills;
     context.gadgets = gadgets;
+
+    // calculate initiativeBonus
+    // TODO initiative
+    // Martial artist gives a +2
+    let initiativeBonus = 0;
+    console.log("*************** TEST POWERS");
+    console.log(context);
+
+    // Superspeed adds APs of their power
+    if (_hasAbility(context.powers, "Superspeed")) { // TODO use UID system for powers?
+      initiativeBonus += _getAbilityAPs(context.powers, "Superspeed");
+    }
+    // Lightning Reflexes gives +2
+    // Water Freedom applies when submerged in water
+
   }
 
   /* -------------------------------------------- */
