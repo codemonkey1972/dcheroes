@@ -334,6 +334,10 @@
   color: #1f5079;
 }
 
+.dcheroes .sheet-body div.inactive {
+  background-color: #444749;
+}
+
 .dcheroes .sheet-body .initiative-and-hp input,
 .dcheroes .sheet-body .initiative-and-hp input,
 .dcheroes .attributes .attribute input {
