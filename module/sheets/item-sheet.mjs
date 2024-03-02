@@ -64,7 +64,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     // TODO there's got to be a better way to do this
     context.attributes = context.system.attributes;
 
-    
+  
     // Prepare active effects for easier access
     context.effects = prepareActiveEffectCategories(this.item.effects);
 

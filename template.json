@@ -27,7 +27,7 @@
         },
         "initiativeBonus": {
           "value": 0,
-          "label": "Initiative"
+          "label": "Initiative Bonus"
         },
         "biography": "",
         "wealth": 0,
