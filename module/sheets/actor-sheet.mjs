@@ -90,8 +90,9 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Superspeed adds APs of their power
     if (this._hasAbility(context.powers, "Superspeed")) { // TODO use UID system for powers? also use constant
-      const bonus = this._getAbilityAPs(context.powers, "Superspeed");
-      initiativeBonus = initiativeBonus + bonus;
+      const aps = this._getAbilityAPs(context.powers, "Superspeed");
+      console.log("************TEST: aps = "+aps);
+      initiativeBonus = initiativeBonus + aps;
       console.log("************TEST: initiative bonus = "+initiativeBonus);
     }
     // Lightning Reflexes gives +2
@@ -122,7 +123,9 @@ export class DCHeroesActorSheet extends ActorSheet {
    */
   _getAbilityAPs(array, name) {
     array.forEach(attribute => {
+      console.log("TEST: attribute = " + attribute.name);
       if (attribute.name === name) {
+        console.error("TEST: attribute.system.aps = "+attribute.system.aps);
         return attribute.system.aps;
       }
     });
