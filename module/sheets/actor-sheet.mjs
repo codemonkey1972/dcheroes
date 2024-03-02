@@ -88,7 +88,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Martial artist gives a +2
     let initiativeBonus = 0;
     console.error("*************** TEST POWERS");
-    console.error(context);
+    console.error(initiativeBonus);
 
     // Superspeed adds APs of their power
     if (this._hasAbility(context.powers, "Superspeed")) { // TODO use UID system for powers? also use constant
@@ -97,6 +97,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Lightning Reflexes gives +2
     // Water Freedom applies when submerged in water
     context.system.initiativeBonus.value = initiativeBonus;
+    console.error(initiativeBonus);
  }
 
   /**
@@ -105,7 +106,6 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @param {*} name 
    */
   _hasAbility(array, name) {
-    console.log(array);
     let hasAbility = false;
     array.forEach(attribute => {
        if (attribute.name === name) {
