@@ -110,10 +110,12 @@ export class DCHeroesActorSheet extends ActorSheet {
     console.log(array);
     array.forEach(attribute => {
       console.error(attribute.name);
-      if (attribute.name === "Superspeed") {
+      if (attribute.name === name) {
+        console.error("true");
         return true;
       }
     });
+    console.error("false");
     return false;
   }
 
