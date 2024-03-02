@@ -90,9 +90,6 @@ export class DCHeroesActor extends Actor {
       console.log("======TEST ROLL DATA");
       console.log(data);
   }
-
-    // TODO Add level for easier access, or fall back to 0.
-
   }
 
   /**
