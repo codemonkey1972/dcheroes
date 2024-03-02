@@ -215,6 +215,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Rollable attributes.
     html.on('click', '.rollable', (ev) => {
+      console.error("TEST: Rollable");
       this._onRoll.bind(this);
     });
 
