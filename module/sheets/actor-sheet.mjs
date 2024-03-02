@@ -96,6 +96,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Lightning Reflexes gives +2
     // Water Freedom applies when submerged in water
     context.system.initiativeBonus.value = initiativeBonus;
+
+    console.error(context); // TODO
  }
 
   /**
