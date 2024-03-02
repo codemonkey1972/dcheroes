@@ -268,12 +268,13 @@ export class DCHeroesActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
+    console.log("************TEST ITEM ROLL1: "+dataset.rollType);
 
     // Handle item rolls.
     if (dataset.rollType) {
-      console.log("************TEST ITEM ROLL: "+dataset.rollType);
+      console.log("************TEST ITEM ROLL2");
       if (dataset.rollType == 'item') {
-        console.log("************TEST ITEM ROLL2");
+        console.log("************TEST ITEM ROLL3");
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) {
@@ -281,11 +282,11 @@ export class DCHeroesActorSheet extends ActorSheet {
         }
       }
     }
-    console.log("************TEST ITEM ROLL3");
+    console.log("************TEST ITEM ROLL4");
  
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      console.log("************TEST ITEM ROLL4");
+      console.log("************TEST ITEM ROLL5");
       let label = dataset.label ? `[attribute] ${dataset.label}` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
@@ -293,6 +294,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         flavor: label,
         rollMode: game.settings.get('core', 'rollMode'),
       });
+      console.log("************TEST ITEM ROLL6");
       return roll;
     }
   }
