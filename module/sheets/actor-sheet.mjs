@@ -112,7 +112,6 @@ export class DCHeroesActorSheet extends ActorSheet {
         hasAbility = true;
       }
     });
-    console.error("_hasAbility: " + name + " : " + hasAbility);
     return hasAbility;
   }
 
@@ -126,7 +125,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       if (attribute.name === name) {
         console.error("TEST: _getAbilityAPs");
         console.error(attribute);
-        return attribute.aps;
+        return attribute.system.aps;
       }
     });
     return false;
