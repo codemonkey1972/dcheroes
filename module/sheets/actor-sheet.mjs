@@ -90,7 +90,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     
     console.log("=====================TEST1 for initiative=====================");
-    console.log(context.system.initiativeBonus);
+    console.log(context.system.initiativeBonus.value);
     // Loop through ability scores, and add their modifiers to our sheet output.
     // for (let [key, ability] of Object.entries(systemData.abilities)) {
     //   // Calculate the modifier using d20 rules.
@@ -99,11 +99,11 @@ export class DCHeroesActorSheet extends ActorSheet {
     // }
    //initiativeBonus.value
 
-    context.system.initiativeBonus = context.system.attributes.dex.value 
+    context.system.initiativeBonus.value = context.system.attributes.dex.value 
         + context.system.attributes.int.value 
         + context.system.attributes.infl.value;
 
-        console.log(context.system.initiativeBonus);
+        console.log(context.system.initiativeBonus.value);
  
         // TODO initiative
     // Martial artist gives a +2
