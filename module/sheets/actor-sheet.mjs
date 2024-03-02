@@ -90,12 +90,13 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Superspeed adds APs of their power
     if (this._hasAbility(context.powers, "Superspeed")) { // TODO use UID system for powers? also use constant
-      initiativeBonus += this._getAbilityAPs(context.powers, "Superspeed");
+      const bonus = this._getAbilityAPs(context.powers, "Superspeed");
+      initiativeBonus += bonus;
     }
     // Lightning Reflexes gives +2
     // Water Freedom applies when submerged in water
     context.system.initiativeBonus.value = initiativeBonus;
-    console.error(context);
+    console.error(context.system);
  }
 
   /**
@@ -122,11 +123,11 @@ export class DCHeroesActorSheet extends ActorSheet {
     array.forEach(attribute => {
       if (attribute.name === name) {
         console.error("TEST: _getAbilityAPs");
-        console.error(attribute);
+        console.error(attribute + " : " + attribute.system.aps);
         return attribute.system.aps;
       }
     });
-    return false;
+    return 0;
 
   }
 
