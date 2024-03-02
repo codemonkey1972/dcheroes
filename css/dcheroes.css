@@ -325,6 +325,7 @@
 .dcheroes .sheet-body .initiative-and-hp .hero-points,
 .dcheroes .attributes .attribute {
   border: 2px solid #1f5079;
+  font-size: 22px;
 }
 
 .dcheroes .sheet-body .initiative-and-hp label,
@@ -334,10 +335,10 @@
 }
 
 .dcheroes .sheet-body .initiative-and-hp input,
+.dcheroes .sheet-body .initiative-and-hp input,
 .dcheroes .attributes .attribute input {
   border: none;
   padding: 0;
-  font-size: 22px;
 }
 
 .dcheroes .attributes .attribute select {
