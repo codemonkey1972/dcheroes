@@ -273,14 +273,19 @@ export class DCHeroesActorSheet extends ActorSheet {
     if (dataset.rollType) {
       console.log("************TEST ITEM ROLL: "+dataset.rollType);
       if (dataset.rollType == 'item') {
+        console.log("************TEST ITEM ROLL2");
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
-        if (item) return item.roll();
+        if (item) {
+          return item.roll();
+        }
       }
     }
-
+    console.log("************TEST ITEM ROLL3");
+ 
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
+      console.log("************TEST ITEM ROLL4");
       let label = dataset.label ? `[attribute] ${dataset.label}` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
       roll.toMessage({
