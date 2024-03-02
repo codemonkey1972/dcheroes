@@ -39,9 +39,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     // editable, the items array, and the effects array.
     const context = super.getData();
 
-    // console.log("**********TEST ACTOR***********");
-    // console.log(context);
-
     // Use a safe clone of the actor data for further operations.
     const actorData = context.data;
 
@@ -86,14 +83,8 @@ export class DCHeroesActorSheet extends ActorSheet {
       v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
 
-    // calculate initiative mod
-      // TODO remove 2 in formula below
-    CONFIG.Combat.initiative = {
-      formula: '1d10 + 2 + @attributes.int.value + @attributes.infl.value +@initiativeBonus.value + @attributes.dex.value',
-      decimals: 0,
-    };
-
-        // TODO initiative
+    // calculate initiativeBonus
+    // TODO initiative
     // Martial artist gives a +2
     // Superspeed adds APs of their power
     // Lightning Reflexes gives +2
@@ -251,7 +242,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    console.log("************TEST ACTOR ROLL1: "+dataset.rollType);
 
     // Handle item rolls.
     if (dataset.rollType) {
@@ -259,8 +249,6 @@ export class DCHeroesActorSheet extends ActorSheet {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) {
-          console.log("************TEST ACTOR ROLL5");
-          console.log(item);
           return item.roll();
         }
       }
@@ -275,8 +263,6 @@ export class DCHeroesActorSheet extends ActorSheet {
         flavor: label,
         rollMode: game.settings.get('core', 'rollMode'),
       });
-      console.log("************TEST ACTOR ROLL6");
-      console.log(roll);
       return roll;
     }
   }

@@ -87,8 +87,6 @@ export class DCHeroesActor extends Actor {
       for (let [k, v] of Object.entries(data.attributes)) {
         data[k] = foundry.utils.deepClone(v);
       }
-      console.log("======TEST ROLL DATA");
-      console.log(data);
   }
   }
 

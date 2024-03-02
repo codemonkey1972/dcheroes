@@ -30,7 +30,7 @@ Hooks.once('init', function () {
    */
   // TODO remove 1 in formula below
   CONFIG.Combat.initiative = {
-    formula: '1d10 + 1 + @attributes.int.value + @attributes.infl.value +@initiativeBonus.value + @attributes.dex.value',
+    formula: '1d10 + @attributes.dex.value + @attributes.int.value + @attributes.infl.value +@initiativeBonus.value',
     decimals: 0,
   };
 
