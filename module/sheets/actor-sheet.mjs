@@ -105,17 +105,15 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @param {*} name 
    */
   _hasAbility(array, name) {
-    console.error("IN _hasAbility: "+name);
     console.log(array);
+    hasAbility = false;
     array.forEach(attribute => {
-      console.error(attribute.name);
-      if (attribute.name === name) {
-        console.error("_hasAbility: true");
-        return true;
+       if (attribute.name === name) {
+        hasAbility = true;
       }
     });
-    console.error("_hasAbility: false");
-    return false;
+    console.error("_hasAbility: " + name + " : " + hasAbility);
+    return hasAbility;
   }
 
   /**
@@ -125,7 +123,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    */
   _getAbilityAPs(array, name) {
     array.forEach(attribute => {
-      if (attribute.name === "Superspeed") {
+      if (attribute.name === name) {
         console.error("TEST: _getAbilityAPs");
         console.error(attribute);
         return attribute.aps;
