@@ -83,6 +83,21 @@ export class DCHeroesActorSheet extends ActorSheet {
       v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
 
+    // calculate initiativeBonus
+    // TODO initiative
+    // Martial artist gives a +2
+    let initiativeBonus = 0;
+    console.log("*************** TEST POWERS");
+    console.log(context);
+
+    // Superspeed adds APs of their power
+    if (this._hasAbility(context.powers, "Superspeed")) { // TODO use UID system for powers? also use constant
+      initiativeBonus += this._getAbilityAPs(context.powers, "Superspeed");
+    }
+    // Lightning Reflexes gives +2
+    // Water Freedom applies when submerged in water
+    context.system.initiativeBonus = initiativeBonus;
+
   }
 
   /**
@@ -164,30 +179,15 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
   }
 
-    // Assign and return
-    context.powers = powers;
-    context.features = features; // TODO remove
-    context.skills = skills;
-    context.advantages = advantages;
-    context.drawbacks = drawbacks;
-    context.subskills = subskills;
-    context.gadgets = gadgets;
-
-    // calculate initiativeBonus
-    // TODO initiative
-    // Martial artist gives a +2
-    let initiativeBonus = 0;
-    console.log("*************** TEST POWERS");
-    console.log(context);
-
-    // Superspeed adds APs of their power
-    if (_hasAbility(context.powers, "Superspeed")) { // TODO use UID system for powers?
-      initiativeBonus += _getAbilityAPs(context.powers, "Superspeed");
-    }
-    // Lightning Reflexes gives +2
-    // Water Freedom applies when submerged in water
-
-  }
+  // Assign and return
+  context.powers = powers;
+  context.features = features; // TODO remove
+  context.skills = skills;
+  context.advantages = advantages;
+  context.drawbacks = drawbacks;
+  context.subskills = subskills;
+  context.gadgets = gadgets;
+}
 
   /* -------------------------------------------- */
 
