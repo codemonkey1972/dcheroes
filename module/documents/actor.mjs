@@ -48,57 +48,6 @@ export class DCHeroesActor extends Actor {
     const systemData = actorData.system;
 
     // derived data goes here
- 
-    // calculate initiativeBonus
-    // TODO initiative
-    // Martial artist gives a +2
-    let initiativeBonus = 0;
-    console.error("*************** TEST POWERS");
-    console.error(actorData);
-
-    // Superspeed adds APs of their power
-    if (this._hasAbility(actorData.powers, "Superspeed")) { // TODO use UID system for powers? also use constant
-      initiativeBonus += this._getAbilityAPs(actorData.powers, "Superspeed");
-    }
-    // Lightning Reflexes gives +2
-    // Water Freedom applies when submerged in water
-    actorData.system.initiativeBonus.value = initiativeBonus;
-  }
-
-  /**
-   * Loop through array to see if it contains designated power/skill
-   * @param {L} array 
-   * @param {*} name 
-   */
-  _hasAbility(array, name) {
-    console.error("IN _hasAbility: "+name);
-    console.log(array);
-    array.forEach(attribute => {
-      console.error(attribute.name);
-      if (attribute.name === name) {
-        console.error("_hasAbility: true");
-        return true;
-      }
-    });
-    console.error("_hasAbility: false");
-    return false;
-  }
-
-  /**
-   * Loop through array to get number of APs in designated power/skill
-   * @param {*} array 
-   * @param {*} name 
-   */
-  _getAbilityAPs(array, name) {
-    array.forEach(attribute => {
-      if (attribute.name === "Superspeed") {
-        console.error("TEST: _getAbilityAPs");
-        console.error(attribute);
-        return attribute.aps;
-      }
-    });
-    return false;
-
   }
 
   /**
