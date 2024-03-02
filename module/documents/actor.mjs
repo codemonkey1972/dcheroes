@@ -47,26 +47,8 @@ export class DCHeroesActor extends Actor {
     // Make modifications to data here. For example:
     const systemData = actorData.system;
 
-
-    console.log("TEST for initiative: ");
-    console.log(systemData);
-    // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(systemData.abilities)) {
-      // Calculate the modifier using d20 rules.
-      console.log(ability);
-      ability.mod = Math.floor((ability.value - 10) / 2);
-    }
-
-
-    // TODO derived data goes here: initiative, etc.
-    //initiativeBonus.value
-
-        // TODO initiative
-    // Martial artist gives a +2
-    // Superspeed adds APs of their power
-    // Lightning Reflexes gives +2
-    // Water Freedom applies when submerged in water
-
+    // derived data goes here: initiative, etc.
+ 
   }
 
   /**

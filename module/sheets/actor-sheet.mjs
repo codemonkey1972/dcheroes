@@ -85,6 +85,26 @@ export class DCHeroesActorSheet extends ActorSheet {
     for (let [k, v] of Object.entries(context.system.attributes)) {
       v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
+
+    // calculate initiative mod
+
+    
+    console.log("=====================TEST for initiative=====================");
+    console.log(context);
+    // Loop through ability scores, and add their modifiers to our sheet output.
+    // for (let [key, ability] of Object.entries(systemData.abilities)) {
+    //   // Calculate the modifier using d20 rules.
+    //   console.log(ability);
+    //   ability.mod = Math.floor((ability.value - 10) / 2);
+    // }
+   //initiativeBonus.value
+
+        // TODO initiative
+    // Martial artist gives a +2
+    // Superspeed adds APs of their power
+    // Lightning Reflexes gives +2
+    // Water Freedom applies when submerged in water
+
   }
 
   /**
