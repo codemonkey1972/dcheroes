@@ -54,8 +54,6 @@ Hooks.once('init', function () {
     label: 'DCHEROES.SheetLabels.Item',
   });
 
-
-
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
 });
@@ -90,11 +88,9 @@ Handlebars.registerHelper('notCond', function(v1, v2) {
 });
 
 Handlebars.registerHelper('doesSubskillBelongToSkill', function(subskill, skillName) {
-  console.log("TEST: " + subskill.link + " | " + skillName);
+  // TODO console.log("TEST: " + subskill.link + " | " + skillName);
   return (subskill.link === skillName);
 });
-
-
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */

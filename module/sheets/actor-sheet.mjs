@@ -90,15 +90,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     
     console.log("=====================TEST1 for initiative=====================");
-
-    // Loop through ability scores, and add their modifiers to our sheet output.
-    // for (let [key, ability] of Object.entries(systemData.abilities)) {
-    //   // Calculate the modifier using d20 rules.
-    //   console.log(ability);
-    //   ability.mod = Math.floor((ability.value - 10) / 2);
-    // }
-   //initiativeBonus.value
-   CONFIG.Combat.initiative = {
+  CONFIG.Combat.initiative = {
     formula: '1d10 + @attributes.dex.value + @attributes.int.value + @attributes.infl.value +@initiativeBonus.value',
     decimals: 0,
   };

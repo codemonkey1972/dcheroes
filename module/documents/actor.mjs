@@ -47,9 +47,8 @@ export class DCHeroesActor extends Actor {
     // Make modifications to data here. For example:
     const systemData = actorData.system;
 
-    // derived data goes here: initiative, etc.
- 
-  }
+    // derived data goes here
+   }
 
   /**
    * Prepare NPC type specific data.
@@ -87,6 +86,9 @@ export class DCHeroesActor extends Actor {
     if (data.attributes) {
       for (let [k, v] of Object.entries(data.attributes)) {
         data[k] = foundry.utils.deepClone(v);
+        console.log("======TEST ROLL DATA");
+        console.log(k);
+        console.log(data[k]);
       }
     }
 
