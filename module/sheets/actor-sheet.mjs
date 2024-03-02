@@ -257,17 +257,15 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Handle item rolls.
     if (dataset.rollType) {
-      console.log("************TEST ITEM ROLL2");
       if (dataset.rollType == 'item') {
-        console.log("************TEST ITEM ROLL3");
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) {
+          console.log(item);
           return item.roll();
         }
       }
     }
-    console.log("************TEST ITEM ROLL4");
  
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
@@ -280,6 +278,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         rollMode: game.settings.get('core', 'rollMode'),
       });
       console.log("************TEST ITEM ROLL6");
+      console.log(roll);
       return roll;
     }
   }
