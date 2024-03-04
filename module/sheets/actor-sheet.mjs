@@ -49,7 +49,6 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Prepare character data and items.
     if (actorData.type == 'character') {
-      console.error("************TEST:actor-sheet.mjs getData");
       this._prepareItems(context);
       this._prepareCharacterData(context);
     }
@@ -86,29 +85,17 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     const initiativeBonus = this._calculateInitiativeBonus(context);
-    console.error("************TEST:actor-sheet.mjs _prepareCharacterData: Getting initiative bonus: "+initiativeBonus);
-    
-    // set on roll data
- //   context.rollData.initiativeBonus.value = initiativeBonus;
 
-//    
-//    context.document.system.initiativeBonus.value = initiativeBonus;
-   console.error(context); // actor
-  // console.error(this); // sheet
-
-  // set value on actor sheet object
+    // set value on actor sheet object
   context.system.initiativeBonus.value = initiativeBonus; // works for sheet display
 
   // TODO set value on actor object ISyemkRswRAe5fb6
-  // context.actor -> actor object from here
-  
   // context.actor.system.initiativeBonus.value = initiativeBonus; // already changes
   // this.object.system.initiativeBonus.value = initiativeBonus; //does not change in actor.mjs
-  const actorId = context.actor._id;
-  console.error("TEST: actorId: "+actorId);
-  let actor = game.actors.get(actorId);
-  actor.system.initiativeBonus.value = initiativeBonus;
-  console.error(actor);
+
+  // const actorId = context.actor._id;
+  // let actor = game.actors.get(actorId);
+  // actor.system.initiativeBonus.value = initiativeBonus; // does not change in actor.js
 }
 
 _calculateInitiativeBonus(context) {
