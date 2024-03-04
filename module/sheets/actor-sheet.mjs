@@ -85,7 +85,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
 
-    context.initiativeBonus = this._calculateInitiativeBonus(context);
+    context.initiativeBonus.value = this._calculateInitiativeBonus(context);
     console.error("************TEST:actor-sheet.mjs _prepareCharacterData: Getting initiative bonus: "+context.initiativeBonus);
     console.error(this);
   }
