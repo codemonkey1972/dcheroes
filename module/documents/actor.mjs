@@ -48,7 +48,7 @@ export class DCHeroesActor extends Actor {
     const systemData = actorData.system;
     
     // TODO
-    console.error("************TEST: _getCharacterRollData: Getting sheet data");
+    console.error("************TEST: _prepareCharacterData: Getting sheet data");
     console.error(this._source.system);
   }
 
@@ -132,6 +132,10 @@ export class DCHeroesActor extends Actor {
    */
   _getCharacterRollData(data) {
     if (this.type !== 'character') return;
+
+    // TODO
+    console.error("************TEST: _getCharacterRollData: Getting sheet data");
+    console.error(this._source.system);
   }
 
   /**
