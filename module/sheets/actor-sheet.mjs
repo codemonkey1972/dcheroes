@@ -101,7 +101,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
   // says id for actor is ISyemkRswRAe5fb6
   // 
-  const actorId = system.actor._id;
+  const actorId = context.system.actor._id;
   console.error("TEST: actorId: "+actorId);
   let actor = game.actors.get(actorId);
   console.error(actor);
