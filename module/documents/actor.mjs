@@ -50,8 +50,6 @@ export class DCHeroesActor extends Actor {
 
   _calculateInitiativeBonus(context) {
     // calculate initiativeBonus
-    // TODO initiative - not working
-    // Martial artist gives a +2
     let initiativeBonus = 0;
 
     // Superspeed adds APs of their power
@@ -59,8 +57,21 @@ export class DCHeroesActor extends Actor {
       const aps = this._getAbilityAPs(context.powers, "Superspeed");
       initiativeBonus = initiativeBonus + aps;
     }
+
+    // Martial artist gives a +2
+    if (this._hasAbility(context.skills, "Martial Artist")) { // TODO use UID system for powers? also use constant
+      initiativeBonus = initiativeBonus + 2;
+    }
+
     // Lightning Reflexes gives +2
+    if (this._hasAbility(context.advantages, "Lightning Reflexes")) { // TODO use UID system for powers? also use constant
+      initiativeBonus = initiativeBonus + 2;
+    }
+
     // Water Freedom applies when submerged in water
+    // TODO a checkbox for is in water?
+
+    // TODO do we need both of these?
     context.system.initiativeBonus.value = initiativeBonus;
     context.document.system.initiativeBonus.value = initiativeBonus;
 
