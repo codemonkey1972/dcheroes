@@ -190,6 +190,9 @@ export class DCHeroesActorSheet extends ActorSheet {
   context.drawbacks = drawbacks;
   context.subskills = subskills;
   context.gadgets = gadgets;
+
+  console.log("===========ACTOR SHEET DATA:");
+  console.log(context);
 }
 
   /* -------------------------------------------- */
