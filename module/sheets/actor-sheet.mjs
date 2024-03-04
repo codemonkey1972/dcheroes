@@ -85,7 +85,9 @@ export class DCHeroesActorSheet extends ActorSheet {
       v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
 
-    context.initiativeBonus.value = this._calculateInitiativeBonus(context);
+    const initiativeBonus = this._calculateInitiativeBonus(context);
+    context.system.initiativeBonus.value = initiativeBonus;
+    context.document.system.initiativeBonus.value = initiativeBonus;
     console.error("************TEST:actor-sheet.mjs _prepareCharacterData: Getting initiative bonus: "+context.initiativeBonus);
     console.error(this);
   }
@@ -103,10 +105,6 @@ _calculateInitiativeBonus(context) {
     }
     // Lightning Reflexes gives +2
     // Water Freedom applies when submerged in water
-    context.system.initiativeBonus.value = initiativeBonus;
-    context.document.system.initiativeBonus.value = initiativeBonus;
-
-    console.error(context); // TODO
 
     return initiativeBonus;
 }
