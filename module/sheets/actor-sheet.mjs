@@ -324,8 +324,15 @@ _calculateInitiativeBonus(context) {
  
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
+      // what's being rolled (used for display)
       let label = dataset.label ? `[attribute] ${dataset.label}` : '';
+
+      // roll being made
+      // TODO subclass of Roll to handle table
+      console.error(this.actor.getRollData());
       let roll = new Roll(dataset.roll, this.actor.getRollData());
+
+      // results output to chat
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
