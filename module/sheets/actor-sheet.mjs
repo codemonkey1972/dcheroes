@@ -93,7 +93,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
 //    
 //    context.document.system.initiativeBonus.value = initiativeBonus;
-  // console.error(context); // actor
+   console.error(context); // actor
   // console.error(this); // sheet
 
   // set value on actor sheet object
