@@ -195,11 +195,7 @@ _calculateInitiativeBonus(context) {
   context.subskills = subskills;
   context.gadgets = gadgets;
 
-  console.log("===========ACTOR SHEET DATA:");
-  console.log(context);
-
-  const initiativeBonus = this._calculateInitiativeBonus(context);
-  console.log(initiativeBonus);
+  context.initiativeBonus = this._calculateInitiativeBonus(context);
 }
 
   /* -------------------------------------------- */
