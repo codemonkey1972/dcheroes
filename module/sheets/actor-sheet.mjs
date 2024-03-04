@@ -198,7 +198,7 @@ _calculateInitiativeBonus(context) {
   console.log("===========ACTOR SHEET DATA:");
   console.log(context);
 
-  const initiativeBonus = this._calculateInitiativeBonus(system);
+  const initiativeBonus = this._calculateInitiativeBonus(context);
   console.log(initiativeBonus);
 }
 
