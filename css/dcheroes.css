@@ -55,7 +55,7 @@
 }
 
 .roll-table:hover, .roll-table:focus {
-  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000;
   cursor: pointer;
 }
 
