@@ -91,12 +91,13 @@ export class DCHeroesActorSheet extends ActorSheet {
     // set on roll data
  //   context.rollData.initiativeBonus.value = initiativeBonus;
 
-//    context.system.initiativeBonus.value = initiativeBonus;
+//    
 //    context.document.system.initiativeBonus.value = initiativeBonus;
   console.error(context);
   console.error(this);
 
-  // TODO set value on actor sheet object
+  // set value on actor sheet object
+  context.system.initiativeBonus.value = initiativeBonus;
 
   // TODO set value on actor object
 }
