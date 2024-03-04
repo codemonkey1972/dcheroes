@@ -82,7 +82,9 @@ export class DCHeroesActorSheet extends ActorSheet {
     for (let [k, v] of Object.entries(context.system.attributes)) {
       v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
- 
+}
+
+_calculateInitiativeBonus(context) {
     // calculate initiativeBonus
     // TODO initiative
     // Martial artist gives a +2
@@ -99,9 +101,11 @@ export class DCHeroesActorSheet extends ActorSheet {
     context.document.system.initiativeBonus.value = initiativeBonus;
 
     console.error(context); // TODO
- }
 
-  /**
+    return initiativeBonus;
+}
+
+/**
    * Loop through array to see if it contains designated power/skill
    * @param {L} array 
    * @param {*} name 
@@ -193,6 +197,9 @@ export class DCHeroesActorSheet extends ActorSheet {
 
   console.log("===========ACTOR SHEET DATA:");
   console.log(context);
+
+  const initiativeBonus = this._calculateInitiativeBonus(system);
+  console.log(initiativeBonus);
 }
 
   /* -------------------------------------------- */
