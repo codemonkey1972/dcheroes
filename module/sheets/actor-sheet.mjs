@@ -235,26 +235,6 @@ _calculateInitiativeBonus(context) {
       li.slideUp(200, () => this.render(false));
     });
 
-    
-    // roll on table
-    html.on('click', '.roll-table', (ev) => {
-      // TODO
-      console.error("====TEST: onClick roll-table");
-      console.error(ev);
-
-      // TODO popup for OV
-
-      // TODO consult action chart fro difficulty
-
-      // TODO roll
-
-      // TODO determine whether happens
-
-      // TODO popup for RV
-
-      
-    });
-
     // Active Effect management
     // TODO delete
     // html.on('click', '.effect-control', (ev) => {
@@ -319,6 +299,18 @@ _calculateInitiativeBonus(context) {
     const dataset = element.dataset;
 
     console.error("TEST: "+dataset.rollType+" : "+dataset.roll);
+
+          // TODO popup for OV
+
+      // TODO consult action chart fro difficulty
+
+      // TODO roll
+
+      // TODO determine whether happens
+
+      // TODO popup for RV
+
+
     // Handle item rolls.
     if (dataset.rollType) {
       if (dataset.rollType == 'item') {
