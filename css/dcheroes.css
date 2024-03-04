@@ -54,6 +54,11 @@
   cursor: pointer;
 }
 
+.roll-table:hover, .roll-table:focus {
+  color: #ff0000;
+  cursor: pointer;
+}
+
 .grid,
 .grid-2col {
   display: grid;
