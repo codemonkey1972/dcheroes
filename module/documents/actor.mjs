@@ -130,8 +130,8 @@ export class DCHeroesActor extends Actor {
     if (this.type !== 'character') return;
 
     // TODO
-    console.error("************TEST:actor.mjs _getCharacterRollData: Getting sheet data");
-    console.error(this._source.system);
+    // console.error("************TEST:actor.mjs _getCharacterRollData: Getting sheet data");
+    // console.error(this._source.system);
   }
 
   /**
