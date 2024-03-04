@@ -82,7 +82,9 @@ export class DCHeroesActorSheet extends ActorSheet {
     for (let [k, v] of Object.entries(context.system.attributes)) {
       v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
-}
+
+    context.initiativeBonus = this._calculateInitiativeBonus(context);
+  }
 
 _calculateInitiativeBonus(context) {
     // calculate initiativeBonus
@@ -194,8 +196,6 @@ _calculateInitiativeBonus(context) {
   context.drawbacks = drawbacks;
   context.subskills = subskills;
   context.gadgets = gadgets;
-
-  context.initiativeBonus = this._calculateInitiativeBonus(context);
 }
 
   /* -------------------------------------------- */

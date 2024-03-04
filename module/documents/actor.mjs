@@ -46,9 +46,61 @@ export class DCHeroesActor extends Actor {
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
-
-    // derived data goes here
+    
+    // TODO
+    console.error("************TEST: _getCharacterRollData: Getting sheet data");
+    console.error(this._source.system);
   }
+
+  _calculateInitiativeBonus(context) {
+    // calculate initiativeBonus
+    // TODO initiative
+    // Martial artist gives a +2
+    let initiativeBonus = 0;
+
+    // Superspeed adds APs of their power
+    if (this._hasAbility(context.powers, "Superspeed")) { // TODO use UID system for powers? also use constant
+      const aps = this._getAbilityAPs(context.powers, "Superspeed");
+      initiativeBonus = initiativeBonus + aps;
+    }
+    // Lightning Reflexes gives +2
+    // Water Freedom applies when submerged in water
+    context.system.initiativeBonus.value = initiativeBonus;
+    context.document.system.initiativeBonus.value = initiativeBonus;
+
+    return initiativeBonus;
+}
+
+/**
+   * Loop through array to see if it contains designated power/skill
+   * @param {L} array 
+   * @param {*} name 
+   */
+  _hasAbility(array, name) {
+    let hasAbility = false;
+    array.forEach(attribute => {
+       if (attribute.name === name) {
+        hasAbility = true;
+      }
+    });
+    return hasAbility;
+  }
+
+  /**
+   * Loop through array to get number of APs in designated power/skill
+   * @param {*} array 
+   * @param {*} name 
+   */
+  _getAbilityAPs(array, name) {
+    let aps = 0;
+    array.forEach(attribute => {
+      if (attribute.name === name) {
+        aps = attribute.system.aps;
+      }
+    });
+    return aps;
+  }
+
 
   /**
    * Prepare NPC type specific data.
@@ -80,10 +132,6 @@ export class DCHeroesActor extends Actor {
    */
   _getCharacterRollData(data) {
     if (this.type !== 'character') return;
-
-    // TODO
-    console.error("************TEST: _getCharacterRollData");
-    console.error(this._source);
   }
 
   /**
