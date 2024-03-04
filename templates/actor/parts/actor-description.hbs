@@ -1,2 +1,10 @@
+      <section class="grid-1col">
+        <div class="flex-group-center">
+          <label for="system.alterEgo" class="resource-label flexlarge align-left" data-label="{{system.alterEgo}}">{{localize 'Alter Ego'}}</label>
+          <input type="text" name="system.alterEgo" value="{{system.alterEgo}}" data-dtype="Number"/>
+        </div>
+      </section>
+
+
       {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
       {{editor system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}}
