@@ -33,7 +33,6 @@ export class DCHeroesActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
-    console.error("************TEST:actor-sheet.mjs getData");
  
     // Retrieve the data structure from the base sheet. You can inspect or log
     // the context variable to see the structure, but some key properties for
@@ -50,6 +49,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Prepare character data and items.
     if (actorData.type == 'character') {
+      console.error("************TEST:actor-sheet.mjs getData");
       this._prepareItems(context);
       this._prepareCharacterData(context);
     }
