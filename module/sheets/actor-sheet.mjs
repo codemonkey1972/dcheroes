@@ -93,18 +93,24 @@ export class DCHeroesActorSheet extends ActorSheet {
 
 //    
 //    context.document.system.initiativeBonus.value = initiativeBonus;
-  console.error(context);
-  console.error(this);
+  // console.error(context); // actor
+  // console.error(this); // sheet
 
   // set value on actor sheet object
-  context.system.initiativeBonus.value = initiativeBonus; // works
+  context.system.initiativeBonus.value = initiativeBonus; // works for sheet display
 
   // says id for actor is ISyemkRswRAe5fb6
+  // 
+  const actorId = system.actor._id;
+  console.error("TEST: actorId: "+actorId);
+  let actor = game.actors.get(actorId);
+  console.error(actor);
   
   // TODO set value on actor object ISyemkRswRAe5fb6
   // context.actor -> actor object from here
-  context.actor.system.initiativeBonus.value = initiativeBonus; // already changes
-  this.object.system.initiativeBonus.value = initiativeBonus; //does not change in actor.mjs
+  
+  // context.actor.system.initiativeBonus.value = initiativeBonus; // already changes
+  // this.object.system.initiativeBonus.value = initiativeBonus; //does not change in actor.mjs
 }
 
 _calculateInitiativeBonus(context) {

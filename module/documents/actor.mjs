@@ -133,6 +133,8 @@ export class DCHeroesActor extends Actor {
     console.error("************TEST:actor.mjs _getCharacterRollData: Getting sheet data");
     console.error(this);
 //    console.error(this._source.system);
+// this.system.initiativeBonus.value -> zero
+// id is ISyemkRswRAe5fb6
     
   }
 
