@@ -46,10 +46,6 @@ export class DCHeroesActor extends Actor {
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
-    
-    // TODO
-    console.error("************TEST: _prepareCharacterData: Getting sheet data");
-    console.error(this._source.system);
   }
 
   _calculateInitiativeBonus(context) {
@@ -134,7 +130,7 @@ export class DCHeroesActor extends Actor {
     if (this.type !== 'character') return;
 
     // TODO
-    console.error("************TEST: _getCharacterRollData: Getting sheet data");
+    console.error("************TEST:actor.mjs _getCharacterRollData: Getting sheet data");
     console.error(this._source.system);
   }
 

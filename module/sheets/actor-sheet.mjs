@@ -84,6 +84,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     context.initiativeBonus = this._calculateInitiativeBonus(context);
+    console.error("************TEST:actor-sheet.mjs _prepareCharacterData: Getting initiative bonus: "+context.initiativeBonus);
+
   }
 
 _calculateInitiativeBonus(context) {
