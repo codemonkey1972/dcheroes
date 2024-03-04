@@ -50,7 +50,7 @@ export class DCHeroesActor extends Actor {
 
   _calculateInitiativeBonus(context) {
     // calculate initiativeBonus
-    // TODO initiative
+    // TODO initiative - not working
     // Martial artist gives a +2
     let initiativeBonus = 0;
 
