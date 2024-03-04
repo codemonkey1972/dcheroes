@@ -33,6 +33,8 @@ export class DCHeroesActorSheet extends ActorSheet {
 
   /** @override */
   getData() {
+    console.error("************TEST:actor-sheet.mjs getData");
+ 
     // Retrieve the data structure from the base sheet. You can inspect or log
     // the context variable to see the structure, but some key properties for
     // sheets are the actor object, the data object, whether or not it's
@@ -85,7 +87,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     context.initiativeBonus = this._calculateInitiativeBonus(context);
     console.error("************TEST:actor-sheet.mjs _prepareCharacterData: Getting initiative bonus: "+context.initiativeBonus);
-
+    console.error(this);
   }
 
 _calculateInitiativeBonus(context) {
