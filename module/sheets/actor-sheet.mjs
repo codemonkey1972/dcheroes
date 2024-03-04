@@ -236,7 +236,10 @@ export class DCHeroesActorSheet extends ActorSheet {
     // });
 
     // Rollable attributes.
-    html.on('click', '.rollable', this._onRoll.bind(this));
+// TODO    html.on('click', '.rollable', this._onRoll.bind(this));
+    html.on('click', '.rollable', (ev) => {
+      this._onRoll.bind(this)
+    });
 
     // Drag events for macros.
     if (this.actor.isOwner) {
@@ -288,7 +291,6 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Handle item rolls.
     if (dataset.rollType) {
-      console.error("===============TEST: Handle item rolls");
       if (dataset.rollType == 'item') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
@@ -302,7 +304,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     if (dataset.roll) {
       let label = dataset.label ? `[attribute] ${dataset.label}` : '';
       let roll = new Roll(dataset.roll, this.actor.getRollData());
-      console.error("===============TEST: supply the formula directly");
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,

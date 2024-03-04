@@ -81,14 +81,6 @@ export class DCHeroesActor extends Actor {
   _getCharacterRollData(data) {
     if (this.type !== 'character') return;
 
-    // Copy the attribute scores to the top level, so that rolls can use
-    // formulas like `@str.mod + 4`.
-    // if (data.attributes) {
-    //   for (let [k, v] of Object.entries(data.attributes)) {
-    //     data[k] = foundry.utils.deepClone(v);
-    //   }
-    // }
-
     // TODO
     console.error("************TEST: _getCharacterRollData");
     console.error(data);
