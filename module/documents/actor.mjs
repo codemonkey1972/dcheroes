@@ -108,7 +108,6 @@ export class DCHeroesActor extends Actor {
     return aps;
   }
 
-
   /**
    * Prepare NPC type specific data.
    */

@@ -268,9 +268,7 @@ _calculateInitiativeBonus(context) {
 
     // Rollable attributes.
 // TODO    html.on('click', '.rollable', this._onRoll.bind(this));
-    html.on('click', '.rollable', (ev) => {
-      this._onRoll.bind(this)
-    });
+    html.on('click', '.rollable', this._onRoll.bind(this));
 
     // Drag events for macros.
     if (this.actor.isOwner) {
@@ -320,6 +318,7 @@ _calculateInitiativeBonus(context) {
     const element = event.currentTarget;
     const dataset = element.dataset;
 
+    console.error("TEST: "+dataset.rollType+" : "+dataset.roll);
     // Handle item rolls.
     if (dataset.rollType) {
       if (dataset.rollType == 'item') {
