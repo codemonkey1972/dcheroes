@@ -489,7 +489,9 @@
 .dcheroes .sheet-body div.biography section.description-item {
   padding: 0 0 15px 0;
   font-size: 22px;
-  input {
-    font-family: 'Helvetica', 'Arial', sans-serif;
-  }
+}
+
+.dcheroes .sheet-body div.biography section.description-item input {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 18px;
 }
