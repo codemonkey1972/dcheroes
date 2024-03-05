@@ -336,28 +336,41 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // get range index for AV
       console.error(dataset);
+      console.error(CONFIG.tables);
+
+      let avIndex = 0;
+      for (let i = 0; i < CONFIG.tables.ranges.length; i++) {
+        const range = CONFIG.tables.ranges[i];
+        if (dataset.value >= range[0] &&  dataset.value <= range[1]) {
+          break;
+        }
+      }
+      if (avIndex > 0) avIndex++; // avIndex will always start with 1
+
+      console.error(avIndex);
+      
+    };
 
 
-      // TODO popup for OV
-      const ov = 
+    // TODO popup for OV
+    const ov = 
 
-      // TODO consult action chart fro difficulty
+    // TODO consult action chart fro difficulty
 
-      // TODO roll
+    // TODO roll
 
-      // TODO determine whether happens
+    // TODO determine whether happens
 
-      // TODO popup for RV
+    // TODO popup for RV
 
-      console.error(roll);
+    console.error(roll);
 
-      // results output to chat
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
-      });
-      return roll;
-    }
+    // results output to chat
+    roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: label,
+      rollMode: game.settings.get('core', 'rollMode'),
+    });
+    return roll;
   }
 }
