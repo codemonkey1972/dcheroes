@@ -329,7 +329,7 @@ _calculateInitiativeBonus(context) {
 
       // roll being made
       // TODO subclass of Roll to handle table
-      console.error(this.actor.getRollData());
+      console.error(this.actor);
       let roll = new Roll(dataset.roll, this.actor.getRollData());
 
       // results output to chat
