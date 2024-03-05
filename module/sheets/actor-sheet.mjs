@@ -58,6 +58,12 @@ export class DCHeroesActorSheet extends ActorSheet {
       this._prepareItems(context);
     }
 
+    // Prepare Villain data and items.
+    if (actorData.type == 'villain') {
+      this._prepareItems(context);
+      this._prepareCharacterData(context);
+    }
+
     // Add roll data for TinyMCE editors.
     context.rollData = context.actor.getRollData();
 

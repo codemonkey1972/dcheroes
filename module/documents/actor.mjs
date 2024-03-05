@@ -32,17 +32,30 @@ export class DCHeroesActor extends Actor {
     const systemData = actorData.system;
     const flags = actorData.flags.dcheroes || {};
 
-    // Make separate methods for each Actor type (character, npc, etc.) to keep
+    // Make separate methods for each Actor type (hero, npc, etc.) to keep
     // things organized.
-    this._prepareCharacterData(actorData);
+    this._prepareHeroData(actorData);
+    this._prepareVillainData(actorData);
     this._prepareNpcData(actorData);  
   }
 
   /**
-   * Prepare Character type specific data
+   * Prepare Hero type specific data
    */
-  _prepareCharacterData(actorData) {
+  _prepareHeroData(actorData) {
     if (actorData.type !== 'character') return;
+
+    // Make modifications to data here. For example:
+    const systemData = actorData.system;
+
+    // TODO _calculateInitiativeBonus(actorData);
+  }
+
+  /**
+   * Prepare Villain type specific data
+   */
+  _prepareVillainData(actorData) {
+    if (actorData.type !== 'villain') return;
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
@@ -72,10 +85,6 @@ export class DCHeroesActor extends Actor {
 
     // Water Freedom applies when submerged in water
     // TODO a checkbox for is in water?
-
-    // TODO do we need both of these? why set these here?
-    // context.system.initiativeBonus.value = initiativeBonus;
-    // context.document.system.initiativeBonus.value = initiativeBonus;
 
     return initiativeBonus;
 }
@@ -129,16 +138,17 @@ export class DCHeroesActor extends Actor {
     const data = { ...super.getRollData() };
 
     // Prepare character roll data.
-    this._getCharacterRollData(data);
+    this._getHeroRollData(data);
+    this._getVillainRollData(data);
     this._getNpcRollData(data);
 
     return data;
   }
 
   /**
-   * Prepare character roll data.
+   * Prepare hero roll data.
    */
-  _getCharacterRollData(data) {
+  _getHeroRollData(data) {
     if (this.type !== 'character') return;
   }
 
@@ -147,6 +157,15 @@ export class DCHeroesActor extends Actor {
    */
   _getNpcRollData(data) {
     if (this.type !== 'npc') return;
+
+    // Process additional NPC data here.
+  }
+
+  /**
+   * Prepare NPC roll data.
+   */
+  _getVillainRollData(data) {
+    if (this.type !== 'villain') return;
 
     // Process additional NPC data here.
   }
