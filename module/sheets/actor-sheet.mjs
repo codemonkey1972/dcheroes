@@ -341,7 +341,10 @@ export class DCHeroesActorSheet extends ActorSheet {
       let avIndex = 0;
       for (let i = 0; i < CONFIG.tables.ranges.length; i++) {
         const range = CONFIG.tables.ranges[i];
-        if (dataset.value >= range[0] &&  dataset.value <= range[1]) {
+        const min = range[0];
+        const max = range[1];
+        if (dataset.value >= min &&  dataset.value <= max) {
+          avIndex = i;
           break;
         }
       }
