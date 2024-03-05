@@ -27,8 +27,7 @@ Hooks.once('init', function () {
   // Load MEGS tables
   _loadData('systems/dcheroes/assets/data/tables.json').then((response) => {
     console.log(`Received response: ${response.status}`);
-    console.error(response.actionTable);
-    CONFIG.tables.actionTable = response.actionTable;
+    CONFIG.tables = response;
   });
 
   /**
