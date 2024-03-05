@@ -348,8 +348,7 @@ export class DCHeroesActorSheet extends ActorSheet {
           break;
         }
       }
-      if (avIndex > 0) avIndex++; // avIndex will always start with 1
-
+ 
       console.error(avIndex);
       
     };
