@@ -25,9 +25,11 @@ Hooks.once('init', function () {
   CONFIG.DCHEROES = DCHEROES;
 
   // Load MEGS tables
-  CONFIG.tables = _loadData('systems/dcheroes/assets/data/tables.json');
-  console.error(CONFIG.tables);
-  
+  _loadData('systems/dcheroes/assets/data/tables.json').then((response) => {
+    console.log(`Received response: ${response.status}`);
+    console.error(response);
+  });
+
   /**
    * Set an initiative formula for the system
    * @type {String}
