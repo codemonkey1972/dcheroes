@@ -30,7 +30,6 @@ Hooks.once('init', function () {
     console.error(response.actionTable);
     CONFIG.tables.actionTable = response.actionTable;
   });
-  console.error(CONFIG.tables);
 
   /**
    * Set an initiative formula for the system
