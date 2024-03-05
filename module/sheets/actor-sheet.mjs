@@ -330,27 +330,28 @@ export class DCHeroesActorSheet extends ActorSheet {
       // what's being rolled (used for display)
       let label = dataset.label ? `[attribute] ${dataset.label}` : '';
 
-      // TODO does not currently handle 0 or > 60
+      // TODO does not currently handle 0 for AV or > 60 for either AV or OV
 
       // get range index for AV
-      const avIndex = this._getRangeIndex(dataset.value);
-      console.error(avIndex+" - range is ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
+      const av = dataset.value;
+      const avIndex = this._getRangeIndex(av);
+      console.error(avIndex+" - value is "+av+"; range is ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
 
       // get range index for AV
       const ov = 9; // TODO popup for OV?
       const ovIndex = this._getRangeIndex(ov);
-      console.error(ovIndex);
+      console.error(ovIndex+" - value is "+ov+"; range is ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
  
-      // TODO consult action chart for difficulty
+      // consult action chart for difficulty
       const actionTable = CONFIG.tables.actionTable;
       const difficulty = actionTable[avIndex][ovIndex];
       console.error(difficulty);
 
-      // TODO roll
-
       // TODO determine whether happens
 
-      // TODO popup for RV
+      // TODO how many column shifts?
+
+      // TODO popup for RV?
 
       // TODO consult action chart fro difficulty
 
