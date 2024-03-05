@@ -39,7 +39,7 @@
       },
       "attributes": {
         "attributes": {
-            "dex": {
+          "dex": {
             "value": 0,
             "factorCost": 7,
             "isActionAttribute": true,

@@ -314,8 +314,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
 
-    console.error("TEST: "+dataset.rollType+" : "+dataset.roll);
-
     // Handle item rolls.
     if (dataset.rollType) {
       if (dataset.rollType == 'item') {
