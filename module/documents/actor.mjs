@@ -148,11 +148,4 @@ export class DCHeroesActor extends Actor {
 
     // Process additional NPC data here.
   }
-
-  async rollInitiative(options, rollOptions) {
-    const data = super.rollInitiative(options, rollOptions);
-    console.log("===========TEST: ");
-    console.log(data);
-    return data;
-  }
 }

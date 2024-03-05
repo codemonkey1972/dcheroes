@@ -87,20 +87,21 @@ export class DCHeroesActorSheet extends ActorSheet {
     const initiativeBonus = this._calculateInitiativeBonus(context);
 
     // set value on actor sheet object
-  context.system.initiativeBonus.value = initiativeBonus; // works for sheet display
+    context.system.initiativeBonus.value = initiativeBonus; // works for sheet display
 
-  // TODO set value on actor object ISyemkRswRAe5fb6
-  // context.actor.system.initiativeBonus.value = initiativeBonus; // already changes
-  // this.object.system.initiativeBonus.value = initiativeBonus; //does not change in actor.mjs
+    // TODO set value on actor object
+    // context.actor.system.initiativeBonus.value = initiativeBonus; // already changes
+    // this.object.system.initiativeBonus.value = initiativeBonus; //does not change in actor.mjs
 
-  // const actorId = context.actor._id;
-  // let actor = game.actors.get(actorId);
-  // actor.system.initiativeBonus.value = initiativeBonus; // does not change in actor.js
-}
+    // const actorId = context.actor._id;
+    // let actor = game.actors.get(actorId);
+    // actor.system.initiativeBonus.value = initiativeBonus; // does not change in actor.js
+  }
 
-_calculateInitiativeBonus(context) {
+  _calculateInitiativeBonus(context) {
     // calculate initiativeBonus
-    // TODO initiative
+    // TODO initiative - this.actor.getRollData() needs to be updated
+
     // Martial artist gives a +2
     let initiativeBonus = 0;
 
@@ -113,7 +114,7 @@ _calculateInitiativeBonus(context) {
     // Water Freedom applies when submerged in water
 
     return initiativeBonus;
-}
+  }
 
 /**
    * Loop through array to see if it contains designated power/skill
@@ -247,7 +248,6 @@ _calculateInitiativeBonus(context) {
     // });
 
     // Rollable attributes.
-// TODO    html.on('click', '.rollable', this._onRoll.bind(this));
     html.on('click', '.rollable', this._onRoll.bind(this));
 
     // Drag events for macros.
@@ -300,17 +300,6 @@ _calculateInitiativeBonus(context) {
 
     console.error("TEST: "+dataset.rollType+" : "+dataset.roll);
 
-          // TODO popup for OV
-
-      // TODO consult action chart fro difficulty
-
-      // TODO roll
-
-      // TODO determine whether happens
-
-      // TODO popup for RV
-
-
     // Handle item rolls.
     if (dataset.rollType) {
       if (dataset.rollType == 'item') {
@@ -328,9 +317,20 @@ _calculateInitiativeBonus(context) {
       let label = dataset.label ? `[attribute] ${dataset.label}` : '';
 
       // roll being made
-      // TODO subclass of Roll to handle table
-      console.error(this.actor);
+      // TODO subclass of Roll to handle table?
       let roll = new Roll(dataset.roll, this.actor.getRollData());
+
+      // TODO popup for OV
+
+      // TODO consult action chart fro difficulty
+
+      // TODO roll
+
+      // TODO determine whether happens
+
+      // TODO popup for RV
+
+      console.error(roll);
 
       // results output to chat
       roll.toMessage({
