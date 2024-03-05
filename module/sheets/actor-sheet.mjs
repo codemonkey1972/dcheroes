@@ -92,7 +92,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     const initiativeBonus = this._calculateInitiativeBonus(context);
 
-    console.error(CONFIG.tables);
+    console.error(CONFIG.tables.actionTable);
 
     // set value on actor sheet object
     context.system.initiativeBonus.value = initiativeBonus; // works for sheet display
