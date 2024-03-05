@@ -332,6 +332,9 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // TODO does not currently handle 0 for AV or > 60 for either AV or OV
 
+      /**********************************
+       * ACTION TABLE
+       **********************************/
       // get range index for AV
       const av = dataset.value;
       const avIndex = this._getRangeIndex(av);
@@ -347,28 +350,37 @@ export class DCHeroesActorSheet extends ActorSheet {
       const difficulty = actionTable[avIndex][ovIndex];
       console.error(difficulty);
 
-      // TODO determine whether happens
+      // determine whether happens
+      let avRoll = new Roll(dataset.roll, this.actor.getRollData());
 
-      // TODO how many column shifts?
+
+
+      // TODO if fails, output message
+
+      // TODO if succeeds, how many column shifts?
+
+      /**********************************
+       * RESULT TABLE
+       **********************************/
 
       // TODO popup for RV?
 
       // TODO consult action chart fro difficulty
 
       // roll being made
-      let roll = new Roll(dataset.roll, this.actor.getRollData());
 
       // TODO determine whether happens
 
       // TODO popup for RV
 
     // results output to chat
-    roll.toMessage({
+    avRoll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: label,
       rollMode: game.settings.get('core', 'rollMode'),
     });
-    return roll;
+
+    return avRoll;
   };
 }
 
