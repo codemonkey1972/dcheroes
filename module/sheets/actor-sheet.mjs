@@ -330,42 +330,38 @@ export class DCHeroesActorSheet extends ActorSheet {
       // what's being rolled (used for display)
       let label = dataset.label ? `[attribute] ${dataset.label}` : '';
 
-      // roll being made
-      // TODO subclass of Roll to handle table?
-      let roll = new Roll(dataset.roll, this.actor.getRollData());
+      // TODO does not currently handle 0 or > 60
 
       // get range index for AV
-      console.error(dataset);
-      console.error(CONFIG.tables);
-
-      let avIndex = 0;
-      for (let i = 0; i < CONFIG.tables.ranges.length; i++) {
-        const range = CONFIG.tables.ranges[i];
-        const min = range[0];
-        const max = range[1];
-        if (dataset.value >= min &&  dataset.value <= max) {
-          avIndex = i;
-          break;
-        }
-      }
- 
+      const avIndex = _getRangeIndex(dataset.value);
       console.error(avIndex);
+
+      // get range index for AV
+      const ov = 9; // TODO popup for OV?
+      const ovIndex = _getRangeIndex(ov);
+      console.error(ovIndex);
+ 
+      // TODO consult action chart for difficulty
+      const actionTable = CONFIG.tables.actionTable;
+      const difficulty = actionTable[avIndex][ovIndex];
+
+      // TODO roll
+
+      // TODO determine whether happens
+
+      // TODO popup for RV
+
+      // TODO consult action chart fro difficulty
+
+      // roll being made
+      let roll = new Roll(dataset.roll, this.actor.getRollData());
+
+      // TODO determine whether happens
+
+      // TODO popup for RV
+
       
     };
-
-
-    // TODO popup for OV
-    const ov = 
-
-    // TODO consult action chart fro difficulty
-
-    // TODO roll
-
-    // TODO determine whether happens
-
-    // TODO popup for RV
-
-    console.error(roll);
 
     // results output to chat
     roll.toMessage({
@@ -375,4 +371,20 @@ export class DCHeroesActorSheet extends ActorSheet {
     });
     return roll;
   }
+
+  _getRangeIndex(value) {
+    const ranges = CONFIG.tables.ranges;
+    let index = 0;
+    for (let i = 0; i < ranges.length; i++) {
+      const range = ranges[i];
+      const min = range[0];
+      const max = range[1];
+      if (value >= min && value <= max) {
+        index = i;
+        break;
+      }
+    }
+    return index;
+  }
+
 }
