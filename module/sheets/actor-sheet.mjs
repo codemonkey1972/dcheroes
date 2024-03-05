@@ -344,6 +344,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO consult action chart for difficulty
       const actionTable = CONFIG.tables.actionTable;
       const difficulty = actionTable[avIndex][ovIndex];
+      console.error(difficulty);
 
       // TODO roll
 
@@ -360,9 +361,6 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // TODO popup for RV
 
-      
-    };
-
     // results output to chat
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -370,7 +368,8 @@ export class DCHeroesActorSheet extends ActorSheet {
       rollMode: game.settings.get('core', 'rollMode'),
     });
     return roll;
-  }
+  };
+}
 
   _getRangeIndex(value) {
     const ranges = CONFIG.tables.ranges;
