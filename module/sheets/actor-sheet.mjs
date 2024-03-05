@@ -352,7 +352,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // determine whether happens
       let avRoll = new Roll(dataset.roll, this.actor.getRollData());
-
+      console.error(avRoll);
 
 
       // TODO if fails, output message
