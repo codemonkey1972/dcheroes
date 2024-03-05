@@ -334,7 +334,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // get range index for AV
       const avIndex = this._getRangeIndex(dataset.value);
-      console.error(avIndex);
+      console.error(avIndex+" - range is ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
 
       // get range index for AV
       const ov = 9; // TODO popup for OV?
