@@ -28,9 +28,10 @@ Hooks.once('init', function () {
   _loadData('systems/dcheroes/assets/data/tables.json').then((response) => {
     console.log(`Received response: ${response.status}`);
     console.error(response.actionTable);
-    CONFIG.tables = response;
+    CONFIG.tables.actionTable = response.actionTable;
   });
- 
+  console.error(CONFIG.tables);
+
   /**
    * Set an initiative formula for the system
    * @type {String}
