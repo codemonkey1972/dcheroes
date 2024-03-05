@@ -24,6 +24,8 @@ Hooks.once('init', function () {
   // Add custom constants for configuration.
   CONFIG.DCHEROES = DCHEROES;
 
+  // Load MEGS tables
+  CONFIG.tables = _loadData('systems/dcheroes/assets/data/tables.json');
   /**
    * Set an initiative formula for the system
    * @type {String}
@@ -100,6 +102,12 @@ Hooks.once('ready', function () {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
   Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
 });
+
+async function _loadData(jsonPath) {
+  const response = await fetch(jsonPath);
+  const contents = await response.json();
+  return JSON.parse(contents);
+}
 
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */
