@@ -92,8 +92,6 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     const initiativeBonus = this._calculateInitiativeBonus(context);
 
-    console.error(CONFIG.tables.actionTable);
-
     // set value on actor sheet object
     context.system.initiativeBonus.value = initiativeBonus; // works for sheet display
     // context.document.system.initiativeBonus.value = initiativeBonus;
@@ -338,7 +336,12 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO subclass of Roll to handle table?
       let roll = new Roll(dataset.roll, this.actor.getRollData());
 
+      // get range index for AV
+      console.error(dataset);
+
+
       // TODO popup for OV
+      const ov = 
 
       // TODO consult action chart fro difficulty
 

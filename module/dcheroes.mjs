@@ -26,7 +26,7 @@ Hooks.once('init', function () {
 
   // Load MEGS tables
   _loadData('systems/dcheroes/assets/data/tables.json').then((response) => {
-    console.log(`Received response: ${response.status}`);
+    console.log(`Received response for tables data: ${response.status}`);
     CONFIG.tables = response;
   });
 
@@ -107,6 +107,16 @@ Hooks.once('ready', function () {
   Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
 });
 
+/* -------------------------------------------- */
+/*  Load JSON data                              */
+/* -------------------------------------------- */
+
+/**
+ * Create the MEGS tables from JSON data.
+ * Grab the JSON and place it in an object.
+ * @param {Object} jsonPath     The path in the Foundry Data directory to the JSON asset
+ * @returns {Promise}
+ */
 async function _loadData(jsonPath) {
   const response = await fetch(jsonPath);
   const contents = await response.json();
