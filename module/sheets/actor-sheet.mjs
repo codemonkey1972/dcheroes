@@ -88,8 +88,10 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // set value on actor sheet object
     context.system.initiativeBonus.value = initiativeBonus; // works for sheet display
+    // context.document.system.initiativeBonus.value = initiativeBonus;
 
     // TODO set value on actor object
+    // TODO initiative - this.actor.getRollData() needs to be updated
     // context.actor.system.initiativeBonus.value = initiativeBonus; // already changes
     // this.object.system.initiativeBonus.value = initiativeBonus; //does not change in actor.mjs
 
@@ -100,9 +102,6 @@ export class DCHeroesActorSheet extends ActorSheet {
 
   _calculateInitiativeBonus(context) {
     // calculate initiativeBonus
-    // TODO initiative - this.actor.getRollData() needs to be updated
-
-    // Martial artist gives a +2
     let initiativeBonus = 0;
 
     // Superspeed adds APs of their power
@@ -110,8 +109,19 @@ export class DCHeroesActorSheet extends ActorSheet {
       const aps = this._getAbilityAPs(context.powers, "Superspeed");
       initiativeBonus = initiativeBonus + aps;
     }
+
+    // Martial artist gives a +2
+    if (this._hasAbility(context.skills, "Martial Artist")) { // TODO use UID system for powers? also use constant
+      initiativeBonus = initiativeBonus + 2;
+    }
+
     // Lightning Reflexes gives +2
+    if (this._hasAbility(context.advantages, "Lightning Reflexes")) { // TODO use UID system for powers? also use constant
+      initiativeBonus = initiativeBonus + 2;
+    }
+
     // Water Freedom applies when submerged in water
+    // TODO a checkbox for is in water?
 
     return initiativeBonus;
   }

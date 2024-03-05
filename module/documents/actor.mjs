@@ -46,6 +46,8 @@ export class DCHeroesActor extends Actor {
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
+
+    // TODO _calculateInitiativeBonus(actorData);
   }
 
   _calculateInitiativeBonus(context) {
@@ -71,9 +73,9 @@ export class DCHeroesActor extends Actor {
     // Water Freedom applies when submerged in water
     // TODO a checkbox for is in water?
 
-    // TODO do we need both of these?
-    context.system.initiativeBonus.value = initiativeBonus;
-    context.document.system.initiativeBonus.value = initiativeBonus;
+    // TODO do we need both of these? why set these here?
+    // context.system.initiativeBonus.value = initiativeBonus;
+    // context.document.system.initiativeBonus.value = initiativeBonus;
 
     return initiativeBonus;
 }
