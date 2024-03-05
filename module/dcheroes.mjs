@@ -26,6 +26,8 @@ Hooks.once('init', function () {
 
   // Load MEGS tables
   CONFIG.tables = _loadData('systems/dcheroes/assets/data/tables.json');
+  console.error(CONFIG.tables.ranges[0]);
+  
   /**
    * Set an initiative formula for the system
    * @type {String}
@@ -106,8 +108,7 @@ Hooks.once('ready', function () {
 async function _loadData(jsonPath) {
   const response = await fetch(jsonPath);
   const contents = await response.json();
-  console.error(contents);
-  return JSON.parse(contents);
+  return contents;
 }
 
 /* -------------------------------------------- */
