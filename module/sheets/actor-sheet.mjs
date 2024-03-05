@@ -333,12 +333,12 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO does not currently handle 0 or > 60
 
       // get range index for AV
-      const avIndex = _getRangeIndex(dataset.value);
+      const avIndex = this._getRangeIndex(dataset.value);
       console.error(avIndex);
 
       // get range index for AV
       const ov = 9; // TODO popup for OV?
-      const ovIndex = _getRangeIndex(ov);
+      const ovIndex = this._getRangeIndex(ov);
       console.error(ovIndex);
  
       // TODO consult action chart for difficulty
