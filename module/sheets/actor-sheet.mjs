@@ -357,7 +357,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         }
         i++;
       }
-      console.error(value);
+      console.error(token);
 
       /**********************************
        * ACTION TABLE
