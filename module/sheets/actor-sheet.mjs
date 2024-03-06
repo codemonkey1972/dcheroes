@@ -350,9 +350,10 @@ export class DCHeroesActorSheet extends ActorSheet {
  //     console.error(game.user.targets.entries());
 
       for (const value of game.user.targets) {
-        console.error(value);
+ //       console.error(value);
         // Do something with the value
       }
+      console.error(game.user.targets[0]);
 
       /**********************************
        * ACTION TABLE
