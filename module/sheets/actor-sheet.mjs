@@ -375,15 +375,15 @@ export class DCHeroesActorSheet extends ActorSheet {
       const difficulty = actionTable[avIndex][ovIndex];
       //console.error("Difficulty = " +difficulty);
 
-      // determine whether happens
       let avRoll = new Roll(dataset.roll, this.actor.getRollData());
       //console.error(avRoll.total);
 
+      // determine whether happens
       await avRoll.evaluate();
       const avRollResult = avRoll._total;
       const avRollSuccess = avRollResult >= difficulty;
 
-      console.error("Difficulty: " + difficulty + " | Roll: " + avRollResult + " | Success?: " + avRollSuccess);
+      // console.error("Difficulty: " + difficulty + " | Roll: " + avRollResult + " | Success?: " + avRollSuccess);
   
       // if fails, output message
       if (!avRollSuccess) {
@@ -407,18 +407,25 @@ export class DCHeroesActorSheet extends ActorSheet {
        * RESULT TABLE
        **********************************/
 
-
-      // TODO apply shifts
       const resultTable = CONFIG.tables.resultTable;
 
+      // get effectvalue column  index
       const ev = this._getEffectValue(dataset.key);
       const evIndex = this._getRangeIndex(ev);
-
+      
+      // get resistance value column index
       const rv = this._getResistanceValue(dataset.key, targetActor);
+      const rvIndex = this._getRangeIndex(rv);
+      console.error("EV = "+ev+" | evIndex = "+evIndex+" | RV = "+rv+" | rvIndex = "+rvIndex);
 
-
+      // apply shifts
+      let shiftedRvIndex = rvIndex - columnShifts;
+      if (shiftedRvIndex < 0) shiftedRvIndex = 0;
+      console.error("shiftedRvIndex = "+shiftedRvIndex);
 
       // TODO consult result chart
+      const result = resultTable[evIndex][shiftedRvIndex];
+      console.error("result = "+result);
 
       // results output to chat
 
@@ -445,11 +452,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @returns 
    */
   _getEffectValue(key) {
-    const context = super.getData();
-
-    // TODO
-    console.error(key + " : " + context.actor.system.attributes[key].value);
-    return context.actor.system.attributes[key].value;
+    return super.getData().actor.system.attributes[key].value;
   }
 
   /**
