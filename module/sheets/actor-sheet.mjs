@@ -349,7 +349,7 @@ export class DCHeroesActorSheet extends ActorSheet {
  //     console.log(JSON.stringify(game.user.targets.entries()));
  //     console.error(game.user.targets.entries());
 
-      for (const value of game.user.targets.entries()) {
+      for (const value of game.user.targets) {
         console.error(value);
         // Do something with the value
       }
