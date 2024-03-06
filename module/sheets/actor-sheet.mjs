@@ -355,9 +355,6 @@ export class DCHeroesActorSheet extends ActorSheet {
  
       // TODO more elegant way to do this
       let rv = this._getResistanceValue(dataset.key, targetActor);
-      console.error("OV = "+ov+" | RV = " + rv);
-
-
 
       /**********************************
        * ACTION TABLE
@@ -378,8 +375,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // determine whether happens
       let avRoll = new Roll(dataset.roll, this.actor.getRollData());
-      //console.error(avRoll);
-
+      console.error(avRoll);
 
       // TODO if fails, output message
 
