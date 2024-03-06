@@ -372,7 +372,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // get range index for AV
       const ovIndex = this._getRangeIndex(ov);
-      //console.error("OV: index =" + ovIndex+" - value = "+ov+"; range = ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
+      console.error("OV: index =" + ovIndex+" - value = "+ov+"; range = ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
  
       // consult action chart for difficulty
       const actionTable = CONFIG.tables.actionTable;
@@ -406,6 +406,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // TODO if succeeds, calculate column shifts for result table
       let columnShifts = 0;
+      console.error("Action table size: " + actionTable[avIndex].size + " : ovIndex = "+ovIndex);
       for (let i = ovIndex + 1; i < actionTable[avIndex].size; i++) {
         console.log("Column "+i+" : value = "+ctionTable[avIndex][i]);
         if (actionTable[avIndex][i] < avRollResult) {
