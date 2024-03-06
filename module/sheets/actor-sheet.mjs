@@ -341,7 +341,12 @@ export class DCHeroesActorSheet extends ActorSheet {
       if (game.user.targets.size === 0) {
         ui.notifications.warn("You must pick a target");
         return;
+      } else if (game.user.targets.size > 1) {
+        ui.notifications.warn("You can only target one token");
+        return;
       }
+
+      console.log(game.user.targets[0]);
 
       /**********************************
        * ACTION TABLE
