@@ -160,7 +160,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       }
     });
     return aps;
-
   }
 
   /**
@@ -356,8 +355,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       }
 
       let targetActor = this._getTargetActor();
-      
-  
 
       /**********************************
        * ACTION TABLE
@@ -415,6 +412,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       const resultTable = CONFIG.tables.resultTable;
 
       const ev = this._getEffectValue(dataset);
+      const evIndex = this._getRangeIndex(ev);
 
       const rv = this._getResistanceValue(dataset.key, targetActor);
 
@@ -449,6 +447,7 @@ export class DCHeroesActorSheet extends ActorSheet {
   _getEffectValue(dataset) {
     // TODO
     console.error(dataset);
+    console.error(this);
     return 0;
   }
 
