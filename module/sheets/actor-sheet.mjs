@@ -333,11 +333,15 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO does not currently handle 0 for AV or > 60 for either AV or OV
 
       //this._getRollValuesOptions();
-      this._tempOpenWindow().then((response) => {
-        console.error(response);
-        console.log("TEST1");
-      });
-      console.log("TEST2");
+      // this._tempOpenWindow().then((response) => {
+      //   console.error(response);
+      //   console.log("TEST1");
+      // });
+      // console.log("TEST2");
+      if (game.user.targets.size === 0) {
+        ui.notifications.warn("You must pick a target");
+        return;
+      }
 
       /**********************************
        * ACTION TABLE
