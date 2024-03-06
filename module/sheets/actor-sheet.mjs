@@ -371,12 +371,20 @@ export class DCHeroesActorSheet extends ActorSheet {
       // consult action chart for difficulty
       const actionTable = CONFIG.tables.actionTable;
       const difficulty = actionTable[avIndex][ovIndex];
-      console.error(difficulty);
+      // console.error(difficulty);
 
       // determine whether happens
       let avRoll = new Roll(dataset.roll, this.actor.getRollData());
-      console.error(avRoll);
 
+      const avRollResult = avRoll._total;
+      const avRollSuccess = avRoll._total >= difficulty;
+      console.error(avRollResult + " : " + avRollSuccess);
+      // avRoll.toMessage({
+      //   speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      //   flavor: label,
+      //   rollMode: game.settings.get('core', 'rollMode'),
+      // });
+  
       // TODO if fails, output message
 
       // TODO if succeeds, calculate column shifts for result table
@@ -397,11 +405,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO popup for RV
 
     // results output to chat
-    avRoll.toMessage({
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: label,
-      rollMode: game.settings.get('core', 'rollMode'),
-    });
 
     return avRoll;
   };
