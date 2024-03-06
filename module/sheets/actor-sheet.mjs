@@ -349,26 +349,12 @@ export class DCHeroesActorSheet extends ActorSheet {
       }
 
       // TODO this is bad; fix it
-      let targetActor;
-      for (const value of game.user.targets) {
-        targetActor =  game.actors.get(value.document.actorId);
-        break;
-      }
+      let targetActor = this._getTargetActor();
       
       const ov = targetActor.system.attributes[ataset.key].value;
  
       // TODO more elegant way to do this
-      let rv = 0;
-      if (dataset.key === "dex") {
-        rv = targetActor.system.attributes.body.value; // TODO should be current body?
-      } else if (dataset.key === "int") {
-        rv = targetActor.system.attributes.mind.value; // TODO should be current mind?
-      } else if (dataset.key === "infl") {
-        rv = targetActor.system.attributes.spirit.value; // TODO should be current spirit?
-      } else {
-        ui.notifications.error("Invalid attribute selection");
-        return;
-      }
+      let rv = this._getResistanceValue(dataset.key, targetActor);
       console.error("OV = "+ov+" | RV = " + rv);
 
 
@@ -397,7 +383,8 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // TODO if fails, output message
 
-      // TODO if succeeds, how many column shifts?
+      // TODO if succeeds, calculate column shifts for result table
+      let columnShifts = 0;
 
       /**********************************
        * RESULT TABLE
@@ -423,6 +410,38 @@ export class DCHeroesActorSheet extends ActorSheet {
     return avRoll;
   };
 }
+
+  /**
+   * 
+   * @returns 
+   */
+  _getTargetActor() {
+    let targetActor;
+    for (const value of game.user.targets) {
+      targetActor = game.actors.get(value.document.actorId);
+      break;
+    }
+    return targetActor;
+  }
+
+  /**
+   * 
+   * @returns 
+   */
+  _getResistanceValue(key, targetActor) {
+    let rv;
+    if (key === "dex") {
+      rv = targetActor.system.attributes.body.value; // TODO should be current body?
+    } else if (key === "int") {
+      rv = targetActor.system.attributes.mind.value; // TODO should be current mind?
+    } else if (key === "infl") {
+      rv = targetActor.system.attributes.spirit.value; // TODO should be current spirit?
+    } else {
+      ui.notifications.error("Invalid attribute selection");
+      return;
+    }
+    return rv;
+  }
 
   async _tempOpenWindow() {
     const myContent = await renderTemplate("systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html", {});
