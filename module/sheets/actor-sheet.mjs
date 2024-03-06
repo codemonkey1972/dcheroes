@@ -316,6 +316,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Handle item rolls.
     if (dataset.rollType) {
+
       if (dataset.rollType == 'item') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
@@ -327,7 +328,13 @@ export class DCHeroesActorSheet extends ActorSheet {
  
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
+      this._handleRoll(dataset).then((response) => {
+        //   TODO implement rest of stuff to process here
+        });
+    };
+  }
 
+  async _handleRoll(dataset) {
       // what's being rolled (used for display)
       let label = dataset.label ? `[attribute] ${dataset.label}` : '';
 
@@ -348,7 +355,6 @@ export class DCHeroesActorSheet extends ActorSheet {
         return;
       }
 
-      // TODO this is bad; fix it
       let targetActor = this._getTargetActor();
       
       const ov = targetActor.system.attributes[dataset.key].value;
@@ -377,49 +383,50 @@ export class DCHeroesActorSheet extends ActorSheet {
       let avRoll = new Roll(dataset.roll, this.actor.getRollData());
       console.error(avRoll.total);
 
-      avRoll.evaluate().then((response) => {
-        console.error("Roll = " + response.total);
-      });
+      await avRoll.evaluate();
 
-      const avRollResult = avRoll._total;
-      const avRollSuccess = avRoll._total >= difficulty;
+        console.error("Roll = " + avRoll.total);
+ 
+        const avRollResult = avRoll._total;
+        const avRollSuccess = avRoll._total >= difficulty;
 
-      console.error(avRollResult + " : " + avRollSuccess);
-      // avRoll.toMessage({
-      //   speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      //   flavor: label,
-      //   rollMode: game.settings.get('core', 'rollMode'),
-      // });
-  
-      // TODO if fails, output message
+        console.error(avRollResult + " : " + avRollSuccess);
+        // avRoll.toMessage({
+        //   speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        //   flavor: label,
+        //   rollMode: game.settings.get('core', 'rollMode'),
+        // });
+    
+        // TODO if fails, output message
 
-      // TODO if succeeds, calculate column shifts for result table
-      let columnShifts = 0;
+        // TODO if succeeds, calculate column shifts for result table
+        let columnShifts = 0;
 
-      /**********************************
-       * RESULT TABLE
-       **********************************/
+        /**********************************
+         * RESULT TABLE
+         **********************************/
 
-      // TODO popup for RV?
+        // TODO popup for RV?
 
-      // TODO consult action chart fro difficulty
+        // TODO consult action chart fro difficulty
 
-      // roll being made
+        // roll being made
 
-      // TODO determine whether happens
+        // TODO determine whether happens
 
-      // TODO popup for RV
+        // TODO popup for RV
 
-    // results output to chat
+      // results output to chat
 
-    return avRoll;
-  };
-}
+      return avRoll;
+
+  }
 
   /**
    * 
    * @returns 
    */
+        // TODO this is bad; fix it
   _getTargetActor() {
     let targetActor;
     for (const value of game.user.targets) {
