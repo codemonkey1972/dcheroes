@@ -332,6 +332,9 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // TODO does not currently handle 0 for AV or > 60 for either AV or OV
 
+      //this._getRollValuesOptions();
+      this._tempOpenWindow();
+
       /**********************************
        * ACTION TABLE
        **********************************/
@@ -384,6 +387,16 @@ export class DCHeroesActorSheet extends ActorSheet {
   };
 }
 
+  async _tempOpenWindow() {
+    const myContent = await renderTemplate("systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html", {});
+
+    new Dialog({
+      title: "My Custom Dialog Title",
+      content: myContent,
+      buttons: {}
+    }).render(true);
+  }
+
   _getRangeIndex(value) {
     const ranges = CONFIG.tables.ranges;
     let index = 0;
@@ -399,4 +412,35 @@ export class DCHeroesActorSheet extends ActorSheet {
     return index;
   }
 
+  async _getRollValuesOptions() {
+    const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
+    const html = await renderTemplate(template, {});
+
+    return new Promise(resolve => {
+      const data = {
+        title: "Enter opposing data",
+        content: html,
+        buttons: {
+          normal: {
+            label: "Roll",
+            callback: html => resolve(_processRollOptions(html[0].querySelector("form")))
+          },
+          cancel: {
+            label: "Cancel",
+            callback: html => resolve({cancelled: true})
+          }
+        },
+        default: "normal",
+        close: () => resolve({cancelled: true})
+      }
+      new Dialog(data, null).render(true);
+    });
+  }
+
+  _processRollOptions(form) {
+    return {
+      opposingValue: parseInt(form.opposingValue.value),
+      resistanceValue: parseInt(form.resistanceValue.value)
+    }
+  }
 }
