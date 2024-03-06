@@ -368,53 +368,58 @@ export class DCHeroesActorSheet extends ActorSheet {
       // get range index for AV
       const av = dataset.value;
       const avIndex = this._getRangeIndex(av);
-      console.error("AV: index =" + avIndex+" - value = "+av+"; range = ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
+      //console.error("AV: index =" + avIndex+" - value = "+av+"; range = ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
 
       // get range index for AV
       const ovIndex = this._getRangeIndex(ov);
-      console.error("OV: index =" + ovIndex+" - value = "+ov+"; range = ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
+      //console.error("OV: index =" + ovIndex+" - value = "+ov+"; range = ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
  
       // consult action chart for difficulty
       const actionTable = CONFIG.tables.actionTable;
       const difficulty = actionTable[avIndex][ovIndex];
-      console.error("Difficulty = " +difficulty);
+      //console.error("Difficulty = " +difficulty);
 
       // determine whether happens
       let avRoll = new Roll(dataset.roll, this.actor.getRollData());
-      console.error(avRoll.total);
+      //console.error(avRoll.total);
 
       await avRoll.evaluate();
 
-        console.error("Roll = " + avRoll.total);
- 
-        const avRollResult = avRoll._total;
-        const avRollSuccess = avRoll._total >= difficulty;
+      console.error("Roll = " + avRoll.total);
 
-        console.error(avRollResult + " : " + avRollSuccess);
-        // avRoll.toMessage({
-        //   speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        //   flavor: label,
-        //   rollMode: game.settings.get('core', 'rollMode'),
-        // });
-    
-        // TODO if fails, output message
+      const avRollResult = avRoll._total;
+      const avRollSuccess = avRoll._total >= difficulty;
 
-        // TODO if succeeds, calculate column shifts for result table
-        let columnShifts = 0;
+      console.error("Difficulty: " + difficulty + " | Roll: " + avRollResult + " | Success?: " + avRollSuccess);
+      // avRoll.toMessage({
+      //   speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      //   flavor: label,
+      //   rollMode: game.settings.get('core', 'rollMode'),
+      // });
+  
+      // if fails, output message
+      if (!avRollSuccess) {
+        // TODO better message
+        ChatMessage.create({content: "Action failed!"});
+        return;
+      }
 
-        /**********************************
-         * RESULT TABLE
-         **********************************/
+      // TODO if succeeds, calculate column shifts for result table
+      let columnShifts = 0;
 
-        // TODO popup for RV?
+      /**********************************
+       * RESULT TABLE
+       **********************************/
 
-        // TODO consult action chart fro difficulty
+      // TODO popup for RV?
 
-        // roll being made
+      // TODO consult action chart fro difficulty
 
-        // TODO determine whether happens
+      // roll being made
 
-        // TODO popup for RV
+      // TODO determine whether happens
+
+      // TODO popup for RV
 
       // results output to chat
 
