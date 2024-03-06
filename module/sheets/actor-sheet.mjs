@@ -362,7 +362,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // get range index for AV
       const av = dataset.value;
       const avIndex = this._getRangeIndex(av);
-      //console.error("AV: index =" + avIndex+" - value = "+av+"; range = ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
+      console.error("AV: index =" + avIndex+" - value = "+av+"; range = ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
 
       const ov = targetActor.system.attributes[dataset.key].value;
 
@@ -373,17 +373,14 @@ export class DCHeroesActorSheet extends ActorSheet {
       // consult action chart for difficulty
       const actionTable = CONFIG.tables.actionTable;
       const difficulty = actionTable[avIndex][ovIndex];
-      //console.error("Difficulty = " +difficulty);
-
-      let avRoll = new Roll(dataset.roll, this.actor.getRollData());
-      //console.error(avRoll.total);
 
       // determine whether happens
+      let avRoll = new Roll(dataset.roll, this.actor.getRollData());
       await avRoll.evaluate();
       const avRollResult = avRoll._total;
       const avRollSuccess = avRollResult >= difficulty;
 
-      // console.error("Difficulty: " + difficulty + " | Roll: " + avRollResult + " | Success?: " + avRollSuccess);
+      console.error("Difficulty: " + difficulty + " | Roll: " + avRollResult + " | Success?: " + avRollSuccess);
   
       // if fails, output message
       if (!avRollSuccess) {
@@ -424,12 +421,12 @@ export class DCHeroesActorSheet extends ActorSheet {
       console.error("shiftedRvIndex = "+shiftedRvIndex);
 
       // TODO consult result chart
-      const result = resultTable[evIndex][shiftedRvIndex];
-      console.error("result = "+result);
+      const resultAPs = resultTable[evIndex][shiftedRvIndex];
+      console.error("result = "+resultAPs);
 
       // results output to chat
 
-      return avRoll;
+      return resultAPs;
 
   }
 
