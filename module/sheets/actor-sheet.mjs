@@ -349,15 +349,13 @@ export class DCHeroesActorSheet extends ActorSheet {
       }
 
       // TODO this is bad; fix it
-      let i = 0;
-      let token;
+      let target;
       for (const value of game.user.targets) {
-        if (i === 0) {
-          token = value;
-        }
-        i++;
+        console.error(value.document.actorId);
+        target =  game.actors.get(value.document.actorId);
+        break;
       }
-      console.error(token);
+      console.error(target);
 
       /**********************************
        * ACTION TABLE
