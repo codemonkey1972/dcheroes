@@ -408,11 +408,11 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // get effectvalue column  index
       const ev = this._getEffectValue(dataset.key);
-      const evIndex = this._getRangeIndex(ev) - 1;
+      const evIndex = this._getRangeIndex(ev);
       
       // get resistance value column index
       const rv = this._getResistanceValue(dataset.key, targetActor);
-      const rvIndex = this._getRangeIndex(rv);
+      const rvIndex = this._getRangeIndex(rv) - 1;
       console.error("EV = "+ev+" | evIndex = "+evIndex+" | RV = "+rv+" | rvIndex = "+rvIndex);
 
       // apply shifts
