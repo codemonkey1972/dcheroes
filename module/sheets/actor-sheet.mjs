@@ -449,7 +449,19 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @returns 
    */
   _getEffectValue(key) {
-    return super.getData().actor.system.attributes[key].value;
+    const context = super.getData();
+    let ev;
+    if (key === "dex") {
+      ev = context.actor.system.attributes.str.value;
+    } else if (key === "int") {
+      ev = context.actor.system.attributes.will.value;
+    } else if (key === "infl") {
+      ev = context.actor.system.attributes.aura.value; 
+    } else {
+      ui.notifications.error("Invalid attribute selection");
+      return;
+    }
+    return ev;
   }
 
   /**
