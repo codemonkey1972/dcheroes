@@ -407,6 +407,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO if succeeds, calculate column shifts for result table
       let columnShifts = 0;
       for (let i = ovIndex + 1; i < actionTable[avIndex].size; i++) {
+        console.log("Column "+i+" : value = "+ctionTable[avIndex][i]);
         if (actionTable[avIndex][i] < avRollResult) {
           columnShifts++;
         } else {
