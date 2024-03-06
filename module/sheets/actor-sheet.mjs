@@ -349,18 +349,33 @@ export class DCHeroesActorSheet extends ActorSheet {
       }
 
       // TODO this is bad; fix it
-      let target;
+      let targetActor;
       for (const value of game.user.targets) {
-        target =  game.actors.get(value.document.actorId);
+        targetActor =  game.actors.get(value.document.actorId);
         break;
       }
-      console.error(target);
+      console.error(targetActor);
 
-      let ov = 9;
-      console.error(dataset);
-      // target.system.attributes
-
+      let ov = 0;
       let rv = 0;
+      console.error(dataset);
+      
+      // TODO more elegant way to do this
+      if (dataset.key === "dex") {
+        ov = targetActor.system.attributes.str.value;
+        rv = targetActor.system.attributes.body.value; // TODO should be current body?
+      } else if (dataset.key === "int") {
+        ov = targetActor.system.attributes.will.value;
+        rv = targetActor.system.attributes.mind.value; // TODO should be current mind?
+      } else if (dataset.key === "infl") {
+        ov = targetActor.system.attributes.aura.value;
+        rv = targetActor.system.attributes.spirit.value; // TODO should be current spirit?
+      } else {
+        ui.notifications.error("Invalid attribute selection");
+        return;
+      }
+      console.error("OV = "+ov+" | RV = " + rv);
+
 
 
       /**********************************
