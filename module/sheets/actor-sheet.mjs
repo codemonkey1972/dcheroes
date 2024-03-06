@@ -388,7 +388,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       console.error("Roll = " + avRoll.total);
 
       const avRollResult = avRoll._total;
-      const avRollSuccess = avRoll._total >= difficulty;
+      const avRollSuccess = avRollResult >= difficulty;
 
       console.error("Difficulty: " + difficulty + " | Roll: " + avRollResult + " | Success?: " + avRollSuccess);
       // avRoll.toMessage({
@@ -406,6 +406,14 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // TODO if succeeds, calculate column shifts for result table
       let columnShifts = 0;
+      for (let i = ovIndex + 1; i < actionTable[avIndex].size; i++) {
+        if (actionTable[avIndex][i] < avRollResult) {
+          columnShifts++;
+        } else {
+          break;
+        }
+      }
+      console.log("Column shifts: "+columnShifts);
 
       /**********************************
        * RESULT TABLE
