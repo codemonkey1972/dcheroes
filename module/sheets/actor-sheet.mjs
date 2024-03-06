@@ -354,21 +354,16 @@ export class DCHeroesActorSheet extends ActorSheet {
         targetActor =  game.actors.get(value.document.actorId);
         break;
       }
-      console.error(targetActor);
-
-      let ov = 0;
-      let rv = 0;
-      console.error(dataset);
       
+      const ov = targetActor.system.attributes[ataset.key].value;
+ 
       // TODO more elegant way to do this
+      let rv = 0;
       if (dataset.key === "dex") {
-        ov = targetActor.system.attributes.str.value;
         rv = targetActor.system.attributes.body.value; // TODO should be current body?
       } else if (dataset.key === "int") {
-        ov = targetActor.system.attributes.will.value;
         rv = targetActor.system.attributes.mind.value; // TODO should be current mind?
       } else if (dataset.key === "infl") {
-        ov = targetActor.system.attributes.aura.value;
         rv = targetActor.system.attributes.spirit.value; // TODO should be current spirit?
       } else {
         ui.notifications.error("Invalid attribute selection");
@@ -393,7 +388,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // consult action chart for difficulty
       const actionTable = CONFIG.tables.actionTable;
       const difficulty = actionTable[avIndex][ovIndex];
-      //console.error(difficulty);
+      console.error(difficulty);
 
       // determine whether happens
       let avRoll = new Roll(dataset.roll, this.actor.getRollData());
