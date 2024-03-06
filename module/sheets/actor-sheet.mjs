@@ -408,7 +408,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // get effectvalue column  index
       const ev = this._getEffectValue(dataset.key);
-      const evIndex = this._getRangeIndex(ev);
+      const evIndex = this._getRangeIndex(ev) - 1;
       
       // get resistance value column index
       const rv = this._getResistanceValue(dataset.key, targetActor);
