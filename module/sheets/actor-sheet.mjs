@@ -362,11 +362,11 @@ export class DCHeroesActorSheet extends ActorSheet {
       // get range index for AV
       const av = dataset.value;
       const avIndex = this._getRangeIndex(av);
-      console.error(avIndex+" - value is "+av+"; range is ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
+      console.error("AV: index =" + avIndex+" - value = "+av+"; range = ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
 
       // get range index for AV
       const ovIndex = this._getRangeIndex(ov);
-      console.error(ovIndex+" - value is "+ov+"; range is ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
+      console.error("OV: index =" + ovIndex+" - value = "+ov+"; range = ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
  
       // consult action chart for difficulty
       const actionTable = CONFIG.tables.actionTable;
@@ -375,9 +375,10 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // determine whether happens
       let avRoll = new Roll(dataset.roll, this.actor.getRollData());
+      console.error(avRoll.total);
 
       avRoll.evaluate().then((response) => {
-        console.error(response);
+        console.error("Roll = " + response.total);
       });
 
       const avRollResult = avRoll._total;
