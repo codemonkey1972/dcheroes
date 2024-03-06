@@ -344,7 +344,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         // TODO popup
         //this._getRollValuesOptions();
         // OR
-        // this._tempOpenWindow().then((response) => {
+        // this._openOpposingValuesDialog().then((response) => {
         //   TODO implement rest of stuff to process here
         // });
         ui.notifications.warn("You must pick a target");
@@ -357,10 +357,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       let targetActor = this._getTargetActor();
       
-      const ov = targetActor.system.attributes[dataset.key].value;
- 
-      // TODO more elegant way to do this
-      let rv = this._getResistanceValue(dataset.key, targetActor);
+  
 
       /**********************************
        * ACTION TABLE
@@ -370,7 +367,9 @@ export class DCHeroesActorSheet extends ActorSheet {
       const avIndex = this._getRangeIndex(av);
       //console.error("AV: index =" + avIndex+" - value = "+av+"; range = ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
 
-      // get range index for AV
+      const ov = targetActor.system.attributes[dataset.key].value;
+
+      // get range index for OV
       const ovIndex = this._getRangeIndex(ov);
       console.error("OV: index =" + ovIndex+" - value = "+ov+"; range = ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
  
@@ -384,18 +383,10 @@ export class DCHeroesActorSheet extends ActorSheet {
       //console.error(avRoll.total);
 
       await avRoll.evaluate();
-
-      console.error("Roll = " + avRoll.total);
-
       const avRollResult = avRoll._total;
       const avRollSuccess = avRollResult >= difficulty;
 
       console.error("Difficulty: " + difficulty + " | Roll: " + avRollResult + " | Success?: " + avRollSuccess);
-      // avRoll.toMessage({
-      //   speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      //   flavor: label,
-      //   rollMode: game.settings.get('core', 'rollMode'),
-      // });
   
       // if fails, output message
       if (!avRollSuccess) {
@@ -419,15 +410,17 @@ export class DCHeroesActorSheet extends ActorSheet {
        * RESULT TABLE
        **********************************/
 
-      // TODO popup for RV?
 
-      // TODO consult action chart fro difficulty
+      // TODO apply shifts
+      const resultTable = CONFIG.tables.resultTable;
 
-      // roll being made
+      const ev = this._getEffectValue(dataset);
 
-      // TODO determine whether happens
+      const rv = this._getResistanceValue(dataset.key, targetActor);
 
-      // TODO popup for RV
+
+
+      // TODO consult result chart
 
       // results output to chat
 
@@ -453,6 +446,16 @@ export class DCHeroesActorSheet extends ActorSheet {
    * 
    * @returns 
    */
+  _getEffectValue(dataset) {
+    // TODO
+    console.error(dataset);
+    return 0;
+  }
+
+  /**
+   * 
+   * @returns 
+   */
   _getResistanceValue(key, targetActor) {
     let rv;
     if (key === "dex") {
@@ -468,7 +471,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     return rv;
   }
 
-  async _tempOpenWindow() {
+  async _openOpposingValuesDialog() {
     const myContent = await renderTemplate("systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html", {});
 
     new Dialog({
