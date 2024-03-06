@@ -448,7 +448,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const context = super.getData();
 
     // TODO
-    console.error(key + " : " + context.actor.system.attributes[key].value);
+    console.error(key + " : " + context.actor.system.attributes);
     return context.actor.system.attributes[key].value;
   }
 
