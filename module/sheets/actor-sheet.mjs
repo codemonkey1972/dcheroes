@@ -448,8 +448,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     const context = super.getData();
 
     // TODO
-    console.error(context.actor.system.attributes);
-    return 0;
+    console.error(key + " : " + context.actor.system.attributes[key].value);
+    return context.actor.system.attributes[key].value;
   }
 
   /**
