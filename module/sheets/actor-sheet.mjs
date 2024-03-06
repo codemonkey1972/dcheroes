@@ -444,12 +444,11 @@ export class DCHeroesActorSheet extends ActorSheet {
    * 
    * @returns 
    */
-  _getEffectValue(dataset) {
+  _getEffectValue(key) {
     const context = super.getData();
 
     // TODO
-    console.error(dataset);
-    console.error(context);
+    console.error(context.actor.system.attributes);
     return 0;
   }
 
