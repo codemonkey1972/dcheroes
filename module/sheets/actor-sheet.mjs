@@ -411,7 +411,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO apply shifts
       const resultTable = CONFIG.tables.resultTable;
 
-      const ev = this._getEffectValue(dataset);
+      const ev = this._getEffectValue(dataset.key);
       const evIndex = this._getRangeIndex(ev);
 
       const rv = this._getResistanceValue(dataset.key, targetActor);
@@ -448,7 +448,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const context = super.getData();
 
     // TODO
-    console.error(key + " : " + context.actor.system.attributes);
+    console.error(key + " : " + context.actor.system.attributes[key].value);
     return context.actor.system.attributes[key].value;
   }
 
