@@ -408,9 +408,9 @@ export class DCHeroesActorSheet extends ActorSheet {
       let columnShifts = 0;
       console.error(actionTable[avIndex]);
       console.error("Action table size: " + actionTable[avIndex].length + " : ovIndex = "+ovIndex);
-      for (let i = ovIndex + 1; i <= actionTable[avIndex].length; i++) {
+      for (let i = ovIndex + 1; i < actionTable[avIndex].length; i++) {
         console.log("Column "+i+" : value = "+actionTable[avIndex][i]);
-        if (actionTable[avIndex][i] < avRollResult) {
+        if (actionTable[avIndex][i] <= avRollResult) {
           columnShifts++;
         } else {
           break;
