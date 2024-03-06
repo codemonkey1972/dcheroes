@@ -351,7 +351,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO this is bad; fix it
       let targetActor = this._getTargetActor();
       
-      const ov = targetActor.system.attributes[ataset.key].value;
+      const ov = targetActor.system.attributes[dataset.key].value;
  
       // TODO more elegant way to do this
       let rv = this._getResistanceValue(dataset.key, targetActor);
