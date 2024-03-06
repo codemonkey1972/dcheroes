@@ -339,19 +339,22 @@ export class DCHeroesActorSheet extends ActorSheet {
       // });
       // console.log("TEST2");
       if (game.user.targets.size === 0) {
+        // TODO popup
         ui.notifications.warn("You must pick a target");
         return;
-      // } else if (game.user.targets.size > 1) {
-      //   ui.notifications.warn("You can only target one token");
-      //   return;
+      } else if (game.user.targets.size > 1) {
+        // TODO popup for specific data
+        ui.notifications.warn("You can only target one token");
+        return;
       }
 
- //     console.log(JSON.stringify(game.user.targets.entries()));
- //     console.error(game.user.targets.entries());
-
+      // TODO this is bad; fix it
+      let i = 0;
       for (const value of game.user.targets) {
- //       console.error(value);
-        // Do something with the value
+        if (i === 0) {
+          console.error(value);
+        }
+        i++;
       }
       console.error(game.user.targets.entries()[0]);
 
