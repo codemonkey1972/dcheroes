@@ -341,13 +341,13 @@ export class DCHeroesActorSheet extends ActorSheet {
       if (game.user.targets.size === 0) {
         ui.notifications.warn("You must pick a target");
         return;
-      } else if (game.user.targets.size > 1) {
-        ui.notifications.warn("You can only target one token");
-        return;
+      // } else if (game.user.targets.size > 1) {
+      //   ui.notifications.warn("You can only target one token");
+      //   return;
       }
 
-      console.log(JSON.stringify(game.user.targets[0]));
-      console.error(game.user.targets[0]);
+      console.log(JSON.stringify(game.user.targets));
+      console.error(game.user.targets);
 
       /**********************************
        * ACTION TABLE
