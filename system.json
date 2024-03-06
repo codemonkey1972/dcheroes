@@ -17,7 +17,7 @@
     {
       "type": "setup",
       "url": "https://raw.githubusercontent.com/codemonkey1972/dcheroes/main/system.json",
-      "thumbnail": "systems/dcheroes/assets/images/megs-logo.png"
+      "thumbnail": "systems/dcheroes/assets/images/megs-logo.jpg"
     }
   ],
   "version": "0.0.1",
