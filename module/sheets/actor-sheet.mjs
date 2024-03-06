@@ -346,7 +346,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         return;
       }
 
-      console.log(game.user.targets);
+      console.log(JSON.stringify(game.user.targets));
 
       /**********************************
        * ACTION TABLE
