@@ -327,19 +327,19 @@ export class DCHeroesActorSheet extends ActorSheet {
  
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
+
       // what's being rolled (used for display)
       let label = dataset.label ? `[attribute] ${dataset.label}` : '';
 
       // TODO does not currently handle 0 for AV or > 60 for either AV or OV
 
-      //this._getRollValuesOptions();
-      // this._tempOpenWindow().then((response) => {
-      //   console.error(response);
-      //   console.log("TEST1");
-      // });
-      // console.log("TEST2");
       if (game.user.targets.size === 0) {
         // TODO popup
+        //this._getRollValuesOptions();
+        // OR
+        // this._tempOpenWindow().then((response) => {
+        //   TODO implement rest of stuff to process here
+        // });
         ui.notifications.warn("You must pick a target");
         return;
       } else if (game.user.targets.size > 1) {
@@ -351,11 +351,17 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO this is bad; fix it
       let target;
       for (const value of game.user.targets) {
-        console.error(value.document.actorId);
         target =  game.actors.get(value.document.actorId);
         break;
       }
       console.error(target);
+
+      let ov = 9;
+      console.error(dataset);
+      // target.system.attributes
+
+      let rv = 0;
+
 
       /**********************************
        * ACTION TABLE
@@ -366,7 +372,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       //console.error(avIndex+" - value is "+av+"; range is ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
 
       // get range index for AV
-      const ov = 9; // TODO popup for OV?
       const ovIndex = this._getRangeIndex(ov);
       //console.error(ovIndex+" - value is "+ov+"; range is ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
  
