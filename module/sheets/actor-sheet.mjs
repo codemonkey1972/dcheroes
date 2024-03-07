@@ -334,7 +334,7 @@ export class DCHeroesActorSheet extends ActorSheet {
   }
 
   async _handleRoll(dataset) {
-    const manuallyEnteredValues = false;
+    let manuallyEnteredValues = false;
 
     // what's being rolled (used for display)
     let label = dataset.label ? `[attribute] ${dataset.label}` : '';
