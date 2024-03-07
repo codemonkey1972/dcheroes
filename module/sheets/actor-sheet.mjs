@@ -365,10 +365,10 @@ export class DCHeroesActorSheet extends ActorSheet {
         //     label: "Submit",
         //     callback: () => this._processOpposingValuesEntry(html[0].querySelector("form"))
         //   },
-          default: "submit",
-          render: html => console.log("Register interactivity in the rendered dialog"),
-          close: html => console.log("This always is logged no matter which option is chosen")
-        }
+        //  default: "submit",
+      //     render: html => console.log("Register interactivity in the rendered dialog"),
+      //     close: html => console.log("This always is logged no matter which option is chosen")
+      //   }
       });
       d.render(true);
 
