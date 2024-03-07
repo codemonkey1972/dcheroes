@@ -352,7 +352,7 @@ export class DCHeroesActorSheet extends ActorSheet {
           ok: {
             icon: '<i class="fas fa-check"></i>',
             label: "OK",
-            callback: () => this._processOpposingValuesEntry(html[0].querySelector("form"))
+            callback: () => this._processOpposingValuesEntry(html[0])
           },
         },
         default: "ok",
