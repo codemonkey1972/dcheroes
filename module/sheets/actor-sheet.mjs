@@ -352,7 +352,7 @@ export class DCHeroesActorSheet extends ActorSheet {
           ok: {
             icon: '<i class="fas fa-check"></i>',
             label: "OK",
-            callback: (html) => this._processOpposingValuesEntry(html)
+            callback: (html) => this._processOpposingValuesEntry(html),
           },
         },
         default: "ok",
@@ -536,11 +536,10 @@ export class DCHeroesActorSheet extends ActorSheet {
     return rv;
   }
 
-	async _processOpposingValuesEntry(html) {
+	_processOpposingValuesEntry(html) {
     // TODO
     const value = html.find("input#opposingValue").val();
-    console.error(html);
-    console.error(html.find("input#opposingValue"));
+    console.error(hvalue);
   }
 
   // TODO delete
