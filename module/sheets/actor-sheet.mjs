@@ -334,106 +334,114 @@ export class DCHeroesActorSheet extends ActorSheet {
   }
 
   async _handleRoll(dataset) {
-      // what's being rolled (used for display)
-      let label = dataset.label ? `[attribute] ${dataset.label}` : '';
+    const manuallyEnteredValues = false;
 
-      // TODO does not currently handle 0 for AV or > 60 for either AV or OV
+    // what's being rolled (used for display)
+    let label = dataset.label ? `[attribute] ${dataset.label}` : '';
 
-      if (game.user.targets.size === 0) {
-        // TODO popup
-        //this._getRollValuesOptions();
-        // OR
-        // this._openOpposingValuesDialog().then((response) => {
-        //   TODO implement rest of stuff to process here
-        // });
-        ui.notifications.warn("You must pick a target");
-        return;
-      } else if (game.user.targets.size > 1) {
-        // TODO popup for specific data
-        ui.notifications.warn("You can only target one token");
-        return;
-      }
+    // TODO does not currently handle 0 for AV or > 60 for either AV or OV
 
-      let targetActor = this._getTargetActor();
+    if (game.user.targets.size === 0) {
+      // TODO popup
+      //this._getRollValuesOptions();
+      // OR
+      this._openOpposingValuesDialog().then((response) => {
+        manuallyEnteredValues = true;
+        console.error("+++++++++TEST: dialog values:");
+        console.error(response);
+        // TODO implement rest of stuff to process here
+      });
+      ui.notifications.warn("You must pick a target");
+      return;
+    } else if (game.user.targets.size > 1) {
+      // TODO popup for specific data
+      ui.notifications.warn("You can only target one token");
+      return;
+    }
 
-      /**********************************
-       * ACTION TABLE
-       **********************************/
-      // get range index for AV
-      const av = dataset.value;
-      const avIndex = this._getRangeIndex(av);
-      console.error("AV: index =" + avIndex+" - value = "+av+"; range = ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
+    let targetActor = this._getTargetActor();
 
-      const ov = targetActor.system.attributes[dataset.key].value;
+    /**********************************
+     * ACTION TABLE
+     **********************************/
+    // get range index for AV
+    const av = dataset.value;
+    const avIndex = this._getRangeIndex(av);
+    console.error("AV: index =" + avIndex+" - value = "+av+"; range = ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
 
-      // get range index for OV
-      const ovIndex = this._getRangeIndex(ov);
-      console.error("OV: index =" + ovIndex+" - value = "+ov+"; range = ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
- 
-      // consult action chart for difficulty
-      const actionTable = CONFIG.tables.actionTable;
-      const difficulty = actionTable[avIndex][ovIndex];
+    const ov = targetActor.system.attributes[dataset.key].value;
 
-      // determine whether happens
-      let avRoll = new Roll(dataset.roll, this.actor.getRollData());
-      await avRoll.evaluate();
-      const avRollResult = avRoll._total;
-      const avRollSuccess = avRollResult >= difficulty;
+    // get range index for OV
+    const ovIndex = this._getRangeIndex(ov);
+    console.error("OV: index =" + ovIndex+" - value = "+ov+"; range = ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
 
-      console.error("Difficulty: " + difficulty + " | Roll: " + avRollResult + " | Success?: " + avRollSuccess);
-  
-      // if fails, output message
-      if (!avRollSuccess) {
-        // TODO better message
-        ChatMessage.create(
-          {
-            content: "Action failed!"
-          }
-        );
-        return;
-      }
+    // consult action chart for difficulty
+    const actionTable = CONFIG.tables.actionTable;
+    const difficulty = actionTable[avIndex][ovIndex];
 
-      // TODO if succeeds, calculate column shifts for result table
-      let columnShifts = 0;
-      for (let i = ovIndex + 1; i < actionTable[avIndex].length; i++) {
-        if (actionTable[avIndex][i] <= avRollResult) {
-          columnShifts++;
-        } else {
-          break;
+    // determine whether happens
+    let avRoll = new Roll(dataset.roll, this.actor.getRollData());
+    await avRoll.evaluate();
+
+    // TODO exploding dice
+
+    const avRollResult = avRoll._total;
+    const avRollSuccess = avRollResult >= difficulty;
+
+    console.error("Difficulty: " + difficulty + " | Roll: " + avRollResult + " | Success?: " + avRollSuccess);
+
+    // if fails, output message
+    if (!avRollSuccess) {
+      // TODO better message
+      ChatMessage.create(
+        {
+          content: "Action failed!"
         }
+      );
+      return;
+    }
+
+    // TODO if succeeds, calculate column shifts for result table
+    let columnShifts = 0;
+    for (let i = ovIndex + 1; i < actionTable[avIndex].length; i++) {
+      if (actionTable[avIndex][i] <= avRollResult) {
+        columnShifts++;
+      } else {
+        break;
       }
-      console.log("Column shifts: "+columnShifts);
+    }
+    console.log("Column shifts: "+columnShifts);
 
-      /**********************************
-       * RESULT TABLE
-       **********************************/
+    /**********************************
+     * RESULT TABLE
+     **********************************/
 
-      const resultTable = CONFIG.tables.resultTable;
+    const resultTable = CONFIG.tables.resultTable;
 
-      // get effectvalue column  index
-      const ev = this._getEffectValue(dataset.key);
-      const evIndex = this._getRangeIndex(ev);
-      
-      // get resistance value column index
-      const rv = this._getResistanceValue(dataset.key, targetActor);
-      const rvIndex = this._getRangeIndex(rv) - 1;
-      console.error("EV = "+ev+" | evIndex = "+evIndex+" | RV = "+rv+" | rvIndex = "+rvIndex);
+    // get effectvalue column  index
+    const ev = this._getEffectValue(dataset.key);
+    const evIndex = this._getRangeIndex(ev);
+    
+    // get resistance value column index
+    const rv = this._getResistanceValue(dataset.key, targetActor);
+    const rvIndex = this._getRangeIndex(rv) - 1;
+    console.error("EV = "+ev+" | evIndex = "+evIndex+" | RV = "+rv+" | rvIndex = "+rvIndex);
 
-      // apply shifts
-      let shiftedRvIndex = rvIndex - columnShifts;
-      if (shiftedRvIndex < 0) {
-        // "All" result on table - Result APs = Effect Value
-        return ev;
-      }
-      console.error("shiftedRvIndex = "+shiftedRvIndex);
+    // apply shifts
+    let shiftedRvIndex = rvIndex - columnShifts;
+    if (shiftedRvIndex < 0) {
+      // "All" result on table - Result APs = Effect Value
+      return ev;
+    }
+    console.error("shiftedRvIndex = "+shiftedRvIndex);
 
-      // TODO consult result chart
-      const resultAPs = resultTable[evIndex][shiftedRvIndex];
-      console.error("result = "+resultAPs);
+    // TODO consult result chart
+    const resultAPs = resultTable[evIndex][shiftedRvIndex];
+    console.error("result = "+resultAPs);
 
-      // results output to chat
+    // results output to chat
 
-      return resultAPs;
+    return resultAPs;
   }
 
   /**
