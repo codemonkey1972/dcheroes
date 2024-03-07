@@ -354,7 +354,7 @@
 }
 
 .dcheroes .sheet-body .attributeRow:hover {
-    text-shadow: 0 0 10px #ff0000;
+  box-shadow: 0 0 10px #ff0000;
 }
 
 .dcheroes .attributes .attribute select {
