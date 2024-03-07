@@ -345,13 +345,24 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO popup
       const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
       const html = await renderTemplate(template, {});
-       Dialog.confirm({
-        title: game.i18n.localize("Test Popup"),
+      let d = new Dialog({
+        title: "Enter Values",
         content: html,
-        yes: async () => await this._processOpposingValuesEntry(html),
-        no: () => {},
-        defaultYes: false,
+        buttons: {
+          cancel: {
+            label: "Cancel",
+            callback: () => {}
+          },
+          submit: {
+            label: "Submit",
+            callback: () => this._processOpposingValuesEntry(html[0].querySelector("form"))
+          },
+          default: "Submit",
+          render: html => console.log("Register interactivity in the rendered dialog"),
+          close: html => console.log("This always is logged no matter which option is chosen")
+        }
       });
+      d.render(true);
 
     } else if (game.user.targets.size > 1) {
       // TODO popup for specific data
