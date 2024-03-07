@@ -351,11 +351,10 @@ export class DCHeroesActorSheet extends ActorSheet {
         console.error(response);
         // TODO implement rest of stuff to process here
       });
-      ui.notifications.warn("You must pick a target");
       return;
     } else if (game.user.targets.size > 1) {
       // TODO popup for specific data
-      ui.notifications.warn("You can only target one token");
+      ui.notifications.warn(localize("You can only target one token"));
       return;
     }
 
