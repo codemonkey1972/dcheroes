@@ -551,8 +551,8 @@ export class DCHeroesActorSheet extends ActorSheet {
   }
 
   _processOpposingValuesEntry(html) {
-    const value = html.find("input#opposingValue").val();
-    ui.notifications.info(`Value: ${value}`);
+    const opposingValue = html.find("input#opposingValue").val();
+    ui.notifications.info(`Value: ${opposingValue}`);
   }
 
 	// _processOpposingValuesEntry(html) {
