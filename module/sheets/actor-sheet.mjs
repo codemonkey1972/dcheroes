@@ -345,13 +345,28 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO popup
       //this._getRollValuesOptions();
       // OR
-      this._openOpposingValuesDialog().then((response) => {
-        manuallyEnteredValues = true;
-        console.error("+++++++++TEST: dialog values:");
-        console.error(response);
-        // TODO implement rest of stuff to process here
+      // this._openOpposingValuesDialog().then((response) => {
+      //   manuallyEnteredValues = true;
+      //   console.error("+++++++++TEST: dialog values:");
+      //   console.error(response);
+      //   // TODO implement rest of stuff to process here
+      // });
+      // return;
+      Dialog.confirm({
+        title: game.i18n.localize("Test Popup"),
+        content: `
+          <h2 style="text-align: center;font-weight: 600; border:none;">
+            Stuff here
+          </h2>
+          <p>More stuff here</p><hr/>
+          <p>Still more stuff</p>
+          <p style="text-align: center;"><b>$Are you sure?</b></p>
+          <br/>`,
+        yes: async () => await this._processOpposingValuesEntry(html[0].querySelector("form")),
+        no: () => {},
+        defaultYes: false,
       });
-      return;
+
     } else if (game.user.targets.size > 1) {
       // TODO popup for specific data
       ui.notifications.warn(localize("You can only target one token"));
@@ -496,6 +511,11 @@ export class DCHeroesActorSheet extends ActorSheet {
     return rv;
   }
 
+	async _processOpposingValuesEntry(form) {
+    console.error(form);
+  }
+
+  // TODO delete
   async _openOpposingValuesDialog() {
     const myContent = await renderTemplate("systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html", {});
 
@@ -515,6 +535,11 @@ export class DCHeroesActorSheet extends ActorSheet {
     }).render(true);
   }
 
+  /**
+   * 
+   * @param {*} value 
+   * @returns 
+   */
   _getRangeIndex(value) {
     const ranges = CONFIG.tables.ranges;
     let index = 0;
@@ -556,6 +581,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     });
   }
 
+  // TODO delete
   _processRollOptions(form) {
     return {
       opposingValue: parseInt(form.opposingValue.value),
