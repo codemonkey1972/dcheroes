@@ -385,7 +385,11 @@ export class DCHeroesActorSheet extends ActorSheet {
       // if fails, output message
       if (!avRollSuccess) {
         // TODO better message
-        ChatMessage.create({content: "Action failed!"});
+        ChatMessage.create(
+          {
+            content: "Action failed!"
+          }
+        );
         return;
       }
 
@@ -417,7 +421,10 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // apply shifts
       let shiftedRvIndex = rvIndex - columnShifts;
-      if (shiftedRvIndex < 0) shiftedRvIndex = 0;
+      if (shiftedRvIndex < 0) {
+        // "All" result on table - Result APs = Effect Value
+        return ev;
+      }
       console.error("shiftedRvIndex = "+shiftedRvIndex);
 
       // TODO consult result chart
@@ -427,7 +434,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       // results output to chat
 
       return resultAPs;
-
   }
 
   /**

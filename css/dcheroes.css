@@ -353,6 +353,10 @@
   padding: 0;
 }
 
+.dcheroes .attributes .attributeRow:hover {
+    text-shadow: 0 0 10px #ff0000;
+}
+
 .dcheroes .attributes .attribute select {
   width: 100%;
   background-color: #ddebf6;
