@@ -374,17 +374,16 @@ export class DCHeroesActorSheet extends ActorSheet {
       const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
       const dialogHtml = await renderTemplate(template, {});
 
-new Dialog({
-  title: "My Dialog Title",
-  content: dialogHtml,
-  buttons: {
-    button1: {
-      label: "Display Value",
-      callback: (html) => this.myCallback(html),
-      icon: `<i class="fas fa-check"></i>`
-    }
-  }
-}).render(true);
+      new Dialog({
+        title: "Enter Values",
+        content: dialogHtml,
+        buttons: {
+          button1: {
+            label: "Submit",
+            callback: (html) => this.myCallback(html),
+          }
+        }
+      }).render(true);
 
     } else if (game.user.targets.size > 1) {
       // TODO popup for specific data
