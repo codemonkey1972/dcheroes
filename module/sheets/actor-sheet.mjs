@@ -348,7 +348,7 @@ export class DCHeroesActorSheet extends ActorSheet {
        Dialog.confirm({
         title: game.i18n.localize("Test Popup"),
         content: html,
-        yes: async () => await this._processOpposingValuesEntry(html[0].querySelector("form")),
+        yes: async () => await this._processOpposingValuesEntry(html),
         no: () => {},
         defaultYes: false,
       });
