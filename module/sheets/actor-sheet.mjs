@@ -451,12 +451,12 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // TODO consult result chart
     const resultAPs = resultTable[evIndex][shiftedRvIndex];
-    console.error("result = "+resultAPs);
+//    console.error("result = "+resultAPs);
 
     // results output to chat
     const message = await ChatMessage.create(
       {
-        content: "<div><p>AV = "+ av + " | OV = "+ov+"</p>"
+        content: "<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
           + "<p>Difficulty = "+difficulty+" | Roll = "+avRoll.result+"</p><p>>Action succeded!</p></div>"
           + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = "+resultAPs+" </p></div>"
       }
