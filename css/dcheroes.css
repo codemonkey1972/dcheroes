@@ -358,7 +358,6 @@
     0 0 5px #fff,  /* inner white */
     0 0 8px #f0f, /* middle magenta */
     0 0 13 #0ff; /* outer cyan */
-  box-shadow: 0 0 10px #ff0000;
 }
 
 .dcheroes .attributes .attribute select {
