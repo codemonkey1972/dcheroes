@@ -502,7 +502,16 @@ export class DCHeroesActorSheet extends ActorSheet {
     new Dialog({
       title: "My Custom Dialog Title",
       content: myContent,
-      buttons: {}
+      buttons: {
+        normal: {
+          label: "Roll",
+          callback: html => resolve(_processRollOptions(html[0].querySelector("form")))
+        },
+        cancel: {
+          label: "Cancel",
+          callback: html => resolve({cancelled: true})
+        }
+      }
     }).render(true);
   }
 
@@ -521,6 +530,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     return index;
   }
 
+  // TODO remove
   async _getRollValuesOptions() {
     const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
     const html = await renderTemplate(template, {});
