@@ -371,14 +371,12 @@ export class DCHeroesActorSheet extends ActorSheet {
       //   }
       }).render(true);
 */
-const myContent = `
-    Value:
-  <input id="myInputID" type="number" value="0" />
-`;
+      const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
+      const dialogHtml = await renderTemplate(template, {});
 
 new Dialog({
   title: "My Dialog Title",
-  content: myContent,
+  content: dialogHtml,
   buttons: {
     button1: {
       label: "Display Value",
