@@ -349,14 +349,22 @@ export class DCHeroesActorSheet extends ActorSheet {
         title: "Enter Values",
         content: html,
         buttons: {
-          cancel: {
-            label: "Cancel",
-            callback: () => {}
-          },
-          submit: {
-            label: "Submit",
+          ok: {
+            icon: '<i class="fas fa-check"></i>',
+            label: "OK",
             callback: () => this._processOpposingValuesEntry(html[0].querySelector("form"))
           },
+        },
+        default: "ok",
+        // buttons: {
+        //   cancel: {
+        //     label: "Cancel",
+        //     callback: () => {}
+        //   },
+        //   submit: {
+        //     label: "Submit",
+        //     callback: () => this._processOpposingValuesEntry(html[0].querySelector("form"))
+        //   },
           default: "submit",
           render: html => console.log("Register interactivity in the rendered dialog"),
           close: html => console.log("This always is logged no matter which option is chosen")
