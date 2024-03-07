@@ -295,7 +295,7 @@
   color: #1f5079;
 }
 .dcheroes .sheet-tabs a.item:hover {
-  box-shadow:0 0 3px #FFE205, 0 0 7px #FFE205, 0 0 14px #EDD205;
+  text-shadow:0 0 3px #FFE205, 0 0 7px #FFE205, 0 0 14px #EDD205;
 }
 .dcheroes .sheet-body,
 .dcheroes .sheet-body .tab,
