@@ -393,18 +393,23 @@ export class DCHeroesActorSheet extends ActorSheet {
     await avRoll.evaluate();
 
     // TODO exploding dice
+    /*
+    
+    */
+   console.error(avRoll);
 
     const avRollResult = avRoll._total;
     const avRollSuccess = avRollResult >= difficulty;
 
-    console.error("Difficulty: " + difficulty + " | Roll: " + avRollResult + " | Success?: " + avRollSuccess);
+//    console.error("Difficulty: " + difficulty + " | Roll: " + avRollResult + " | Success?: " + avRollSuccess);
 
     // if fails, output message
     if (!avRollSuccess) {
       // TODO better message
       ChatMessage.create(
         {
-          content: "Action failed!"
+          content: "<div><p>AV = "+ av + " | OV = "+ov+"</p>"
+            + "<p>Difficulty = "+difficulty+" | Roll = "+avRoll.result+"</p><p>>Action failed!</p></div>"
         }
       );
       return;
@@ -419,7 +424,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         break;
       }
     }
-    console.log("Column shifts: "+columnShifts);
+//    console.log("Column shifts: "+columnShifts);
 
     /**********************************
      * RESULT TABLE
@@ -434,7 +439,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // get resistance value column index
     const rv = this._getResistanceValue(dataset.key, targetActor);
     const rvIndex = this._getRangeIndex(rv) - 1;
-    console.error("EV = "+ev+" | evIndex = "+evIndex+" | RV = "+rv+" | rvIndex = "+rvIndex);
+//    console.error("EV = "+ev+" | evIndex = "+evIndex+" | RV = "+rv+" | rvIndex = "+rvIndex);
 
     // apply shifts
     let shiftedRvIndex = rvIndex - columnShifts;
@@ -442,13 +447,20 @@ export class DCHeroesActorSheet extends ActorSheet {
       // "All" result on table - Result APs = Effect Value
       return ev;
     }
-    console.error("shiftedRvIndex = "+shiftedRvIndex);
+//    console.error("shiftedRvIndex = "+shiftedRvIndex);
 
     // TODO consult result chart
     const resultAPs = resultTable[evIndex][shiftedRvIndex];
-    console.error("result = "+resultAPs);
+//    console.error("result = "+resultAPs);
 
     // results output to chat
+    ChatMessage.create(
+      {
+        content: "<div><p>AV = "+ av + " | OV = "+ov+"</p>"
+          + "<p>Difficulty = "+difficulty+" | Roll = "+avRoll.result+"</p><p>>Action succeded!</p></div>"
+          + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = "+resultAPs+" </p></div>"
+      }
+    );
 
     return resultAPs;
   }
