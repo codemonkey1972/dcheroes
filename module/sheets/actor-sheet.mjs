@@ -378,11 +378,16 @@ export class DCHeroesActorSheet extends ActorSheet {
         title: "Enter Values",
         content: dialogHtml,
         buttons: {
+          button2: {
+            label: "Close",
+            callback: (html) => {},
+          },
           button1: {
             label: "Submit",
             callback: (html) => this._processOpposingValuesEntry(html),
           }
-        }
+        },
+        default: "button1"
       }).render(true);
 
     } else if (game.user.targets.size > 1) {
@@ -552,33 +557,11 @@ export class DCHeroesActorSheet extends ActorSheet {
 
   _processOpposingValuesEntry(html) {
     const opposingValue = html.find("input#opposingValue").val();
-    ui.notifications.info(`Value: ${opposingValue}`);
-  }
-
-	// _processOpposingValuesEntry(html) {
-  //   // TODO
-  //   const value = html.find("input#opposingValue").val();
-  //   console.error(html.find("input#opposingValue"));
-  // }
-
-  // TODO delete
-  async _openOpposingValuesDialog() {
-    const myContent = await renderTemplate("systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html", {});
-
-    new Dialog({
-      title: "My Custom Dialog Title",
-      content: myContent,
-      buttons: {
-        normal: {
-          label: "Roll",
-          callback: html => resolve(_processRollOptions(html[0].querySelector("form")))
-        },
-        cancel: {
-          label: "Cancel",
-          callback: html => resolve({cancelled: true})
-        }
-      }
-    }).render(true);
+    const resistanceValue = html.find("input#opposingValue").val();
+    return {
+      opposingValue: parseInt(form.opposingValue.value),
+      resistanceValue: parseInt(form.resistanceValue.value)
+    }
   }
 
   /**
@@ -599,39 +582,5 @@ export class DCHeroesActorSheet extends ActorSheet {
       }
     }
     return index;
-  }
-
-  // TODO remove
-  async _getRollValuesOptions() {
-    const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
-    const html = await renderTemplate(template, {});
-
-    return new Promise(resolve => {
-      const data = {
-        title: "Enter opposing data",
-        content: html,
-        buttons: {
-          normal: {
-            label: "Roll",
-            callback: html => resolve(_processRollOptions(html[0].querySelector("form")))
-          },
-          cancel: {
-            label: "Cancel",
-            callback: html => resolve({cancelled: true})
-          }
-        },
-        default: "normal",
-        close: () => resolve({cancelled: true})
-      }
-      new Dialog(data, null).render(true);
-    });
-  }
-
-  // TODO delete
-  _processRollOptions(form) {
-    return {
-      opposingValue: parseInt(form.opposingValue.value),
-      resistanceValue: parseInt(form.resistanceValue.value)
-    }
   }
 }
