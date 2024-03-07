@@ -559,8 +559,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     const opposingValue = html.find("input#opposingValue").val();
     const resistanceValue = html.find("input#opposingValue").val();
     return {
-      opposingValue: parseInt(form.opposingValue.value),
-      resistanceValue: parseInt(form.resistanceValue.value)
+      opposingValue: parseInt(opposingValue),
+      resistanceValue: parseInt(resistanceValue)
     }
   }
 
