@@ -343,25 +343,11 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     if (game.user.targets.size === 0) {
       // TODO popup
-      //this._getRollValuesOptions();
-      // OR
-      // this._openOpposingValuesDialog().then((response) => {
-      //   manuallyEnteredValues = true;
-      //   console.error("+++++++++TEST: dialog values:");
-      //   console.error(response);
-      //   // TODO implement rest of stuff to process here
-      // });
-      // return;
-      Dialog.confirm({
+      const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
+      const html = await renderTemplate(template, {});
+       Dialog.confirm({
         title: game.i18n.localize("Test Popup"),
-        content: `
-          <h2 style="text-align: center;font-weight: 600; border:none;">
-            Stuff here
-          </h2>
-          <p>More stuff here</p><hr/>
-          <p>Still more stuff</p>
-          <p style="text-align: center;"><b>$Are you sure?</b></p>
-          <br/>`,
+        content: html,
         yes: async () => await this._processOpposingValuesEntry(html[0].querySelector("form")),
         no: () => {},
         defaultYes: false,
@@ -371,7 +357,16 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO popup for specific data
       ui.notifications.warn(localize("You can only target one token"));
       return;
+    } else {
+      await this._handleTargetedRolls(dataset);
     }
+  }
+
+  /**
+   * 
+   * @returns 
+   */
+  async _handleTargetedRolls(dataset) {
 
     let targetActor = this._getTargetActor();
 
