@@ -376,13 +376,13 @@ export class DCHeroesActorSheet extends ActorSheet {
     // get range index for AV
     const av = dataset.value;
     const avIndex = this._getRangeIndex(av);
-    console.error("AV: index =" + avIndex+" - value = "+av+"; range = ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
+//    console.error("AV: index =" + avIndex+" - value = "+av+"; range = ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
 
     const ov = targetActor.system.attributes[dataset.key].value;
 
     // get range index for OV
     const ovIndex = this._getRangeIndex(ov);
-    console.error("OV: index =" + ovIndex+" - value = "+ov+"; range = ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
+//    console.error("OV: index =" + ovIndex+" - value = "+ov+"; range = ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
 
     // consult action chart for difficulty
     const actionTable = CONFIG.tables.actionTable;
@@ -451,10 +451,10 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // TODO consult result chart
     const resultAPs = resultTable[evIndex][shiftedRvIndex];
-//    console.error("result = "+resultAPs);
+    console.error("result = "+resultAPs);
 
     // results output to chat
-    ChatMessage.create(
+    const message = await ChatMessage.create(
       {
         content: "<div><p>AV = "+ av + " | OV = "+ov+"</p>"
           + "<p>Difficulty = "+difficulty+" | Roll = "+avRoll.result+"</p><p>>Action succeded!</p></div>"
