@@ -343,7 +343,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     if (game.user.targets.size === 0) {
       // TODO popup
-      const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
+ /*     const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
       const html = await renderTemplate(template, {});
       new Dialog({
         title: "Enter Values",
@@ -370,6 +370,23 @@ export class DCHeroesActorSheet extends ActorSheet {
       //     close: html => console.log("This always is logged no matter which option is chosen")
       //   }
       }).render(true);
+*/
+const myContent = `
+    Value:
+  <input id="myInputID" type="number" value="0" />
+`;
+
+new Dialog({
+  title: "My Dialog Title",
+  content: myContent,
+  buttons: {
+    button1: {
+      label: "Display Value",
+      callback: (html) => this.myCallback(html),
+      icon: `<i class="fas fa-check"></i>`
+    }
+  }
+}).render(true);
 
     } else if (game.user.targets.size > 1) {
       // TODO popup for specific data
@@ -535,6 +552,11 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
     return rv;
   }
+
+  myCallback(html) {
+    const value = html.find("input#myInputID").val();
+  ui.notifications.info(`Value: ${value}`);
+}
 
 	_processOpposingValuesEntry(html) {
     // TODO
