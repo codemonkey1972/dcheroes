@@ -345,7 +345,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO popup
       const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
       const html = await renderTemplate(template, {});
-      let d = new Dialog({
+      new Dialog({
         title: "Enter Values",
         content: html,
         buttons: {
@@ -369,8 +369,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       //     render: html => console.log("Register interactivity in the rendered dialog"),
       //     close: html => console.log("This always is logged no matter which option is chosen")
       //   }
-      });
-      d.render(true);
+      }).render(true);
 
     } else if (game.user.targets.size > 1) {
       // TODO popup for specific data
@@ -538,7 +537,10 @@ export class DCHeroesActorSheet extends ActorSheet {
   }
 
 	async _processOpposingValuesEntry(form) {
-    console.error(form);
+    // TODO
+    const value = html.find("input#opposingValue").val();
+    ui.notifications.info(`Value: ${value}`);
+    console.error(tml.find("input#opposingValue").val());
   }
 
   // TODO delete
