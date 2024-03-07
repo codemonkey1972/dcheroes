@@ -58,7 +58,7 @@
 }
 
 .rollable:hover, .rollable:focus {
-  text-shadow: 0 0 10px #ff0000;
+  text-shadow:0 0 3px #FFE205, 0 0 7px #FFE205, 0 0 14px #EDD205;
   cursor: pointer;
 }
 
@@ -354,7 +354,7 @@
 }
 
 .dcheroes .sheet-body .attributeRow:hover {
-  box-shadow:0 0 3px #FFE205, 0 0 7px #FFE205, 0 0 20px #EDD205;
+  box-shadow:0 0 3px #FFE205, 0 0 7px #FFE205, 0 0 14px #EDD205;
 }
 
 .dcheroes .attributes .attribute select {
