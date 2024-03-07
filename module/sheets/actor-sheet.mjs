@@ -371,6 +371,9 @@ export class DCHeroesActorSheet extends ActorSheet {
       //   }
       }).render(true);
 */
+      let ov = 0;
+      let rv = 0;
+
       const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
       const dialogHtml = await renderTemplate(template, {});
 
@@ -384,7 +387,10 @@ export class DCHeroesActorSheet extends ActorSheet {
           },
           button1: {
             label: "Submit",
-            callback: (html) => this._processOpposingValuesEntry(html),
+            callback: (html) => {
+              const response = this._processOpposingValuesEntry(html);
+              console.error(response);
+            }
           }
         },
         default: "button1"
