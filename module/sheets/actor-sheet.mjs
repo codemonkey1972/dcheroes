@@ -380,7 +380,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         buttons: {
           button1: {
             label: "Submit",
-            callback: (html) => this.myCallback(html),
+            callback: (html) => this._processOpposingValuesEntry(html),
           }
         }
       }).render(true);
@@ -550,16 +550,16 @@ export class DCHeroesActorSheet extends ActorSheet {
     return rv;
   }
 
-  myCallback(html) {
-    const value = html.find("input#myInputID").val();
-  ui.notifications.info(`Value: ${value}`);
-}
-
-	_processOpposingValuesEntry(html) {
-    // TODO
+  _processOpposingValuesEntry(html) {
     const value = html.find("input#opposingValue").val();
-    console.error(html.find("input#opposingValue"));
+    ui.notifications.info(`Value: ${value}`);
   }
+
+	// _processOpposingValuesEntry(html) {
+  //   // TODO
+  //   const value = html.find("input#opposingValue").val();
+  //   console.error(html.find("input#opposingValue"));
+  // }
 
   // TODO delete
   async _openOpposingValuesDialog() {
