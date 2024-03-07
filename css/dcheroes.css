@@ -353,7 +353,7 @@
   padding: 0;
 }
 
-.dcheroes .attributes .attributeRow:hover {
+.dcheroes .sheet-body .attributeRow:hover {
     text-shadow: 0 0 10px #ff0000;
 }
 
