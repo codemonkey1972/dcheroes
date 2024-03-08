@@ -440,7 +440,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Execute the roll
     await avRoll.evaluate();
 
-    // TODO double 1s = automatic fail
+    // double 1s = automatic fail
     if (avRoll.total === 2) {
       // TODO better message
       ChatMessage.create(
@@ -497,19 +497,18 @@ export class DCHeroesActorSheet extends ActorSheet {
     // if succeeds, calculate column shifts for result table
     let columnShifts = 0;
 
-    // TODO calculate column shifts that push past the 0 column
+    // TODO handle totals greater than 60 on table
 
     // The total die roll must lie on or beyond the Column Shift Threshold (i.e., 11)
     if (avRollTotal > 11) {
       
       /* The Action Table is set up so that any roll over 11 might earn the Player a Column Shift. 
          Notice that the 11's split the Action Table in two. This is the Column Shift Threshold. */
-
-      // The roll must be greater than the Success Number
       for (let i = 0; i < actionTable[avIndex].length; i++) {
         console.error("i: "+i+" | avRollTotal = "+avRollTotal+" | actionTable[avIndex][i] = "+actionTable[avIndex][i]);
         if (actionTable[avIndex][i] > 11) {
-          if (actionTable[avIndex][i] <= avRollTotal) {
+          // The roll must be greater than the Success Number
+          if (avRollTotal > actionTable[avIndex][i]) {
             columnShifts++;
           } else {
             break;
@@ -532,20 +531,29 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // apply shifts
     let shiftedRvIndex = rvIndex - columnShifts;
-    if (shiftedRvIndex < 0) {
+    if (shiftedRvIndex <= 0) {
+      // calculate column shifts that push past the 0 column
+      // If the result is in the +1 Column, add 1 AP to your Result APs for every time you shift into this Column.
+      const resultAPs = ev + (Math.abs(shiftedRvIndex));
+
       // "All" result on table - Result APs = Effect Value
+      // If the Result is an 'A,' then the RAPs are equal to the APs of the Effect Value.
       const message = await ChatMessage.create(
         {
           content: "<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
             + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+"</p><p>>Action succeded!</p></div>"
-            + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = ALL ("+ev+" APs) </p></div>"
+            + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = ALL ("+resultAPs+" APs) </p></div>"
         }
       );
-      return ev;
+      return resultAPs;
     }
 
     // consult result chart
     const resultAPs = resultTable[evIndex][shiftedRvIndex];
+
+    // TODO If the result is an 'N' then there is No Effect
+
+
 
     // results output to chat
     const message = await ChatMessage.create(
