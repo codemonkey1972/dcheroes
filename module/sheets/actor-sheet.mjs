@@ -438,7 +438,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     let die1 = dieRollResultDice[0];
     let die2 = dieRollResultDice[1];
    
-    while (die1 === die2 && die1) {
+    while (die1 === die2) {
       // TODO better message
       await ChatMessage.create(
         {
@@ -482,17 +482,16 @@ export class DCHeroesActorSheet extends ActorSheet {
       
       /* The Action Table is set up so that any roll over 11 might earn the Player a Column Shift. 
          Notice that the 11's split the Action Table in two. This is the Column Shift Threshold. */
-      const cstIndex = this._getRangeIndex(11);
-
-      console.error("cstIndex: "+cstIndex);
 
       // The roll must be greater than the Success Number
-      for (let i = cstIndex; i < actionTable[avIndex].length; i++) {
+      for (let i = 0; i < actionTable[avIndex].length; i++) {
         console.error("i: "+i+" | avRollTotal = "+avRollTotal+" | actionTable[avIndex][i] = "+actionTable[avIndex][i]);
-        if (actionTable[avIndex][i] <= avRollTotal) {
-          columnShifts++;
-        } else {
-          break;
+        if (actionTable[avIndex][i] > 11) {
+          if (actionTable[avIndex][i] <= avRollTotal) {
+            columnShifts++;
+          } else {
+            break;
+          }
         }
       }
     }
@@ -612,10 +611,16 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @param {*} value 
    * @returns 
    */
-  _getRangeIndex(value) {
+  _getRangeIndex(value, excludeZero) {
     const ranges = CONFIG.tables.ranges;
+
+    let start = 0;
+    if (excludeZero) {
+      start = 1;
+    }
+
     let index = 0;
-    for (let i = 0; i < ranges.length; i++) {
+    for (let i = start; i < ranges.length; i++) {
       const range = ranges[i];
       const min = range[0];
       const max = range[1];
