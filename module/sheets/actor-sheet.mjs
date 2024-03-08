@@ -10,6 +10,7 @@ import {
 export class DCHeroesActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
+    // TODO rename features tab
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['dcheroes', 'sheet', 'actor'],
       width: 600,
@@ -127,7 +128,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     // Water Freedom applies when submerged in water
-    // TODO a checkbox for is in water?
+    // TODO dialog prompt for modifiers
+    // TODO add checkbox if has Water Freedom for if is in water
 
     return initiativeBonus;
   }
@@ -172,12 +174,11 @@ export class DCHeroesActorSheet extends ActorSheet {
   _prepareItems(context) {
     // Initialize containers.
     const gadgets = [];
-    const features = []; // TODO remove
     const powers = [];
     const skills = [];
     const advantages = [];
     const drawbacks = [];
-    const subskills = []; // TODO move this to item-sheet.mjs
+    const subskills = []; // TODO move this to item-sheet.mjs?
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -185,10 +186,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       // Append to items.
       if (i.type === 'power') {
         powers.push(i);
-      }
-      // Append to features.
-      else if (i.type === 'feature') {
-        features.push(i);
       }
       // Append to skills.
       else if (i.type === 'skill') {
@@ -214,7 +211,6 @@ export class DCHeroesActorSheet extends ActorSheet {
 
   // Assign and return
   context.powers = powers;
-  context.features = features; // TODO remove
   context.skills = skills;
   context.advantages = advantages;
   context.drawbacks = drawbacks;
@@ -505,7 +501,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       /* The Action Table is set up so that any roll over 11 might earn the Player a Column Shift. 
          Notice that the 11's split the Action Table in two. This is the Column Shift Threshold. */
       for (let i = 0; i < actionTable[avIndex].length; i++) {
-        console.error("i: "+i+" | avRollTotal = "+avRollTotal+" | actionTable[avIndex][i] = "+actionTable[avIndex][i]);
         if (actionTable[avIndex][i] > 11) {
           // The roll must be greater than the Success Number
           if (avRollTotal > actionTable[avIndex][i]) {
@@ -530,6 +525,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     const rvIndex = this._getRangeIndex(rv) - 1;
 
     // apply shifts
+    // Column Shifts on the Result Table are made to the left, decreasing numbers in the Resistance Value row, 
+    // but increasing the number of Result APs within the Table itself
     let shiftedRvIndex = rvIndex - columnShifts;
     if (shiftedRvIndex <= 0) {
       // calculate column shifts that push past the 0 column
