@@ -377,7 +377,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       return;
     } else {
       // use target token for OV and RV values
-      await this._handleTargetedRolls(dataset);
+      await this._handleTargetedRolls(dataset, label);
     }
   }
 
@@ -385,11 +385,14 @@ export class DCHeroesActorSheet extends ActorSheet {
    * 
    * @returns 
    */
-  async _handleTargetedRolls(dataset) {
+  async _handleTargetedRolls(dataset, label) {
     let targetActor = this._getTargetActor();
+
     const ov = targetActor.system.attributes[dataset.key].value;
     const rv = this._getResistanceValue(dataset.key, targetActor);
 
+    const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
+    const dialogHtml = await renderTemplate(template, {});
     const isTargeted = true;
     const d = new Dialog({
       title: label,
