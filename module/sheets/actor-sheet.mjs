@@ -99,7 +99,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // TODO set value on actor object
     // TODO initiative - this.actor.getRollData() needs to be updated -> context.actor.system?
-    // context.actor.system.initiativeBonus.value = initiativeBonus; // already changes
+    context.actor.system.initiativeBonus.value = initiativeBonus; // already changes
     // this.object.system.initiativeBonus.value = initiativeBonus; //does not change in actor.mjs
 
     // const actorId = context.actor._id;
@@ -425,6 +425,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // TODO deduct spent Hero Points
     const context = super.getData();
+    context.actor.system.heroPoints.value = context.actor.system.heroPoints.value - (hpSpentAP + hpSpentEP);
     console.error(context); // context.actor.system
     console.error(this);
 
