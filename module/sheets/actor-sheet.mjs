@@ -403,6 +403,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     const actionTable = CONFIG.tables.actionTable;
     const difficulty = actionTable[avIndex][ovIndex];
 
+    console.error(dataset.roll);
+    console.error(this.actor.getRollData());
     // determine whether happens
     let avRoll = new Roll(dataset.roll, this.actor.getRollData());
 
@@ -440,6 +442,8 @@ export class DCHeroesActorSheet extends ActorSheet {
             + "<p>Re-rolling Doubles!</p><p>Current total = " + avRollResult + "</p></div>"
         }
       );
+      console.error(dataset.roll);
+      console.error(this.actor.getRollData());
       const avExplodeRoll = new Roll(dataset.roll, this.actor.getRollData());
       console.error(avExplodeRoll.result);
       dieRollResultDice = avExplodeRoll.result.split(' + ');
