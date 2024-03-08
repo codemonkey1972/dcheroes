@@ -470,6 +470,13 @@ export class DCHeroesActorSheet extends ActorSheet {
     let shiftedRvIndex = rvIndex - columnShifts;
     if (shiftedRvIndex < 0) {
       // "All" result on table - Result APs = Effect Value
+      const message = await ChatMessage.create(
+        {
+          content: "<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
+            + "<p>Difficulty = "+difficulty+" | Roll = "+avRoll.result+"</p><p>>Action succeded!</p></div>"
+            + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = ALL ("+ev+" APs) </p></div>"
+        }
+      );
       return ev;
     }
     console.error("shiftedRvIndex = "+shiftedRvIndex);
