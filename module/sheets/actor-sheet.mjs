@@ -91,20 +91,15 @@ export class DCHeroesActorSheet extends ActorSheet {
       v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
 
+    // TODO dragging from right bar puts a copy on the table, not a linked version - FIX!
+    // The exception is player characters and sheets that have "link actor data" enabled (PCs do by default). For these actors there's a single character sheet shared by all copies of the actor.
+
     const initiativeBonus = this._calculateInitiativeBonus(context);
 
     // set value on actor sheet object
+    // TODO do we need both of these now?
     context.system.initiativeBonus.value = initiativeBonus; // works for sheet display
-    // context.document.system.initiativeBonus.value = initiativeBonus;
-
-    // TODO set value on actor object
-    // TODO initiative - this.actor.getRollData() needs to be updated -> context.actor.system?
     context.actor.system.initiativeBonus.value = initiativeBonus; // already changes
-    // this.object.system.initiativeBonus.value = initiativeBonus; //does not change in actor.mjs
-
-    // const actorId = context.actor._id;
-    // let actor = game.actors.get(actorId);
-    // actor.system.initiativeBonus.value = initiativeBonus; // does not change in actor.js
   }
 
   _calculateInitiativeBonus(context) {
