@@ -409,20 +409,42 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Execute the roll
     await avRoll.evaluate();
 
-// The resulting equation after it was rolled
-console.error(avRoll.result);   // 16 + 2 + 4
-
-// The total resulting from the roll
-console.error(avRoll.total);    // 22
-    
     // TODO double 1s = automatic fail
-  
+    if (avRollResult === 2) {
+      // TODO better message
+      ChatMessage.create(
+        {
+          content: "<div><p>AV = "+ av + " | OV = "+ov+"</p>"
+            + "<p>Difficulty = "+difficulty+" | Roll = "+avRoll.result+"</p><p>>Snakeeyes: Automatic failure!</p></div>"
+        }
+      );
+      return;
+    }
 
-    // TODO exploding dice
-    /*
+    // Get roll result
+    let avRollResult = avRoll.total;
+
+    // exploding dice
+    let dieRollResultDice = avRoll.result.split(' + ');
+    let die1 = dieRollResultDice[0];
+    let die2 = dieRollResultDice[1];
+
+    while (die1 === die2) {
+      // TODO better message
+      await ChatMessage.create(
+        {
+          content: "<div><p>Die 1 = "+ die1 + " | Die 2 = "+die2+"</p>"
+            + "<p>Re-rolling Doubles!</p><p>Current total = " + avRollResult + "</p></div>"
+        }
+      );
+      avRoll = new Roll(dataset.roll, this.actor.getRollData());
+      dieRollResultDice = avRoll.result.split(' + ');
+      die1 = dieRollResultDice[0];
+      die2 = dieRollResultDice[1];
+      avRollResult = avRollResult + avRoll.total;
+    }
     
-    */
-    const avRollResult = avRoll.total;
+
     const avRollSuccess = avRollResult >= difficulty;
 
     // if fails, output message
