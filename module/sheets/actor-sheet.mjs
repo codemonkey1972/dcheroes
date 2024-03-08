@@ -98,7 +98,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // context.document.system.initiativeBonus.value = initiativeBonus;
 
     // TODO set value on actor object
-    // TODO initiative - this.actor.getRollData() needs to be updated
+    // TODO initiative - this.actor.getRollData() needs to be updated -> context.actor.system?
     // context.actor.system.initiativeBonus.value = initiativeBonus; // already changes
     // this.object.system.initiativeBonus.value = initiativeBonus; //does not change in actor.mjs
 
@@ -350,6 +350,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       */
       // TODO localize button content
       // TODO prompt for GM hero points spent
+      // TODO combat maneuver dropdown
 
       const d = new Dialog({
         title: label,
@@ -391,6 +392,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const rv = this._getResistanceValue(dataset.key, targetActor);
 
     // TODO prompt for GM hero points spent - deduct from targeted
+    // TODO combat maneuver dropdown
 
     const template = "systems/dcheroes/templates/actor/dialogs/rollDialogTargeted.hbs";
     let dialogHtml = await renderTemplate(template, {});
@@ -423,7 +425,8 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // TODO deduct spent Hero Points
     const context = super.getData();
-    console.error(context);
+    console.error(context); // context.actor.system
+    console.error(this);
 
 
     /**********************************
@@ -565,9 +568,9 @@ export class DCHeroesActorSheet extends ActorSheet {
     // consult result chart
     const resultAPs = resultTable[evIndex][shiftedRvIndex];
 
-    // TODO If the result is an 'N' then there is No Effect
+    // If the result is an 'N' then there is No Effect
     if (resultAPs === 0) {
-
+      // TODO show chat message
     }
 
     // results output to chat
