@@ -1,6 +1,5 @@
 <div class="megs-dialog">
   <form>
-    {{#unless (isTargeted)}}
     <div class="form-group">
       <label>{{localize "Opposing Value"}}</label>
       <input id="opposingValue" type="number" value="0" />
@@ -9,7 +8,6 @@
       <label>{{localize "Resistance Value"}}</label>
       <input id="resistanceValue" type="number" value="0" />
     </div>
-    {{/unless}}
     <div class="form-group">
       <label>{{localize "Hero Points Spent"}}</label>
       <input id="hpSpent" type="number" value="0" />

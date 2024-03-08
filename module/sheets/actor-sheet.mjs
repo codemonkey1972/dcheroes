@@ -344,14 +344,15 @@ export class DCHeroesActorSheet extends ActorSheet {
       const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
       const dialogHtml = await renderTemplate(template, {});
 
-      const isTargeted = false;
       /* TODO remove this to its own class
       const d = new RollDialog(
         title,
         message,
         onClose
       );
-*/
+      */
+     // TODO localize button content
+
       const d = new Dialog({
         title: label,
         content: dialogHtml,
@@ -391,9 +392,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     const ov = targetActor.system.attributes[dataset.key].value;
     const rv = this._getResistanceValue(dataset.key, targetActor);
 
-    const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
+    const template = "systems/dcheroes/templates/actor/dialogs/rollDialogTargeted.hbs";
     const dialogHtml = await renderTemplate(template, {});
-    const isTargeted = true;
     const d = new Dialog({
       title: label,
       content: dialogHtml,
@@ -412,8 +412,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       },
       default: "button1"
     }).render(true);
-
-    await this._handleRolls(ov, rv, dataset);
   }
 
   /**
