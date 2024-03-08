@@ -462,6 +462,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     // if succeeds, calculate column shifts for result table
     let columnShifts = 0;
 
+    // TODO calculate column shifts that push past the 0 column
+
     // The total die roll must lie on or beyond the Column Shift Threshold (i.e., 11)
     if (avRollResult > 11) {
       // The roll must be greater than the Success Number
