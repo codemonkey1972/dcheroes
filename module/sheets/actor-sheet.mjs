@@ -338,7 +338,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Manually enter OV and RV for target
     if (game.user.targets.size === 0) {
       const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
-      const dialogHtml = await renderTemplate(template, {}).replace("&&MAX&&", this._getEffectValue(dataset.key));
+      let dialogHtml = await renderTemplate(template, {});
+      dialogHtml = dialogHtml.replace("&&MAX&&", this._getEffectValue(dataset.key));
 
       /* TODO remove this to its own class
       const d = new RollDialog(
