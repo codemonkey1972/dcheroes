@@ -430,7 +430,7 @@ export class DCHeroesActorSheet extends ActorSheet {
      * ACTION TABLE
      **********************************/
     // get range index for AV
-    const av = dataset.value + hpSpentAP;
+    const av = parseInt(dataset.value) + parseInt(hpSpentAP);
     const avIndex = this._getRangeIndex(av);
 
     // TODO subtract from character's HP
