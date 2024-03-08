@@ -407,7 +407,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     console.error(dataset.roll);
     console.error(this.actor.getRollData());
     // determine whether happens
-    let avRoll = new Roll(dataset.roll, this.actor.getRollData());
+    let avRoll = new Roll(dataset.roll, {});
 
     // Execute the roll
     await avRoll.evaluate();
@@ -432,7 +432,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     let die1 = dieRollResultDice[0];
     let die2 = dieRollResultDice[1];
     console.error(dieRollResultDice);
-
    
     while (die1 === die2 && die1) {
       console.error("EXPLODE ROLL");
@@ -444,11 +443,9 @@ export class DCHeroesActorSheet extends ActorSheet {
         }
       );
       console.error(dataset.roll);
-      console.error(this.actor.getRollData());
-      const avExplodeRoll = new Roll(dataset.roll, this.actor.getRollData());
-      console.error(avExplodeRoll.result);
+      const avExplodeRoll = new Roll(dataset.roll, {});
+      console.error("Result: " + avExplodeRoll.result);
       dieRollResultDice = avExplodeRoll.result.split(' + ');
-      console.error(dieRollResultDice);
       die1 = dieRollResultDice[0];
       die2 = dieRollResultDice[1];
       avRollResult = avRollResult + avExplodeRoll.total;
