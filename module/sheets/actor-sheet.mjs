@@ -441,13 +441,18 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
     console.error("_handleRolls MIDDLE 1");
 
-    // TODO if succeeds, calculate column shifts for result table
+    // if succeeds, calculate column shifts for result table
     let columnShifts = 0;
-    for (let i = ovIndex + 1; i < actionTable[avIndex].length; i++) {
-      if (actionTable[avIndex][i] <= avRollResult) {
-        columnShifts++;
-      } else {
-        break;
+
+    // The total die roll must lie on or beyond the Column Shift Threshold (i.e., 11)
+    if (avRollResult > 11) {
+      // The roll must be greater than the Success Number
+      for (let i = ovIndex + 1; i < actionTable[avIndex].length; i++) {
+        if (actionTable[avIndex][i] <= avRollResult) {
+          columnShifts++;
+        } else {
+          break;
+        }
       }
     }
     console.log("Column shifts: "+columnShifts);
