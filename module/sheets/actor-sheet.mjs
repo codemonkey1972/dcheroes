@@ -424,12 +424,15 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Get roll result
     let avRollResult = avRoll.total;
 
+    console.error(vRoll.result);
     // exploding dice
     let dieRollResultDice = avRoll.result.split(' + ');
     let die1 = dieRollResultDice[0];
     let die2 = dieRollResultDice[1];
+    console.error(dieRollResultDice);
 
-    while (die1 === die2) {
+    /*
+    while (die1 === die2 && die1) {
       // TODO better message
       await ChatMessage.create(
         {
@@ -443,7 +446,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       die2 = dieRollResultDice[1];
       avRollResult = avRollResult + avRoll.total;
     }
-    
+    */    
 
     const avRollSuccess = avRollResult >= difficulty;
 
