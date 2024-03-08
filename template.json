@@ -174,7 +174,8 @@
         "link": "",
         "range": "",
         "type": "",
-        "formula": "2d10"  
+        "formula": "1d10 + 1d10",
+        "linked": false
       }, 
       "purchasable": {
         "baseCost": 0,
