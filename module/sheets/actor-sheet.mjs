@@ -410,7 +410,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     await avRoll.evaluate();
 
     // TODO double 1s = automatic fail
-    if (avRollResult === 2) {
+    if (avRoll.total === 2) {
       // TODO better message
       ChatMessage.create(
         {
