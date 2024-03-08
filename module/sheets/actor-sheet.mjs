@@ -328,8 +328,6 @@ export class DCHeroesActorSheet extends ActorSheet {
   }
 
   async _handleRoll(dataset) {
-    let manuallyEnteredValues = false;
-
     // what's being rolled (used for display)
     let label = dataset.label ? `[attribute] ${dataset.label}` : '';
 
@@ -350,7 +348,8 @@ export class DCHeroesActorSheet extends ActorSheet {
         onClose
       );
       */
-     // TODO localize button content
+      // TODO localize button content
+      // TODO prompt for GM hero points spent
 
       const d = new Dialog({
         title: label,
@@ -391,6 +390,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     const ov = targetActor.system.attributes[dataset.key].value;
     const rv = this._getResistanceValue(dataset.key, targetActor);
 
+    // TODO prompt for GM hero points spent - deduct from targeted
+
     const template = "systems/dcheroes/templates/actor/dialogs/rollDialogTargeted.hbs";
     let dialogHtml = await renderTemplate(template, {});
     dialogHtml = dialogHtml.replaceAll("&&MAX&&", dataset.value);
@@ -420,15 +421,18 @@ export class DCHeroesActorSheet extends ActorSheet {
    */
   async _handleRolls(ov, rv, hpSpentAP, hpSpentEP, dataset) {
 
+    // TODO deduct spent Hero Points
+    const context = super.getData();
+    console.error(context);
+
+
     /**********************************
      * ACTION TABLE
      **********************************/
     // get range index for AV
-    const av = dataset.value;
+    const av = dataset.value + hpSpentAP;
     const avIndex = this._getRangeIndex(av);
 
-    // TODO hero points spent - for acting OR effect (or both separately)
-    // TODO prompt for GM hero points spent
     // TODO subtract from character's HP
  
     // get range index for OV
@@ -531,7 +535,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const resultTable = CONFIG.tables.resultTable;
 
     // get effectvalue column  index
-    const ev = this._getEffectValue(dataset.key);
+    const ev = this._getEffectValue(dataset.key) + hpSpentEP;
     const evIndex = this._getRangeIndex(ev);
     
     // get resistance value column index

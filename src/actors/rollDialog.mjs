@@ -1,5 +1,6 @@
 export class RollDialog {
 	/**
+	 * TODO
 	 * Display informational message.
 	 *
 	 * @param  {string}   title
