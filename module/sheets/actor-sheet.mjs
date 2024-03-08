@@ -1,3 +1,4 @@
+import { DCHEROES } from '../helpers/config.mjs';
 import {
   onManageActiveEffect,
   prepareActiveEffectCategories,
@@ -107,24 +108,26 @@ export class DCHeroesActorSheet extends ActorSheet {
     let initiativeBonus = 0;
 
     // Superspeed adds APs of their power
-    if (this._hasAbility(context.powers, "Superspeed")) { // TODO use UID system for powers? also use constant
-      const aps = this._getAbilityAPs(context.powers, "Superspeed");
+    if (this._hasAbility(context.powers, DCHEROES.powers.SUPERSPEED)) { 
+      const aps = this._getAbilityAPs(context.powers, DCHEROES.powers.SUPERSPEED);
       initiativeBonus = initiativeBonus + aps;
     }
 
     // Martial artist gives a +2
-    if (this._hasAbility(context.skills, "Martial Artist")) { // TODO use UID system for powers? also use constant
+    if (this._hasAbility(context.skills, DCHEROES.skills.MARTIAL_ARTIST)) {
       initiativeBonus = initiativeBonus + 2;
     }
 
     // Lightning Reflexes gives +2
-    if (this._hasAbility(context.advantages, "Lightning Reflexes")) { // TODO use UID system for powers? also use constant
+    if (this._hasAbility(context.advantages, DCHEROES.advantages.LIGHTNING_REFLEXES)) {
       initiativeBonus = initiativeBonus + 2;
     }
 
     // Water Freedom applies when submerged in water
     // TODO dialog prompt for modifiers
-    // TODO add checkbox if has Water Freedom for if is in water
+    if (this._hasAbility(context.powers, DCHEROES.powers.WATER_FREEDOM)) {
+      // TODO add checkbox if has Water Freedom for if is in water
+    }
 
     return initiativeBonus;
   }

@@ -48,3 +48,16 @@ DCHEROES.ranges = {
   special: "Special",
   touch: "Touch"
 }
+
+DCHEROES.powers = {
+  SUPERSPEED: "Superspeed",
+  WATER_FREEDOM: "Water Freedom"
+}
+
+DCHEROES.skills = {
+  MARTIAL_ARTIST: "Martial Artist",
+}
+
+DCHEROES.advantages = {
+  LIGHTNING_REFLEXES: "Lightning Reflexes"
+}
