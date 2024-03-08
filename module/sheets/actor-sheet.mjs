@@ -405,11 +405,15 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // determine whether happens
     let avRoll = new Roll(dataset.roll, this.actor.getRollData());
+
+    // Execute the roll
     await avRoll.evaluate();
 
+// The resulting equation after it was rolled
+console.error(avRoll.result);   // 16 + 2 + 4
 
-    console.error(avRoll.result);
-    console.error(avRoll.total);
+// The total resulting from the roll
+console.error(avRoll.total);    // 22
     
     // TODO double 1s = automatic fail
   
