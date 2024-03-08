@@ -440,13 +440,13 @@ export class DCHeroesActorSheet extends ActorSheet {
             + "<p>Re-rolling Doubles!</p><p>Current total = " + avRollResult + "</p></div>"
         }
       );
-      avRoll = new Roll(dataset.roll, this.actor.getRollData());
-      console.error(avRoll.result);
-      dieRollResultDice = avRoll.result.split(' + ');
+      const avExplodeRoll = new Roll(dataset.roll, this.actor.getRollData());
+      console.error(avExplodeRoll.result);
+      dieRollResultDice = avExplodeRoll.result.split(' + ');
       console.error(dieRollResultDice);
       die1 = dieRollResultDice[0];
       die2 = dieRollResultDice[1];
-      avRollResult = avRollResult + avRoll.total;
+      avRollResult = avRollResult + avExplodeRoll.total;
     }
 
     const avRollSuccess = avRollResult >= difficulty;
@@ -457,7 +457,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       ChatMessage.create(
         {
           content: "<div><p>AV = "+ av + " | OV = "+ov+"</p>"
-            + "<p>Difficulty = "+difficulty+" | Roll = "+avRoll.result+"</p><p>>Action failed!</p></div>"
+            + "<p>Difficulty = "+difficulty+" | Roll = "+avRollResult+"</p><p>>Action failed!</p></div>"
         }
       );
       return;
@@ -497,7 +497,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       const message = await ChatMessage.create(
         {
           content: "<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
-            + "<p>Difficulty = "+difficulty+" | Roll = "+avRoll.result+"</p><p>>Action succeded!</p></div>"
+            + "<p>Difficulty = "+difficulty+" | Roll = "+avRollResult+"</p><p>>Action succeded!</p></div>"
             + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = ALL ("+ev+" APs) </p></div>"
         }
       );
