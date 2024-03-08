@@ -363,7 +363,7 @@ export class DCHeroesActorSheet extends ActorSheet {
               const response = this._processOpposingValuesEntry(html);
               ov = response.opposingValue;
               rv = response.resistanceValue;
-              _handleRolls(ov, rv, dataset);
+              this._handleRolls(ov, rv, dataset);
             }
           }
         },
@@ -387,7 +387,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     let targetActor = this._getTargetActor();
     const ov = targetActor.system.attributes[dataset.key].value;
     const rv = this._getResistanceValue(dataset.key, targetActor);
-    await _handleRolls(ov, rv, dataset);
+    await this._handleRolls(ov, rv, dataset);
   }
 
   /**
