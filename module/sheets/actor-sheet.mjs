@@ -617,7 +617,6 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @returns 
    */
   _processOpposingValuesEntry(html) {
-    // TODO how to receive these values?
     const opposingValue = html.find("input#opposingValue").val();
     const resistanceValue = html.find("input#resistanceValue").val();
     const hpSpent = html.find("input#hpSpent").val();
