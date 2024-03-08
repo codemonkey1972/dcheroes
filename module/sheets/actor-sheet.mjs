@@ -403,6 +403,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const actionTable = CONFIG.tables.actionTable;
     const difficulty = actionTable[avIndex][ovIndex];
 
+    console.error("FIRST ROLL");
     console.error(dataset.roll);
     console.error(this.actor.getRollData());
     // determine whether happens
@@ -426,7 +427,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Get roll result
     let avRollResult = avRoll.total;
 
-    console.error(avRoll.result);
     // exploding dice
     let dieRollResultDice = avRoll.result.split(' + ');
     let die1 = dieRollResultDice[0];
@@ -435,6 +435,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
    
     while (die1 === die2 && die1) {
+      console.error("EXPLODE ROLL");
       // TODO better message
       await ChatMessage.create(
         {
