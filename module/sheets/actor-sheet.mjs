@@ -339,10 +339,12 @@ export class DCHeroesActorSheet extends ActorSheet {
     if (game.user.targets.size === 0) {
       const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
       let dialogHtml = await renderTemplate(template, {});
-      dialogHtml = dialogHtml.replace("&&MAX&&", this._getEffectValue(dataset.key));
+      dialogHtml = dialogHtml.replace("&&MAX&&", dataset.value); // TODO not evaluating for max
 
       /* TODO remove this to its own class
       const d = new RollDialog(
+        template,
+        maxHPs
         title,
         message,
         onClose
@@ -390,7 +392,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     const rv = this._getResistanceValue(dataset.key, targetActor);
 
     const template = "systems/dcheroes/templates/actor/dialogs/rollDialogTargeted.hbs";
-    const dialogHtml = await renderTemplate(template, {});
+    let dialogHtml = await renderTemplate(template, {});
+    dialogHtml = dialogHtml.replace("&&MAX&&", dataset.value);
     const d = new Dialog({
       title: label,
       content: dialogHtml,
@@ -455,11 +458,14 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Get roll result
     let avRollTotal = parseInt(avRoll.total);
+    let dice = [];
 
     // exploding dice
     let dieRollResultDice = avRoll.result.split(' + ');
     let die1 = dieRollResultDice[0];
     let die2 = dieRollResultDice[1];
+    dice.push(die1);
+    dice.push(die2);
    
     while (die1 === die2) {
       // TODO better message
@@ -477,6 +483,8 @@ export class DCHeroesActorSheet extends ActorSheet {
       dieRollResultDice = avExplodeRoll.result.split(' + ');
       die1 = dieRollResultDice[0];
       die2 = dieRollResultDice[1];
+      dice.push(die1);
+      dice.push(die2);
       // TODO Furthermore, even if double 1s is rolled on the second or greater roll, the roll fails.
       avRollTotal = avRollTotal + avExplodeRoll.total;
     }
@@ -554,8 +562,9 @@ export class DCHeroesActorSheet extends ActorSheet {
     const resultAPs = resultTable[evIndex][shiftedRvIndex];
 
     // TODO If the result is an 'N' then there is No Effect
+    if (resultAPs === 0) {
 
-
+    }
 
     // results output to chat
     const message = await ChatMessage.create(
