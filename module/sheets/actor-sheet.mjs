@@ -341,11 +341,19 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // Manually enter OV and RV for target
     if (game.user.targets.size === 0) {
-      const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
+      const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
       const dialogHtml = await renderTemplate(template, {});
 
+      const isTargeted = false;
+      /* TODO remove this to its own class
+      const d = new RollDialog(
+        title,
+        message,
+        onClose
+      );
+*/
       const d = new Dialog({
-        title: "Enter Values",
+        title: label,
         content: dialogHtml,
         buttons: {
           button2: {
@@ -356,12 +364,13 @@ export class DCHeroesActorSheet extends ActorSheet {
             label: "Submit",
             callback: (html) => {
               const response = this._processOpposingValuesEntry(html);
-              this._handleRolls(response.opposingValue, response.resistanceValue, dataset);
+              this._handleRolls(response.opposingValue, response.resistanceValue, response.hpSpent, dataset);
             }
           }
         },
         default: "button1"
       }).render(true);
+
     } else if (game.user.targets.size > 1) {
       // TODO popup for specific data
       ui.notifications.warn(localize("You can only target one token"));
@@ -387,7 +396,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    * 
    * @returns 
    */
-  async _handleRolls(ov, rv, dataset) {
+  async _handleRolls(ov, rv, hpSpent, dataset) {
 
     /**********************************
      * ACTION TABLE
@@ -577,10 +586,12 @@ export class DCHeroesActorSheet extends ActorSheet {
   _processOpposingValuesEntry(html) {
     // TODO how to receive these values?
     const opposingValue = html.find("input#opposingValue").val();
-    const resistanceValue = html.find("input#opposingValue").val();
+    const resistanceValue = html.find("input#resistanceValue").val();
+    const hpSpent = html.find("input#hpSpent").val();
     return {
       opposingValue: parseInt(opposingValue),
-      resistanceValue: parseInt(resistanceValue)
+      resistanceValue: parseInt(resistanceValue),
+      hpSpent: parseInt(hpSpent)
     }
   }
 
