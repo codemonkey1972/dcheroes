@@ -439,7 +439,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       );
       return;
     }
-    console.error("_handleRolls MIDDLE");
+    console.error("_handleRolls MIDDLE 1");
 
     // TODO if succeeds, calculate column shifts for result table
     let columnShifts = 0;
@@ -450,7 +450,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         break;
       }
     }
-//    console.log("Column shifts: "+columnShifts);
+    console.log("Column shifts: "+columnShifts);
 
     /**********************************
      * RESULT TABLE
@@ -464,7 +464,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     
     // get resistance value column index
     const rvIndex = this._getRangeIndex(rv) - 1;
-//    console.error("EV = "+ev+" | evIndex = "+evIndex+" | RV = "+rv+" | rvIndex = "+rvIndex);
+    console.error("EV = "+ev+" | evIndex = "+evIndex+" | RV = "+rv+" | rvIndex = "+rvIndex);
 
     // apply shifts
     let shiftedRvIndex = rvIndex - columnShifts;
@@ -472,11 +472,11 @@ export class DCHeroesActorSheet extends ActorSheet {
       // "All" result on table - Result APs = Effect Value
       return ev;
     }
-//    console.error("shiftedRvIndex = "+shiftedRvIndex);
+    console.error("shiftedRvIndex = "+shiftedRvIndex);
 
-    // TODO consult result chart
+    // consult result chart
     const resultAPs = resultTable[evIndex][shiftedRvIndex];
-//    console.error("result = "+resultAPs);
+    console.error("result = "+resultAPs);
 
     // results output to chat
     const message = await ChatMessage.create(
