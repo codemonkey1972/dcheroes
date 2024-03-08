@@ -441,7 +441,9 @@ export class DCHeroesActorSheet extends ActorSheet {
         }
       );
       avRoll = new Roll(dataset.roll, this.actor.getRollData());
+      console.error(avRoll.result);
       dieRollResultDice = avRoll.result.split(' + ');
+      console.error(dieRollResultDice);
       die1 = dieRollResultDice[0];
       die2 = dieRollResultDice[1];
       avRollResult = avRollResult + avRoll.total;
