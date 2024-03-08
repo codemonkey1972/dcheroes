@@ -431,7 +431,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     // Get roll result
-    let avRollResult = avRoll.total;
+    let avRollTotal = avRoll.total;
 
     // exploding dice
     let dieRollResultDice = avRoll.result.split(' + ');
@@ -443,7 +443,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       await ChatMessage.create(
         {
           content: "<div><p>Die 1 = "+ die1 + " | Die 2 = "+die2+"</p>"
-            + "<p>Re-rolling Doubles!</p><p>Current total = " + avRollResult + "</p></div>"
+            + "<p>Re-rolling Doubles!</p><p>Current total = " + avRollTotal + "</p></div>"
         }
       );
 
@@ -455,10 +455,10 @@ export class DCHeroesActorSheet extends ActorSheet {
       die1 = dieRollResultDice[0];
       die2 = dieRollResultDice[1];
       // TODO Furthermore, even if double 1s is rolled on the second or greater roll, the roll fails.
-      avRollResult = avRollResult + avExplodeRoll.total;
+      avRollTotal = avRollTotal + avExplodeRoll.total;
     }
 
-    const avRollSuccess = avRollResult >= difficulty;
+    const avRollSuccess = avRollTotal >= difficulty;
 
     // if fails, output message
     if (!avRollSuccess) {
@@ -466,7 +466,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       ChatMessage.create(
         {
           content: "<div><p>AV = "+ av + " | OV = "+ov+"</p>"
-            + "<p>Difficulty = "+difficulty+" | Roll = "+avRollResult+"</p><p>>Action failed!</p></div>"
+            + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+"</p><p>>Action failed!</p></div>"
         }
       );
       return;
@@ -477,16 +477,18 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // TODO calculate column shifts that push past the 0 column
 
+    console.error("TEST1: "+avRollTotal);
+
     // The total die roll must lie on or beyond the Column Shift Threshold (i.e., 11)
-    if (avRollResult > 11) {
+    if (avRollTotal > 11) {
       
       /* The Action Table is set up so that any roll over 11 might earn the Player a Column Shift. 
          Notice that the 11's split the Action Table in two. This is the Column Shift Threshold. */
       const cstIndex = this._getRangeIndex(11);
-      
+
       // The roll must be greater than the Success Number
       for (let i = cstIndex + 1; i < actionTable[avIndex].length; i++) {
-        if (actionTable[avIndex][i] <= avRollResult) {
+        if (actionTable[avIndex][i] <= avRollTotal) {
           columnShifts++;
         } else {
           break;
@@ -513,7 +515,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       const message = await ChatMessage.create(
         {
           content: "<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
-            + "<p>Difficulty = "+difficulty+" | Roll = "+avRollResult+"</p><p>>Action succeded!</p></div>"
+            + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+"</p><p>>Action succeded!</p></div>"
             + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = ALL ("+ev+" APs) </p></div>"
         }
       );
