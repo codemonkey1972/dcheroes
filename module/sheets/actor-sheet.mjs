@@ -383,7 +383,6 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @returns 
    */
   async _handleTargetedRolls(dataset) {
-    console.error("_handleTargetedRolls");
     let targetActor = this._getTargetActor();
     const ov = targetActor.system.attributes[dataset.key].value;
     const rv = this._getResistanceValue(dataset.key, targetActor);
@@ -395,19 +394,16 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @returns 
    */
   async _handleRolls(ov, rv, dataset) {
-    console.error("_handleRolls START");
+    
     /**********************************
      * ACTION TABLE
      **********************************/
     // get range index for AV
     const av = dataset.value;
     const avIndex = this._getRangeIndex(av);
-//    console.error("AV: index =" + avIndex+" - value = "+av+"; range = ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
-
  
     // get range index for OV
     const ovIndex = this._getRangeIndex(ov);
-//    console.error("OV: index =" + ovIndex+" - value = "+ov+"; range = ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
 
     // consult action chart for difficulty
     const actionTable = CONFIG.tables.actionTable;
@@ -421,12 +417,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     /*
     
     */
-//   console.error(avRoll);
-
     const avRollResult = avRoll._total;
     const avRollSuccess = avRollResult >= difficulty;
-
-//    console.error("Difficulty: " + difficulty + " | Roll: " + avRollResult + " | Success?: " + avRollSuccess);
 
     // if fails, output message
     if (!avRollSuccess) {
@@ -439,7 +431,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       );
       return;
     }
-    console.error("_handleRolls MIDDLE 1");
 
     // if succeeds, calculate column shifts for result table
     let columnShifts = 0;
@@ -455,12 +446,10 @@ export class DCHeroesActorSheet extends ActorSheet {
         }
       }
     }
-    console.log("Column shifts: "+columnShifts);
 
     /**********************************
      * RESULT TABLE
      **********************************/
-
     const resultTable = CONFIG.tables.resultTable;
 
     // get effectvalue column  index
@@ -469,7 +458,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     
     // get resistance value column index
     const rvIndex = this._getRangeIndex(rv) - 1;
-    console.error("EV = "+ev+" | evIndex = "+evIndex+" | RV = "+rv+" | rvIndex = "+rvIndex);
 
     // apply shifts
     let shiftedRvIndex = rvIndex - columnShifts;
@@ -484,11 +472,9 @@ export class DCHeroesActorSheet extends ActorSheet {
       );
       return ev;
     }
-    console.error("shiftedRvIndex = "+shiftedRvIndex);
 
     // consult result chart
     const resultAPs = resultTable[evIndex][shiftedRvIndex];
-    console.error("result = "+resultAPs);
 
     // results output to chat
     const message = await ChatMessage.create(
@@ -498,9 +484,6 @@ export class DCHeroesActorSheet extends ActorSheet {
           + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = "+resultAPs+" </p></div>"
       }
     );
-
-    console.error("_handleRolls END");
-
 
     return resultAPs;
   }
