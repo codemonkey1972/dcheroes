@@ -446,11 +446,15 @@ export class DCHeroesActorSheet extends ActorSheet {
             + "<p>Re-rolling Doubles!</p><p>Current total = " + avRollResult + "</p></div>"
         }
       );
+
+      // TODO prompt if want to continue rolling
+
       const avExplodeRoll = new Roll(dataset.roll, {});
       await avExplodeRoll.evaluate();
       dieRollResultDice = avExplodeRoll.result.split(' + ');
       die1 = dieRollResultDice[0];
       die2 = dieRollResultDice[1];
+      // TODO Furthermore, even if double 1s is rolled on the second or greater roll, the roll fails.
       avRollResult = avRollResult + avExplodeRoll.total;
     }
 
@@ -475,8 +479,13 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // The total die roll must lie on or beyond the Column Shift Threshold (i.e., 11)
     if (avRollResult > 11) {
+      
+      /* The Action Table is set up so that any roll over 11 might earn the Player a Column Shift. 
+         Notice that the 11's split the Action Table in two. This is the Column Shift Threshold. */
+      const cstIndex = this._getRangeIndex(11);
+      
       // The roll must be greater than the Success Number
-      for (let i = ovIndex + 1; i < actionTable[avIndex].length; i++) {
+      for (let i = cstIndex + 1; i < actionTable[avIndex].length; i++) {
         if (actionTable[avIndex][i] <= avRollResult) {
           columnShifts++;
         } else {
