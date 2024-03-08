@@ -426,8 +426,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     // TODO deduct spent Hero Points
     const context = super.getData();
     context.actor.system.heroPoints.value = context.actor.system.heroPoints.value - (hpSpentAP + hpSpentEP);
-    context.system.heroPoints.value = context.actor.system.heroPoints.value;
-    console.error(context); // context.actor.system
+    console.error(context); 
+//    context.system.heroPoints.value = context.actor.system.heroPoints.value;
     console.error(this);
 
 
