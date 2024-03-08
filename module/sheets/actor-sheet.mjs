@@ -364,7 +364,7 @@ export class DCHeroesActorSheet extends ActorSheet {
             label: "Submit",
             callback: (html) => {
               const response = this._processOpposingValuesEntry(html);
-              this._handleRolls(response.opposingValue, response.resistanceValue, response.hpSpent, dataset);
+              this._handleRolls(response.opposingValue, response.resistanceValue, response.hpSpentAP, response.hpSpentEP, dataset);
             }
           }
         },
@@ -406,7 +406,7 @@ export class DCHeroesActorSheet extends ActorSheet {
           label: "Submit",
           callback: (html) => {
             const response = this._processOpposingValuesEntry(html);
-            this._handleRolls(ov, rv, response.hpSpent, dataset);
+            this._handleRolls(ov, rv, response.hpSpentAP, response.hpSpentEP, dataset);
           }
         }
       },
@@ -418,7 +418,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    * 
    * @returns 
    */
-  async _handleRolls(ov, rv, hpSpent, dataset) {
+  async _handleRolls(ov, rv, hpSpentAP, hpSpentEP, dataset) {
 
     /**********************************
      * ACTION TABLE
@@ -638,13 +638,13 @@ export class DCHeroesActorSheet extends ActorSheet {
   _processOpposingValuesEntry(html) {
     const opposingValue = html.find("input#opposingValue").val();
     const resistanceValue = html.find("input#resistanceValue").val();
-
-    // TODO The maximum number of Hero Points spent to increase any value is equal to the APs of the Attribute on which that Value is based.
-    const hpSpent = html.find("input#hpSpent").val();
+    const hpSpentAP = html.find("input#hpSpentAP").val();
+    const hpSpentEP = html.find("input#hpSpentEP").val();
     return {
       opposingValue: parseInt(opposingValue),
       resistanceValue: parseInt(resistanceValue),
-      hpSpent: parseInt(hpSpent)
+      hpSpentAP: parseInt(hpSpentAP),
+      hpSpentEP: parseInt(hpSpentEP)
     }
   }
 
