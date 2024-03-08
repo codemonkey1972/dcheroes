@@ -343,34 +343,6 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     if (game.user.targets.size === 0) {
       // TODO popup
- /*     const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
-      const html = await renderTemplate(template, {});
-      new Dialog({
-        title: "Enter Values",
-        content: html,
-        buttons: {
-          ok: {
-            icon: '<i class="fas fa-check"></i>',
-            label: "OK",
-            callback: (html) => this._processOpposingValuesEntry(html),
-          },
-        },
-        default: "ok",
-        // buttons: {
-        //   cancel: {
-        //     label: "Cancel",
-        //     callback: () => {}
-        //   },
-        //   submit: {
-        //     label: "Submit",
-        //     callback: () => this._processOpposingValuesEntry(html[0].querySelector("form"))
-        //   },
-        //  default: "submit",
-      //     render: html => console.log("Register interactivity in the rendered dialog"),
-      //     close: html => console.log("This always is logged no matter which option is chosen")
-      //   }
-      }).render(true);
-*/
       let ov = 0;
       let rv = 0;
 
@@ -389,14 +361,14 @@ export class DCHeroesActorSheet extends ActorSheet {
             label: "Submit",
             callback: (html) => {
               const response = this._processOpposingValuesEntry(html);
-              console.error(response);
+              ov = response.opposingValue;
+              rv = response.resistanceValue;
+              _handleRolls(ov, rv, dataset);
             }
           }
         },
         default: "button1"
       }).render(true);
-      console.error(d);
-
     } else if (game.user.targets.size > 1) {
       // TODO popup for specific data
       ui.notifications.warn(localize("You can only target one token"));
@@ -413,7 +385,16 @@ export class DCHeroesActorSheet extends ActorSheet {
   async _handleTargetedRolls(dataset) {
 
     let targetActor = this._getTargetActor();
+    const ov = targetActor.system.attributes[dataset.key].value;
+    const rv = this._getResistanceValue(dataset.key, targetActor);
+    await _handleRolls(ov, rv, dataset);
+  }
 
+  /**
+   * 
+   * @returns 
+   */
+  async _handleRolls(ov, rv, dataset) {
     /**********************************
      * ACTION TABLE
      **********************************/
@@ -422,8 +403,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const avIndex = this._getRangeIndex(av);
 //    console.error("AV: index =" + avIndex+" - value = "+av+"; range = ["+CONFIG.tables.ranges[avIndex][0]+" - "+CONFIG.tables.ranges[avIndex][1]+"]");
 
-    const ov = targetActor.system.attributes[dataset.key].value;
-
+ 
     // get range index for OV
     const ovIndex = this._getRangeIndex(ov);
 //    console.error("OV: index =" + ovIndex+" - value = "+ov+"; range = ["+CONFIG.tables.ranges[ovIndex][0]+" - "+CONFIG.tables.ranges[ovIndex][1]+"]");
@@ -440,7 +420,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     /*
     
     */
-   console.error(avRoll);
+//   console.error(avRoll);
 
     const avRollResult = avRoll._total;
     const avRollSuccess = avRollResult >= difficulty;
@@ -481,7 +461,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     const evIndex = this._getRangeIndex(ev);
     
     // get resistance value column index
-    const rv = this._getResistanceValue(dataset.key, targetActor);
     const rvIndex = this._getRangeIndex(rv) - 1;
 //    console.error("EV = "+ev+" | evIndex = "+evIndex+" | RV = "+rv+" | rvIndex = "+rvIndex);
 
