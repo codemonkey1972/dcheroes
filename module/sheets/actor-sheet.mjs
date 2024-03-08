@@ -333,12 +333,12 @@ export class DCHeroesActorSheet extends ActorSheet {
     // what's being rolled (used for display)
     let label = dataset.label ? `[attribute] ${dataset.label}` : '';
 
-    // TODO does not currently handle 0 for AV or > 60 for either AV or OV
+    // TODO does not currently handle > 60 for either AV or OV
 
     // Manually enter OV and RV for target
     if (game.user.targets.size === 0) {
       const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
-      const dialogHtml = await renderTemplate(template, {});
+      const dialogHtml = await renderTemplate(template, {}).replace("&&MAX&&", this._getEffectValue(dataset.key));
 
       /* TODO remove this to its own class
       const d = new RollDialog(
@@ -422,6 +422,10 @@ export class DCHeroesActorSheet extends ActorSheet {
     // get range index for AV
     const av = dataset.value;
     const avIndex = this._getRangeIndex(av);
+
+    // TODO hero points spent - for acting OR effect (or both separately)
+    // TODO prompt for GM hero points spent
+    // TODO subtract from character's HP
  
     // get range index for OV
     const ovIndex = this._getRangeIndex(ov);
@@ -624,6 +628,8 @@ export class DCHeroesActorSheet extends ActorSheet {
   _processOpposingValuesEntry(html) {
     const opposingValue = html.find("input#opposingValue").val();
     const resistanceValue = html.find("input#resistanceValue").val();
+
+    // TODO The maximum number of Hero Points spent to increase any value is equal to the APs of the Attribute on which that Value is based.
     const hpSpent = html.find("input#hpSpent").val();
     return {
       opposingValue: parseInt(opposingValue),
