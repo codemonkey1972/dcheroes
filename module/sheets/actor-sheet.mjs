@@ -327,9 +327,7 @@ export class DCHeroesActorSheet extends ActorSheet {
  
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      this._handleRoll(dataset).then((response) => {
-        //   TODO implement rest of stuff to process here
-        });
+      this._handleRoll(dataset).then((response) => {});
     };
   }
 
@@ -341,11 +339,8 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // TODO does not currently handle 0 for AV or > 60 for either AV or OV
 
+    // Manually enter OV and RV for target
     if (game.user.targets.size === 0) {
-      // TODO popup
-      let ov = 0;
-      let rv = 0;
-
       const template = "systems/dcheroes/templates/actor/dialogs/opposedValuesDialog.html";
       const dialogHtml = await renderTemplate(template, {});
 
@@ -361,9 +356,7 @@ export class DCHeroesActorSheet extends ActorSheet {
             label: "Submit",
             callback: (html) => {
               const response = this._processOpposingValuesEntry(html);
-              ov = response.opposingValue;
-              rv = response.resistanceValue;
-              this._handleRolls(ov, rv, dataset);
+              this._handleRolls(response.opposingValue, response.resistanceValue, dataset);
             }
           }
         },
@@ -374,6 +367,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       ui.notifications.warn(localize("You can only target one token"));
       return;
     } else {
+      // use target token for OV and RV values
       await this._handleTargetedRolls(dataset);
     }
   }
@@ -394,7 +388,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @returns 
    */
   async _handleRolls(ov, rv, dataset) {
-    
+
     /**********************************
      * ACTION TABLE
      **********************************/
@@ -412,6 +406,13 @@ export class DCHeroesActorSheet extends ActorSheet {
     // determine whether happens
     let avRoll = new Roll(dataset.roll, this.actor.getRollData());
     await avRoll.evaluate();
+
+
+    console.log(avRoll);
+    console.log(avRoll.total);
+    
+    // TODO double 1s = automatic fail
+  
 
     // TODO exploding dice
     /*
