@@ -486,6 +486,8 @@ export class DCHeroesActorSheet extends ActorSheet {
          Notice that the 11's split the Action Table in two. This is the Column Shift Threshold. */
       const cstIndex = this._getRangeIndex(11);
 
+      console.error("TEST2: "+avRollTotal);
+
       // The roll must be greater than the Success Number
       for (let i = cstIndex + 1; i < actionTable[avIndex].length; i++) {
         if (actionTable[avIndex][i] <= avRollTotal) {
@@ -495,6 +497,8 @@ export class DCHeroesActorSheet extends ActorSheet {
         }
       }
     }
+
+    console.error("TEST3: "+avRollTotal);
 
     /**********************************
      * RESULT TABLE
