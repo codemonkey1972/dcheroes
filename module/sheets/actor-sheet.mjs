@@ -395,6 +395,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @returns 
    */
   async _handleRolls(ov, rv, dataset) {
+    console.error("_handleRolls START");
     /**********************************
      * ACTION TABLE
      **********************************/
@@ -438,6 +439,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       );
       return;
     }
+    console.error("_handleRolls MIDDLE");
 
     // TODO if succeeds, calculate column shifts for result table
     let columnShifts = 0;
@@ -484,6 +486,9 @@ export class DCHeroesActorSheet extends ActorSheet {
           + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = "+resultAPs+" </p></div>"
       }
     );
+
+    console.error("_handleRolls END");
+
 
     return resultAPs;
   }
