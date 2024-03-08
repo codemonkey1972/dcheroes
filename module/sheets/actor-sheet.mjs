@@ -408,8 +408,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     await avRoll.evaluate();
 
 
-    console.log(avRoll);
-    console.log(avRoll.total);
+    console.error(avRoll.result);
+    console.error(avRoll.total);
     
     // TODO double 1s = automatic fail
   
@@ -418,7 +418,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     /*
     
     */
-    const avRollResult = avRoll._total;
+    const avRollResult = avRoll.total;
     const avRollSuccess = avRollResult >= difficulty;
 
     // if fails, output message
