@@ -389,6 +389,27 @@ export class DCHeroesActorSheet extends ActorSheet {
     let targetActor = this._getTargetActor();
     const ov = targetActor.system.attributes[dataset.key].value;
     const rv = this._getResistanceValue(dataset.key, targetActor);
+
+    const isTargeted = true;
+    const d = new Dialog({
+      title: label,
+      content: dialogHtml,
+      buttons: {
+        button2: {
+          label: "Close",
+          callback: (html) => {},
+        },
+        button1: {
+          label: "Submit",
+          callback: (html) => {
+            const response = this._processOpposingValuesEntry(html);
+            this._handleRolls(ov, rv, response.hpSpent, dataset);
+          }
+        }
+      },
+      default: "button1"
+    }).render(true);
+
     await this._handleRolls(ov, rv, dataset);
   }
 
