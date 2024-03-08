@@ -431,7 +431,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     // Get roll result
-    let avRollTotal = avRoll.total;
+    let avRollTotal = parseInt(avRoll.total);
 
     // exploding dice
     let dieRollResultDice = avRoll.result.split(' + ');
