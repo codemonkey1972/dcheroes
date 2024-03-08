@@ -383,7 +383,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @returns 
    */
   async _handleTargetedRolls(dataset) {
-
+    console.error("_handleTargetedRolls");
     let targetActor = this._getTargetActor();
     const ov = targetActor.system.attributes[dataset.key].value;
     const rv = this._getResistanceValue(dataset.key, targetActor);
