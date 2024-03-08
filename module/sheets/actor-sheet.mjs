@@ -403,9 +403,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     const actionTable = CONFIG.tables.actionTable;
     const difficulty = actionTable[avIndex][ovIndex];
 
-    console.error("FIRST ROLL");
-    console.error(dataset.roll);
-    console.error(this.actor.getRollData());
     // determine whether happens
     const avRoll = new Roll(dataset.roll, {});
 
@@ -431,10 +428,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     let dieRollResultDice = avRoll.result.split(' + ');
     let die1 = dieRollResultDice[0];
     let die2 = dieRollResultDice[1];
-    console.error(dieRollResultDice);
    
     while (die1 === die2 && die1) {
-      console.error("EXPLODE ROLL");
       // TODO better message
       await ChatMessage.create(
         {
@@ -442,10 +437,8 @@ export class DCHeroesActorSheet extends ActorSheet {
             + "<p>Re-rolling Doubles!</p><p>Current total = " + avRollResult + "</p></div>"
         }
       );
-      console.error(dataset.roll);
       const avExplodeRoll = new Roll(dataset.roll, {});
       await avExplodeRoll.evaluate();
-      console.error("Result: " + avExplodeRoll.result + " | Total: " + avExplodeRoll.total);
       dieRollResultDice = avExplodeRoll.result.split(' + ');
       die1 = dieRollResultDice[0];
       die2 = dieRollResultDice[1];
