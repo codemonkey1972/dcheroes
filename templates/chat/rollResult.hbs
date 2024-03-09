@@ -9,12 +9,14 @@
     </div>
     <div class="flex-group-center grid-span-2">
         {{#each dice}}
-            {{this}}|
+            {{this}}&nbsp;
         {{/each}}
     </div>
+    {{#if columnShifts}}
     <div class="flex-group-center grid-span-2">
-        COLUMN SHIFTS
+        {{columnShifts}} Column Shifts
     </div>
+    {{/if}}
     <div class="flex-group-center">
         <label class="flexlarge align-left">Effect Value</label>
         <div>{{effectValue}}</div>        
