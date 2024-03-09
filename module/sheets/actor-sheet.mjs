@@ -518,8 +518,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       return;
     }
 
-    console.error("TEST1");
-
     // if succeeds, calculate column shifts for result table
     let columnShifts = 0;
 
@@ -555,8 +553,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     // get resistance value column index
     const rvIndex = this._getRangeIndex(rv) - 1;
 
-    console.error("TEST2");
-
     // apply shifts
     // Column Shifts on the Result Table are made to the left, decreasing numbers in the Resistance Value row, 
     // but increasing the number of Result APs within the Table itself
@@ -577,9 +573,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       );
       return resultAPs;
     }
-
-    console.error("TEST3");
-
 
     // consult result chart
     const resultAPs = resultTable[evIndex][shiftedRvIndex];
@@ -606,7 +599,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     const data = {
     };
     let dialogHtml = await renderTemplate(rollChatTemplate, data);
-    console.error("TEST:" + dialogHtml);
     const message = await ChatMessage.create(
       {
         content: dialogHtml
