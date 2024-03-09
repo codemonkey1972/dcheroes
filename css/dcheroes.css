@@ -526,5 +526,5 @@ li.chat-message .chat-result {
 
 li.chat-message .chat-result .d10 {
   display: inline-block;
-  background-image: url(../icons/svg/d10-grey.svg);
+  background-image: url(/icons/svg/d10-grey.svg);
 }
