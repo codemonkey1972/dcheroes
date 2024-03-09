@@ -548,6 +548,6 @@ li.chat-message .chat-result .d10 {
   display: block;
 }
 
-summary::after {
+details::after {
   display: none;
 }
