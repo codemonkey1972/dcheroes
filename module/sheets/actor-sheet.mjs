@@ -462,13 +462,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // double 1s = automatic fail
     if (avRoll.total === 2) {
-      // TODO better message
-      ChatMessage.create(
-        {
-          content: "<div><p>AV = "+ av + " | OV = "+ov+"</p>"
-            + "<p>Difficulty = "+difficulty+" | Roll = "+avRoll.result+"</p><p>>Snakeeyes: Automatic failure!</p></div>"
-        }
-      );
+      await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, "Double 1s: Automatic failure!");
       return;
     }
 
@@ -484,13 +478,12 @@ export class DCHeroesActorSheet extends ActorSheet {
     dice.push(die2);
    
     while (die1 === die2) {
-      // TODO better message
-      await ChatMessage.create(
-        {
-          content: "<div><p>Die 1 = "+ die1 + " | Die 2 = "+die2+"</p>"
-            + "<p>Re-rolling Doubles!</p><p>Current total = " + avRollTotal + "</p></div>"
-        }
-      );
+      // await ChatMessage.create(
+      //   {
+      //     content: "<div><p>Die 1 = "+ die1 + " | Die 2 = "+die2+"</p>"
+      //       + "<p>Re-rolling Doubles!</p><p>Current total = " + avRollTotal + "</p></div>"
+      //   }
+      // );
 
       // TODO prompt if want to continue rolling
 
@@ -509,7 +502,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // if fails, output message
     if (!avRollSuccess) {
-      await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, ">Action failed!");
+      await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, "Action failed!");
       return;
     }
 
