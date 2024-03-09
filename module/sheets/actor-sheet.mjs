@@ -397,12 +397,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // TODO combat maneuver dropdown
 
     const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
-    console.error("=============================TEST==================");
-    console.error(this);
-    console.error(dataset);
-    console.error(this.object.system.heroPoints.value + " | " + dataset.value);
     const maxHpToSpend = Math.min(this.object.system.heroPoints.value, dataset.value);
-    console.error(maxHpToSpend);
     const data = {
       "maxHpToSpend": maxHpToSpend,
       "isTargeted": true
@@ -419,7 +414,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         button1: {
           label: "Submit",
           callback: (html) => {
-            const response = this._processOpposingValuesEntry(html);
+            const response = this._processOpposingValuesEntry(html[0].querySelector('form'));
             this._handleRolls(ov, rv, response.hpSpentAP, response.hpSpentEP, dataset);
           }
         }
