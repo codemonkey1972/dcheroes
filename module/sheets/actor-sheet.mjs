@@ -341,7 +341,6 @@ export class DCHeroesActorSheet extends ActorSheet {
         "heroPoints": this.object.system.heroPoints.value
       };
       let dialogHtml = await renderTemplate(template, data);
-      dialogHtml = dialogHtml.replaceAll("&&MAX&&", dataset.value); // TODO not evaluating for max; use slider
 
       /* TODO remove this to its own class
       const d = new RollDialog(
