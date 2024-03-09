@@ -584,12 +584,12 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     // results output to chat
-    await this._showRollResultChatMessage();
+    await this._showRollResultChatMessage(av);
 
     return resultAPs;
   }
 
-  async _showRollResultChatMessage() {
+  async _showRollResultChatMessage(actionValue) {
     /*
 "<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
           + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+" ("+avRoll.result+")</p><p>>Action succeded!</p></div>"
@@ -598,7 +598,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     const rollChatTemplate = "systems/dcheroes/templates/chat/rollResult.hbs";
     const data = {
-      actionValue: av
+      "actionValue": actionValue
     };
     let dialogHtml = await renderTemplate(rollChatTemplate, data);
     const message = await ChatMessage.create(
