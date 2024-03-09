@@ -648,8 +648,8 @@ export class DCHeroesActorSheet extends ActorSheet {
    */
   _processOpposingValuesEntry(html) {
     console.error("-------------TESTING-----------------");
-    console.error(form);
-    console.error(parseInt(form.opposingValue.value))
+    console.error(html);
+    console.error(parseInt(html.opposingValue.value))
     const opposingValue = html.find("input#opposingValue").val();
     const resistanceValue = html.find("input#resistanceValue").val();
     const hpSpentAP = html.find("input#hpSpentAP").val();
