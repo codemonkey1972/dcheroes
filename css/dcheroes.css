@@ -500,11 +500,15 @@
   font-size: 14px;
 }
 
+.dcheroes li.chat-message {
+  background-color: #fff;
+}
+
 .dcheroes .megs-dialog {
   background-color: #fff;
 }
 
-.dcheroes .megs-chat {
+.dcheroes .message-content .megs-chat {
   background-color: #fff;
 }
 
