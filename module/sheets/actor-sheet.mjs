@@ -443,7 +443,8 @@ export class DCHeroesActorSheet extends ActorSheet {
      * ACTION TABLE
      **********************************/
     // get range index for AV
-    const av = parseInt(dataset.value) + parseInt(hpSpentAP);
+    const avOriginal = parseInt(dataset.value);
+    const av = avOriginal + parseInt(hpSpentAP);
     const avIndex = this._getRangeIndex(av);
 
     // get range index for OV
@@ -539,7 +540,6 @@ export class DCHeroesActorSheet extends ActorSheet {
         }
       }
     }
-
   
     /**********************************
      * RESULT TABLE
@@ -547,6 +547,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const resultTable = CONFIG.tables.resultTable;
 
     // get effectvalue column  index
+    const evOriginal = this._getEffectValue(dataset.key);
     const ev = this._getEffectValue(dataset.key) + hpSpentEP;
     const evIndex = this._getRangeIndex(ev);
     
@@ -597,6 +598,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     const rollChatTemplate = "systems/dcheroes/templates/chat/rollResult.hbs";
     const data = {
+      actionValue: av
     };
     let dialogHtml = await renderTemplate(rollChatTemplate, data);
     const message = await ChatMessage.create(
