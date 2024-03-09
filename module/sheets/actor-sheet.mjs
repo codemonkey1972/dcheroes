@@ -335,7 +335,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     if (game.user.targets.size === 0) {
       const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
       let dialogHtml = await renderTemplate(template, {});
-      dialogHtml = dialogHtml.replaceAll("&&MAX&&", dataset.value); // TODO not evaluating for max
+      dialogHtml = dialogHtml.replaceAll("&&MAX&&", dataset.value); // TODO not evaluating for max; use slider
 
       /* TODO remove this to its own class
       const d = new RollDialog(
