@@ -589,7 +589,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     return resultAPs;
   }
 
-  async _showRollResultChatMessage(actionValue, opposingValue, dice, effectvalue, resistanceValue) {
+  async _showRollResultChatMessage(actionValue, opposingValue, dice, effectValue, resistanceValue) {
     /*
 "<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
           + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+" ("+avRoll.result+")</p><p>>Action succeded!</p></div>"
