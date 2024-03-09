@@ -337,8 +337,10 @@ export class DCHeroesActorSheet extends ActorSheet {
       console.error("------------------TEST");
       console.error(this);      
       console.error(dataset);
+      const maxHpToSpend = Math.min(this.object.system.heroPoints.value, dataset.value);
+      console.error(maxHpToSpend);
       const data = {
-        "heroPoints": this.object.system.heroPoints.value
+        "maxHpToSpend": maxHpToSpend
       };
       let dialogHtml = await renderTemplate(template, data);
 

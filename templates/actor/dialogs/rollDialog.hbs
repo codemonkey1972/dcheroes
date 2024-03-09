@@ -10,11 +10,11 @@
     </div>
     <div class="form-group">
       <label>{{localize "HP Spent - Acting"}}</label>
-      <div class='flexrow'>{{rangePicker name='hpSpentAP' value=0 min=0 max=(heroPoint-hpSpentEP)s step=1}}</div>
+      <div class='flexrow'>{{rangePicker name='hpSpentAP' value=0 min=0 max=maxHpToSpend step=1}}</div>
     </div>
     <div class="form-group">
       <label>{{localize "HP Spent - Effect"}}</label>
-      <div class='flexrow'>{{rangePicker name='hpSpentEP' value=0 min=0 max=(heroPoints-hpSpentAP) step=1}}</div>
+      <div class='flexrow'>{{rangePicker name='hpSpentEP' value=0 min=0 max=maxHpToSpend step=1}}</div>
     </div>
   </form>
 </div>
