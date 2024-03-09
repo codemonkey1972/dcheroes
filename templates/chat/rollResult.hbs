@@ -1,19 +1,24 @@
 <div  class="grid grid-2col">
     <div class="flex-group-center">
-         <label class="resource-label flexlarge align-left">Action Value</label>
+         <label class="flexlarge align-left">Action Value</label>
          <div>{{actionValue}}</div>        
     </div>
     <div class="flex-group-center">
-        OV
+          <label class="flexlarge align-left">Opposing Value</label>
+         <div>{{opposingValue}}</div>        
     </div>
     <div class="flex-group-center grid-span-2">
-        DICE
+        {{#each dice}}
+            {{this}}|
+        {{/each}}
     </div>
     <div class="flex-group-center">
-        EV
+        <label class="flexlarge align-left">Effect Value</label>
+        <div>{{effectValue}}</div>        
     </div>
     <div class="flex-group-center">
-        RV
+        <label class="flexlarge align-left">Resistance Value</label>
+        <div>{{resistanceValue}}</div>        
     </div>
     <div class="flex-group-center grid-span-2">
         RESULT
