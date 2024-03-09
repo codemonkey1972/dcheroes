@@ -547,3 +547,7 @@ li.chat-message .chat-result .d10 {
 .megs-chat details summary {
   display: block;
 }
+
+summary::after {
+  display: none;
+}
