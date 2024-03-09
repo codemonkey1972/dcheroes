@@ -365,7 +365,7 @@ export class DCHeroesActorSheet extends ActorSheet {
           button1: {
             label: "Submit",
             callback: (html) => {
-              const response = this._processOpposingValuesEntry(html);
+              const response = this._processOpposingValuesEntry(html[0].querySelector('form'));
               this._handleRolls(response.opposingValue, response.resistanceValue, response.hpSpentAP, response.hpSpentEP, dataset);
             }
           }
@@ -630,11 +630,11 @@ export class DCHeroesActorSheet extends ActorSheet {
   _getResistanceValue(key, targetActor) {
     let rv;
     if (key === "dex") {
-      rv = targetActor.system.attributes.body.value; // TODO should be current body?
+      rv = targetActor.system.attributes.body.value;
     } else if (key === "int") {
-      rv = targetActor.system.attributes.mind.value; // TODO should be current mind?
+      rv = targetActor.system.attributes.mind.value;
     } else if (key === "infl") {
-      rv = targetActor.system.attributes.spirit.value; // TODO should be current spirit?
+      rv = targetActor.system.attributes.spirit.value;
     } else {
       ui.notifications.error("Invalid attribute selection");
       return;
@@ -647,6 +647,9 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @returns 
    */
   _processOpposingValuesEntry(html) {
+    console.error("-------------TESTING-----------------");
+    console.error(form);
+    console.error(parseInt(form.opposingValue.value))
     const opposingValue = html.find("input#opposingValue").val();
     const resistanceValue = html.find("input#resistanceValue").val();
     const hpSpentAP = html.find("input#hpSpentAP").val();
