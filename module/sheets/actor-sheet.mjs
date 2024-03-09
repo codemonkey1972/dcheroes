@@ -585,13 +585,12 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     // results output to chat
-    console.error("TEST1: "+ev);
-    await this._showRollResultChatMessage(av, ov, dice, columnShifts, ev, rv);
+    await this._showRollResultChatMessage(av, ov, dice, columnShifts, ev, rv, resultAPs + " RAPs");
 
     return resultAPs;
   }
 
-  async _showRollResultChatMessage(actionValue, opposingValue, dice, columnShifts, effectValue, resistanceValue) {
+  async _showRollResultChatMessage(actionValue, opposingValue, dice, columnShifts, effectValue, resistanceValue, result) {
     /*
 "<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
           + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+" ("+avRoll.result+")</p><p>>Action succeded!</p></div>"
@@ -606,7 +605,8 @@ export class DCHeroesActorSheet extends ActorSheet {
       "dice": dice,
       "columnShifts": columnShifts,
       "effectValue": effectValue,
-      "resistanceValue": resistanceValue
+      "resistanceValue": resistanceValue,
+      "result": result
     };
     let dialogHtml = await renderTemplate(rollChatTemplate, data);
     const message = await ChatMessage.create(
