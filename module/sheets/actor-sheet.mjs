@@ -592,6 +592,7 @@ export class DCHeroesActorSheet extends ActorSheet {
           + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+" ("+avRoll.result+")</p><p>>Action succeded!</p></div>"
           + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = "+resultAPs+" </p></div>"
     */
+   console.error(dialogHtml);
     const message = await ChatMessage.create(
       {
         content: dialogHtml
