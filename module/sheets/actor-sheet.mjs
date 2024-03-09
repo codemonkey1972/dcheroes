@@ -518,6 +518,8 @@ export class DCHeroesActorSheet extends ActorSheet {
       return;
     }
 
+    console.error("TEST1");
+
     // if succeeds, calculate column shifts for result table
     let columnShifts = 0;
 
@@ -539,6 +541,8 @@ export class DCHeroesActorSheet extends ActorSheet {
         }
       }
     }
+
+    console.error("TEST2");
 
     /**********************************
      * RESULT TABLE
@@ -573,6 +577,9 @@ export class DCHeroesActorSheet extends ActorSheet {
       return resultAPs;
     }
 
+    console.error("TEST3");
+
+
     // consult result chart
     const resultAPs = resultTable[evIndex][shiftedRvIndex];
 
@@ -580,6 +587,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     if (resultAPs === 0) {
       // TODO show chat message
     }
+
+    console.error("TEST4");
 
     // results output to chat
     const rollChatTemplate = "systems/dcheroes/templates/actor/chat/rollResult.hbs";
