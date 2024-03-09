@@ -16,7 +16,7 @@
         {{/each}}
     </div>
     {{#if columnShifts}}
-    <div class="flex-group-center grid-span-2 chat-result">
+    <div class="flex-group-center grid-span-2 chat-result inverse">
         {{columnShifts}} 
         {{#ifCond columnShifts 1}}Column Shift{{/ifCond}}
         {{#notCond columnShifts 1}}Column Shifts{{/notCond}}
@@ -28,13 +28,13 @@
         <div>{{effectValue}}</div>        
     </div>
     {{/if}}
-    {{#if resistanceValue}}
+    {{#if resistanceValue chat-value}}
     <div class="flex-group-center">
         <label class="flexlarge align-left">Resistance Value</label>
         <div>{{resistanceValue}}</div>        
     </div>
     {{/if}}
-    <div class="flex-group-center grid-span-2 chat-result">
+    <div class="flex-group-center grid-span-2 chat-result inverse">
         {{result}}
     </div>
 </div>

@@ -527,6 +527,11 @@ li.chat-message .chat-result {
   padding: 3px;
 }
 
+li.chat-message .chat-result.inverse {
+  color: #fff;
+  background-color: #1f5079;
+}
+
 li.chat-message .chat-result .d10 {
   display: inline-block;
   background-image: url(/icons/svg/d10-grey.svg);
