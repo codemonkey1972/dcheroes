@@ -500,13 +500,8 @@
   font-size: 14px;
 }
 
-li.chat-message {
+li.chat-message .message-content{
   background: #fff;
-}
-
-li.chat-message .message-header {
-  background: #1f5079;
-  color: #fff;
 }
 
 li.chat-message .chat-value {
@@ -517,6 +512,8 @@ li.chat-message .chat-value label {
   width: 100%;
   color: #fff;
   background-color: #1f5079;
+  display: block;
+  text-align: center;
 }
 
 li.chat-message .chat-value div {

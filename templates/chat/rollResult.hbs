@@ -7,16 +7,16 @@
           <label class="flexlarge align-left">Opposing Value</label>
          <div>{{opposingValue}}</div>        
     </div>
-    <div class="flex-group-center grid-span-2">
-        Difficulty {{difficulty}}
+    <div class="flex-group-center grid-span-2 chat-result">
+        Difficulty: {{difficulty}}
     </div>
-    <div class="flex-group-center grid-span-2">
+    <div class="flex-group-center grid-span-2 chat-result">
         {{#each dice}}
-            {{this}}&nbsp;
+            <div class="d10">{{this}}</div>
         {{/each}}
     </div>
     {{#if columnShifts}}
-    <div class="flex-group-center grid-span-2">
+    <div class="flex-group-center grid-span-2 chat-result">
         {{columnShifts}} Column Shifts
     </div>
     {{/if}}
@@ -32,7 +32,7 @@
         <div>{{resistanceValue}}</div>        
     </div>
     {{/if}}
-    <div class="flex-group-center grid-span-2">
+    <div class="flex-group-center grid-span-2 chat-result">
         {{result}}
     </div>
 </div>
