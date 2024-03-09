@@ -106,6 +106,7 @@ export class DCHeroesActorSheet extends ActorSheet {
   _calculateInitiativeBonus(context) {
     // calculate initiativeBonus
     let initiativeBonus = 0;
+    console.error(context);
 
     // Superspeed adds APs of their power
     if (this._hasAbility(context.powers, DCHEROES.powers.SUPERSPEED)) { 
