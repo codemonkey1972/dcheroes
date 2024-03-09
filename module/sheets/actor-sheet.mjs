@@ -397,7 +397,12 @@ export class DCHeroesActorSheet extends ActorSheet {
     // TODO combat maneuver dropdown
 
     const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
+    console.error("=============================TEST==================");
+    console.error(this);
+    console.error(dataset);
+    console.error(this.object.system.heroPoints.value + " | " + dataset.value);
     const maxHpToSpend = Math.min(this.object.system.heroPoints.value, dataset.value);
+    console.error(maxHpToSpend);
     const data = {
       "maxHpToSpend": maxHpToSpend,
       "isTargeted": true
