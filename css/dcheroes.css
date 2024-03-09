@@ -543,3 +543,7 @@ li.chat-message .chat-result .d10 {
   font-weight: bold;
    text-align: center;
 }
+
+.megs-chat details summary::-webkit-details-marker {
+  display: none;
+}
