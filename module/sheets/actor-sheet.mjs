@@ -334,13 +334,10 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Manually enter OV and RV for target
     if (game.user.targets.size === 0) {
       const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
-      console.error("------------------TEST");
-      console.error(this);      
-      console.error(dataset);
       const maxHpToSpend = Math.min(this.object.system.heroPoints.value, dataset.value);
-      console.error(maxHpToSpend);
       const data = {
-        "maxHpToSpend": maxHpToSpend
+        "maxHpToSpend": maxHpToSpend,
+        "isTargeted": false
       };
       let dialogHtml = await renderTemplate(template, data);
 
@@ -399,9 +396,13 @@ export class DCHeroesActorSheet extends ActorSheet {
     // TODO prompt for GM hero points spent - deduct from targeted
     // TODO combat maneuver dropdown
 
-    const template = "systems/dcheroes/templates/actor/dialogs/rollDialogTargeted.hbs";
-    let dialogHtml = await renderTemplate(template, {});
-    dialogHtml = dialogHtml.replaceAll("&&MAX&&", dataset.value);
+    const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
+    const maxHpToSpend = Math.min(this.object.system.heroPoints.value, dataset.value);
+    const data = {
+      "maxHpToSpend": maxHpToSpend,
+      "isTargeted": true
+    };
+    let dialogHtml = await renderTemplate(template, data);
     const d = new Dialog({
       title: label,
       content: dialogHtml,
