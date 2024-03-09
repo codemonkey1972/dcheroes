@@ -566,14 +566,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // "All" result on table - Result APs = Effect Value
       // If the Result is an 'A,' then the RAPs are equal to the APs of the Effect Value.
       // TODO does the ALL result include any ranks purchased with Hero Points?
-      await this._showRollResultChatMessage(av, ov, dice, columnShifts, ev, rv, "No effect!");
-      const message = await ChatMessage.create(
-        {
-          content: "<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
-            + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+"</p><p>>Action succeded!</p></div>"
-            + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = ALL ("+resultAPs+" APs) </p></div>"
-        }
-      );
+      await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, "ALL: "+resultAPs+" RAPs");
       return resultAPs;
     }
 
@@ -605,12 +598,6 @@ export class DCHeroesActorSheet extends ActorSheet {
    */
   // TODO difficulty?
   async _showRollResultChatMessage(actionValue, opposingValue, difficulty, dice, columnShifts, effectValue, resistanceValue, result) {
-    /*
-"<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
-          + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+" ("+avRoll.result+")</p><p>>Action succeded!</p></div>"
-          + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = "+resultAPs+" </p></div>"
-    */
-
     const rollChatTemplate = "systems/dcheroes/templates/chat/rollResult.hbs";
     const data = {
       "actionValue": actionValue,
