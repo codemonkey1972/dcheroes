@@ -544,6 +544,6 @@ li.chat-message .chat-result .d10 {
    text-align: center;
 }
 
-.megs-chat details summary::-webkit-details-marker {
-  display: none;
+.megs-chat details summary {
+  display: block;
 }
