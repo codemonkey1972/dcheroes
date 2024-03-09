@@ -581,7 +581,8 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // If the result is an 'N' then there is No Effect
     if (resultAPs === 0) {
-      // TODO show chat message
+      await this._showRollResultChatMessage(av, ov, dice, columnShifts, ev, rv, "No effect!");
+      return;
     }
 
     // results output to chat
@@ -596,7 +597,6 @@ export class DCHeroesActorSheet extends ActorSheet {
           + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+" ("+avRoll.result+")</p><p>>Action succeded!</p></div>"
           + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = "+resultAPs+" </p></div>"
     */
-          console.error("TEST2: "+effectValue);
 
     const rollChatTemplate = "systems/dcheroes/templates/chat/rollResult.hbs";
     const data = {
