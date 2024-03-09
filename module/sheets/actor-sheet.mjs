@@ -396,7 +396,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // TODO prompt for GM hero points spent - deduct from targeted
     // TODO combat maneuver dropdown
 
-    const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
+    const template = "systems/dcheroes/templates/actor/dialogs/rollDialogTargeted.hbs"; // TODO make one template
     const maxHpToSpend = Math.min(this.object.system.heroPoints.value, dataset.value);
     const data = {
       "maxHpToSpend": maxHpToSpend,
