@@ -565,6 +565,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // "All" result on table - Result APs = Effect Value
       // If the Result is an 'A,' then the RAPs are equal to the APs of the Effect Value.
+      // TODO does the ALL result include any ranks purchased with Hero Points?
       const message = await ChatMessage.create(
         {
           content: "<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
@@ -584,6 +585,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     // results output to chat
+    console.error("TEST1: "+ev);
     await this._showRollResultChatMessage(av, ov, dice, ev, rv);
 
     return resultAPs;
@@ -595,6 +597,7 @@ export class DCHeroesActorSheet extends ActorSheet {
           + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+" ("+avRoll.result+")</p><p>>Action succeded!</p></div>"
           + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = "+resultAPs+" </p></div>"
     */
+          console.error("TEST2: "+effectValue);
 
     const rollChatTemplate = "systems/dcheroes/templates/chat/rollResult.hbs";
     const data = {
