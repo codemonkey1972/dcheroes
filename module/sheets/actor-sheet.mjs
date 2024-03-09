@@ -604,7 +604,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       "actionValue": actionValue,
       "opposingValue": opposingValue,
       "dice": dice,
-      "effectvalue": effectValue,
+      "effectValue": effectValue,
       "resistanceValue": resistanceValue
     };
     let dialogHtml = await renderTemplate(rollChatTemplate, data);
