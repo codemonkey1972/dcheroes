@@ -334,9 +334,11 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Manually enter OV and RV for target
     if (game.user.targets.size === 0) {
       const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
+      console.error("------------------TEST");
       console.error(this);      
       console.error(dataset);
       const data = {
+
       };
       let dialogHtml = await renderTemplate(template, data);
       dialogHtml = dialogHtml.replaceAll("&&MAX&&", dataset.value); // TODO not evaluating for max; use slider
@@ -647,9 +649,6 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @returns 
    */
   _processOpposingValuesEntry(form) {
-    console.error("-------------TESTING-----------------");
-    console.error(form);
-    console.error(parseInt(form.hpSpentAP.value));
     return {
       opposingValue: parseInt(form.opposingValue?.value) || 0,
       resistanceValue: parseInt(form.resistanceValue?.value) || 0,
