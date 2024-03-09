@@ -396,7 +396,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // TODO prompt for GM hero points spent - deduct from targeted
     // TODO combat maneuver dropdown
 
-    const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs"; // TODO make one template
+    const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
     const maxHpToSpend = Math.min(this.object.system.heroPoints.value, dataset.value);
     const data = {
       "maxHpToSpend": maxHpToSpend,
@@ -429,13 +429,15 @@ export class DCHeroesActorSheet extends ActorSheet {
    */
   async _handleRolls(ov, rv, hpSpentAP, hpSpentEP, dataset) {
 
-    // TODO deduct spent Hero Points
+    // deduct spent Hero Points
     const context = super.getData();
-    context.actor.system.heroPoints.value = context.actor.system.heroPoints.value - (hpSpentAP + hpSpentEP);
-    console.error(context); 
-//    context.system.heroPoints.value = context.actor.system.heroPoints.value;
-    console.error(this);
-
+    if  (context.actor.system.heroPoints.value >= hpSpentAP + hpSpentEP) {
+      // TODO test this
+      context.actor.system.heroPoints.value = context.actor.system.heroPoints.value - (hpSpentAP + hpSpentEP);
+    } else {
+      // TODO error
+      return;
+    }
 
     /**********************************
      * ACTION TABLE
@@ -444,8 +446,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     const av = parseInt(dataset.value) + parseInt(hpSpentAP);
     const avIndex = this._getRangeIndex(av);
 
-    // TODO subtract from character's HP
- 
     // get range index for OV
     const ovIndex = this._getRangeIndex(ov);
 
@@ -582,11 +582,19 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     // results output to chat
-    const message = await ChatMessage.create(
-      {
-        content: "<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
+    const rollChatTemplate = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
+    const data = {
+    };
+    let dialogHtml = await renderTemplate(rollChatTemplate, data);
+
+    /*
+"<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
           + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+" ("+avRoll.result+")</p><p>>Action succeded!</p></div>"
           + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = "+resultAPs+" </p></div>"
+    */
+    const message = await ChatMessage.create(
+      {
+        content: dialogHtml
       }
     );
 
