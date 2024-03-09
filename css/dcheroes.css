@@ -503,3 +503,21 @@
 .dcheroes .megs-dialog {
   background-color: #fff;
 }
+
+.dcheroes .megs-chat {
+  background-color: #fff;
+}
+
+.dcheroes .megs-chat .chat-value {
+  border: 1px solid #1f5079;
+}
+
+.dcheroes .megs-chat .chat-value label {
+  width: 100%;
+  color: #fff;
+  background-color: #1f5079;
+}
+
+.dcheroes .megs-chat .chat-value div {
+  color: #1f5079;
+}
