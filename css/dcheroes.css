@@ -519,3 +519,12 @@ li.chat-message .chat-value label {
 li.chat-message .chat-value div {
   color: #1f5079;
 }
+
+li.chat-message .chat-result {
+  border: 1px solid #1f5079;
+}
+
+li.chat-message .chat-result .d10 {
+  display: inline-block;
+  background-image: url(../icons/svg/d10-grey.svg);
+}
