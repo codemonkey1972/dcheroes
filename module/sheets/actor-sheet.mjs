@@ -542,8 +542,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       }
     }
 
-    console.error("TEST2");
-
+  
     /**********************************
      * RESULT TABLE
      **********************************/
@@ -555,6 +554,8 @@ export class DCHeroesActorSheet extends ActorSheet {
     
     // get resistance value column index
     const rvIndex = this._getRangeIndex(rv) - 1;
+
+    console.error("TEST2");
 
     // apply shifts
     // Column Shifts on the Result Table are made to the left, decreasing numbers in the Resistance Value row, 
@@ -588,10 +589,20 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO show chat message
     }
 
-    console.error("TEST4");
-
     // results output to chat
-    const rollChatTemplate = "systems/dcheroes/templates/actor/chat/rollResult.hbs";
+    await this._showRollResultChatMessage();
+
+    return resultAPs;
+  }
+
+  async _showRollResultChatMessage() {
+    /*
+"<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
+          + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+" ("+avRoll.result+")</p><p>>Action succeded!</p></div>"
+          + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = "+resultAPs+" </p></div>"
+    */
+
+    const rollChatTemplate = "systems/dcheroes/templates/chat/rollResult.hbs";
     const data = {
     };
     let dialogHtml = await renderTemplate(rollChatTemplate, data);
@@ -602,20 +613,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       }
     );
 
-    const message1 = await ChatMessage.create(
-      {
-        content: "<div style='background-color: white;'><p>TEST</p></div>"
-      }
-    );
-
-    /*
-"<div style='background-color: white;'><p>AV = "+ av + " | OV = "+ov+"</p>"
-          + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+" ("+avRoll.result+")</p><p>>Action succeded!</p></div>"
-          + "<div><p>column shifts = "+columnShifts+" | ev = "+ev+" | rv = "+rv+" | result APs = "+resultAPs+" </p></div>"
-    */
-
-
-    return resultAPs;
   }
 
   /**
