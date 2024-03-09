@@ -17,7 +17,9 @@
     </div>
     {{#if columnShifts}}
     <div class="flex-group-center grid-span-2 chat-result">
-        {{columnShifts}} Column Shifts
+        {{columnShifts}} 
+        {{#ifCond columnShifts 1}}Column Shift{{/ifCond}}
+        {{#notCond columnShifts 1}}Column Shifts{{/notCond}}
     </div>
     {{/if}}
     {{#if effectValue}}
