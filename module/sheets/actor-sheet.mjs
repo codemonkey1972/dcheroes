@@ -582,7 +582,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     // results output to chat
-    const rollChatTemplate = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
+    const rollChatTemplate = "systems/dcheroes/templates/actor/chat/rollResult.hbs";
     const data = {
     };
     let dialogHtml = await renderTemplate(rollChatTemplate, data);
