@@ -338,7 +338,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       console.error(this);      
       console.error(dataset);
       const data = {
-
+        "heroPoints": this.object.system.heroPoints.value
       };
       let dialogHtml = await renderTemplate(template, data);
       dialogHtml = dialogHtml.replaceAll("&&MAX&&", dataset.value); // TODO not evaluating for max; use slider
