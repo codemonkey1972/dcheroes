@@ -20,14 +20,18 @@
         {{columnShifts}} Column Shifts
     </div>
     {{/if}}
+    {{#if effectValue}}
     <div class="flex-group-center">
         <label class="flexlarge align-left">Effect Value</label>
         <div>{{effectValue}}</div>        
     </div>
+    {{/if}}
+    {{#if resistanceValue}}
     <div class="flex-group-center">
         <label class="flexlarge align-left">Resistance Value</label>
         <div>{{resistanceValue}}</div>        
     </div>
+    {{/if}}
     <div class="flex-group-center grid-span-2">
         {{result}}
     </div>

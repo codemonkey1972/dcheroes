@@ -509,13 +509,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // if fails, output message
     if (!avRollSuccess) {
-      // TODO better message
-      ChatMessage.create(
-        {
-          content: "<div><p>AV = "+ av + " | OV = "+ov+"</p>"
-            + "<p>Difficulty = "+difficulty+" | Roll = "+avRollTotal+"</p><p>>Action failed!</p></div>"
-        }
-      );
+      await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, ">Action failed!");
       return;
     }
 
