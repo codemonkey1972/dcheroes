@@ -501,23 +501,24 @@
 }
 
 li.chat-message {
-  background-color: #fff;
+  background: #fff;
 }
 
-.dcheroes .megs-dialog {
-  background-color: #fff;
+li.chat-message .message-header {
+  background: #1f5079;
+  color: #fff;
 }
 
-.dcheroes .megs-chat .chat-value {
+li.chat-message .chat-value {
   border: 1px solid #1f5079;
 }
 
-.dcheroes .megs-chat .chat-value label {
+li.chat-message .chat-value label {
   width: 100%;
   color: #fff;
   background-color: #1f5079;
 }
 
-.dcheroes .megs-chat .chat-value div {
+li.chat-message .chat-value div {
   color: #1f5079;
 }
