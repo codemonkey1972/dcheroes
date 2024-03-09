@@ -592,6 +592,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       "difficulty": difficulty,
       "dice": dice,
       "columnShifts": columnShifts,
+      "1ColumnShift": columnShifts === 1,
       "effectValue": effectValue,
       "resistanceValue": resistanceValue,
       "result": result

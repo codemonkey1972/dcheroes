@@ -18,8 +18,12 @@
     {{#if columnShifts}}
     <div class="flex-group-center grid-span-2 chat-result inverse">
         {{columnShifts}} 
-        {{#ifCond columnShifts 1}}Column Shift{{/ifCond}}
-        {{#notCond columnShifts 1}}Column Shifts{{/notCond}}
+        {{#if 1ColumnShift}}
+        Column Shift
+        {{/if}}
+        {{#unless 1ColumnShift}}
+        Column Shifts
+        {{/unless}}
     </div>
     {{/if}}
     {{#if effectValue}}
