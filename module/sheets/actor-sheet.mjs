@@ -92,9 +92,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       v.label = game.i18n.localize(CONFIG.DCHEROES.attributes[k]) ?? k;
     }
 
-    // TODO dragging from right bar puts a copy on the table, not a linked version - FIX!
     // The exception is player characters and sheets that have "link actor data" enabled (PCs do by default). For these actors there's a single character sheet shared by all copies of the actor.
-
     const initiativeBonus = this._calculateInitiativeBonus(context);
 
     // set value on actor sheet object
@@ -375,8 +373,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       }).render(true);
 
     } else if (game.user.targets.size > 1) {
-      // TODO popup for specific data
-      ui.notifications.warn(localize("You can only target one token"));
+      ui.notifications.warn(localize("You can only target one token."));
       return;
     } else {
       // use target token for OV and RV values
