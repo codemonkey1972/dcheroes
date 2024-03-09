@@ -1,6 +1,6 @@
 <div class="megs-dialog">
   <form>
-    {{#unless (isTargeted)}}
+    {{#unless isTargeted}}
     <div class="form-group">
       <label>{{localize "Opposing Value"}}</label>
       <input name="opposingValue" type="number" value="0" />
