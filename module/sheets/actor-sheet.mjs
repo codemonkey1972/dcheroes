@@ -615,6 +615,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const data = {
       "actionValue": actionValue,
       "opposingValue": opposingValue,
+      "difficulty": difficulty,
       "dice": dice,
       "columnShifts": columnShifts,
       "effectValue": effectValue,
