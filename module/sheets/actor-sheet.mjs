@@ -646,19 +646,15 @@ export class DCHeroesActorSheet extends ActorSheet {
    * 
    * @returns 
    */
-  _processOpposingValuesEntry(html) {
+  _processOpposingValuesEntry(form) {
     console.error("-------------TESTING-----------------");
-    console.error(html);
-    console.error(parseInt(html.opposingValue.value))
-    const opposingValue = html.find("input#opposingValue").val();
-    const resistanceValue = html.find("input#resistanceValue").val();
-    const hpSpentAP = html.find("input#hpSpentAP").val();
-    const hpSpentEP = html.find("input#hpSpentEP").val();
+    console.error(form);
+    console.error(parseInt(form.hpSpentAP.value));
     return {
-      opposingValue: parseInt(opposingValue),
-      resistanceValue: parseInt(resistanceValue),
-      hpSpentAP: parseInt(hpSpentAP),
-      hpSpentEP: parseInt(hpSpentEP)
+      opposingValue: parseInt(form.opposingValue?.value) || 0,
+      resistanceValue: parseInt(form.resistanceValue?.value) || 0,
+      hpSpentAP: parseInt(form.hpSpentAP.value) || 0,
+      hpSpentEP: parseInt(form.hpSpentEP.value) || 0
     }
   }
 
