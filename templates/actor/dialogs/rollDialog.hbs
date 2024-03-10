@@ -12,17 +12,39 @@
     {{/unless}}
     <div class="form-group">
       <label>{{localize "HP Spent - Acting"}}</label>
-      <div class="flexrow"><input type="range" name="hpSpentAP" value="0" min="0" max="{{maxHpToSpend}}" step="1" oninput="hpSpentAPRangeValue.innerText = this.value">
-      <span class="range-value" id="hpSpentAPRangeValue">0</span></div>
-      <!--
-      <label>{{localize "HP Spent - Acting"}}</label>
-      <div class='flexrow'>{{rangePicker name='hpSpentAP' id='hpSpentAP' value=0 min=0 max=maxHpToSpend step=1}}</div>
-      -->
+      <div class="flexrow">
+        <input type="range" name="hpSpentAP" value="0" min="0" max="{{maxHpToSpend}}" step="1" oninput="hpSpentAPRangeValue.innerText = this.value">
+        <span class="range-value" id="hpSpentAPRangeValue">0</span>
+      </div>
     </div>
     <div class="form-group">
       <label>{{localize "HP Spent - Effect"}}</label>
-      <div class="flexrow">{{rangePicker name="hpSpentEP" id="hpSpentEP" value=0 min=0 max=maxHpToSpend step=1}}</div>
+      <div class="flexrow">
+        <input type="range" name="hpSpentEP" value="0" min="0" max="{{maxHpToSpend}}" step="1" oninput="hpSpentEPRangeValue.innerText = this.value">
+        <span class="range-value" id="hpSpentEPRangeValue">0</span>
+      </div>
     </div>
+    <details>
+      <summary>Opposing value options</summary>
+    <div class="form-group">
+      <label>{{localize "HP Spent - Opposing"}}</label>
+      <div class="flexrow">
+        <input type="range" name="hpSpentOV" value="0" min="0" max="100" step="1" oninput="hpSpentOVRangeValue.innerText = this.value">
+        <span class="range-value" id="hpSpentOVRangeValue">0</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>{{localize "HP Spent - Resistance"}}</label>
+      <div class="flexrow">
+        <input type="range" name="hpSpentRV" value="0" min="0" max="100" step="1" oninput="hpSpentRVRangeValue.innerText = this.value">
+        <span class="range-value" id="hpSpentRVRangeValue">0</span>
+      </div>
+    </div>
+    </details>
+    <details>
+      <summary>Advanced options</summary>
+      TODO: Advanced options go here
     <!-- TODO combat maneuvers dropdown -->
+    </details>
   </form>
 </div>
