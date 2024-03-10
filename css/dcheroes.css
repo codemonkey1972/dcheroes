@@ -567,3 +567,9 @@ details summary.no-arrow {
   display: block;
   cursor: pointer;
 }
+
+.system-dcheroes details summary.roll-dialog-summary {
+  margin: 9px 0 3px 0;
+  padding: 3px 0 3px 0;
+  background: #a9a7a7;
+}
