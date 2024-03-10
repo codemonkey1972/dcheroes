@@ -432,7 +432,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // deduct spent Hero Points
     const context = super.getData();
     if  (context.actor.system.heroPoints.value >= hpSpentAP + hpSpentEP) {
-      // TODO test this
+      // TODO test this - doesn't appear to be working
       context.actor.system.heroPoints.value = context.actor.system.heroPoints.value - (hpSpentAP + hpSpentEP);
     } else {
       // TODO error
@@ -478,13 +478,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     dice.push(die2);
    
     while (die1 === die2) {
-      // await ChatMessage.create(
-      //   {
-      //     content: "<div><p>Die 1 = "+ die1 + " | Die 2 = "+die2+"</p>"
-      //       + "<p>Re-rolling Doubles!</p><p>Current total = " + avRollTotal + "</p></div>"
-      //   }
-      // );
-
       // TODO prompt if want to continue rolling
 
       const avExplodeRoll = new Roll(dataset.roll, {});
@@ -494,7 +487,13 @@ export class DCHeroesActorSheet extends ActorSheet {
       die2 = dieRollResultDice[1];
       dice.push(die1);
       dice.push(die2);
-      // TODO Furthermore, even if double 1s is rolled on the second or greater roll, the roll fails.
+
+      // Furthermore, even if double 1s is rolled on the second or greater roll, the roll fails.
+      if (die1 === 1 && die2 === 2) {
+        await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, "", failure, "Double 1s: Automatic failure!");
+        return;
+      }
+  
       avRollTotal = avRollTotal + avExplodeRoll.total;
     }
 
@@ -502,7 +501,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // if fails, output message
     if (!avRollSuccess) {
-      await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, "N", false, "Action failed!");
+      await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, "", false, "Action failed!");
       return;
     }
 
@@ -553,7 +552,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // "All" result on table - Result APs = Effect Value
       // If the Result is an 'A,' then the RAPs are equal to the APs of the Effect Value.
       // TODO does the ALL result include any ranks purchased with Hero Points?
-      await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, "A", true, "Success (all): " + resultAPs + " RAPs");
+      await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, "A", true, "Success: " + resultAPs + " RAPs!");
       return resultAPs;
     }
 
@@ -567,7 +566,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     // results output to chat
-    await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, resultAPs, true, "Success: " + resultAPs + " RAPs");
+    await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, resultAPs, true, "Success: " + resultAPs + " RAPs!");
 
     return resultAPs;
   }
