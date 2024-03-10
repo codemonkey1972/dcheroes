@@ -553,7 +553,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // "All" result on table - Result APs = Effect Value
       // If the Result is an 'A,' then the RAPs are equal to the APs of the Effect Value.
       // TODO does the ALL result include any ranks purchased with Hero Points?
-      await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, "ALL: "+resultAPs+" RAPs");
+      await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, "Success (all): " + resultAPs + " RAPs");
       return resultAPs;
     }
 
@@ -567,7 +567,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     }
 
     // results output to chat
-    await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, resultAPs + " RAPs");
+    await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, "Success: " + resultAPs + " RAPs");
 
     return resultAPs;
   }
