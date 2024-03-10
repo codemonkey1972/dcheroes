@@ -69,6 +69,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     context.rollData = context.actor.getRollData();
 
     // Prepare active effects
+    // TODO can delete this?
     context.effects = prepareActiveEffectCategories(
       // A generator that returns all effects stored on the actor
       // as well as any items
@@ -434,6 +435,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO test this - doesn't appear to be working
     if (maxHpToSpend >= hpSpentAV + hpSpentEV) {
       context.document.system.heroPoints.value = 90 - (hpSpentAV + hpSpentEV); // TODO delete
+      this._prepareCharacterData(context);
       /*
       // BLAH = BLAH - (hpSpentAV + hpSpentEV); // does not work
 
@@ -445,16 +447,17 @@ export class DCHeroesActorSheet extends ActorSheet {
         - this.object.system.heroPoints.value -> does update
 
       context.data.system.heroPoints.value -> sheet does NOT update
+      // This appears to just be an unlikned copy; should probably sync manually just to be safe
         - context.actor.system.heroPoints.value -> does NOT update
         - context.data.system.heroPoints.value -> does update (duh)
         - context.document.system.heroPoints.value -> does NOT update
         - this.object.system.heroPoints.value -> does NOT update
 
-      context.document.system.heroPoints.value
-        - context.actor.system.heroPoints.value ->
-        - context.data.system.heroPoints.value ->
-        - context.document.system.heroPoints.value ->
-        - this.object.system.heroPoints.value ->
+      context.document.system.heroPoints.value -> sheet does NOT update
+        - context.actor.system.heroPoints.value -> does update
+        - context.data.system.heroPoints.value -> does NOT update
+        - context.document.system.heroPoints.value -> does update
+        - this.object.system.heroPoints.value -> does update
 
       ActorSheet
       this.object.system.heroPoints.value -> sheet does NOT update
