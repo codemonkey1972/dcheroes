@@ -537,7 +537,7 @@ li.chat-message .chat-result.success {
   transition: 0.2s background linear;
 }
 
-li.chat-message .chat-result.success {
+li.chat-message .chat-result.success:hover {
   background-color: lightgreen;
 }
 
@@ -546,7 +546,7 @@ li.chat-message .chat-result.failure {
   transition: 0.2s background linear;
 }
 
-li.chat-message .chat-result.failure {
+li.chat-message .chat-result.failure:hover {
   background-color: palevioletred;
 }
 
