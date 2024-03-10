@@ -534,13 +534,21 @@ li.chat-message .chat-result.inverse {
 
 li.chat-message .chat-result.success {
   background-color: green;
+  transition: 0.2s background linear;
+}
+
+li.chat-message .chat-result.success {
+  background-color: lightgreen;
 }
 
 li.chat-message .chat-result.failure {
   background-color: red;
+  transition: 0.2s background linear;
 }
 
-
+li.chat-message .chat-result.failure {
+  background-color: palevioletred;
+}
 
 li.chat-message .chat-result .d10 {
   display: inline-block;
@@ -557,4 +565,3 @@ li.chat-message .chat-result .d10 {
 details summary.no-arrow {
   display: block;
 }
-
