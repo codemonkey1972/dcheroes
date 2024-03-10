@@ -367,7 +367,7 @@ export class DCHeroesActorSheet extends ActorSheet {
             label: "Submit",
             callback: (html) => {
               const response = this._processOpposingValuesEntry(html[0].querySelector('form'));
-              this._handleRolls(response.opposingValue, response.resistanceValue, response.hpSpentAP, response.hpSpentEP, dataset);
+              this._handleRolls(response.opposingValue, response.resistanceValue, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, dataset);
             }
           }
         },
@@ -412,7 +412,7 @@ export class DCHeroesActorSheet extends ActorSheet {
           label: "Submit",
           callback: (html) => {
             const response = this._processOpposingValuesEntry(html[0].querySelector('form'));
-            this._handleRolls(ov, rv, response.hpSpentAP, response.hpSpentEP, dataset);
+            this._handleRolls(ov, rv, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, dataset);
           }
         }
       },
@@ -424,15 +424,15 @@ export class DCHeroesActorSheet extends ActorSheet {
    * 
    * @returns 
    */
-  async _handleRolls(ov, rv, hpSpentAP, hpSpentEP, dataset) {
+  async _handleRolls(ov, rv, hpSpentAV, hpSpentEV, hpSpentOV, hpSpentRV, dataset) {
 
     // deduct spent Hero Points
     const context = super.getData();
-    if  (context.actor.system.heroPoints.value >= hpSpentAP + hpSpentEP) {
+    if  (context.actor.system.heroPoints.value >= hpSpentAV + hpSpentEV) {
       // TODO test this - doesn't appear to be working
-      context.actor.system.heroPoints.value = context.actor.system.heroPoints.value - (hpSpentAP + hpSpentEP);
+      context.actor.system.heroPoints.value = context.actor.system.heroPoints.value - (hpSpentAV + hpSpentEV);
     } else {
-      // TODO error
+      ui.notifications.error(localize("You cannot spend more Hero Points than you have."));
       return;
     }
 
@@ -441,11 +441,12 @@ export class DCHeroesActorSheet extends ActorSheet {
      **********************************/
     // get range index for AV
     const avOriginal = parseInt(dataset.value);
-    const av = avOriginal + parseInt(hpSpentAP);
-    const avIndex = this._getRangeIndex(av);
+    const avAdjusted = avOriginal + parseInt(hpSpentAV);
+    const avIndex = this._getRangeIndex(avAdjusted);
 
     // get range index for OV
-    const ovIndex = this._getRangeIndex(ov);
+    const ovAdjusted = ov + hpSpentOV;
+    const ovIndex = this._getRangeIndex(ovAdjusted);
 
     // consult action chart for difficulty
     const actionTable = CONFIG.tables.actionTable;
@@ -459,7 +460,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // double 1s = automatic fail
     if (avRoll.total === 2) {
-      await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, "", failure, "Double 1s: Automatic failure!");
+      await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", failure, "Double 1s: Automatic failure!");
       return;
     }
 
@@ -487,7 +488,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // Furthermore, even if double 1s is rolled on the second or greater roll, the roll fails.
       if (die1 === 1 && die2 === 2) {
-        await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, "", failure, "Double 1s: Automatic failure!");
+        await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", failure, "Double 1s: Automatic failure!");
         return;
       }
   
@@ -498,7 +499,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // if fails, output message
     if (!avRollSuccess) {
-      await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, "", false, "Action failed!");
+      await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Action failed!");
       return;
     }
 
@@ -531,11 +532,12 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // get effectvalue column  index
     const evOriginal = this._getEffectValue(dataset.key);
-    const ev = this._getEffectValue(dataset.key) + hpSpentEP;
-    const evIndex = this._getRangeIndex(ev);
+    const evAdjusted = this._getEffectValue(dataset.key) + hpSpentEV;
+    const evIndex = this._getRangeIndex(evAdjusted);
     
     // get resistance value column index
-    const rvIndex = this._getRangeIndex(rv) - 1;
+    const rvAdjusted = rv + hpSpentRV;
+    const rvIndex = this._getRangeIndex(rvAdjusted) - 1;
 
     // apply shifts
     // Column Shifts on the Result Table are made to the left, decreasing numbers in the Resistance Value row, 
@@ -544,12 +546,12 @@ export class DCHeroesActorSheet extends ActorSheet {
     if (shiftedRvIndex <= 0) {
       // calculate column shifts that push past the 0 column
       // If the result is in the +1 Column, add 1 AP to your Result APs for every time you shift into this Column.
-      const resultAPs = ev + (Math.abs(shiftedRvIndex));
+      const resultAPs = evAdjusted + (Math.abs(shiftedRvIndex));
 
       // "All" result on table - Result APs = Effect Value
       // If the Result is an 'A,' then the RAPs are equal to the APs of the Effect Value.
       // TODO does the ALL result include any ranks purchased with Hero Points?
-      await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, "A", true, "Success: " + resultAPs + " RAPs!");
+      await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, columnShifts, evAdjusted, rvAdjusted, "A", true, "Success: " + resultAPs + " RAPs!");
       return resultAPs;
     }
 
@@ -558,12 +560,12 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // If the result is an 'N' then there is No Effect
     if (resultAPs === 0) {
-      await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, "N", false, "No effect!");
+      await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, columnShifts, evAdjusted, rvAdjusted, "N", false, "No effect!");
       return;
     }
 
     // results output to chat
-    await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, resultAPs, true, "Success: " + resultAPs + " RAPs!");
+    await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, columnShifts, evAdjusted, rvAdjusted, resultAPs, true, "Success: " + resultAPs + " RAPs!");
 
     return resultAPs;
   }
@@ -642,18 +644,18 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @returns 
    */
   _getResistanceValue(key, targetActor) {
-    let rv;
+    let resistanceValue;
     if (key === "dex") {
-      rv = targetActor.system.attributes.body.value;
+      resistanceValue = targetActor.system.attributes.body.value;
     } else if (key === "int") {
-      rv = targetActor.system.attributes.mind.value;
+      resistanceValue = targetActor.system.attributes.mind.value;
     } else if (key === "infl") {
-      rv = targetActor.system.attributes.spirit.value;
+      resistanceValue = targetActor.system.attributes.spirit.value;
     } else {
       ui.notifications.error("Invalid attribute selection");
       return;
     }
-    return rv;
+    return resistanceValue;
   }
 
   /**
@@ -664,8 +666,10 @@ export class DCHeroesActorSheet extends ActorSheet {
     return {
       opposingValue: parseInt(form.opposingValue?.value) || 0,
       resistanceValue: parseInt(form.resistanceValue?.value) || 0,
-      hpSpentAP: parseInt(form.hpSpentAP.value) || 0,
-      hpSpentEP: parseInt(form.hpSpentEP.value) || 0
+      hpSpentAV: parseInt(form.hpSpentAV.value) || 0,
+      hpSpentEV: parseInt(form.hpSpentEV.value) || 0,
+      hpSpentRV: parseInt(form.hpSpentRV.value) || 0,
+      hpSpentOV: parseInt(form.hpSpentOV.value) || 0
     }
   }
 
