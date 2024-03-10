@@ -1,7 +1,5 @@
 export const DCHEROES = {};
 
-// TODO add constants here
-
 /**
  * The set of Attribute Scores used within the system.
  * @type {Object}

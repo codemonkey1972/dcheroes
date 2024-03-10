@@ -11,7 +11,6 @@ import {
 export class DCHeroesActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
-    // TODO rename features tab
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['dcheroes', 'sheet', 'actor'],
       width: 600,
@@ -20,7 +19,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         {
           navSelector: '.sheet-tabs',
           contentSelector: '.sheet-body',
-          initial: 'features',
+          initial: 'features', // TODO rename to abiliities
         },
       ],
     });
@@ -392,9 +391,6 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     const ov = targetActor.system.attributes[dataset.key].value;
     const rv = this._getResistanceValue(dataset.key, targetActor);
-
-    // TODO prompt for GM hero points spent - deduct from targeted
-    // TODO combat maneuver dropdown
 
     const template = "systems/dcheroes/templates/actor/dialogs/rollDialog.hbs";
     const maxHpToSpend = Math.min(this.object.system.heroPoints.value, dataset.value);

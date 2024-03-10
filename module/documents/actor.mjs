@@ -1,3 +1,5 @@
+import { DCHEROES } from "../helpers/config.mjs";
+
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -47,8 +49,6 @@ export class DCHeroesActor extends Actor {
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
-
-    // TODO _calculateInitiativeBonus(actorData);
   }
 
   /**
@@ -59,32 +59,34 @@ export class DCHeroesActor extends Actor {
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
-
-    // TODO _calculateInitiativeBonus(actorData);
   }
 
   _calculateInitiativeBonus(context) {
     // calculate initiativeBonus
-    let initiativeBonus = 0;
+    let initiativeBonus = context.document.system.attributes.dex.value + context.document.system.attributes.int.value
+        + context.document.system.attributes.infl.value;
 
     // Superspeed adds APs of their power
-    if (this._hasAbility(context.powers, "Superspeed")) { // TODO use UID system for powers? also use constant
-      const aps = this._getAbilityAPs(context.powers, "Superspeed");
+    if (this._hasAbility(context.powers, DCHEROES.powers.SUPERSPEED)) { 
+      const aps = this._getAbilityAPs(context.powers, DCHEROES.powers.SUPERSPEED);
       initiativeBonus = initiativeBonus + aps;
     }
 
     // Martial artist gives a +2
-    if (this._hasAbility(context.skills, "Martial Artist")) { // TODO use UID system for powers? also use constant
+    if (this._hasAbility(context.skills, DCHEROES.skills.MARTIAL_ARTIST)) {
       initiativeBonus = initiativeBonus + 2;
     }
 
     // Lightning Reflexes gives +2
-    if (this._hasAbility(context.advantages, "Lightning Reflexes")) { // TODO use UID system for powers? also use constant
+    if (this._hasAbility(context.advantages, DCHEROES.advantages.LIGHTNING_REFLEXES)) {
       initiativeBonus = initiativeBonus + 2;
     }
 
     // Water Freedom applies when submerged in water
-    // TODO a checkbox for is in water?
+    // TODO dialog prompt for modifiers
+    if (this._hasAbility(context.powers, DCHEROES.powers.WATER_FREEDOM)) {
+      // TODO add checkbox if has Water Freedom for if is in water
+    }
 
     return initiativeBonus;
 }
