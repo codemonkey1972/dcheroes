@@ -82,8 +82,6 @@
               {{attribute.label}}
             </label>
             <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
-<!--TODO            <span class="attribute-mod rollable" data-roll="d20+@attributes.{{key}}.value" data-label="{{attribute.label}}">{{numberFormat attribute.mod decimals=0 sign=true}}</span>
--->
           </div>
       {{#if (isDivisor 3 (sum @index 1))}}
         </section>
