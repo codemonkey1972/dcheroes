@@ -12,8 +12,12 @@
     {{/unless}}
     <div class="form-group">
       <label>{{localize "HP Spent - Acting"}}</label>
+      <div class="flexrow"><input type="range" name="hpSpentAP" value="0" min="0" max="{{maxHpToSpend}}" step="1" oninput="hpSpentAPRangeValue.innerText = this.value">
+      <span class="range-value" id="hpSpentAPRangeValue">0</span></div>
+      <!--
+      <label>{{localize "HP Spent - Acting"}}</label>
       <div class='flexrow'>{{rangePicker name='hpSpentAP' id='hpSpentAP' value=0 min=0 max=maxHpToSpend step=1}}</div>
-      
+      -->
     </div>
     <div class="form-group">
       <label>{{localize "HP Spent - Effect"}}</label>
