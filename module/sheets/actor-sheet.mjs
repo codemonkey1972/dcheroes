@@ -594,6 +594,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       "1ColumnShift": columnShifts === 1,
       "effectValue": effectValue,
       "resistanceValue": resistanceValue,
+      "success": success,
       "result": result
     };
     let dialogHtml = await renderTemplate(rollChatTemplate, data);
