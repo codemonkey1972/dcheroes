@@ -528,12 +528,12 @@ li.chat-message .chat-result {
 }
 
 li.chat-message .chat-result.inverse {
-  color: #fff;
   background-color: #ddebf6;
 }
 
 li.chat-message .chat-result.success {
   background-color: green;
+  color: #fff;
   transition: 0.2s background linear;
 }
 
@@ -543,11 +543,12 @@ li.chat-message .chat-result.success:hover {
 
 li.chat-message .chat-result.failure {
   background-color: red;
+  color: #fff;
   transition: 0.2s background linear;
 }
 
 li.chat-message .chat-result.failure:hover {
-  background-color: salmon;
+  background-color: rgb(252, 87, 69);
 }
 
 li.chat-message .chat-result .d10 {
@@ -559,7 +560,7 @@ li.chat-message .chat-result .d10 {
   background-repeat: no-repeat;
   background-size: 24px 24px;
   font-weight: bold;
-   text-align: center;
+  text-align: center;
 }
 
 details summary.no-arrow {
