@@ -431,11 +431,10 @@ export class DCHeroesActorSheet extends ActorSheet {
   async _handleRolls(ov, rv, maxHpToSpend, hpSpentAV, hpSpentEV, hpSpentOV, hpSpentRV, dataset) {
 
     // deduct spent Hero Points
-    const context = this.getData();
       // TODO test this - doesn't appear to be working
     if (maxHpToSpend >= hpSpentAV + hpSpentEV) {
       this.object.system.heroPoints.value = this.object.system.heroPoints.value - (hpSpentAV + hpSpentEV);
-      context = this.getData();
+      const context = this.getData();
       /*
       // BLAH = BLAH - (hpSpentAV + hpSpentEV); // does not work
 
