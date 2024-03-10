@@ -62,6 +62,7 @@ export class DCHeroesActor extends Actor {
   }
 
   _calculateInitiativeBonus(context) {
+    console.error("TEST actor.mjs._calculateInitiativeBonus");
     // calculate initiativeBonus
     let initiativeBonus = context.document.system.attributes.dex.value + context.document.system.attributes.int.value
         + context.document.system.attributes.infl.value;
