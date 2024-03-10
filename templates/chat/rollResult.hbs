@@ -1,8 +1,5 @@
 <div  class="grid grid-2col megs-chat">
-    <details>
-      <summary>Details</summary>
-      Something small enough to escape casual notice.
-    </details>
+    <details class="grid-span-2">
     <div class="flex-group-center chat-value">
          <label class="flexlarge align-left">Action Value</label>
          <div>{{actionValue}}</div>        
@@ -42,7 +39,10 @@
         <div>{{resistanceValue}}</div>        
     </div>
     {{/if}}
+    <summary class=""grid-span-2">
     <div class="flex-group-center grid-span-2 chat-result inverse">
         {{result}}
     </div>
+    </summary>
+    </details>
 </div>
