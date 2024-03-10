@@ -430,15 +430,20 @@ export class DCHeroesActorSheet extends ActorSheet {
     const context = super.getData();
       // TODO test this - doesn't appear to be working
     if (maxHpToSpend >= hpSpentAV + hpSpentEV) {
-      console.error(this);
+      this.object.system.heroPoints.value = this.object.system.heroPoints.value - (hpSpentAV + hpSpentEV);
       /*
       // BLAH = BLAH - (hpSpentAV + hpSpentEV); // does not work
 
+      Actor
       context.document.system.heroPoints.value --> looks like this is updated?
       context.actor.system.heroPoints.value ->
       context.data.system.heroPoints.value
+
+      ActorSheet
       this.object.system.heroPoints.value
 */
+console.error(context);
+console.error(this);
     } else {
       ui.notifications.error(localize("You cannot spend that many Hero Points."));
       return;
