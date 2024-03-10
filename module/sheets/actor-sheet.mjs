@@ -435,6 +435,10 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO test this - doesn't appear to be working
     if (maxHpToSpend >= hpSpentAV + hpSpentEV) {
       context.document.system.heroPoints.value = 90 - (hpSpentAV + hpSpentEV); // TODO delete
+    const actorData = context.data;
+    context.system = actorData.system;
+    context.flags = actorData.flags;
+
       this._prepareCharacterData(context);
       /*
       // BLAH = BLAH - (hpSpentAV + hpSpentEV); // does not work
