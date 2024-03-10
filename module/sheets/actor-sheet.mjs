@@ -400,6 +400,9 @@ export class DCHeroesActorSheet extends ActorSheet {
       "isTargeted": true
     };
     let dialogHtml = await renderTemplate(template, data);
+
+    // TODO show target name on dialog
+
     const d = new Dialog({
       title: label,
       content: dialogHtml,
@@ -430,7 +433,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     const context = super.getData();
       // TODO test this - doesn't appear to be working
     if (maxHpToSpend >= hpSpentAV + hpSpentEV) {
-      context.data.system.heroPoints.value = 90 - (hpSpentAV + hpSpentEV); // TODO delete
+      context.document.system.heroPoints.value = 90 - (hpSpentAV + hpSpentEV); // TODO delete
       /*
       // BLAH = BLAH - (hpSpentAV + hpSpentEV); // does not work
 
@@ -441,13 +444,13 @@ export class DCHeroesActorSheet extends ActorSheet {
         - context.document.system.heroPoints.value -> does update!
         - this.object.system.heroPoints.value -> does update
 
-      context.data.system.heroPoints.value
-        - context.actor.system.heroPoints.value -> 
-        - context.data.system.heroPoints.value ->
-        - context.document.system.heroPoints.value ->
-        - this.object.system.heroPoints.value ->
+      context.data.system.heroPoints.value -> sheet does NOT update
+        - context.actor.system.heroPoints.value -> does NOT update
+        - context.data.system.heroPoints.value -> does update (duh)
+        - context.document.system.heroPoints.value -> does NOT update
+        - this.object.system.heroPoints.value -> does NOT update
 
-        context.document.system.heroPoints.value
+      context.document.system.heroPoints.value
         - context.actor.system.heroPoints.value ->
         - context.data.system.heroPoints.value ->
         - context.document.system.heroPoints.value ->
