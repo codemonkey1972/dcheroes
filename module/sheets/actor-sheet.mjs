@@ -462,7 +462,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // double 1s = automatic fail
     if (avRoll.total === 2) {
-      await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, failure, "Double 1s: Automatic failure!");
+      await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, "", failure, "Double 1s: Automatic failure!");
       return;
     }
 
@@ -502,7 +502,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // if fails, output message
     if (!avRollSuccess) {
-      await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, false, "Action failed!");
+      await this._showRollResultChatMessage(av, ov, difficulty, dice, 0, 0, 0, "N", false, "Action failed!");
       return;
     }
 
@@ -553,7 +553,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // "All" result on table - Result APs = Effect Value
       // If the Result is an 'A,' then the RAPs are equal to the APs of the Effect Value.
       // TODO does the ALL result include any ranks purchased with Hero Points?
-      await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, true, "Success (all): " + resultAPs + " RAPs");
+      await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, "A", true, "Success (all): " + resultAPs + " RAPs");
       return resultAPs;
     }
 
@@ -562,12 +562,12 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     // If the result is an 'N' then there is No Effect
     if (resultAPs === 0) {
-      await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, false, "No effect!");
+      await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, "N", false, "No effect!");
       return;
     }
 
     // results output to chat
-    await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, true, "Success: " + resultAPs + " RAPs");
+    await this._showRollResultChatMessage(av, ov, difficulty, dice, columnShifts, ev, rv, resultAPs, true, "Success: " + resultAPs + " RAPs");
 
     return resultAPs;
   }
@@ -583,7 +583,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    * @param {*} resistanceValue 
    * @param {*} result 
    */
-  async _showRollResultChatMessage(actionValue, opposingValue, difficulty, dice, columnShifts, effectValue, resistanceValue, success, result) {
+  async _showRollResultChatMessage(actionValue, opposingValue, difficulty, dice, columnShifts, effectValue, resistanceValue, evResult, success, result) {
     const rollChatTemplate = "systems/dcheroes/templates/chat/rollResult.hbs";
     const data = {
       "actionValue": actionValue,
@@ -595,6 +595,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       "effectValue": effectValue,
       "resistanceValue": resistanceValue,
       "success": success,
+      "evResult": evResult,
       "result": result
     };
     let dialogHtml = await renderTemplate(rollChatTemplate, data);
