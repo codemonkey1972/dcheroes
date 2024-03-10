@@ -367,7 +367,7 @@ export class DCHeroesActorSheet extends ActorSheet {
             label: "Submit",
             callback: (html) => {
               const response = this._processOpposingValuesEntry(html[0].querySelector('form'));
-              this._handleRolls(response.opposingValue, response.resistanceValue, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, dataset);
+              this._handleRolls(response.opposingValue, response.resistanceValue, maxHpToSpend, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, dataset);
             }
           }
         },
@@ -412,7 +412,7 @@ export class DCHeroesActorSheet extends ActorSheet {
           label: "Submit",
           callback: (html) => {
             const response = this._processOpposingValuesEntry(html[0].querySelector('form'));
-            this._handleRolls(ov, rv, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, dataset);
+            this._handleRolls(ov, rv, maxHpToSpend, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, dataset);
           }
         }
       },
@@ -424,15 +424,16 @@ export class DCHeroesActorSheet extends ActorSheet {
    * 
    * @returns 
    */
-  async _handleRolls(ov, rv, hpSpentAV, hpSpentEV, hpSpentOV, hpSpentRV, dataset) {
+  async _handleRolls(ov, rv, maxHpToSpend, hpSpentAV, hpSpentEV, hpSpentOV, hpSpentRV, dataset) {
 
     // deduct spent Hero Points
     const context = super.getData();
-    if  (context.actor.system.heroPoints.value >= hpSpentAV + hpSpentEV) {
+    console.error("TEST: " + context.actor.system.heroPoints.value)
       // TODO test this - doesn't appear to be working
-      context.actor.system.heroPoints.value = context.actor.system.heroPoints.value - (hpSpentAV + hpSpentEV);
+    if (maxHpToSpend >= hpSpentAV + hpSpentEV) {
+        context.actor.system.heroPoints.value = context.actor.system.heroPoints.value - (hpSpentAV + hpSpentEV);
     } else {
-      ui.notifications.error(localize("You cannot spend more Hero Points than you have."));
+      ui.notifications.error(localize("You cannot spend that many Hero Points."));
       return;
     }
 
