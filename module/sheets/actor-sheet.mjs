@@ -430,17 +430,35 @@ export class DCHeroesActorSheet extends ActorSheet {
     const context = super.getData();
       // TODO test this - doesn't appear to be working
     if (maxHpToSpend >= hpSpentAV + hpSpentEV) {
-      this.object.system.heroPoints.value = this.object.system.heroPoints.value - (hpSpentAV + hpSpentEV);
+      this.context.actor.system.heroPoints.value = 90 - (hpSpentAV + hpSpentEV); // TODO delete
       /*
       // BLAH = BLAH - (hpSpentAV + hpSpentEV); // does not work
 
       Actor
-      context.document.system.heroPoints.value --> looks like this is updated?
-      context.actor.system.heroPoints.value ->
+      context.actor.system.heroPoints.value
+        - context.actor.system.heroPoints.value ->
+        - context.data.system.heroPoints.value ->
+        - context.document.system.heroPoints.value ->
+        - this.object.system.heroPoints.value ->
+
       context.data.system.heroPoints.value
+        - context.actor.system.heroPoints.value ->
+        - context.data.system.heroPoints.value ->
+        - context.document.system.heroPoints.value ->
+        - this.object.system.heroPoints.value ->
+
+        context.document.system.heroPoints.value
+        - context.actor.system.heroPoints.value ->
+        - context.data.system.heroPoints.value ->
+        - context.document.system.heroPoints.value ->
+        - this.object.system.heroPoints.value ->
 
       ActorSheet
-      this.object.system.heroPoints.value
+      this.object.system.heroPoints.value -> sheet does NOT update
+        - context.actor.system.heroPoints.value -> does update!
+        - context.data.system.heroPoints.value -> does NOT update
+        - context.document.system.heroPoints.value -> does update!
+        - this.object.system.heroPoints.value -> does update (duh)
 */
 console.error(context);
 console.error(this);
