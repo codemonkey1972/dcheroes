@@ -19,7 +19,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         {
           navSelector: '.sheet-tabs',
           contentSelector: '.sheet-body',
-          initial: 'features', // TODO rename to abiliities
+          initial: 'abilities',
         },
       ],
     });
