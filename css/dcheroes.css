@@ -573,3 +573,13 @@ details summary.no-arrow {
   padding: 3px 0 3px 0;
   background: #a9a7a7;
 }
+
+.system-dcheroes details summary.roll-dialog-summary {
+  margin: 9px 0 3px 0;
+  padding: 3px 0 3px 0;
+  background: #a9a7a7;
+}
+
+.padding-bottom-10px {
+  padding-bottom: 10px;
+}
