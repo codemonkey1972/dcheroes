@@ -11,13 +11,12 @@
         <div class="flex-group-center grid-span-2 chat-result">
             Difficulty: {{difficulty}}
         </div>
-        <div class="flex-group-center grid-span-2 chat-result">
+        <div class="flex-group-center grid-span-2 chat-result inverse">
             {{#each dice}}
                 <div class="d10">{{this}}</div>
             {{/each}}
         </div>
-        {{#if columnShifts}}
-        <div class="flex-group-center grid-span-2 chat-result inverse">
+        <div class="flex-group-center grid-span-2 chat-result">
             {{columnShifts}} 
             {{#if 1ColumnShift}}
             Column Shift
@@ -26,7 +25,6 @@
             Column Shifts
             {{/unless}}
         </div>
-        {{/if}}
         {{#if effectValue}}
         <div class="flex-group-center chat-value">
             <label class="flexlarge align-left">Effect Value</label>
@@ -42,8 +40,7 @@
     </div>
     <summary class="grid-span-2 no-arrow">
         <div class="grid grid-2col megs-chat">
-            <div class="flex-group-center grid-span-2 chat-result inverse
-                {{#if success}}success{{/if}} {{#unless success}}failure{{/unless}}">
+            <div class="flex-group-center grid-span-2 chat-result {{#if success}}success{{/if}} {{#unless success}}failure{{/unless}}">
                 {{result}}
             </div>
         </div>
