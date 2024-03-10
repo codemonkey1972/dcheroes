@@ -547,7 +547,7 @@ li.chat-message .chat-result.failure {
 }
 
 li.chat-message .chat-result.failure:hover {
-  background-color: palevioletred;
+  background-color: salmon;
 }
 
 li.chat-message .chat-result .d10 {
@@ -564,4 +564,5 @@ li.chat-message .chat-result .d10 {
 
 details summary.no-arrow {
   display: block;
+  cursor: pointer;
 }
