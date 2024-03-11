@@ -137,7 +137,7 @@ export class DCHeroesItemSheet extends ItemSheet {
           if (i.system.linkedSkill === context.item.name) {
             // TODO .enabled = true;
             context.subskills.push(i);
-            console.error(i.name + " : " + i.system.linkedSkill);
+            console.error(i);
           }
         }
       }
