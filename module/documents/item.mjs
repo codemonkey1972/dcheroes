@@ -62,7 +62,7 @@ export class DCHeroesItem extends Item {
     }
 
     // TODO need master skill name - will never change
-    if (this.type = DCHEROES.itemTypes.skill) {
+    if (this.type === DCHEROES.itemTypes.skill) {
       systemData.name = this.name;
 //      console.error("***************TEST: "+this.name);
       systemData.subskills = [];

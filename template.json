@@ -176,7 +176,6 @@
       "abilities": {
         "link": "",
         "range": "",
-        "type": "",
         "formula": "1d10 + 1d10",
         "linked": false
       }, 
