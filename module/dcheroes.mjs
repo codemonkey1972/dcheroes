@@ -120,6 +120,17 @@ Handlebars.registerHelper('getSelectedSkillType', function(skillName) {
   return "N/A";
 });
 
+Handlebars.registerHelper('getSelectedSkilLink', function(skillName) {
+  for (let i of game.items) {
+    if (i.type === 'skill') {
+      if (i.name === skillName) {
+        return i.system.link;
+      }
+    }
+  }
+  return "N/A";
+});
+
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */

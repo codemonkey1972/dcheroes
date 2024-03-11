@@ -53,7 +53,7 @@
 
       <section class="attributes grid grid-3col">
 
-        <div class="attribute flex-group-center">
+        <div class="attribute flex-group-center grid-span-3">
           <label for="system.link" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Linked Skill'}}">
             {{localize 'Linked Skill'}}
           </label>
@@ -71,6 +71,13 @@
        <div class="attribute flex-group-center">
           <label for="system.range" class="resource-label flexlarge align-left" data-label="{{system.range}}">{{localize 'Range'}}</label>
           <div>
+              {{getSelectedSkilLink system.linkedSkill}}
+          </div>
+        </div>
+
+       <div class="attribute flex-group-center">
+          <label for="system.range" class="resource-label flexlarge align-left" data-label="{{system.range}}">{{localize 'Range'}}</label>
+          <div>
               {{getSelectedSkillRange system.linkedSkill}}
           </div>
         </div>
@@ -78,13 +85,7 @@
         <div class="attribute flex-group-center">
           <label for="system.type" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Type'}}">{{localize 'Type'}}</label>
            <div>
-          <select  class="resource-select"  name="system.type" data-type="String">
-            {{#select system.type}}
-              {{#each system.powerTypes as |powerType key|}}
-            <option value="{{key}}">{{powerType}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
+              {{getSelectedSkillType system.linkedSkill}}
           </div>
         </div>
               
