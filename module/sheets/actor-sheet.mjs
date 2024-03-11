@@ -446,7 +446,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         - this.object.system.heroPoints.value -> does update
 
       context.data.system.heroPoints.value -> sheet does NOT update
-      // This appears to just be an unlikned copy; should probably sync manually just to be safe
+      // This appears to just be an unlinked copy; should probably sync manually just to be safe
         - context.actor.system.heroPoints.value -> does NOT update
         - context.data.system.heroPoints.value -> does update (duh)
         - context.document.system.heroPoints.value -> does NOT update
