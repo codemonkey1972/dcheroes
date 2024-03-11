@@ -3,39 +3,19 @@
     <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
- 
-      <div class="resources grid grid-4col">
-
-        <div class="resource flex-group-center">
-          <label for="system.baseCost" class="resource-label">{{localize 'Base'}}</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.baseCost" value="{{system.baseCost}}" data-dtype="Number"/>
-          </div>
+      <div class="attribute flex-group-center grid-span-3">
+        <label for="system.link" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Linked Skill'}}">
+          {{localize 'Linked Skill'}}
+        </label>
+        <div>
+        <select  class="resource-select"  name="system.linkedSkill" data-type="String">
+          {{#select system.linkedSkill}}
+              {{#each skills as |skill key|}}
+              <option  value="{{skill.name}}">{{skill.name}}</option>
+              {{/each}}
+          {{/select}}
+        </select>
         </div>
-
-        <div class="resource flex-group-center">
-          <label for="system.factorCost" class="resource-label">{{localize 'Factor'}}</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.factorCost" value="{{system.factorCost}}" data-dtype="Number"/>
-           </div>
-        </div>
-
-        <div class="resource flex-group-center">
-          <label for="system.aps" class="resource-label">{{localize 'APs'}}</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.aps" value="{{system.aps}}" data-dtype="Number"/>
-           </div>
-        </div>
-
-        <div class="resource flex-group-center">
-          <label for="system.totalCost" class="resource-label">{{localize 'Total'}}</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <span>{{system.totalCost}}</span>
-          </div>
-        </div>
-
-      </div>
- 
       </div>
     </div>
   </header>
@@ -52,21 +32,6 @@
     <div class="tab" data-group="primary" data-tab="characteristics">
 
       <section class="attributes grid grid-3col">
-
-        <div class="attribute flex-group-center grid-span-3">
-          <label for="system.link" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Linked Skill'}}">
-            {{localize 'Linked Skill'}}
-          </label>
-          <div>
-          <select  class="resource-select"  name="system.linkedSkill" data-type="String">
-            {{#select system.linkedSkill}}
-                {{#each skills as |skill key|}}
-                <option  value="{{skill.name}}">{{skill.name}}</option>
-                {{/each}}
-            {{/select}}
-          </select>
-          </div>
-        </div>
 
        <div class="attribute flex-group-center">
           <label for="system.range" class="resource-label flexlarge align-left" data-label="{{system.range}}">{{localize 'Range'}}</label>
