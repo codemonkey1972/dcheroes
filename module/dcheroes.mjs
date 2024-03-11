@@ -98,8 +98,13 @@ Handlebars.registerHelper('doesSubskillBelongToSkill', function(subskill, skillN
   return (subskill.link === skillName);
 });
 
-Handlebars.registerHelper('getSkillRange', function(skillName) {
-  return "TEST"; // TODO
+Handlebars.registerHelper('getSelectedSkillRange', function(skillName) {
+  for (let i of game.items) {
+    if (i.type === 'skill' && i.name === skillName) {
+      return i.range;
+    }
+  }
+  return "N/A";
 });
 
 /* -------------------------------------------- */
