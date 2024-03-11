@@ -134,9 +134,8 @@ export class DCHeroesItemSheet extends ItemSheet {
       context.subskills = [];
       for (let i of game.items) {
         if (i.type === DCHEROES.itemTypes.subskill) {
-          console.error("TEST");
-          console.error(context);
-          if (i.system.linkedSkill === context.name) {
+          console.error("TEST: " + i.system.linkedSkill + " : " + context.item.name);
+          if (i.system.linkedSkill === context.item.name) {
             // TODO .enabled = true;
             console.error(i.name + " : " + i.system.linkedSkill);
           }
