@@ -45,17 +45,18 @@ export class DCHeroesItem extends Item {
       this.totalCost = systemData.totalCost;
     }
 
-    // 
-    systemData.subskills = [];
-    for (let i of game.items) {
-      if (i.type === 'subskill') {
-        console.error("======TEST2: "+i.linkedSkill+" : "+this.name);
-        console.error(i);
-        if (i.linkedSkill === this.name) {
+    // TODO if it is a skill
+    console.error(systemData);
+    // systemData.subskills = [];
+    // for (let i of game.items) {
+    //   if (i.type === 'subskill') {
+    //     console.error("======TEST2: "+i.linkedSkill+" : "+this.name);
+    //     console.error(i);
+    //     if (i.system.linkedSkill === this.name) {
    
-        }
-      }
-    }
+    //     }
+    //   }
+    // }
   
 
     // import constants
