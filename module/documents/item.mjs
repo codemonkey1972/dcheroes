@@ -7,8 +7,8 @@ import { DCHEROES } from "../helpers/config.mjs";
 export class DCHeroesItem extends Item {
 
   constructor(data, context) {
-    system.error("constructor!");
-    super(data,context);
+    console.error("constructor!");
+    super(data, context);
 
     // TODO
   }
