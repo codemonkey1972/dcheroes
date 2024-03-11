@@ -329,6 +329,7 @@
   color: #1f5079;
 }
 
+.dcheroes .sheet-header .attribute,
 .dcheroes .sheet-body .initiative-and-hp .initiative,
 .dcheroes .sheet-body .initiative-and-hp .hero-points,
 .dcheroes .attributes .attribute {
@@ -336,6 +337,7 @@
   font-size: 22px;
 }
 
+.dcheroes .sheet-header .attribute label,
 .dcheroes .sheet-body .initiative-and-hp label,
 .dcheroes .attributes .attribute label {
   font-size: 24px;
@@ -346,6 +348,7 @@
   padding-bottom: 2px;
 }
 
+.dcheroes .sheet-header .attribute input,
 .dcheroes .sheet-body .initiative-and-hp input,
 .dcheroes .sheet-body .initiative-and-hp input,
 .dcheroes .attributes .attribute input {
