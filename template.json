@@ -190,40 +190,48 @@
     },
     "power": {
       "templates": ["baseItem", "attributes", "abilities", "purchasable", "scalable"],
+      "type": "power",
       "img": "systems/dcheroes/assets/images/icons/power.png",
       "source": ""
     },
     "skill": {
       "templates": ["baseItem", "attributes", "abilities", "purchasable", "scalable"],
+      "type": "skill",
       "img": "icons/svg/light.svg",
       "unskilled": true
     },
     "subskill": {
       "templates": ["baseItem"],
+      "type": "subskill",
       "linkedSkill": ""
     },
     "advantage": {
       "templates": ["baseItem", "purchasable"],
+      "type": "advantage",
       "img": "icons/svg/regen.svg"
     },
     "drawback": {
       "templates": ["baseItem", "purchasable"],
+      "type": "drawback",
       "img": "icons/svg/degen.svg"
     },
     "bonus": {
       "templates": ["baseItem"],
+      "type": "bonus",
       "img": "icons/svg/regen.svg",
       "factorCostMod": 0,
       "link": ""
     },
     "limitation": {
       "templates": ["baseItem"],
+      "type": "limitation",
       "img": "icons/svg/degen.svg",
       "factorCostMod": 0,
       "link": ""
     },
     "gadget": {
       "templates": ["baseItem", "attributes"],
+      "type": "gadget",
       "img": "icons/commodities/tech/cog-bronze.webp",
       "source": ""
     }
