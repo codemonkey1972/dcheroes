@@ -38,7 +38,6 @@
     },
     "Item": {
       "item": "Gadget",
-      "feature": "Feature",
       "skill": "Skill",
       "power": "Power",
       "advantage": "Advantage",

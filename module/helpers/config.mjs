@@ -28,6 +28,16 @@ DCHEROES.attributeAbbreviations = {
   spirit: 'DCHEROES.Attribute.Spirit.abSbr',
 };
 
+DCHEROES.itemTypes = {
+  advantage: "advantage", 
+  drawback: "drawback", 
+  gadget: "gadget", 
+  limitation: "limitation", 
+  power: "power", 
+  skill: "skill", 
+  subskill: "subskill"
+}
+
 DCHEROES.powerTypes = {
   auto: "Auto",
   dice: "Dice",

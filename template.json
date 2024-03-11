@@ -126,7 +126,7 @@
     }
   },
   "Item": {
-    "types": ["advantage", "drawback", "feature", "gadget", "limitation", "power", "skill", "subskill"],
+    "types": ["advantage", "drawback", "gadget", "limitation", "power", "skill", "subskill"],
     "templates": {
       "baseItem": {
         "name": "",
@@ -187,9 +187,6 @@
         "factorCost": 0,
         "aps": 0
        }
-    },
-    "feature": {
-      "templates": ["baseItem"]
     },
     "power": {
       "templates": ["baseItem", "attributes", "abilities", "purchasable", "scalable"],

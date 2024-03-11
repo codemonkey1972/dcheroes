@@ -48,17 +48,17 @@ export class DCHeroesItem extends Item {
     // TODO if it is a skill
     console.error(systemData);
     console.error(this);
-    // systemData.subskills = [];
-    // for (let i of game.items) {
-    //   if (i.type === 'subskill') {
-    //     console.error("======TEST2: "+i.linkedSkill+" : "+this.name);
-    //     console.error(i);
-    //     if (i.system.linkedSkill === this.name) {
-   
-    //     }
-    //   }
-    // }
-  
+    if (this.type = DCHEROES.itemTypes.skill) {
+      systemData.subskills = [];
+      for (let i of game.items) {
+        if (i.type === DCHEROES.itemTypes.subskill) {
+          console.error("======TEST2: "+i.linkedSkill+" : "+this.name);
+          if (i.system.linkedSkill === this.name) {
+            console.error(i);
+          }
+        }
+      }
+    }
 
     // import constants
     systemData.powerTypes = DCHEROES.powerTypes;
