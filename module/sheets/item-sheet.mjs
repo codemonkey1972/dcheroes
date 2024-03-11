@@ -32,8 +32,10 @@ export class DCHeroesItemSheet extends ItemSheet {
 
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.hbs`.
-    console.error("TEST: template");
+    console.error("============= sheet: template ===============");
     console.error(this);
+    console.error("=========================================");
+
     return `${path}/item-${this.item.type}-sheet.hbs`;
   }
 
