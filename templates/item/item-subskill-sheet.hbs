@@ -58,7 +58,7 @@
             {{localize 'Linked Skill'}}
           </label>
           <div>
-          <select  class="resource-select"  name="system.link" data-type="String">
+          <select  class="resource-select"  name="system.linkedSkill" data-type="String">
             {{#select system.linkedSkill}}
                 {{#each skills as |skill key|}}
                 <option  value="{{skill.name}}">{{skill.name}}</option>
@@ -71,13 +71,7 @@
        <div class="attribute flex-group-center">
           <label for="system.range" class="resource-label flexlarge align-left" data-label="{{system.range}}">{{localize 'Range'}}</label>
           <div>
-            <select  class="resource-select"  name="system.range" data-type="String">
-              {{#select system.range}}
-                  {{#each system.ranges as |range key|}}
-                  <option  value="{{key}}">{{range}}</option>
-                  {{/each}}
-              {{/select}}
-            </select>
+              {{skills[system.linkedSkill].range}}
           </div>
         </div>
 
