@@ -62,11 +62,11 @@ export class DCHeroesItemSheet extends ItemSheet {
 
     // store all skills for dropdown on subskill page
     if (itemData.type == 'subskill') {
-      let allSkills = [];
+      let allSkills = {};
       for (let i of game.items) {
         if (i.type === 'skill') {
-          console.error(i);
-          allSkills.push(i);
+          console.error(i.name + " : " + i.link + " | " + i.range + " | " + i.type + " | ");
+          allSkills[i.name] = i;
         }
       }
       context.skills = allSkills;
@@ -76,7 +76,6 @@ export class DCHeroesItemSheet extends ItemSheet {
     // Get attributes list
     // TODO there's got to be a better way to do this
     context.attributes = context.system.attributes;
-
   
     // Prepare active effects for easier access
     context.effects = prepareActiveEffectCategories(this.item.effects);
