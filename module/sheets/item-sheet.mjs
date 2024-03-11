@@ -42,9 +42,6 @@ export class DCHeroesItemSheet extends ItemSheet {
     // Retrieve base data structure.
     const context = super.getData();
 
-    // console.log("**********TEST ITEM***********");
-    // console.log(context);
-
     // Use a safe clone of the item data for further operations.
     const itemData = context.data;
 
@@ -57,6 +54,23 @@ export class DCHeroesItemSheet extends ItemSheet {
 
     if (itemData.type == 'power') {
       this._prepareModifiers(context);
+    }
+
+    if (itemData.type == 'skill') {
+      this._prepareSubskills(context);
+    }
+
+    // store all skills for dropdown on subskill page
+    if (itemData.type == 'subskill') {
+      let allSkills = [];
+      for (let i of game.items) {
+        if (i.type === 'skill') {
+          console.error(i);
+          allSkills.push(i);
+        }
+      }
+      context.skills = allSkills;
+      console.error(context.skills);
     }
     
     // Get attributes list
@@ -127,6 +141,12 @@ export class DCHeroesItemSheet extends ItemSheet {
     context.limitations = limitations;
   }
   
+  _prepareSubskills(context) {
+    for (let i of game.items) {
+      // TODO
+    }
+  }
+
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
    * @param {Event} event   The originating click event

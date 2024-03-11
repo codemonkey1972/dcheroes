@@ -60,8 +60,8 @@
           <div>
           <select  class="resource-select"  name="system.link" data-type="String">
             {{#select system.link}}
-                {{#each attributes as |attribute key|}}
-                <option  value="{{key}}">{{attribute.label}}</option>
+                {{#each skills as |skill|}}
+                <option  value="{{skill.name}}">{{skill.name}}</option>
                 {{/each}}
             {{/select}}
           </select>
