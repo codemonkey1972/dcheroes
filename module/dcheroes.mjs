@@ -98,6 +98,10 @@ Handlebars.registerHelper('doesSubskillBelongToSkill', function(subskill, skillN
   return (subskill.link === skillName);
 });
 
+Handlebars.registerHelper('getSkillRange', function(skillName) {
+  return "TEST"; // TODO
+});
+
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */
