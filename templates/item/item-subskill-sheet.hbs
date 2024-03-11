@@ -3,8 +3,9 @@
     <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
     <div class="header-fields">
       <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
-      <div class="attribute flex-group-center grid-span-3">
-        <label for="system.link" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Linked Skill'}}">
+      <div class="attribute flex-group-center">
+        <!-- TODO stadardize the look with the other input boxes -->
+        <label for="system.linkedSkill" class="resource-label flexlarge align-left" data-label="{{localize 'Linked Skill'}}">
           {{localize 'Linked Skill'}}
         </label>
         <div>
@@ -34,7 +35,7 @@
       <section class="attributes grid grid-3col">
 
        <div class="attribute flex-group-center">
-          <label for="system.range" class="resource-label flexlarge align-left" data-label="{{system.range}}">{{localize 'Range'}}</label>
+          <label for="system.range" class="resource-label flexlarge align-left" data-label="{{system.link}}">{{localize 'Linked Attribute'}}</label>
           <div>
               {{getSelectedSkilLink system.linkedSkill}}
           </div>
@@ -48,7 +49,7 @@
         </div>
 
         <div class="attribute flex-group-center">
-          <label for="system.type" class="resource-label rollable flexlarge align-left" data-label="{{localize 'Type'}}">{{localize 'Type'}}</label>
+          <label for="system.type" class="resource-label flexlarge align-left" data-label="{{localize 'Type'}}">{{localize 'Type'}}</label>
            <div>
               {{getSelectedSkillType system.linkedSkill}}
           </div>
