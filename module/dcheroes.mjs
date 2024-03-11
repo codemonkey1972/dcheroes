@@ -99,9 +99,13 @@ Handlebars.registerHelper('doesSubskillBelongToSkill', function(subskill, skillN
 });
 
 Handlebars.registerHelper('getSelectedSkillRange', function(skillName) {
+  console.error("SELECTED SKILL: " + skillName);
   for (let i of game.items) {
-    if (i.type === 'skill' && i.name === skillName) {
-      return i.range;
+    if (i.type === 'skill') {
+      console.error(i);
+      if (i.name === skillName) {
+        return i.range;
+      }
     }
   }
   return "N/A";
