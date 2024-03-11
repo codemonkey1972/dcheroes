@@ -10,7 +10,7 @@ export class DCHeroesItem extends Item {
     super(data, context);
 
     console.error("============= constructor ===============");
-    console.error(data);
+    console.error(this);
     console.error("=========================================");
 
     //if (ZTaxCBINZTS8V0] )
@@ -24,6 +24,10 @@ export class DCHeroesItem extends Item {
     // As with the actor class, items are documents that can have their data
     // preparation methods overridden (such as prepareBaseData()).
     super.prepareData();
+    console.error("============= prepareData ===============");
+    console.error(this);
+    console.error("=========================================");
+
   }
 
   /**
@@ -78,6 +82,12 @@ export class DCHeroesItem extends Item {
     systemData.powerTypes = DCHEROES.powerTypes;
     systemData.powerSources = DCHEROES.powerSources;
     systemData.ranges = DCHEROES.ranges;
+
+
+    console.error("============= prepareDerivedData ===============");
+    console.error(this);
+    console.error("=========================================");
+
   }
 
   /**
