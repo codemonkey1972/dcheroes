@@ -45,6 +45,19 @@ export class DCHeroesItem extends Item {
       this.totalCost = systemData.totalCost;
     }
 
+    // 
+    console.error("======TEST");
+    console.error(systemData);
+    // systemData.subskills = 
+    // for (let i of game.items) {
+    //   if (i.type === 'subskill') {
+    //     if (i.name === skillName) {
+    //       return i.system.range;
+    //     }
+    //   }
+    // }
+  
+
     // import constants
     systemData.powerTypes = DCHEROES.powerTypes;
     systemData.powerSources = DCHEROES.powerSources;
