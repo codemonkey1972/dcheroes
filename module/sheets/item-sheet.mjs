@@ -49,19 +49,19 @@ export class DCHeroesItemSheet extends ItemSheet {
     context.system = itemData.system;
     context.flags = itemData.flags;
 
-    if (itemData.type === 'power') {
+    if (itemData.type === DCHEROES.itemTypes.power) {
       this._prepareModifiers(context);
     }
 
-    if (itemData.type === 'skill') {
+    if (itemData.type === DCHEROES.itemTypes.skill) {
       this._prepareSubskills(context);
     }
 
     // store all skills for dropdown on subskill page
-    if (itemData.type === 'subskill') {
+    if (itemData.type === DCHEROES.itemTypes.subskill) {
       let allSkills = {};
       for (let i of game.items) {
-        if (i.type === 'skill') {
+        if (i.type === DCHEROES.itemTypes.skill) {
           allSkills[i.name] = i;
         }
       }
@@ -130,9 +130,7 @@ export class DCHeroesItemSheet extends ItemSheet {
   _prepareSubskills(context) {
     // TODO need master skill name - will never change
     console.error("===============================");
-    console.error(context);
-    if (this.type === DCHEROES.itemTypes.skill) {
-      systemData.name = this.name;
+    if (context.item.type === DCHEROES.itemTypes.skill) {
       systemData.subskills = [];
       for (let i of game.items) {
         if (i.type === DCHEROES.itemTypes.subskill) {
