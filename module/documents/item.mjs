@@ -46,11 +46,12 @@ export class DCHeroesItem extends Item {
     }
 
     // TODO if it is a skill
-    console.error(systemData);
-    console.error(this);
     if (this.type = DCHEROES.itemTypes.skill) {
+      systemData.name = this.name;
+      console.error("***************TEST: "+this.name);
       systemData.subskills = [];
       for (let i of game.items) {
+        console.error(i);
         if (i.type === DCHEROES.itemTypes.subskill) {
           console.error("======TEST2: "+i.linkedSkill+" : "+this.name);
           if (i.system.linkedSkill === this.name) {
