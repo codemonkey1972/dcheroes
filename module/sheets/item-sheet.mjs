@@ -139,8 +139,20 @@ export class DCHeroesItemSheet extends ItemSheet {
   }
   
   _prepareSubskills(context) {
-    for (let i of game.items) {
-      // TODO
+    // TODO need master skill name - will never change
+    if (this.type === DCHEROES.itemTypes.skill) {
+      console.error("===============================");
+      systemData.name = this.name;
+      systemData.subskills = [];
+      for (let i of game.items) {
+        if (i.type === DCHEROES.itemTypes.subskill) {
+          if (i.system.linkedSkill === this.name) {
+            // TODO .enabled = true;
+            console.error(i.name + " : " + i.system.linkedSkill);
+          }
+        }
+      }
+      console.error("===============================");
     }
   }
 

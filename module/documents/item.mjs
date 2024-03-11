@@ -8,12 +8,7 @@ export class DCHeroesItem extends Item {
 
   constructor(data, context) {
     super(data, context);
-
-    // TODO remove when done
-    if (data.type === "skill") {
-      console.error("DCHeroesItem.constructor: "+data.name);
-    }
-   }
+ }
 
   /**
    * Augment the basic Item data model with additional dynamic data.
@@ -53,20 +48,6 @@ export class DCHeroesItem extends Item {
         systemData.totalCost = systemData.baseCost;
       }
       this.totalCost = systemData.totalCost;
-    }
-
-    // TODO need master skill name - will never change
-    if (this.type === DCHEROES.itemTypes.skill) {
-      systemData.name = this.name;
-      systemData.subskills = [];
-      for (let i of game.items) {
-        if (i.type === DCHEROES.itemTypes.subskill) {
-          if (i.system.linkedSkill === this.name) {
-            // TODO .enabled = true;
-            console.error(i.name + " : " + i.system.linkedSkill);
-          }
-        }
-      }
     }
 
     // import constants
