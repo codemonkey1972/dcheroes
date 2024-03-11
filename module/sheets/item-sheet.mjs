@@ -65,7 +65,7 @@ export class DCHeroesItemSheet extends ItemSheet {
       let allSkills = {};
       for (let i of game.items) {
         if (i.type === 'skill') {
-          console.error(i.name + " : " + i.link + " | " + i.range + " | " + i.type + " | ");
+          console.error(i.name + " : " + i.system.link + " | " + i.system.range + " | " + i.system.type + " | ");
           allSkills[i.name] = i;
         }
       }
