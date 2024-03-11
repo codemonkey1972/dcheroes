@@ -6,9 +6,12 @@ import { DCHEROES } from "../helpers/config.mjs";
  */
 export class DCHeroesItem extends Item {
 
+  /**
+  * @override
+  */
   constructor(data, context) {
     super(data, context);
- }
+  }
 
   /**
    * Augment the basic Item data model with additional dynamic data.
@@ -28,7 +31,6 @@ export class DCHeroesItem extends Item {
    * available both inside and outside of character sheets (such as if an actor
    * is queried and has a roll executed directly from it).
    */
-
   prepareDerivedData() {
     const itemData = this;
     const systemData = itemData.system;
