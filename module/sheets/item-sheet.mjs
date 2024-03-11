@@ -70,7 +70,6 @@ export class DCHeroesItemSheet extends ItemSheet {
         }
       }
       context.skills = allSkills;
-      console.error(context.skills);
     }
     
     // Get attributes list
