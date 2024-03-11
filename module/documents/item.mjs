@@ -7,9 +7,11 @@ import { DCHEROES } from "../helpers/config.mjs";
 export class DCHeroesItem extends Item {
 
   constructor(data, context) {
-    console.error("constructor!");
     super(data, context);
 
+    console.error(data);
+
+    //if (ZTaxCBINZTS8V0] )
     // TODO
   }
 
