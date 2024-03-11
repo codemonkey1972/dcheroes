@@ -9,13 +9,10 @@ export class DCHeroesItem extends Item {
   constructor(data, context) {
     super(data, context);
 
-    console.error("============= item: constructor ===============");
-    console.error(this);
-    console.error("=========================================");
+    if (data.type === "skill") {
 
-    //if (ZTaxCBINZTS8V0] )
-    // TODO
-  }
+    }
+   }
 
   /**
    * Augment the basic Item data model with additional dynamic data.
@@ -24,10 +21,6 @@ export class DCHeroesItem extends Item {
     // As with the actor class, items are documents that can have their data
     // preparation methods overridden (such as prepareBaseData()).
     super.prepareData();
-    console.error("============= item: prepareData ===============");
-    console.error(this);
-    console.error("=========================================");
-
   }
 
   /**
@@ -61,18 +54,18 @@ export class DCHeroesItem extends Item {
       this.totalCost = systemData.totalCost;
     }
 
+
+       //if (data._id === "ZTaxCBINZTS8V0]" )
+    // TODO
+
     // TODO need master skill name - will never change
     if (this.type === DCHEROES.itemTypes.skill) {
       systemData.name = this.name;
-      console.error("***************TEST: "+this.name);
       systemData.subskills = [];
       for (let i of game.items) {
-//        console.error(i);
         if (i.type === DCHEROES.itemTypes.subskill) {
-//          console.error("======TEST2: "+i.linkedSkill+" : "+this.name);
           if (i.system.linkedSkill === this.name) {
-//            console.error(i);
-            // .enabled = true;
+            // TODO .enabled = true;
           }
         }
       }
@@ -82,12 +75,6 @@ export class DCHeroesItem extends Item {
     systemData.powerTypes = DCHEROES.powerTypes;
     systemData.powerSources = DCHEROES.powerSources;
     systemData.ranges = DCHEROES.ranges;
-
-
-    console.error("============= item: prepareDerivedData ===============");
-    console.error(this);
-    console.error("=========================================");
-
   }
 
   /**
