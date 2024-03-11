@@ -55,6 +55,7 @@ export class DCHeroesItem extends Item {
           console.error("======TEST2: "+i.linkedSkill+" : "+this.name);
           if (i.system.linkedSkill === this.name) {
             console.error(i);
+            // .enabled = true;
           }
         }
       }
