@@ -131,13 +131,12 @@ export class DCHeroesItemSheet extends ItemSheet {
     // TODO need master skill name - will never change
     console.error("===============================");
     if (context.item.type === DCHEROES.itemTypes.skill) {
-      console.error("TEST1");
       context.subskills = [];
       for (let i of game.items) {
-        console.error("TEST2");
         if (i.type === DCHEROES.itemTypes.subskill) {
-          console.error("TEST3");
-          if (i.system.linkedSkill === this.name) {
+          console.error("TEST");
+          console.error(context);
+          if (i.system.linkedSkill === context.name) {
             // TODO .enabled = true;
             console.error(i.name + " : " + i.system.linkedSkill);
           }
