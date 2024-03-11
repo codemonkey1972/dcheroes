@@ -46,16 +46,15 @@ export class DCHeroesItem extends Item {
     }
 
     // 
-    console.error("======TEST2");
-    console.error(this);
-    // systemData.subskills = 
-    // for (let i of game.items) {
-    //   if (i.type === 'subskill') {
-    //     if (i.name === skillName) {
-    //       return i.system.range;
-    //     }
-    //   }
-    // }
+    systemData.subskills = [];
+    for (let i of game.items) {
+      if (i.type === 'subskill') {
+        if (i.linkedSkill === item.name) {
+          console.error("======TEST2");
+          console.error(i);       
+        }
+      }
+    }
   
 
     // import constants
