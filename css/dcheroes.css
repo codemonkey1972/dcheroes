@@ -346,10 +346,6 @@
   padding-bottom: 2px;
 }
 
-.dcheroes .sheet-body div.inactive {
-  background-color: #d4d4d4;
-}
-
 .dcheroes .sheet-body .initiative-and-hp input,
 .dcheroes .sheet-body .initiative-and-hp input,
 .dcheroes .attributes .attribute input {
