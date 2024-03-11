@@ -127,9 +127,12 @@ export class DCHeroesItemSheet extends ItemSheet {
     context.limitations = limitations;
   }
   
+  /**
+   * 
+   * @param {*} context 
+   */
   _prepareSubskills(context) {
     // TODO need master skill name - will never change
-    console.error("===============================");
     if (context.item.type === DCHEROES.itemTypes.skill) {
       context.subskills = [];
       for (let i of game.items) {
@@ -137,11 +140,10 @@ export class DCHeroesItemSheet extends ItemSheet {
           if (i.system.linkedSkill === context.item.name) {
             // TODO .enabled = true;
             context.subskills.push(i);
-            console.error(i);
+            // TODO https://jsfiddle.net/oxfb3wjs/3/
           }
         }
       }
-      console.error("===============================");
     }
   }
 
