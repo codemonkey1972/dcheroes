@@ -9,7 +9,9 @@ export class DCHeroesItem extends Item {
   constructor(data, context) {
     super(data, context);
 
+    console.error("============= constructor ===============");
     console.error(data);
+    console.error("=========================================");
 
     //if (ZTaxCBINZTS8V0] )
     // TODO
@@ -22,7 +24,6 @@ export class DCHeroesItem extends Item {
     // As with the actor class, items are documents that can have their data
     // preparation methods overridden (such as prepareBaseData()).
     super.prepareData();
-    console.error("prepareData");
   }
 
   /**
@@ -59,7 +60,7 @@ export class DCHeroesItem extends Item {
     // TODO need master skill name - will never change
     if (this.type = DCHEROES.itemTypes.skill) {
       systemData.name = this.name;
-      console.error("***************TEST: "+this.name);
+//      console.error("***************TEST: "+this.name);
       systemData.subskills = [];
       for (let i of game.items) {
 //        console.error(i);
