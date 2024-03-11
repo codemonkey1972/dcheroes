@@ -47,7 +47,7 @@ export class DCHeroesItem extends Item {
 
     // 
     console.error("======TEST");
-    console.error(systemData);
+    console.error(this);
     // systemData.subskills = 
     // for (let i of game.items) {
     //   if (i.type === 'subskill') {

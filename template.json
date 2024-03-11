@@ -3,6 +3,7 @@
     "types": ["character", "villain", "npc"],
     "templates": {
       "baseCharacter": {
+        "name": "",
         "currentBody": {
           "value": 0,
           "min": 0,
@@ -128,6 +129,7 @@
     "types": ["advantage", "drawback", "feature", "gadget", "limitation", "power", "skill", "subskill"],
     "templates": {
       "baseItem": {
+        "name": "",
         "description": ""
       },
       "attributes": {
