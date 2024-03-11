@@ -1,7 +1,4 @@
-import {
-  onManageActiveEffect,
-  prepareActiveEffectCategories,
-} from '../helpers/effects.mjs';
+import { DCHEROES } from '../helpers/config.mjs';
 
 /**
  * Extend the basic ItemSheet with some very simple modifications
@@ -75,9 +72,6 @@ export class DCHeroesItemSheet extends ItemSheet {
     // TODO there's got to be a better way to do this
     context.attributes = context.system.attributes;
   
-    // Prepare active effects for easier access
-    context.effects = prepareActiveEffectCategories(this.item.effects);
-
     return context;
   }
 
@@ -108,11 +102,6 @@ export class DCHeroesItemSheet extends ItemSheet {
       li.slideUp(200, () => this.render(false));
     });
 
-    // Active Effect management
-    // TODO remove?
-    html.on('click', '.effect-control', (ev) =>
-      onManageActiveEffect(ev, this.item)
-    );
   }
 
   _prepareModifiers(context) {
