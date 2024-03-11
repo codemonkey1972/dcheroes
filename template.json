@@ -200,7 +200,7 @@
       "unskilled": true
     },
     "subskill": {
-      "templates": ["baseItem", "abilities", "scalable"],
+      "templates": ["baseItem"],
       "linkedSkill": ""
     },
     "advantage": {
