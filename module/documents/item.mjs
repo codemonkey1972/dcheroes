@@ -9,8 +9,9 @@ export class DCHeroesItem extends Item {
   constructor(data, context) {
     super(data, context);
 
+    // TODO remove when done
     if (data.type === "skill") {
-
+      console.error("DCHeroesItem.constructor: "+data.name);
     }
    }
 
@@ -55,7 +56,7 @@ export class DCHeroesItem extends Item {
     }
 
 
-       //if (data._id === "ZTaxCBINZTS8V0]" )
+       //if (data._id === "ZTaxCBINZTS8V0" )
     // TODO
 
     // TODO need master skill name - will never change
