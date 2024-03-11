@@ -5,6 +5,14 @@ import { DCHEROES } from "../helpers/config.mjs";
  * @extends {Item}
  */
 export class DCHeroesItem extends Item {
+
+  constructor(data, context) {
+    system.error("constructor!");
+    super(data,context);
+
+    // TODO
+  }
+
   /**
    * Augment the basic Item data model with additional dynamic data.
    */
@@ -12,6 +20,7 @@ export class DCHeroesItem extends Item {
     // As with the actor class, items are documents that can have their data
     // preparation methods overridden (such as prepareBaseData()).
     super.prepareData();
+    console.error("prepareData");
   }
 
   /**
