@@ -55,10 +55,6 @@ export class DCHeroesItem extends Item {
       this.totalCost = systemData.totalCost;
     }
 
-
-       //if (data._id === "ZTaxCBINZTS8V0" )
-    // TODO
-
     // TODO need master skill name - will never change
     if (this.type === DCHEROES.itemTypes.skill) {
       systemData.name = this.name;
@@ -67,6 +63,7 @@ export class DCHeroesItem extends Item {
         if (i.type === DCHEROES.itemTypes.subskill) {
           if (i.system.linkedSkill === this.name) {
             // TODO .enabled = true;
+            console.error(i.name + " : " + i.system.linkedSkill);
           }
         }
       }
