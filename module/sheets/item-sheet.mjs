@@ -140,8 +140,9 @@ export class DCHeroesItemSheet extends ItemSheet {
   
   _prepareSubskills(context) {
     // TODO need master skill name - will never change
+    console.error("===============================");
+    console.error(context);
     if (this.type === DCHEROES.itemTypes.skill) {
-      console.error("===============================");
       systemData.name = this.name;
       systemData.subskills = [];
       for (let i of game.items) {
