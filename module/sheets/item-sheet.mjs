@@ -52,16 +52,16 @@ export class DCHeroesItemSheet extends ItemSheet {
     context.system = itemData.system;
     context.flags = itemData.flags;
 
-    if (itemData.type == 'power') {
+    if (itemData.type === 'power') {
       this._prepareModifiers(context);
     }
 
-    if (itemData.type == 'skill') {
+    if (itemData.type === 'skill') {
       this._prepareSubskills(context);
     }
 
     // store all skills for dropdown on subskill page
-    if (itemData.type == 'subskill') {
+    if (itemData.type === 'subskill') {
       let allSkills = {};
       for (let i of game.items) {
         if (i.type === 'skill') {
