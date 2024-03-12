@@ -589,7 +589,7 @@ console.error(this);
 
     // get resistance value column index
     const rvAdjusted = rv + hpSpentRV;
-    const rvIndex = this._getRangeIndex(rvAdjusted) + ovColumnShifts; // TODO why -1? test this
+    const rvIndex = this._getRangeIndex(rvAdjusted) -1 + ovColumnShifts; // shift -1 because there is no 0 
     console.error("rv = "+rv+" | rvAdjusted="+rvAdjusted+" | ovColumnShifts = "+ovColumnShifts+" | rvIndex = "+rvIndex);
 
     // apply shifts
