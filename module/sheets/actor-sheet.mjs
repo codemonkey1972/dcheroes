@@ -585,15 +585,18 @@ console.error(this);
     const evOriginal = this._getEffectValue(dataset.key);
     const evAdjusted = this._getEffectValue(dataset.key) + hpSpentEV;
     const evIndex = this._getRangeIndex(evAdjusted);
-    
+    console.error("evIndex = "+evIndex);
+
     // get resistance value column index
     const rvAdjusted = rv + hpSpentRV;
     const rvIndex = this._getRangeIndex(rvAdjusted) - 1 + ovColumnShifts; // TODO why -1? test this
+    console.error("rv = "+rv+" | rvAdjusted="+rvAdjusted+" | ovColumnShifts = "+ovColumnShifts+" | rvIndex = "+rvIndex);
 
     // apply shifts
     // Column Shifts on the Result Table are made to the left, decreasing numbers in the Resistance Value row, 
     // but increasing the number of Result APs within the Table itself
     let shiftedRvIndex = rvIndex - columnShifts;
+    console.error("columnShifts = "+columnShifts+" | shiftedRvIndex = "+shiftedRvIndex);
     if (shiftedRvIndex <= 0) {
       // calculate column shifts that push past the 0 column
       // If the result is in the +1 Column, add 1 AP to your Result APs for every time you shift into this Column.
