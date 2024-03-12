@@ -721,7 +721,8 @@ console.error(this);
       hpSpentAV: parseInt(form.hpSpentAV.value) || 0,
       hpSpentEV: parseInt(form.hpSpentEV.value) || 0,
       hpSpentRV: parseInt(form.hpSpentRV.value) || 0,
-      hpSpentOV: parseInt(form.hpSpentOV.value) || 0
+      hpSpentOV: parseInt(form.hpSpentOV.value) || 0,
+      combatManeuver: form.combatManeuver.value
     }
   }
 
