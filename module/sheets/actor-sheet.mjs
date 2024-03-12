@@ -367,6 +367,8 @@ export class DCHeroesActorSheet extends ActorSheet {
             label: "Submit",
             callback: (html) => {
               const response = this._processOpposingValuesEntry(html[0].querySelector('form'));
+console.error("************************RESPONSE");
+console.error(response);
               this._handleRolls(response.opposingValue, response.resistanceValue, 
                 maxHpToSpend, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, 
                 response.combatManeuver, dataset);
