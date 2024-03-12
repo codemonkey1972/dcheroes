@@ -43,6 +43,12 @@ Hooks.once('init', function () {
   CONFIG.Actor.documentClass = DCHeroesActor;
   CONFIG.Item.documentClass = DCHeroesItem;
 
+  // Combat maneuvers
+  _loadData('systems/dcheroes/assets/data/combatManeuvers.json').then((response) => {
+    console.log(`Received response for combat maneuvers data: ${response.status}`);
+    CONFIG.combatManeuvers = response;
+  });
+
   // Active Effects are never copied to the Actor,
   // but will still apply to the Actor from within the Item
   // if the transfer property on the Active Effect is true.

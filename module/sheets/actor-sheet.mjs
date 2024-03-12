@@ -101,6 +101,10 @@ export class DCHeroesActorSheet extends ActorSheet {
     // TODO do we need both of these now?
     context.system.initiativeBonus.value = initiativeBonus; // works for sheet display
     context.actor.system.initiativeBonus.value = initiativeBonus; // already changes
+
+    // handle combat maneuvers
+    context.combatManeuvers = CONFIG.combatManeuvers;
+
   }
 
   _calculateInitiativeBonus(context) {
@@ -436,8 +440,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       this.object.system.heroPoints.value = this.object.system.heroPoints.value - (hpSpentAV + hpSpentEV);
       const context = this.getData();
       /*
-      // BLAH = BLAH - (hpSpentAV + hpSpentEV); // does not work
-
+      // BLAH = BLAH - (hpSpentAV + hpSpentEV); 
       Actor
       context.actor.system.heroPoints.value -> Sheet does NOT update
         - context.actor.system.heroPoints.value -> does update! (duh)

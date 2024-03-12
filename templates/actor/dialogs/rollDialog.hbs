@@ -43,8 +43,21 @@
     </details>
     <details>
       <summary class="roll-dialog-summary">Advanced options</summary>
-      TODO: Advanced options go here
-    <!-- TODO combat maneuvers dropdown -->
+      <div class="form-group">
+        <label>{{localize "Combat Maneuver"}}</label>
+        <div class="flexrow">
+          <select  class="resource-select"  name="system.combatManeuver" data-type="String">
+            todo: system.link
+            {{#select system.combatManeuver}}
+                {{#each combatManeuvers as |combatManeuver key|}}
+                <option  value="{{key}}">{{key}}</option>
+                {{/each}}
+            {{/select}}
+          </select>
+       </div>
+      </div>
+
+        <!-- TODO combat maneuvers dropdown -->
     </details>
   </form>
 </div>
