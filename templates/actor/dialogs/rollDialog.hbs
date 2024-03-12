@@ -47,7 +47,7 @@
         <label>{{localize "Combat Maneuver"}}</label>
         <div class="flexrow">
           <select  class="resource-select"  name="system.combatManeuver" data-type="String">
-            todo: system.link
+            <option value="">{{localize 'None'}}</option>
             {{#select system.combatManeuver}}
                 {{#each combatManeuvers as |combatManeuver key|}}
                 <option  value="{{key}}">{{key}}</option>
