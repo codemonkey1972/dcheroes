@@ -367,8 +367,6 @@ export class DCHeroesActorSheet extends ActorSheet {
             label: "Submit",
             callback: (html) => {
               const response = this._processOpposingValuesEntry(html[0].querySelector('form'));
-console.error("************************RESPONSE");
-console.error(response);
               this._handleRolls(response.opposingValue, response.resistanceValue, 
                 maxHpToSpend, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, 
                 response.combatManeuver, dataset);
@@ -481,11 +479,13 @@ console.error(this);
     /**********************************
      * COMBAT MANEUVERS
      **********************************/
+    let ovColumnShifts = 0;
+    let rvColumnShifts = 0;
     if (combatManeuverKey) {
       const combatManeuver = CONFIG.combatManeuvers[combatManeuverKey];
       // TODO
-      console.error("================COMBAT MANEUVER");
-      console.error(combatManeuver);
+      ovColumnShifts = combatManeuver.ovShifts;
+      rvColumnShifts = combatManeuver.rvShifts
     }
 
     /**********************************
@@ -498,7 +498,7 @@ console.error(this);
 
     // get range index for OV
     const ovAdjusted = ov + hpSpentOV;
-    const ovIndex = this._getRangeIndex(ovAdjusted);
+    const ovIndex = this._getRangeIndex(ovAdjusted) + ovColumnShifts;
 
     // consult action chart for difficulty
     const actionTable = CONFIG.tables.actionTable;
@@ -589,7 +589,7 @@ console.error(this);
     
     // get resistance value column index
     const rvAdjusted = rv + hpSpentRV;
-    const rvIndex = this._getRangeIndex(rvAdjusted) - 1;
+    const rvIndex = this._getRangeIndex(rvAdjusted) - 1 + ovColumnShifts; // TODO why -1? test this
 
     // apply shifts
     // Column Shifts on the Result Table are made to the left, decreasing numbers in the Resistance Value row, 
