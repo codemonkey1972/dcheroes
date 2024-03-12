@@ -46,10 +46,10 @@
       <div class="form-group">
         <label>{{localize "Combat Maneuver"}}</label>
         <div class="flexrow">
-          <select  class="resource-select"  name="system.combatManeuver" data-type="String">
+          <select  class="resource-select"  name="combatManeuver" data-type="String">
             <option value="">{{localize 'None'}}</option>
-            {{#select system.combatManeuver}}
-                {{#each combatManeuvers as |combatManeuver key|}}
+            {{#select combatManeuver}}
+                {{#each combatManeuvers as |combatManeuverObj key|}}
                 <option  value="{{key}}">{{key}}</option>
                 {{/each}}
             {{/select}}
