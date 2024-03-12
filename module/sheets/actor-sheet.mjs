@@ -483,7 +483,6 @@ console.error(this);
     let rvColumnShifts = 0;
     if (combatManeuverKey) {
       const combatManeuver = CONFIG.combatManeuvers[combatManeuverKey];
-      // TODO
       ovColumnShifts = combatManeuver.ovShifts;
       rvColumnShifts = combatManeuver.rvShifts
     }
