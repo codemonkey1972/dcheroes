@@ -354,8 +354,6 @@ export class DCHeroesActorSheet extends ActorSheet {
       );
       */
       // TODO localize button content
-      // TODO prompt for GM hero points spent
-      // TODO combat maneuver dropdown
 
       const d = new Dialog({
         title: label,
@@ -369,7 +367,9 @@ export class DCHeroesActorSheet extends ActorSheet {
             label: "Submit",
             callback: (html) => {
               const response = this._processOpposingValuesEntry(html[0].querySelector('form'));
-              this._handleRolls(response.opposingValue, response.resistanceValue, maxHpToSpend, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, dataset);
+              this._handleRolls(response.opposingValue, response.resistanceValue, 
+                maxHpToSpend, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, 
+                response.combatManeuver, dataset);
             }
           }
         },
@@ -419,7 +419,9 @@ export class DCHeroesActorSheet extends ActorSheet {
           label: "Submit",
           callback: (html) => {
             const response = this._processOpposingValuesEntry(html[0].querySelector('form'));
-            this._handleRolls(ov, rv, maxHpToSpend, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, dataset);
+            this._handleRolls(ov, rv, 
+              maxHpToSpend, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, 
+              response.combatManeuver, dataset);
           }
         }
       },
@@ -431,7 +433,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    * 
    * @returns 
    */
-  async _handleRolls(ov, rv, maxHpToSpend, hpSpentAV, hpSpentEV, hpSpentOV, hpSpentRV, dataset) {
+  async _handleRolls(ov, rv, maxHpToSpend, hpSpentAV, hpSpentEV, hpSpentOV, hpSpentRV, combatManeuverKey, dataset) {
 
     // deduct spent Hero Points
       // TODO test this - doesn't appear to be working
@@ -472,6 +474,16 @@ console.error(this);
     } else {
       ui.notifications.error(localize("You cannot spend that many Hero Points."));
       return;
+    }
+
+    /**********************************
+     * COMBAT MANEUVERS
+     **********************************/
+    if (combatManeuverKey) {
+      const combatManeuver = CONFIG.combatManeuvers[combatManeuverKey];
+      // TODO
+      console.error("================COMBAT MANEUVER");
+      console.error(combatManeuver);
     }
 
     /**********************************
