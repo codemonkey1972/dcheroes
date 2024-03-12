@@ -101,10 +101,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     // TODO do we need both of these now?
     context.system.initiativeBonus.value = initiativeBonus; // works for sheet display
     context.actor.system.initiativeBonus.value = initiativeBonus; // already changes
-
-    // handle combat maneuvers
-    context.combatManeuvers = CONFIG.combatManeuvers;
-
   }
 
   _calculateInitiativeBonus(context) {
@@ -343,7 +339,8 @@ export class DCHeroesActorSheet extends ActorSheet {
       const maxHpToSpend = Math.min(this.object.system.heroPoints.value, dataset.value);
       const data = {
         "maxHpToSpend": maxHpToSpend,
-        "isTargeted": false
+        "isTargeted": false,
+        "combatManeuvers": CONFIG.combatManeuvers
       };
       let dialogHtml = await renderTemplate(template, data);
 
@@ -402,7 +399,9 @@ export class DCHeroesActorSheet extends ActorSheet {
     const maxHpToSpend = Math.min(this.object.system.heroPoints.value, dataset.value);
     const data = {
       "maxHpToSpend": maxHpToSpend,
-      "isTargeted": true
+      "isTargeted": true,
+      "combatManeuvers": CONFIG.combatManeuvers
+
     };
     let dialogHtml = await renderTemplate(template, data);
 
