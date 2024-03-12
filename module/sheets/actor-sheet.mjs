@@ -589,7 +589,7 @@ console.error(this);
     
     // get resistance value column index
     const rvAdjusted = rv + hpSpentRV;
-    const rvIndex = this._getRangeIndex(rvAdjusted) + ovColumnShifts;
+    const rvIndex = this._getRangeIndex(rvAdjusted) - 1 + ovColumnShifts; // TODO why -1? test this
 
     // apply shifts
     // Column Shifts on the Result Table are made to the left, decreasing numbers in the Resistance Value row, 
