@@ -36,12 +36,12 @@ class Actor {
       Object.assign(this, data)
     } else {
       this._id = 1
-      this.name = 'test character'
+      this.name = 'Batman'
       Object.assign(this, {
         system: {
-          "attributes": {
-            "dex": {
-              "value": 0,
+          attributes: {
+            dex: {
+              "value": 9,
               "factorCost": 7,
               "isActionAttribute": true,
               "label": "Dexterity",
@@ -49,7 +49,7 @@ class Actor {
               "rolls": ["action", "opposing"]
             },
             "str": {
-              "value": 0,
+              "value": 5,
               "factorCost": 6,
               "isActionAttribute": false,
               "label": "Strength",
@@ -57,7 +57,7 @@ class Actor {
               "rolls": ["effect"]
             },
             "body": {
-              "value": 0,
+              "value": 6,
               "factorCost": 6,
               "isActionAttribute": false,
               "label": "Body",
@@ -65,7 +65,7 @@ class Actor {
               "rolls": ["resistance"]
             },
             "int": {
-              "value": 0,
+              "value": 12,
               "factorCost": 7,
               "isActionAttribute": true,
               "label": "Intelligence",
@@ -73,7 +73,7 @@ class Actor {
               "rolls": ["action", "opposing"]
             },
             "will": {
-              "value": 0,
+              "value": 12,
               "factorCost": 6,
               "isActionAttribute": false,
               "label": "Will",
@@ -81,7 +81,7 @@ class Actor {
               "rolls": ["effect"]
             },
             "mind": {
-              "value": 0,
+              "value": 10,
               "factorCost": 6,
               "isActionAttribute": false,
               "label": "Mind",
@@ -89,7 +89,7 @@ class Actor {
               "rolls": ["resistance"]
             },
             "infl": {
-              "value": 0,
+              "value": 10,
               "factorCost": 7,
               "isActionAttribute": true,
               "label": "Influence",
@@ -97,7 +97,7 @@ class Actor {
               "rolls": ["action", "opposing"]
             },
             "aura": {
-              "value": 0,
+              "value": 8,
               "factorCost": 6,
               "isActionAttribute": false,
               "label": "Aura",
@@ -105,7 +105,7 @@ class Actor {
               "rolls": ["effect"]
             },
             "spirit": {
-              "value": 0,
+              "value": 10,
               "factorCost": 6,
               "isActionAttribute": false,
               "label": "Spirit",
@@ -113,31 +113,31 @@ class Actor {
               "rolls": ["resistance"]
             }
           },
-          "name": "",
+          "name": "Batman",
           "currentBody": {
-            "value": 0,
+            "value": 6,
             "min": 0,
             "max": 60,
             "label": "Current Body"
           },
           "currentMind": {
-            "value": 0,
+            "value": 10,
             "min": 0,
             "max": 60,
             "label": "Current Mind"
           },
           "currentSpirit": {
-            "value": 0,
+            "value": 10,
             "min": 0,
             "max": 60,
             "label": "Current Spirit"
           },
           "heroPoints": {
-            "value": 0,
+            "value": 150,
             "label": "Hero Points"
           },
           "initiativeBonus": {
-            "value": 0,
+            "value": 35,
             "label": "Initiative Bonus"
           },
           "biography": "",
@@ -145,7 +145,7 @@ class Actor {
           "motivation": "",
           "occupation": "",
           "background": "",
-          "alterEgo": "",
+          "alterEgo": "Bruce Wayne",
           "apLevel": 0
         }
       });

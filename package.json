@@ -30,12 +30,12 @@
   "homepage": "https://github.com/codemonkey1972/dcheroes#readme",
   "jest": {
     "setupFiles": [
-      "<rootDir>/module/__mocks__/setup.js",
-      "<rootDir>/module/__mocks__/foundry.js",
-      "<rootDir>/module/__mocks__/item.js"
+      "<rootDir>/module/__mocks__/setup.mjs",
+      "<rootDir>/module/__mocks__/foundry.mjs",
+      "<rootDir>/module/__mocks__/item.mjs"
     ],
     "transform": {},
-    "verbose": true
+    "verbose": false
   },
   "keywords": [
     "FoundryVTT",
@@ -49,7 +49,7 @@
     "watch": "sass src/scss/dcheroes.scss css/dcheroes.css --style=expanded --source-map --watch",
     "generate": "node src/generate-dcheroes-system.mjs",
     "format": "standard --fix && stylelint \"**/*.scss\"",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --silent=false",
     "scss": "sass styles/dcc.scss styles/dcc.css"
   },
   "type":"module",

@@ -2,19 +2,16 @@
 
 import { jest } from '@jest/globals'
 
+// TODO change to DCHeroesItem
 /**
- * DCCItem
+ * DCHeroesItem
  */
 global.dccItemRollSpellCheckMock = jest.fn((options) => {})
-class DCCItem {
+class DCHeroesItem {
   constructor (name = null, type = undefined, systemData = {}) {
     this.name = name
     this.type = type
     this.system = systemData
   }
-
-  rollSpellCheck (...args) {
-    return global.dccItemRollSpellCheckMock(...args)
-  }
 }
-global.DCCItem = DCCItem
+global.DCHeroesItem = DCHeroesItem
