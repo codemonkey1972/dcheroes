@@ -585,11 +585,11 @@ console.error(this);
     const evOriginal = this._getEffectValue(dataset.key);
     const evAdjusted = this._getEffectValue(dataset.key) + hpSpentEV;
     const evIndex = this._getRangeIndex(evAdjusted);
-    console.error("evIndex = "+evIndex);
+    console.error("evOriginal = "+evOriginal+" | evIndex = "+evIndex);
 
     // get resistance value column index
     const rvAdjusted = rv + hpSpentRV;
-    const rvIndex = this._getRangeIndex(rvAdjusted) - 1 + ovColumnShifts; // TODO why -1? test this
+    const rvIndex = this._getRangeIndex(rvAdjusted) + ovColumnShifts; // TODO why -1? test this
     console.error("rv = "+rv+" | rvAdjusted="+rvAdjusted+" | ovColumnShifts = "+ovColumnShifts+" | rvIndex = "+rvIndex);
 
     // apply shifts
@@ -733,16 +733,11 @@ console.error(this);
    * @param {*} value 
    * @returns 
    */
-  _getRangeIndex(value, excludeZero) {
+  _getRangeIndex(value) {
     const ranges = CONFIG.tables.ranges;
 
-    let start = 0;
-    if (excludeZero) {
-      start = 1;
-    }
-
     let index = 0;
-    for (let i = start; i < ranges.length; i++) {
+    for (let i = 0; i < ranges.length; i++) {
       const range = ranges[i];
       const min = range[0];
       const max = range[1];
