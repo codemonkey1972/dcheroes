@@ -554,6 +554,8 @@ console.error(this);
       return;
     }
 
+    const columnShifts =  _getColumnShifts(avRollTotal, avIndex, actionTable);
+    /*
     // if succeeds, calculate column shifts for result table
     let columnShifts = 0;
 
@@ -564,17 +566,17 @@ console.error(this);
       
       /* The Action Table is set up so that any roll over 11 might earn the Player a Column Shift. 
          Notice that the 11's split the Action Table in two. This is the Column Shift Threshold. */
-      for (let i = 0; i < actionTable[avIndex].length; i++) {
-        if (actionTable[avIndex][i] > 11) {
-          // The roll must be greater than the Success Number
-          if (avRollTotal > actionTable[avIndex][i]) {
-            columnShifts++;
-          } else {
-            break;
-          }
-        }
-      }
-    }
+    //   for (let i = 0; i < actionTable[avIndex].length; i++) {
+    //     if (actionTable[avIndex][i] > 11) {
+    //       // The roll must be greater than the Success Number
+    //       if (avRollTotal > actionTable[avIndex][i]) {
+    //         columnShifts++;
+    //       } else {
+    //         break;
+    //       }
+    //     }
+    //   }
+    // }
   
     /**********************************
      * RESULT TABLE
@@ -582,8 +584,9 @@ console.error(this);
     const resultTable = CONFIG.tables.resultTable;
 
     // get effectvalue column  index
-    const evOriginal = this._getEffectValue(dataset.key);
-    const evAdjusted = this._getEffectValue(dataset.key) + hpSpentEV;
+    const context = super.getData();
+    const evOriginal = this._getEffectValue(dataset.key, context);
+    const evAdjusted = this._getEffectValue(dataset.key, context) + hpSpentEV;
     const evIndex = this._getRangeIndex(evAdjusted);
     console.error("evOriginal = "+evOriginal+" | evIndex = "+evIndex);
 
@@ -615,7 +618,7 @@ console.error(this);
     // If the result is an 'N' then there is No Effect
     if (resultAPs === 0) {
       await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, columnShifts, evAdjusted, rvAdjusted, "N", false, "No effect!");
-      return;
+      return 0;
     }
 
     // results output to chat
@@ -628,11 +631,13 @@ console.error(this);
    * 
    * @param {*} actionValue 
    * @param {*} opposingValue 
-   * @param {*} difficulty
+   * @param {*} difficulty 
    * @param {*} dice 
    * @param {*} columnShifts 
    * @param {*} effectValue 
    * @param {*} resistanceValue 
+   * @param {*} evResult 
+   * @param {*} success 
    * @param {*} result 
    */
   async _showRollResultChatMessage(actionValue, opposingValue, difficulty, dice, columnShifts, effectValue, resistanceValue, evResult, success, result) {
@@ -656,14 +661,38 @@ console.error(this);
         content: dialogHtml
       }
     );
+  }
 
+  _getColumnShifts(avRollTotal, avIndex, actionTable) {
+      // if succeeds, calculate column shifts for result table
+      let columnShifts = 0;
+
+      // TODO handle totals greater than 60 on table
+
+      // The total die roll must lie on or beyond the Column Shift Threshold (i.e., 11)
+      if (avRollTotal > 11) {
+        
+        /* The Action Table is set up so that any roll over 11 might earn the Player a Column Shift. 
+            Notice that the 11's split the Action Table in two. This is the Column Shift Threshold. */
+        for (let i = 0; i < actionTable[avIndex].length; i++) {
+          if (actionTable[avIndex][i] > 11) {
+            // The roll must be greater than the Success Number
+            if (avRollTotal > actionTable[avIndex][i]) {
+              columnShifts++;
+            } else {
+              break;
+            }
+          }
+        }
+      }
+
+      return(columnShifts);
   }
 
   /**
    * 
    * @returns 
    */
-        // TODO this is bad; fix it
   _getTargetActor() {
     let targetActor;
     for (const value of game.user.targets) {
@@ -677,8 +706,7 @@ console.error(this);
    * 
    * @returns 
    */
-  _getEffectValue(key) {
-    const context = super.getData();
+  _getEffectValue(key, context) {
     let ev;
     if (key === "dex") {
       ev = context.actor.system.attributes.str.value;
