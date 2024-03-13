@@ -573,7 +573,7 @@ console.error(this);
     }
 
     // if succeeds, calculate column shifts for result table
-    const columnShifts =  _getColumnShifts(avRollTotal, avIndex, actionTable);
+    const columnShifts =  this._getColumnShifts(avRollTotal, avIndex, actionTable);
     // TODO handle totals greater than 60 on table
   
     /**********************************
