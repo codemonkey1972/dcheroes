@@ -26,8 +26,9 @@ test('prepareData sets ability modifiers', () => {
   expect(attributes.spirit.value).toEqual(10)
 })
 
+/*
 test('roll ability check', async () => {
-/*  global.dccRollCreateRollMock.mockClear()
+  global.dccRollCreateRollMock.mockClear()
 
   await actor.rollAbilityCheck('str')
   expect(global.dccRollCreateRollMock).toHaveBeenCalledTimes(1)
@@ -123,11 +124,11 @@ test('roll ability check', async () => {
     flavor: 'AbilityLck Check',
     speaker: actor,
     flags: { 'dcc.Ability': 'lck', 'dcc.RollType': 'AbilityCheck' }
-  })*/
+  })
 })
 
 test('roll initiative', async () => {
-  /*
+  
   dccRollCreateRollMock.mockClear()
 
   await actor.rollInitiative({
@@ -157,11 +158,11 @@ test('roll initiative', async () => {
     speaker: actor,
     flags: { 'dcc.RollType': 'Initiative' }
   })
-  */
+  
 })
 
 test('roll skill check', async () => {
-  /*
+  
   dccRollCreateRollMock.mockClear()
 
   await actor.rollSkillCheck('customDieSkill')
@@ -379,6 +380,6 @@ test('roll skill check', async () => {
     speaker: actor,
     flags: { 'dcc.RollType': 'SkillCheck', 'dcc.SkillId': 'actionDieSkillWithLck' }
   })
-*/
-})
 
+})
+*/

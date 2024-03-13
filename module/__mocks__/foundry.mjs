@@ -3,7 +3,11 @@
 import { DCHEROES } from '../helpers/config.mjs';
 import { jest } from '@jest/globals'
 
-// console.log('Loading Foundry Mocks')
+// Make jest work
+function fail(reason = "fail was called in a test.") {
+  throw new Error(reason);
+}
+global.fail = fail;
 
 /**
  * Item
@@ -156,7 +160,7 @@ class Actor {
       get: global.itemTypesMock
     })
   }
-
+  
   prepareData () {
     // console.log('Mock Actor: super prepareData was called')
   }
@@ -172,6 +176,33 @@ class Actor {
 
 global.actor = new Actor()
 global.Actor = Actor
+
+
+class ActorSheet {
+  constructor (data, options) {
+    // If test-specific data is passed in use it, otherwise use default data
+    if (data) {
+      Object.assign(this, data)
+    } else {
+      this._id = 1
+      this.name = 'Batman'
+      Object.assign(this, {
+        system: {
+        }
+      });
+      this.getData = function() { 
+        const response = {
+        };
+        return response;
+       }
+    }
+    // TODO make work
+    //this.getData()
+  }
+}
+global.actorSheet = new ActorSheet()
+global.ActorSheet = ActorSheet
+
 
 /**
  * ChatMessage
@@ -199,8 +230,23 @@ global.ChatMessage = ChatMessage
  * CONFIG
  */
 global.CONFIG = { DCHEROES }
-global.CONFIG.sounds = { dice: 'diceSound' }
-global.CONST = { CHAT_MESSAGE_TYPES: { EMOTE: 'emote' } }
+
+// load tables data
+_loadData('../../assets/data/tables.json').then((response) => {
+  global.CONFIG.tables = {};
+  global.CONFIG.tables = response.default;
+});
+
+// load JSON data
+async function _loadData(jsonPath) {
+  try {
+    const response = await import(jsonPath)
+    return response
+  } catch(err) {
+    return err
+  }
+}
+
 
 /**
  * Localization

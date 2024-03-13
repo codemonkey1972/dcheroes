@@ -582,8 +582,9 @@ console.error(this);
     const resultTable = CONFIG.tables.resultTable;
 
     // get effectvalue column  index
-    const evOriginal = this._getEffectValue(dataset.key);
-    const evAdjusted = this._getEffectValue(dataset.key) + hpSpentEV;
+    const context = super.getData();
+    const evOriginal = this._getEffectValue(dataset.key, context);
+    const evAdjusted = this._getEffectValue(dataset.key, context) + hpSpentEV;
     const evIndex = this._getRangeIndex(evAdjusted);
     console.error("evOriginal = "+evOriginal+" | evIndex = "+evIndex);
 
@@ -677,8 +678,7 @@ console.error(this);
    * 
    * @returns 
    */
-  _getEffectValue(key) {
-    const context = super.getData();
+  _getEffectValue(key, context) {
     let ev;
     if (key === "dex") {
       ev = context.actor.system.attributes.str.value;
