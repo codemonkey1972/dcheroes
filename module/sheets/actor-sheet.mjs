@@ -522,7 +522,7 @@ console.error(this);
       "resistanceValue": 0,
       "success": false,
       "evResult": false,
-      "result": result
+      "result": ""
     };
 
 
