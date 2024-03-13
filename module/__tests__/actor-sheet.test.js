@@ -5,8 +5,45 @@ test('_handleRolls calls the correct message', () => {
 
     const actorSheet = new DCHeroesActorSheet();
 
+
+
     // TODO
     
+});
+
+test("_getColumnShifts returns the correct number of column shifts", () => {
+    // _getColumnShifts(avRollTotal, avIndex, actionTable)
+
+    const actorSheet = new DCHeroesActorSheet();
+    const actionTable = CONFIG.tables.actionTable;
+
+    // The roll must be greater than the Success Number
+    // The total die roll must lie on or beyond the Column Shift Threshold. 
+    for (let i=1; i < 19; i++) {
+        expect(actorSheet._getColumnShifts(11, i, actionTable)).toBe(0);
+        expect(actorSheet._getColumnShifts(12, i, actionTable)).toBe(0);
+    }
+    
+    expect(actorSheet._getColumnShifts(14, 1, actionTable)).toBe(1);
+    expect(actorSheet._getColumnShifts(16, 1, actionTable)).toBe(2);
+    expect(actorSheet._getColumnShifts(19, 1, actionTable)).toBe(3);
+    expect(actorSheet._getColumnShifts(22, 1, actionTable)).toBe(4);
+    expect(actorSheet._getColumnShifts(25, 1, actionTable)).toBe(5);
+    expect(actorSheet._getColumnShifts(29, 1, actionTable)).toBe(6);
+    expect(actorSheet._getColumnShifts(33, 1, actionTable)).toBe(7);
+    expect(actorSheet._getColumnShifts(37, 1, actionTable)).toBe(8);
+    expect(actorSheet._getColumnShifts(41, 1, actionTable)).toBe(9);
+    expect(actorSheet._getColumnShifts(46, 1, actionTable)).toBe(10);
+    expect(actorSheet._getColumnShifts(51, 1, actionTable)).toBe(11);
+    expect(actorSheet._getColumnShifts(56, 1, actionTable)).toBe(12);
+    expect(actorSheet._getColumnShifts(61, 1, actionTable)).toBe(13);
+    expect(actorSheet._getColumnShifts(66, 1, actionTable)).toBe(14);
+    expect(actorSheet._getColumnShifts(71, 1, actionTable)).toBe(15);
+    expect(actorSheet._getColumnShifts(76, 1, actionTable)).toBe(16);
+    expect(actorSheet._getColumnShifts(81, 1, actionTable)).toBe(17);
+
+    expect(actorSheet._getColumnShifts(15, 16, actionTable)).toBe(1);
+    expect(actorSheet._getColumnShifts(16, 16, actionTable)).toBe(2);
 });
 
 test('_getEffectValue returns the correct effect attribute for an an acting/opposing attribute', () => {

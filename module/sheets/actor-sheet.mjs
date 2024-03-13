@@ -509,15 +509,31 @@ console.error(this);
     // Execute the roll
     await avRoll.evaluate();
 
+    let dice = [];
+
+    const data = {
+      "actionValue": avAdjusted,
+      "opposingValue": ovAdjusted,
+      "difficulty": difficulty,
+      "dice": dice,
+      "columnShifts": columnShifts,
+      "1ColumnShift": columnShifts === 1,
+      "effectValue": 0,
+      "resistanceValue": 0,
+      "success": false,
+      "evResult": false,
+      "result": result
+    };
+
+
     // double 1s = automatic fail
     if (avRoll.total === 2) {
-      await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", failure, "Double 1s: Automatic failure!");
+      await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Double 1s: Automatic failure!");
       return;
     }
 
     // Get roll result
     let avRollTotal = parseInt(avRoll.total);
-    let dice = [];
 
     // exploding dice
     let dieRollResultDice = avRoll.result.split(' + ');
@@ -539,12 +555,14 @@ console.error(this);
 
       // Furthermore, even if double 1s is rolled on the second or greater roll, the roll fails.
       if (die1 === 1 && die2 === 2) {
-        await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", failure, "Double 1s: Automatic failure!");
+        await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Double 1s: Automatic failure!");
         return;
       }
   
       avRollTotal = avRollTotal + avExplodeRoll.total;
     }
+
+    // return dice
 
     const avRollSuccess = avRollTotal >= difficulty;
 
@@ -554,29 +572,9 @@ console.error(this);
       return;
     }
 
-    const columnShifts =  _getColumnShifts(avRollTotal, avIndex, actionTable);
-    /*
     // if succeeds, calculate column shifts for result table
-    let columnShifts = 0;
-
+    const columnShifts =  _getColumnShifts(avRollTotal, avIndex, actionTable);
     // TODO handle totals greater than 60 on table
-
-    // The total die roll must lie on or beyond the Column Shift Threshold (i.e., 11)
-    if (avRollTotal > 11) {
-      
-      /* The Action Table is set up so that any roll over 11 might earn the Player a Column Shift. 
-         Notice that the 11's split the Action Table in two. This is the Column Shift Threshold. */
-    //   for (let i = 0; i < actionTable[avIndex].length; i++) {
-    //     if (actionTable[avIndex][i] > 11) {
-    //       // The roll must be greater than the Success Number
-    //       if (avRollTotal > actionTable[avIndex][i]) {
-    //         columnShifts++;
-    //       } else {
-    //         break;
-    //       }
-    //     }
-    //   }
-    // }
   
     /**********************************
      * RESULT TABLE
@@ -588,18 +586,15 @@ console.error(this);
     const evOriginal = this._getEffectValue(dataset.key, context);
     const evAdjusted = this._getEffectValue(dataset.key, context) + hpSpentEV;
     const evIndex = this._getRangeIndex(evAdjusted);
-    console.error("evOriginal = "+evOriginal+" | evIndex = "+evIndex);
 
     // get resistance value column index
     const rvAdjusted = rv + hpSpentRV;
     const rvIndex = this._getRangeIndex(rvAdjusted) + ovColumnShifts;
-    console.error("rv = "+rv+" | rvAdjusted="+rvAdjusted+" | ovColumnShifts = "+ovColumnShifts+" | rvIndex = "+rvIndex);
 
     // apply shifts
     // Column Shifts on the Result Table are made to the left, decreasing numbers in the Resistance Value row, 
     // but increasing the number of Result APs within the Table itself
     let shiftedRvIndex = rvIndex - columnShifts;
-    console.error("columnShifts = "+columnShifts+" | shiftedRvIndex = "+shiftedRvIndex);
     if (shiftedRvIndex <= 0) {
       // calculate column shifts that push past the 0 column
       // If the result is in the +1 Column, add 1 AP to your Result APs for every time you shift into this Column.
@@ -625,6 +620,51 @@ console.error(this);
     await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, columnShifts, evAdjusted, rvAdjusted, resultAPs, true, "Success: " + resultAPs + " RAPs!");
 
     return resultAPs;
+  }
+
+  async _rollDice(dataSet) {
+      // determine whether happens
+      const avRoll = new Roll(dataset.roll, {});
+
+      // Execute the roll
+      await avRoll.evaluate();
+  
+      // double 1s = automatic fail
+      if (avRoll.total === 2) {
+        await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Double 1s: Automatic failure!");
+        return;
+      }
+  
+      // Get roll result
+      let avRollTotal = parseInt(avRoll.total);
+      let dice = [];
+  
+      // exploding dice
+      let dieRollResultDice = avRoll.result.split(' + ');
+      let die1 = dieRollResultDice[0];
+      let die2 = dieRollResultDice[1];
+      dice.push(die1);
+      dice.push(die2);
+      
+      while (die1 === die2) {
+        // TODO prompt if want to continue rolling
+  
+        const avExplodeRoll = new Roll(dataset.roll, {});
+        await avExplodeRoll.evaluate();
+        dieRollResultDice = avExplodeRoll.result.split(' + ');
+        die1 = dieRollResultDice[0];
+        die2 = dieRollResultDice[1];
+        dice.push(die1);
+        dice.push(die2);
+  
+        // Furthermore, even if double 1s is rolled on the second or greater roll, the roll fails.
+        if (die1 === 1 && die2 === 2) {
+          await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Double 1s: Automatic failure!");
+          return;
+        }
+    
+        avRollTotal = avRollTotal + avExplodeRoll.total;
+      }
   }
 
   /**
@@ -663,6 +703,13 @@ console.error(this);
     );
   }
 
+  /**
+   * 
+   * @param {*} avRollTotal 
+   * @param {*} avIndex 
+   * @param {*} actionTable 
+   * @returns 
+   */
   _getColumnShifts(avRollTotal, avIndex, actionTable) {
       // if succeeds, calculate column shifts for result table
       let columnShifts = 0;
