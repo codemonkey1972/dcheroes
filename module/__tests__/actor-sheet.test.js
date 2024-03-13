@@ -1,17 +1,16 @@
 import { DCHeroesActorSheet } from "../sheets/actor-sheet.mjs";
 import { jest } from '@jest/globals'
 
-const actorSheet = new DCHeroesActorSheet();
+test('_handleRolls calls the correct message', () => {
 
-test('getData loads data', () => {
-
-    const results = actorSheet.getData();
+    const actorSheet = new DCHeroesActorSheet();
 
     // TODO
     
 });
 
 test('_getEffectValue returns the correct effect attribute for an an acting/opposing attribute', () => {
+    const actorSheet = new DCHeroesActorSheet();
     const context = {
         actor: {
             system: {
@@ -29,6 +28,7 @@ test('_getEffectValue returns the correct effect attribute for an an acting/oppo
  });
 
 test('_getResistanceValue returns the correct resistance attribute for an acting/opposing attribute', () => {
+    const actorSheet = new DCHeroesActorSheet();
     const targetActor = {
        system: {
             attributes: {
@@ -44,6 +44,7 @@ test('_getResistanceValue returns the correct resistance attribute for an acting
 });
 
 test('_getRangeIndex returns the correct index values', () => {
+    const actorSheet = new DCHeroesActorSheet();
     expect(actorSheet._getRangeIndex(0)).toBe(0);
     expect(actorSheet._getRangeIndex(60)).toBe(18);
 });
