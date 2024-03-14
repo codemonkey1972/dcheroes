@@ -11,6 +11,29 @@ test('_handleRolls calls the correct message', () => {
     
 });
 
+
+test("_showRollResultInChat returns correct HTML for double 1s", () => {
+    const actorSheet = new DCHeroesActorSheet();
+    const data = {
+        "result": "Double 1s: Automatic failure!",
+        "actionValue": 9,
+        "opposingValue": 8,
+        "difficulty": 9,
+        "dice": [1, 1],
+        "columnShifts": 0,
+        "1ColumnShift": false,
+        "effectValue": 0,
+        "resistanceValue": 0,
+        "success": false,
+        "evResult": ""
+      };
+      
+      return actorSheet._showRollResultInChat(data).then(message => {
+        console.log(message);
+      });
+
+});
+
 test("_getColumnShifts returns the correct number of column shifts", () => {
     // _getColumnShifts(avRollTotal, avIndex, actionTable)
 
