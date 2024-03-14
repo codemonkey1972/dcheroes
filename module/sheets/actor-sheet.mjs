@@ -105,6 +105,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
   _calculateInitiativeBonus(context) {
     console.error("TEST actor-sheet.mjs._calculateInitiativeBonus");
+    // TODO replace this with active effects
     // calculate initiativeBonus
     let initiativeBonus = context.document.system.attributes.dex.value + context.document.system.attributes.int.value
         + context.document.system.attributes.infl.value;
@@ -323,10 +324,17 @@ export class DCHeroesActorSheet extends ActorSheet {
  
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
-      this._handleRoll(dataset).then((response) => {});
+      this._handleRoll(dataset).then((response) => {
+        console.error(response);
+      });
     };
   }
 
+  /**
+   * 
+   * @param {*} dataset 
+   * @returns 
+   */
   async _handleRoll(dataset) {
     // what's being rolled (used for display)
     let label = dataset.label ? `[attribute] ${dataset.label}` : '';
@@ -510,7 +518,6 @@ console.error(this);
     await avRoll.evaluate();
 
     let dice = [];
-
     let resultData = {
       "result": "",
       "actionValue": avAdjusted,
@@ -551,10 +558,11 @@ console.error(this);
      **********************************/
     const resultTable = CONFIG.tables.resultTable;
 
-    // get effectvalue column  index
+    // get effect value column  index
     const context = super.getData();
+
     const evOriginal = this._getEffectValue(dataset.key, context);
-    const evAdjusted = this._getEffectValue(dataset.key, context) + hpSpentEV;
+    const evAdjusted = evOriginal + hpSpentEV;
     const evIndex = this._getRangeIndex(evAdjusted);
     resultData.effectValue = evAdjusted;
 
@@ -572,6 +580,7 @@ console.error(this);
       // If the result is in the +1 Column, add 1 AP to your Result APs for every time you shift into this Column.
       // TODO pretty sure this is off
       const resultAPs = evAdjusted + (Math.abs(shiftedRvIndex));
+      console.error("TEST: shifted to A or beyond: resultAPs = "+resultAPs+" | evAdjusted = "+evAdjusted+" | shiftedRvIndex = "+Math.abs(shiftedRvIndex));
 
       // "All" result on table - Result APs = Effect Value
       // If the Result is an 'A,' then the RAPs are equal to the APs of the Effect Value.

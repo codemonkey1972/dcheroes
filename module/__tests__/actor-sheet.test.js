@@ -1,39 +1,39 @@
 import { DCHeroesActorSheet } from "../sheets/actor-sheet.mjs";
 import { jest } from '@jest/globals'
 
-test('_handleRolls calls the correct message', () => {
+test("getData()", () => {
+    const actorSheet = new DCHeroesActorSheet();
+});
 
+ 
+test("_prepareCharacterData", () => {
     const actorSheet = new DCHeroesActorSheet();
     // TODO
-    
 });
+
+ 
+test("_calculateInitiativeBonus", () => {
+    const actorSheet = new DCHeroesActorSheet();
+    // TODO
+});
+
+ 
+test("_hasAbility", () => {
+    const actorSheet = new DCHeroesActorSheet();
+    // TODO
+});
+
+ 
+test("_getAbilityAPs", () => {
+    const actorSheet = new DCHeroesActorSheet();
+    // TODO
+});
+
 
 // TODO test for APs beyond A - ex: av = 7, ov = 4, 10 + 10 + 9 + 8 = 8 column shifts, ev = 4, rv = 4, pretty sure should be 10
+// _handleRolls -> refactor out of this
 
-test("_rollDice should roll until do not have matching dice", () => {
-   global.rollIndex = 0;
-    const actorSheet = new DCHeroesActorSheet();
-    const data = {
-        "result": "",
-        "actionValue": 0,
-        "opposingValue": 0,
-        "difficulty": 0,
-        "columnShifts": 0,
-        "effectValue": 0,
-        "resistanceValue": 0,
-        "success": false,
-        "evResult": ""
-    };
-
-    const dataset = {
-       roll: [2, 2, 3, 4]
-    };
-    actorSheet._rollDice(dataset , {}).then((response) => {
-        expect(response).toStrictEqual([2, 2, 3, 4]);
-    });
-});
-
-test("_rollDice should return if dice do not match", () => {
+ test("_rollDice should return if dice do not match", () => {
     global.rollIndex = 0;
     const actorSheet = new DCHeroesActorSheet();
     const data = {
@@ -56,8 +56,53 @@ test("_rollDice should return if dice do not match", () => {
     });
 });
 
+test("_rollDice should roll again if have matching dice on first roll", () => {
+    global.rollIndex = 0;
+     const actorSheet = new DCHeroesActorSheet();
+     const data = {
+         "result": "",
+         "actionValue": 0,
+         "opposingValue": 0,
+         "difficulty": 0,
+         "columnShifts": 0,
+         "effectValue": 0,
+         "resistanceValue": 0,
+         "success": false,
+         "evResult": ""
+     };
+ 
+     const dataset = {
+        roll: [2, 2, 3, 4]
+     };
+     actorSheet._rollDice(dataset , {}).then((response) => {
+         expect(response).toStrictEqual([2, 2, 3, 4]);
+     });
+ });
 
-test("_rollDice should fail on double 1s", () => {
+ test("_rollDice should roll again if have matching dice on first and second rolls", () => {
+    global.rollIndex = 0;
+     const actorSheet = new DCHeroesActorSheet();
+     const data = {
+         "result": "",
+         "actionValue": 0,
+         "opposingValue": 0,
+         "difficulty": 0,
+         "columnShifts": 0,
+         "effectValue": 0,
+         "resistanceValue": 0,
+         "success": false,
+         "evResult": ""
+     };
+ 
+     const dataset = {
+        roll: [2, 2, 3, 3, 4, 5]
+     };
+     actorSheet._rollDice(dataset , {}).then((response) => {
+         expect(response).toStrictEqual([2, 2, 3, 3, 4, 5]);
+     });
+ });
+
+test("_rollDice should fail on double 1s on first roll", () => {
     global.rollIndex = 0;
     const actorSheet = new DCHeroesActorSheet();
     const data = {
@@ -76,30 +121,10 @@ test("_rollDice should fail on double 1s", () => {
         roll: [1, 1]
     };
     actorSheet._rollDice(dataset, {}).then((response) => {
+        // TODO not really failing
         expect(response).toStrictEqual([1, 1]);
     });
 });
-
-test("_showRollResultInChat returns correct HTML for double 1s", () => {
-    const actorSheet = new DCHeroesActorSheet();
-    const data = {
-        "result": "Double 1s: Automatic failure!",
-        "actionValue": 9,
-        "opposingValue": 8,
-        "difficulty": 9,
-        "dice": [1, 1],
-        "columnShifts": 0,
-        "effectValue": 0,
-        "resistanceValue": 0,
-        "success": false,
-        "evResult": ""
-    };
-    
-    return actorSheet._showRollResultInChat(data).then(message => {
-        // TODO
-    });
-});
-
 
 test("_getColumnShifts returns the correct number of column shifts", () => {
     // _getColumnShifts(avRollTotal, avIndex, actionTable)
