@@ -763,7 +763,7 @@ console.error(this);
    * @returns 
    */
   async _renderTemplate(template, data) {
-    return await renderTemplate(rollChatTemplate, data);
+    return await renderTemplate(template, data);
   }
 
   /**
