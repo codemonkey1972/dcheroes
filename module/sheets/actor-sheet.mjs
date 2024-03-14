@@ -526,8 +526,9 @@ console.error(this);
           "success": false,
           "evResult": ""
         };// TODO use in call
-        await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Double 1s: Automatic failure!");
-      return;
+        // await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Double 1s: Automatic failure!");
+        await this._showRollResultInChat(data);
+        return;
     }
 
     // Get roll result
@@ -553,21 +554,22 @@ console.error(this);
 
       // Furthermore, even if double 1s is rolled on the second or greater roll, the roll fails.
       if (die1 === 1 && die2 === 1) {
-            const data = {
-              "result": "Double 1s: Automatic failure!",
-              "actionValue": avAdjusted,
-              "opposingValue": ovAdjusted,
-              "difficulty": difficulty,
-              "dice": dice,
-              "columnShifts": 0,
-              "1ColumnShift": false,
-              "effectValue": 0,
-              "resistanceValue": 0,
-              "success": false,
-              "evResult": ""
-            };
-            await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Double 1s: Automatic failure!");
-        return;
+          const data = {
+            "result": "Double 1s: Automatic failure!",
+            "actionValue": avAdjusted,
+            "opposingValue": ovAdjusted,
+            "difficulty": difficulty,
+            "dice": dice,
+            "columnShifts": 0,
+            "1ColumnShift": false,
+            "effectValue": 0,
+            "resistanceValue": 0,
+            "success": false,
+            "evResult": ""
+          };
+          // await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Double 1s: Automatic failure!");
+          await this._showRollResultInChat(data);
+          return;
       }
   
       avRollTotal = avRollTotal + avExplodeRoll.total;
@@ -592,7 +594,8 @@ console.error(this);
         "success": false,
         "evResult": ""
       };
-      await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Action failed!");
+      // await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Action failed!");
+      await this._showRollResultInChat(data);
       return;
     }
 
@@ -641,7 +644,8 @@ console.error(this);
       // "All" result on table - Result APs = Effect Value
       // If the Result is an 'A,' then the RAPs are equal to the APs of the Effect Value.
       // TODO does the ALL result include any ranks purchased with Hero Points?
-      await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, columnShifts, evAdjusted, rvAdjusted, "A", true, "Success: " + resultAPs + " RAPs!");
+      // await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, columnShifts, evAdjusted, rvAdjusted, "A", true, "Success: " + resultAPs + " RAPs!");
+      await this._showRollResultInChat(data);
       return resultAPs;
     }
 
@@ -663,7 +667,8 @@ console.error(this);
         "success": false,
         "evResult": "N"
       };
-      await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, columnShifts, evAdjusted, rvAdjusted, "N", false, "No effect!");
+      await this._showRollResultInChat(data);
+      // await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, columnShifts, evAdjusted, rvAdjusted, "N", false, "No effect!");
       return 0;
     }
 
