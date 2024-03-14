@@ -588,6 +588,9 @@ console.error(this);
       resultData.result = "Success: " + resultAPs + " RAPs!";
       resultData.success = true;
       resultData.evResult = "A";
+      if (shiftedRvIndex !== 0) {
+        resultData.evResult = resultData.evResult + " + " + Math.abs(shiftedRvIndex);
+      }
       await this._showRollResultInChat(resultData);
       return resultAPs;
     }
