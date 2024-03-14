@@ -605,7 +605,12 @@ console.error(this);
     return resultAPs;
   }
 
-  // TODO use
+  /**
+   * 
+   * @param {*} dataset 
+   * @param {*} data 
+   * @returns 
+   */
   async _rollDice(dataset, data) {
     let dice = [];
     let stopRolling = false;
@@ -619,7 +624,6 @@ console.error(this);
     }
     
     while (!stopRolling) {
-
       // determine whether happens
       const avRoll = new Roll(dataset.roll, {});
 
@@ -630,17 +634,14 @@ console.error(this);
       const rolledDice = avRoll.result.split(' + ');
       dice.push(parseInt(rolledDice[0]), parseInt(rolledDice[1]));
 
-      if (rolledDice[0] === 1 && rolledDice[1] === 1) {
+      if (parseInt(rolledDice[0]) === 1 && parseInt(rolledDice[1]) === 1) {
         data.result = "Double 1s: Automatic failure!"
         data.dice = dice;
         await this._showRollResultInChat(data);
         stopRolling = true;
-      
       } else  if (rolledDice[0] === rolledDice[1]) {
-      
         // TODO prompt for if want to continue
-        stopRolling = true; // TODO should be false
-      
+        stopRolling = false;
       } else {
         stopRolling = true;
       }

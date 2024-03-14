@@ -21,6 +21,9 @@ global.rollValidateMock = jest.fn((formula) => {
 })
 const Roll = jest.fn((diceArray, data = {}) => {
 
+  const offset = global.rollIndex * 2;
+  diceArray = diceArray.slice(offset, offset + 2);
+  console.error(diceArray);
   let diceFormula = "";
   diceArray.forEach((element, index, array) => {
     diceFormula = diceFormula + element;

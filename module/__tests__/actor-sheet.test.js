@@ -11,10 +11,30 @@ test('_handleRolls calls the correct message', () => {
 // TODO test for APs beyond A - ex: av = 7, ov = 4, 10 + 10 + 9 + 8 = 8 column shifts, ev = 4, rv = 4, pretty sure should be 10
 
 test("_rollDice should roll until do not have matching dice", () => {
-    // TODO
+   global.rollIndex = 0;
+    const actorSheet = new DCHeroesActorSheet();
+    const data = {
+        "result": "",
+        "actionValue": 0,
+        "opposingValue": 0,
+        "difficulty": 0,
+        "columnShifts": 0,
+        "effectValue": 0,
+        "resistanceValue": 0,
+        "success": false,
+        "evResult": ""
+    };
+
+    const dataset = {
+       roll: [2, 2, 3, 4]
+    };
+    actorSheet._rollDice(dataset , {}).then((response) => {
+        expect(response).toStrictEqual([2, 2, 3, 4]);
+    });
 });
 
 test("_rollDice should return if dice do not match", () => {
+    global.rollIndex = 0;
     const actorSheet = new DCHeroesActorSheet();
     const data = {
         "result": "Double 1s: Automatic failure!",
@@ -38,6 +58,7 @@ test("_rollDice should return if dice do not match", () => {
 
 
 test("_rollDice should fail on double 1s", () => {
+    global.rollIndex = 0;
     const actorSheet = new DCHeroesActorSheet();
     const data = {
         "result": "Double 1s: Automatic failure!",
