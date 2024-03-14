@@ -180,7 +180,6 @@ global.Actor = Actor
 
 class ActorSheet {
   constructor (data, options) {
-    // If test-specific data is passed in use it, otherwise use default data
     if (data) {
       Object.assign(this, data)
     } else {
@@ -195,7 +194,7 @@ class ActorSheet {
         };
         return response;
       };
-      this.renderTemplate = async function(template, data) { 
+      this._renderTemplate = async function(template, data) { 
         console.log(template);
         // TODO return something
       };
@@ -219,15 +218,17 @@ class ChatMessage {
     }
   }
 
+  static create(data) {
+    this.data = data
+  }
+
   static getSpeaker ({ scene, actor, token, alias } = {}) {
     return actor
   }
 
   static applyRollMode (messageData, rollMode) {
-
   }
 }
-
 global.ChatMessage = ChatMessage
 
 /**

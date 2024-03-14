@@ -342,7 +342,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         "isTargeted": false,
         "combatManeuvers": CONFIG.combatManeuvers
       };
-      let dialogHtml = await renderTemplate(template, data);
+      let dialogHtml = await this._renderTemplate(template, data);
 
       /* TODO remove this to its own class
       const d = new RollDialog(
@@ -403,7 +403,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       "combatManeuvers": CONFIG.combatManeuvers
 
     };
-    let dialogHtml = await renderTemplate(template, data);
+    let dialogHtml = await this._renderTemplate(template, data);
 
     // TODO show target name on dialog
 
@@ -747,13 +747,23 @@ console.error(this);
    
     data["1ColumnShift"] = data.columnShifts === 1;
 
-    let dialogHtml = await renderTemplate(rollChatTemplate, data);
+    let dialogHtml = await this._renderTemplate(rollChatTemplate, data);
     const message = await ChatMessage.create(
       {
         content: dialogHtml
       }
     );
     return message;
+  }
+
+  /**
+   * 
+   * @param {*} template 
+   * @param {*} data 
+   * @returns 
+   */
+  async _renderTemplate(template, data) {
+    return await renderTemplate(rollChatTemplate, data);
   }
 
   /**
@@ -784,7 +794,7 @@ console.error(this);
       "evResult": evResult,
       "result": result
     };
-    let dialogHtml = await renderTemplate(rollChatTemplate, data);
+    let dialogHtml = await this._renderTemplate(rollChatTemplate, data);
     const message = await ChatMessage.create(
       {
         content: dialogHtml
