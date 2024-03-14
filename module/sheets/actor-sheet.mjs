@@ -511,96 +511,39 @@ console.error(this);
 
     let dice = [];
 
-    // double 1s = automatic fail
-    if (avRoll.total === 2) {
-        const data = {
-          "result": "Double 1s: Automatic failure!",
-          "actionValue": avAdjusted,
-          "opposingValue": ovAdjusted,
-          "difficulty": difficulty,
-          "dice": dice,
-          "columnShifts": 0,
-          "1ColumnShift": false,
-          "effectValue": 0,
-          "resistanceValue": 0,
-          "success": false,
-          "evResult": ""
-        };// TODO use in call
-        // await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Double 1s: Automatic failure!");
-        await this._showRollResultInChat(data);
-        return;
-    }
+    let resultData = {
+      "result": "",
+      "actionValue": avAdjusted,
+      "opposingValue": ovAdjusted,
+      "difficulty": difficulty,
+      "dice": dice,
+      "columnShifts": 0,
+      "effectValue": 0,
+      "resistanceValue": 0,
+      "success": false,
+      "evResult": ""
+    };
+    dice = this._rollDice(dataset, resultData);
+    resultData.dice = dice;
 
-    // Get roll result
-    let avRollTotal = parseInt(avRoll.total);
-
-    // exploding dice
-    let dieRollResultDice = avRoll.result.split(' + ');
-    let die1 = dieRollResultDice[0];
-    let die2 = dieRollResultDice[1];
-    dice.push(die1);
-    dice.push(die2);
-   
-    while (die1 === die2) {
-      // TODO prompt if want to continue rolling
-
-      const avExplodeRoll = new Roll(dataset.roll, {});
-      await avExplodeRoll.evaluate();
-      dieRollResultDice = avExplodeRoll.result.split(' + ');
-      die1 = dieRollResultDice[0];
-      die2 = dieRollResultDice[1];
-      dice.push(die1);
-      dice.push(die2);
-
-      // Furthermore, even if double 1s is rolled on the second or greater roll, the roll fails.
-      if (die1 === 1 && die2 === 1) {
-          const data = {
-            "result": "Double 1s: Automatic failure!",
-            "actionValue": avAdjusted,
-            "opposingValue": ovAdjusted,
-            "difficulty": difficulty,
-            "dice": dice,
-            "columnShifts": 0,
-            "1ColumnShift": false,
-            "effectValue": 0,
-            "resistanceValue": 0,
-            "success": false,
-            "evResult": ""
-          };
-          // await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Double 1s: Automatic failure!");
-          await this._showRollResultInChat(data);
-          return;
-      }
-  
-      avRollTotal = avRollTotal + avExplodeRoll.total;
-    }
+    let avRollTotal = 0;
+    dice.forEach(die => {
+      avRollTotal = avRollTotal + parseInt(die);
+    });
 
     // return dice
-
     const avRollSuccess = avRollTotal >= difficulty;
 
     // if fails, output message
     if (!avRollSuccess) {
-      const data = {
-        "result": "Action failed!",
-        "actionValue": avAdjusted,
-        "opposingValue": ovAdjusted,
-        "difficulty": difficulty,
-        "dice": dice,
-        "columnShifts": 0,
-        "1ColumnShift": false,
-        "effectValue": 0,
-        "resistanceValue": 0,
-        "success": false,
-        "evResult": ""
-      };
-      // await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Action failed!");
-      await this._showRollResultInChat(data);
-      return;
+      resultData.result = "Action failed!";
+      await this._showRollResultInChat(resultData);
+      return dice;
     }
 
     // if succeeds, calculate column shifts for result table
     const columnShifts =  this._getColumnShifts(avRollTotal, avIndex, actionTable);
+    resultData.columnShifts = columnShifts;
     // TODO handle totals greater than 60 on table
   
     /**********************************
@@ -613,10 +556,12 @@ console.error(this);
     const evOriginal = this._getEffectValue(dataset.key, context);
     const evAdjusted = this._getEffectValue(dataset.key, context) + hpSpentEV;
     const evIndex = this._getRangeIndex(evAdjusted);
+    resultData.effectValue = evAdjusted;
 
     // get resistance value column index
     const rvAdjusted = rv + hpSpentRV;
     const rvIndex = this._getRangeIndex(rvAdjusted) + ovColumnShifts;
+    resultData.resistanceValue = rvAdjusted;
 
     // apply shifts
     // Column Shifts on the Result Table are made to the left, decreasing numbers in the Resistance Value row, 
@@ -625,27 +570,16 @@ console.error(this);
     if (shiftedRvIndex <= 0) {
       // calculate column shifts that push past the 0 column
       // If the result is in the +1 Column, add 1 AP to your Result APs for every time you shift into this Column.
+      // TODO pretty sure this is off
       const resultAPs = evAdjusted + (Math.abs(shiftedRvIndex));
-
-      const data = {
-        "result": "Success: " + resultAPs + " RAPs!",
-        "actionValue": avAdjusted,
-        "opposingValue": ovAdjusted,
-        "difficulty": difficulty,
-        "dice": dice,
-        "columnShifts": columnShifts,
-        "1ColumnShift": columnShifts === 1,
-        "effectValue": evAdjusted,
-        "resistanceValue": rvAdjusted,
-        "success": true,
-        "evResult": "A"
-      };
 
       // "All" result on table - Result APs = Effect Value
       // If the Result is an 'A,' then the RAPs are equal to the APs of the Effect Value.
       // TODO does the ALL result include any ranks purchased with Hero Points?
-      // await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, columnShifts, evAdjusted, rvAdjusted, "A", true, "Success: " + resultAPs + " RAPs!");
-      await this._showRollResultInChat(data);
+      resultData.result = "Success: " + resultAPs + " RAPs!";
+      resultData.success = true;
+      resultData.evResult = "A";
+      await this._showRollResultInChat(resultData);
       return resultAPs;
     }
 
@@ -654,88 +588,65 @@ console.error(this);
 
     // If the result is an 'N' then there is No Effect
     if (resultAPs === 0) {
-      const data = {
-        "result": "No effect!",
-        "actionValue": avAdjusted,
-        "opposingValue": ovAdjusted,
-        "difficulty": difficulty,
-        "dice": dice,
-        "columnShifts": columnShifts,
-        "1ColumnShift": false,
-        "effectValue": evAdjusted,
-        "resistanceValue": rvAdjusted,
-        "success": false,
-        "evResult": "N"
-      };
-      await this._showRollResultInChat(data);
-      // await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, columnShifts, evAdjusted, rvAdjusted, "N", false, "No effect!");
-      return 0;
+      resultData.result = "No effect!";
+      resultData.success = false;
+      resultData.evResult = "N";
+
+      await this._showRollResultInChat(resultData);
+      return dice;
     }
 
     // results output to chat
-    const data = {
-      "result": "Success: " + resultAPs + " RAPs!",
-      "actionValue": avAdjusted,
-      "opposingValue": ovAdjusted,
-      "difficulty": difficulty,
-      "dice": dice,
-      "columnShifts": columnShifts,
-      "effectValue": evAdjusted,
-      "resistanceValue": rvAdjusted,
-      "success": true,
-      "evResult": resultAPs
-    };
-    await this._showRollResultInChat(data);
-    // TODO test this
-//    await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, columnShifts, evAdjusted, rvAdjusted, resultAPs, true, "Success: " + resultAPs + " RAPs!");
+    resultData.result = "Success: " + resultAPs + " RAPs!";
+    resultData.success = true;
+    resultData.evResult = resultAPs;
+    await this._showRollResultInChat(resultData);
 
     return resultAPs;
   }
 
   // TODO use
-  async _rollDice(dataSet) {
+  async _rollDice(dataset, data) {
+    let dice = [];
+    let stopRolling = false;
+    if (data) {
+      if (data.columnShifts) {
+        data["isOneColumnShift"] = data.columnShifts === 1;
+      } else {
+        data.columnShifts = 0;
+        data["isOneColumnShift"] = false;
+      }
+    }
+    
+    while (!stopRolling) {
+
       // determine whether happens
       const avRoll = new Roll(dataset.roll, {});
 
       // Execute the roll
       await avRoll.evaluate();
-  
-      // double 1s = automatic fail
-      if (avRoll.total === 2) {
-        await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Double 1s: Automatic failure!");
-        return;
-      }
-  
+
       // Get roll result
-      let avRollTotal = parseInt(avRoll.total);
-      let dice = [];
-  
-      // exploding dice
-      let dieRollResultDice = avRoll.result.split(' + ');
-      let die1 = dieRollResultDice[0];
-      let die2 = dieRollResultDice[1];
-      dice.push(die1);
-      dice.push(die2);
+      const rolledDice = avRoll.result.split(' + ');
+      dice.push(parseInt(rolledDice[0]), parseInt(rolledDice[1]));
+
+      if (rolledDice[0] === 1 && rolledDice[1] === 1) {
+        data.result = "Double 1s: Automatic failure!"
+        data.dice = dice;
+        await this._showRollResultInChat(data);
+        stopRolling = true;
       
-      while (die1 === die2) {
-        // TODO prompt if want to continue rolling
-  
-        const avExplodeRoll = new Roll(dataset.roll, {});
-        await avExplodeRoll.evaluate();
-        dieRollResultDice = avExplodeRoll.result.split(' + ');
-        die1 = dieRollResultDice[0];
-        die2 = dieRollResultDice[1];
-        dice.push(die1);
-        dice.push(die2);
-  
-        // Furthermore, even if double 1s is rolled on the second or greater roll, the roll fails.
-        if (die1 === 1 && die2 === 2) {
-          await this._showRollResultChatMessage(avAdjusted, ovAdjusted, difficulty, dice, 0, 0, 0, "", false, "Double 1s: Automatic failure!");
-          return;
-        }
-    
-        avRollTotal = avRollTotal + avExplodeRoll.total;
+      } else  if (rolledDice[0] === rolledDice[1]) {
+      
+        // TODO prompt for if want to continue
+        stopRolling = true; // TODO should be false
+      
+      } else {
+        stopRolling = true;
       }
+    }
+  
+    return dice;
   }
 
   /**
@@ -745,8 +656,6 @@ console.error(this);
   async _showRollResultInChat(data) {
     const rollChatTemplate = "systems/dcheroes/templates/chat/rollResult.hbs";
    
-    data["1ColumnShift"] = data.columnShifts === 1;
-
     let dialogHtml = await this._renderTemplate(rollChatTemplate, data);
     const message = await ChatMessage.create(
       {
@@ -764,43 +673,6 @@ console.error(this);
    */
   async _renderTemplate(template, data) {
     return await renderTemplate(template, data);
-  }
-
-  /**
-   * 
-   * @param {*} actionValue 
-   * @param {*} opposingValue 
-   * @param {*} difficulty 
-   * @param {*} dice 
-   * @param {*} columnShifts 
-   * @param {*} effectValue 
-   * @param {*} resistanceValue 
-   * @param {*} evResult 
-   * @param {*} success 
-   * @param {*} result 
-   */
-  async _showRollResultChatMessage(actionValue, opposingValue, difficulty, dice, columnShifts, effectValue, resistanceValue, evResult, success, result) {
-    const rollChatTemplate = "systems/dcheroes/templates/chat/rollResult.hbs";
-    const data = {
-      "actionValue": actionValue,
-      "opposingValue": opposingValue,
-      "difficulty": difficulty,
-      "dice": dice,
-      "columnShifts": columnShifts,
-      "1ColumnShift": columnShifts === 1,
-      "effectValue": effectValue,
-      "resistanceValue": resistanceValue,
-      "success": success,
-      "evResult": evResult,
-      "result": result
-    };
-    let dialogHtml = await this._renderTemplate(rollChatTemplate, data);
-    const message = await ChatMessage.create(
-      {
-        content: dialogHtml
-      }
-    );
-    return message;
   }
 
   /**

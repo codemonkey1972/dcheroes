@@ -195,7 +195,7 @@ class ActorSheet {
         return response;
       };
       this._renderTemplate = async function(template, data) { 
-        console.log(template);
+ //       console.log(template);
         // TODO return something
       };
     }

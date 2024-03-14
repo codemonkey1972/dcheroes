@@ -32,7 +32,8 @@
     "setupFiles": [
       "<rootDir>/module/__mocks__/setup.mjs",
       "<rootDir>/module/__mocks__/foundry.mjs",
-      "<rootDir>/module/__mocks__/item.mjs"
+      "<rootDir>/module/__mocks__/item.mjs",
+      "<rootDir>/module/__mocks__/roll.mjs"
     ],
     "transform": {},
     "verbose": false

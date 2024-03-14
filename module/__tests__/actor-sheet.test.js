@@ -4,13 +4,60 @@ import { jest } from '@jest/globals'
 test('_handleRolls calls the correct message', () => {
 
     const actorSheet = new DCHeroesActorSheet();
-
-
-
     // TODO
     
 });
 
+// TODO test for APs beyond A - ex: av = 7, ov = 4, 10 + 10 + 9 + 8 = 8 column shifts, ev = 4, rv = 4, pretty sure should be 10
+
+test("_rollDice should roll until do not have matching dice", () => {
+    // TODO
+});
+
+test("_rollDice should return if dice do not match", () => {
+    const actorSheet = new DCHeroesActorSheet();
+    const data = {
+        "result": "Double 1s: Automatic failure!",
+        "actionValue": 0,
+        "opposingValue": 0,
+        "difficulty": 0,
+        "columnShifts": 0,
+        "effectValue": 0,
+        "resistanceValue": 0,
+        "success": false,
+        "evResult": ""
+    };
+
+    const dataset = {
+       roll: [2, 3]
+    };
+    actorSheet._rollDice(dataset , {}).then((response) => {
+        expect(response).toStrictEqual([2, 3]);
+    });
+});
+
+
+test("_rollDice should fail on double 1s", () => {
+    const actorSheet = new DCHeroesActorSheet();
+    const data = {
+        "result": "Double 1s: Automatic failure!",
+        "actionValue": 0,
+        "opposingValue": 0,
+        "difficulty": 0,
+        "columnShifts": 0,
+        "effectValue": 0,
+        "resistanceValue": 0,
+        "success": false,
+        "evResult": ""
+    };
+
+    const dataset = {
+        roll: [1, 1]
+    };
+    actorSheet._rollDice(dataset, {}).then((response) => {
+        expect(response).toStrictEqual([1, 1]);
+    });
+});
 
 test("_showRollResultInChat returns correct HTML for double 1s", () => {
     const actorSheet = new DCHeroesActorSheet();
@@ -21,18 +68,17 @@ test("_showRollResultInChat returns correct HTML for double 1s", () => {
         "difficulty": 9,
         "dice": [1, 1],
         "columnShifts": 0,
-        "1ColumnShift": false,
         "effectValue": 0,
         "resistanceValue": 0,
         "success": false,
         "evResult": ""
-      };
-      
-      return actorSheet._showRollResultInChat(data).then(message => {
-        console.log(message);
-      });
-
+    };
+    
+    return actorSheet._showRollResultInChat(data).then(message => {
+        // TODO
+    });
 });
+
 
 test("_getColumnShifts returns the correct number of column shifts", () => {
     // _getColumnShifts(avRollTotal, avIndex, actionTable)
