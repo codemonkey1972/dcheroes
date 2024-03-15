@@ -104,7 +104,7 @@ export class DCHeroesActorSheet extends ActorSheet {
   }
 
   _calculateInitiativeBonus(context) {
-    console.error("TEST actor-sheet.mjs._calculateInitiativeBonus");
+//    console.error("TEST actor-sheet.mjs._calculateInitiativeBonus");
     // TODO replace this with active effects
     // calculate initiativeBonus
     let initiativeBonus = context.document.system.attributes.dex.value + context.document.system.attributes.int.value
@@ -325,7 +325,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
       this._handleRoll(dataset).then((response) => {
-        console.error(response);
+// TDOD        console.error(response);
       });
     };
   }
@@ -477,8 +477,8 @@ export class DCHeroesActorSheet extends ActorSheet {
         - context.document.system.heroPoints.value -> does update!
         - this.object.system.heroPoints.value -> does update (duh)
 */
-console.error(context);
-console.error(this);
+// console.error(context);
+// console.error(this);
     } else {
       ui.notifications.error(localize("You cannot spend that many Hero Points."));
       return;
@@ -645,21 +645,31 @@ console.error(this);
 
       // Get roll result
       const rolledDice = avRoll.result.split(' + ');
+      console.error("TEST4: "+rolledDice);
       dice.push(parseInt(rolledDice[0]), parseInt(rolledDice[1]));
+      console.error("TEST5: "+dice);
 
       if (parseInt(rolledDice[0]) === 1 && parseInt(rolledDice[1]) === 1) {
+        // dice are both 1s
         data.result = "Double 1s: Automatic failure!"
         data.dice = dice;
+        console.error("TEST6: "+dice);
+
         await this._showRollResultInChat(data);
         stopRolling = true;
       } else  if (rolledDice[0] === rolledDice[1]) {
+        console.error("TEST7");
+
         // TODO prompt for if want to continue
+        // dice match but are not 1s
         stopRolling = false;
       } else {
+        console.error("TEST8");
+        // dice do not match
         stopRolling = true;
       }
     }
-    console.error("TEST: "+dice);
+    console.error("TEST9: "+dice);
   
     return dice;
   }
