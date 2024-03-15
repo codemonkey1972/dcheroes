@@ -530,7 +530,9 @@ export class DCHeroesActorSheet extends ActorSheet {
       "success": false,
       "evResult": ""
     };
-    dice = this._rollDice(dataset, resultData);
+    await this._rollDice(dataset, resultData).then((response) => {
+      console.error(response);
+    });
     resultData.dice = dice;
 
     let avRollTotal = 0;
