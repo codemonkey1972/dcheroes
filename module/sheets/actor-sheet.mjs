@@ -659,6 +659,7 @@ console.error(this);
         stopRolling = true;
       }
     }
+    console.error("TEST: "+dice);
   
     return dice;
   }
