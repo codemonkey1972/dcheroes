@@ -646,7 +646,8 @@ export class DCHeroesActorSheet extends ActorSheet {
       // Get roll result
       const rolledDice = avRoll.result.split(' + ');
       console.error("TEST4: "+rolledDice);
-      dice.push(parseInt(rolledDice[0]), parseInt(rolledDice[1]));
+      dice.push(parseInt(rolledDice[0]));
+      dice.push(parseInt(rolledDice[1]));
       console.error("TEST5: "+dice);
 
       if (parseInt(rolledDice[0]) === 1 && parseInt(rolledDice[1]) === 1) {
