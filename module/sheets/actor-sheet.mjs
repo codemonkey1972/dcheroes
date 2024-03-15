@@ -535,6 +535,7 @@ export class DCHeroesActorSheet extends ActorSheet {
 
     let avRollTotal = 0;
     console.error(dice);
+    console.error(typeof dice);
     dice.forEach(die => {
       avRollTotal = avRollTotal + parseInt(die);
     });
