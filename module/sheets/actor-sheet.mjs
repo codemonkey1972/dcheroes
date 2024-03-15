@@ -669,7 +669,7 @@ export class DCHeroesActorSheet extends ActorSheet {
         stopRolling = true;
       }
     }
-    console.error("TEST9: "+dice);
+    console.error("TEST9: "+dice[0] + " | "+dice[1]);
   
     return dice;
   }
