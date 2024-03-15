@@ -4,31 +4,26 @@ import { jest } from '@jest/globals'
 test("getData()", () => {
     const actorSheet = new DCHeroesActorSheet();
 });
-
  
 test("_prepareCharacterData", () => {
     const actorSheet = new DCHeroesActorSheet();
     // TODO
 });
-
  
 test("_calculateInitiativeBonus", () => {
     const actorSheet = new DCHeroesActorSheet();
     // TODO
 });
 
- 
 test("_hasAbility", () => {
     const actorSheet = new DCHeroesActorSheet();
     // TODO
 });
-
  
 test("_getAbilityAPs", () => {
     const actorSheet = new DCHeroesActorSheet();
     // TODO
 });
-
 
 // TODO test for APs beyond A - ex: av = 7, ov = 4, 10 + 10 + 9 + 8 = 8 column shifts, ev = 4, rv = 4, pretty sure should be 10
 // _handleRolls -> refactor out of this
