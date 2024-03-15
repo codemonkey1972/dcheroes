@@ -531,7 +531,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       "evResult": ""
     };
     await this._rollDice(dataset, resultData).then((response) => {
-      console.error(response);
+      dice = response;
     });
     resultData.dice = dice;
 
