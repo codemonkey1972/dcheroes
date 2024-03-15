@@ -536,8 +536,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     resultData.dice = dice;
 
     let avRollTotal = 0;
-    console.error(dice);
-    console.error(typeof dice);
     dice.forEach(die => {
       avRollTotal = avRollTotal + parseInt(die);
     });
@@ -579,13 +577,11 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Column Shifts on the Result Table are made to the left, decreasing numbers in the Resistance Value row, 
     // but increasing the number of Result APs within the Table itself
     let shiftedRvIndex = rvIndex - columnShifts;
-    console.error("TEST1: shiftedRvIndex = " + shiftedRvIndex + " | rvIndex = " + rvIndex + " | columnShifts = " + columnShifts);
     if (shiftedRvIndex <= 0) {
       // calculate column shifts that push past the 0 column
       // If the result is in the +1 Column, add 1 AP to your Result APs for every time you shift into this Column.
       // TODO pretty sure this is off
       const resultAPs = evAdjusted + (Math.abs(shiftedRvIndex));
-      console.error("TEST: shifted to A or beyond: resultAPs = "+resultAPs+" | evAdjusted = "+evAdjusted+" | shiftedRvIndex = "+Math.abs(shiftedRvIndex));
 
       // "All" result on table - Result APs = Effect Value
       // If the Result is an 'A,' then the RAPs are equal to the APs of the Effect Value.
@@ -649,32 +645,25 @@ export class DCHeroesActorSheet extends ActorSheet {
 
       // Get roll result
       const rolledDice = avRoll.result.split(' + ');
-      console.error("TEST4: "+rolledDice);
       dice.push(parseInt(rolledDice[0]));
       dice.push(parseInt(rolledDice[1]));
-      console.error("TEST5: "+dice);
 
       if (parseInt(rolledDice[0]) === 1 && parseInt(rolledDice[1]) === 1) {
         // dice are both 1s
         data.result = "Double 1s: Automatic failure!"
         data.dice = dice;
-        console.error("TEST6: "+dice);
 
         await this._showRollResultInChat(data);
         stopRolling = true;
       } else  if (rolledDice[0] === rolledDice[1]) {
-        console.error("TEST7");
-
         // TODO prompt for if want to continue
         // dice match but are not 1s
         stopRolling = false;
       } else {
-        console.error("TEST8");
         // dice do not match
         stopRolling = true;
       }
     }
-    console.error("TEST9: "+dice[0] + " | "+dice[1]);
   
     return dice;
   }
