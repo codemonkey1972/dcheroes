@@ -32,7 +32,8 @@
     "setupFiles": [
       "<rootDir>/module/__mocks__/setup.mjs",
       "<rootDir>/module/__mocks__/foundry.mjs",
-      "<rootDir>/module/__mocks__/item.mjs"
+      "<rootDir>/module/__mocks__/item.mjs",
+      "<rootDir>/module/__mocks__/roll.mjs"
     ],
     "transform": {},
     "verbose": false
@@ -53,5 +54,5 @@
     "scss": "sass styles/dcc.scss styles/dcc.css"
   },
   "type":"module",
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
