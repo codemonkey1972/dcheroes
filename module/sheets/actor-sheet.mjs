@@ -575,6 +575,7 @@ console.error(this);
     // Column Shifts on the Result Table are made to the left, decreasing numbers in the Resistance Value row, 
     // but increasing the number of Result APs within the Table itself
     let shiftedRvIndex = rvIndex - columnShifts;
+    console.error("TEST1: shiftedRvIndex = " + shiftedRvIndex + " | rvIndex = " + rvIndex + " | columnShifts = " + columnShifts);
     if (shiftedRvIndex <= 0) {
       // calculate column shifts that push past the 0 column
       // If the result is in the +1 Column, add 1 AP to your Result APs for every time you shift into this Column.
