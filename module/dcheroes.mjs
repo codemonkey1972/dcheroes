@@ -8,8 +8,8 @@ import { DCHeroesItemSheet } from './sheets/item-sheet.mjs';
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { DCHEROES } from './helpers/config.mjs';
 
-// Turn on hooks logging 
-CONFIG.debug.hooks = true;
+// Turn on hooks logging for debugging
+//CONFIG.debug.hooks = true;
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -154,9 +154,12 @@ Hooks.once('ready', function () {
 /*  Combat Tracker                              */
 /* -------------------------------------------- */
 
-Hooks.on('updateCombat', async (app, html, data) => {
+Hooks.on('createCombatant', async (args) => {
   // TODO: calculate initiative correctly
-  console.error("TEST: updateCombat");
+  console.error("TEST: createCombatant");
+  console.error(args);
+  let actor = game.actors.get(args[0].actorId);
+  console.error(actor);
 });
 
 /* -------------------------------------------- */
