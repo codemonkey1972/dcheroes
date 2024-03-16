@@ -161,7 +161,7 @@ Hooks.once('ready', function () {
 /* -------------------------------------------- */
 
 // TODO when world is closed and re-entered with CT open, is losing the adjusted values
-
+/*
 Hooks.on('createCombatant', async (combatant) => {
   let actor = game.actors.get(combatant.actorId);
   const initiativeBonus = actor._calculateInitiativeBonus();
@@ -171,7 +171,7 @@ Hooks.on('createCombatant', async (combatant) => {
 
 Hooks.on('updateCombatant', async (combatant) => {
   // Allow to spend Hero Points to affect initiative
-/*  const actor = game.actors.get(combatant.actorId);
+  const actor = game.actors.get(combatant.actorId);
   const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
   const maxHpToSpend = actor.system.heroPoints.value;
   const data = {
@@ -201,12 +201,12 @@ Hooks.on('updateCombatant', async (combatant) => {
     default: "button1"
   }).render(true).then((response) => {
     console.error(combatant);
-  }); */
+  });
   
   // TODO
   //combatant.initiative = combatant.initiative + combatant.initiativeBonus;
 });
- 
+ */
 /* -------------------------------------------- */
 /*  Load JSON data                              */
 /* -------------------------------------------- */
