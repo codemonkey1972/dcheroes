@@ -9,7 +9,7 @@ import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { DCHEROES } from './helpers/config.mjs';
 
 // Turn on hooks logging for debugging
-//CONFIG.debug.hooks = true;
+CONFIG.debug.hooks = true;
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -156,25 +156,20 @@ Hooks.once('ready', function () {
 
 Hooks.on('createCombatant', async (combatant) => {
   // TODO: add initiative bonus to combatant
-  console.error("TEST: createCombatant");
   let actor = game.actors.get(combatant.actorId);
-  console.error(actor);
   const initiativeBonus = actor._calculateInitiativeBonus();
-  console.error("TEST: initiative bonus = " + initiativeBonus);
   combatant.initiativeBonus = initiativeBonus;
   actor.system.initiativeBonus = initiativeBonus;
 });
 
 Hooks.on('preUpdateCombatant', async (combatant) => {
   // TODO: add initiative bonus to initiative
-  console.error("TEST: preUpdateCombatant");
   console.error(combatant);
   combatant.initiative = combatant.initiative + combatant.initiativeBonus;
 });
  
 Hooks.on('updateCombatant ', async (args) => {
   // TODO: add initiative bonus to initiative
-  console.error("TEST: updateCombatant ");
   console.error(args);
 });
  
