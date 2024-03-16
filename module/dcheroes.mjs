@@ -162,6 +162,38 @@ Hooks.on('createCombatant', async (combatant) => {
 });
 
 Hooks.on('updateCombatant', async (combatant) => {
+  // Allow to spend Hero Points to affect initiative
+  const actor = game.actors.get(combatant.actorId);
+  const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
+  console.error(actor);
+/*
+  const maxHpToSpend = Math.min(this.object.system.heroPoints.value, dataset.value);
+  const data = {
+    "maxHpToSpend": maxHpToSpend,
+  };
+  let dialogHtml = await this._renderTemplate(template, data);
+  const d = new Dialog({
+    title: label,
+    content: dialogHtml,
+    buttons: {
+      button2: {
+        label: "Close",
+        callback: (html) => {},
+      },
+      button1: {
+        label: "Submit",
+        callback: (html) => {
+          const response = this._processOpposingValuesEntry(html[0].querySelector('form'));
+          this._handleRolls(response.opposingValue, response.resistanceValue, 
+            maxHpToSpend, response.hpSpentAV, response.hpSpentEV, response.hpSpentOV, response.hpSpentRV, 
+            response.combatManeuver, dataset);
+        }
+      }
+    },
+    default: "button1"
+  }).render(true);
+*/
+
   combatant.initiative = combatant.initiative + combatant.initiativeBonus;
 });
  
