@@ -2,19 +2,26 @@ import { DCHEROES } from "../helpers/config.mjs";
 
 export default class MEGSCombat extends Combat { 
 
+    async rollInitiative(ids, formulaopt, updateTurnopt, messageOptionsopt) {
+        console.error(ids);
+        console.error(formulaopt);
+        console.error(updateTurnopt);
+
+        await super.rollInitiative(ids, formulaopt, updateTurnopt, messageOptionsopt);
+        console.error(this);
+      }
+
     _sortCombatants(a, b) {
         const initA = Number.isNumeric(a.initiative) ? a.initiative : -9999;
         const initB = Number.isNumeric(b.initiative) ? b.initiative : -9999;
-        console.error("TYPES: "+initA+ " : "+initB);
-
-        const typeA = a.actor.type;
-        const typeB = b.actor.type;
-        console.error("TYPES: "+typeA+ " : "+typeB);
 
         let initDifference = initB - initA;
         if (initDifference != 0) {
           return initDifference;
         }
+
+        const typeA = a.actor.type;
+        const typeB = b.actor.type;
     
         if (typeA !== typeB) {
           if (typeA === DCHEROES.characterTypes.hero) {
