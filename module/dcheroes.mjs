@@ -7,7 +7,9 @@ import { DCHeroesItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { DCHEROES } from './helpers/config.mjs';
-import MEGSCombat from './combat/MEGSCombat';
+
+import MEGSCombat from './combat/combat.js';
+import MEGSCombatTracker from './combat/combatTracker';
 
 // Turn on hooks logging for debugging
 CONFIG.debug.hooks = true;
@@ -28,13 +30,14 @@ Hooks.once('init', function () {
   // Add custom constants for configuration.
   CONFIG.DCHEROES = DCHEROES;
 
+  CONFIG.Combat.entityClass = MEGSCombat;
+  CONFIG.ui.combat = MEGSCombatTracker;
+
   // Load MEGS tables
   _loadData('systems/dcheroes/assets/data/tables.json').then((response) => {
     console.log(`Received response for tables data: ${response.status}`);
     CONFIG.tables = response;
   });
-
-  CONFIG.Combat.entityClass = MEGSCombat;
 
   /**
    * Set an initiative formula for the system
