@@ -30,8 +30,8 @@ Hooks.once('init', function () {
   // Add custom constants for configuration.
   CONFIG.DCHEROES = DCHEROES;
 
-  CONFIG.Combat.entityClass = MEGSCombat;
-  CONFIG.ui.combat = MEGSCombatTracker;
+//  CONFIG.Combat.entityClass = MEGSCombat;
+//  CONFIG.ui.combat = MEGSCombatTracker;
 
   // Load MEGS tables
   _loadData('systems/dcheroes/assets/data/tables.json').then((response) => {
