@@ -33,7 +33,7 @@ Hooks.once('init', function () {
   // Define custom Document classes
   CONFIG.Actor.documentClass = DCHeroesActor;
   CONFIG.Item.documentClass = DCHeroesItem;
-  CONFIG.Combat.documentClass = FS2Combat;
+  CONFIG.Combat.documentClass = MEGSCombat;
 
   // Load MEGS tables
   _loadData('systems/dcheroes/assets/data/tables.json').then((response) => {
