@@ -155,13 +155,25 @@ Hooks.once('ready', function () {
 /* -------------------------------------------- */
 
 Hooks.on('createCombatant', async (args) => {
-  // TODO: calculate initiative correctly
+  // TODO: add initiative bonus to combatant
   console.error("TEST: createCombatant");
   console.error(args);
   let actor = game.actors.get(args[0].actorId);
   console.error(actor);
 });
 
+Hooks.on('preUpdateCombatant', async (args) => {
+  // TODO: add initiative bonus to initiative
+  console.error("TEST: preUpdateCombatant");
+  console.error(args);
+});
+ 
+Hooks.on('updateCombatant ', async (args) => {
+  // TODO: add initiative bonus to initiative
+  console.error("TEST: updateCombatant ");
+  console.error(args);
+});
+ 
 /* -------------------------------------------- */
 /*  Load JSON data                              */
 /* -------------------------------------------- */
