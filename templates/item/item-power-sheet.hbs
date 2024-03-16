@@ -105,6 +105,18 @@
           </select>
           </div>
         </div>
+
+        <div class="attribute flex-group-center">
+          <label for="system.activateFree" class="resource-label flexlarge align-left" data-label="{{localize 'Activate Free?'}}">{{localize 'Activate Free?'}}</label>
+          <div>
+          <select  class="resource-select"  name="system.activateFree" data-type="String">
+            {{#select system.activateFree}}
+                <option  value="false">{{localize 'No'}}</option>
+                <option  value="true">{{localize 'Yes'}}</option>
+            {{/select}}
+          </select>
+          </div>
+        </div>
               
       </section>
 

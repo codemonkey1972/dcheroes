@@ -192,7 +192,8 @@
       "templates": ["baseItem", "attributes", "abilities", "purchasable", "scalable"],
       "type": "power",
       "img": "systems/dcheroes/assets/images/icons/power.png",
-      "source": ""
+      "source": "",
+      "activateFree": false
     },
     "skill": {
       "templates": ["baseItem", "attributes", "abilities", "purchasable", "scalable"],
