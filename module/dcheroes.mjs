@@ -154,12 +154,14 @@ Hooks.once('ready', function () {
 /*  Combat Tracker                              */
 /* -------------------------------------------- */
 
-Hooks.on('createCombatant', async (args) => {
+Hooks.on('createCombatant', async (combatant) => {
   // TODO: add initiative bonus to combatant
   console.error("TEST: createCombatant");
-  console.error(args);
-  let actor = game.actors.get(args.actorId);
+  let actor = game.actors.get(combatant.actorId);
   console.error(actor);
+  const initiativeBonus = actor._calculateInitiativeBonus();
+  console.error("TEST: initiative bonus = " + initiativeBonus);
+  combatant.initiativeBonus = initiativeBonus;
 });
 
 Hooks.on('preUpdateCombatant', async (args) => {
