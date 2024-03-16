@@ -146,6 +146,16 @@ Hooks.once('ready', function () {
   Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
 });
 
+
+/* -------------------------------------------- */
+/*  Combat Tracker                              */
+/* -------------------------------------------- */
+
+Hooks.on('updateCombat', async (app, html, data) => {
+  // TODO: calculate initiative correctly
+  console.error("TEST: updateCombat");
+});
+
 /* -------------------------------------------- */
 /*  Load JSON data                              */
 /* -------------------------------------------- */
