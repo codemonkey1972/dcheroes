@@ -184,7 +184,7 @@ Hooks.on('updateCombatant', async (combatant) => {
         label: "Submit",
         callback: (html) => {
           const hpSpentInitiative = parseInt(html[0].querySelector('form').hpSpentInitiative?.value) || 0;
-          console.error("TEST0: " + hpSpentInitiative;
+          console.error("TEST0: " + hpSpentInitiative);
           // TODO decrease HP by amount entered
           console.error("TEST1: " + combatant.initiative);
           combatant.initiative = combatant.initiative + combatant.initiativeBonus + hpSpentInitiative;
