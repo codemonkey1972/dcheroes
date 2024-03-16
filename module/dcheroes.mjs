@@ -165,10 +165,11 @@ Hooks.on('createCombatant', async (combatant) => {
   actor.system.initiativeBonus = initiativeBonus;
 });
 
-Hooks.on('preUpdateCombatant', async (args) => {
+Hooks.on('preUpdateCombatant', async (combatant) => {
   // TODO: add initiative bonus to initiative
   console.error("TEST: preUpdateCombatant");
-  console.error(args);
+  console.error(combatant);
+  combatant.initiative = combatant.initiative + combatant.initiativeBonus;
 });
  
 Hooks.on('updateCombatant ', async (args) => {
