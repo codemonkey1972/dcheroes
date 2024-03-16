@@ -9,6 +9,7 @@ import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { DCHEROES } from './helpers/config.mjs';
 
 import MEGSCombat from './combat/combat.js';
+import MEGSCombatTracker from './combat/combatTracker.js';
 //import MEGSCombatTracker from './combat/combatTracker';
 
 // Turn on hooks logging for debugging
@@ -34,6 +35,7 @@ Hooks.once('init', function () {
   CONFIG.Actor.documentClass = DCHeroesActor;
   CONFIG.Item.documentClass = DCHeroesItem;
   CONFIG.Combat.documentClass = MEGSCombat;
+  CONFIG.ui.combat = MEGSCombatTracker;
 
   // Load MEGS tables
   _loadData('systems/dcheroes/assets/data/tables.json').then((response) => {
