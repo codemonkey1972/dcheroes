@@ -168,7 +168,7 @@ Hooks.on('preUpdateCombatant', async (combatant) => {
   console.error(combatant);
 });
  
-Hooks.on('updateCombatant ', async (args) => {
+Hooks.on('updateCombatant', async (args) => {
   // TODO: add initiative bonus to initiative
   console.error(args);
   args[0].initiative = args[0].initiative + args[0].initiativeBonus;
