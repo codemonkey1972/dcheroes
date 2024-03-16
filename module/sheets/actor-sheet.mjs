@@ -587,7 +587,7 @@ export class DCHeroesActorSheet extends ActorSheet {
       // TODO does the ALL result include any ranks purchased with Hero Points?
       resultData.result = "Success: " + resultAPs + " RAPs!";
       resultData.success = true;
-      resultData.evResult = "A";
+      resultData.evResult = "A (" + evAdjusted + ")";
       if (shiftedRvIndex !== 0) {
         resultData.evResult = resultData.evResult + " + " + Math.abs(shiftedRvIndex);
       }
