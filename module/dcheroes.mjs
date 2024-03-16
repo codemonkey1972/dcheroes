@@ -169,7 +169,7 @@ Hooks.on('updateCombatant', async (combatant) => {
   const data = {
     "maxHpToSpend": maxHpToSpend,
   };
-  let dialogHtml = await this._renderTemplate(template, data);
+  let dialogHtml = await renderTemplate(template, data);
   const d = new Dialog({
     title: label,
     content: dialogHtml,
