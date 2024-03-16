@@ -7,6 +7,7 @@ import { DCHeroesItemSheet } from './sheets/item-sheet.mjs';
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { DCHEROES } from './helpers/config.mjs';
+import MEGSCombat from './combat/MEGSCombat';
 
 // Turn on hooks logging for debugging
 CONFIG.debug.hooks = true;
@@ -32,6 +33,8 @@ Hooks.once('init', function () {
     console.log(`Received response for tables data: ${response.status}`);
     CONFIG.tables = response;
   });
+
+  CONFIG.Combat.entityClass = MEGSCombat;
 
   /**
    * Set an initiative formula for the system
@@ -165,7 +168,7 @@ Hooks.on('createCombatant', async (combatant) => {
 
 Hooks.on('updateCombatant', async (combatant) => {
   // Allow to spend Hero Points to affect initiative
-  const actor = game.actors.get(combatant.actorId);
+/*  const actor = game.actors.get(combatant.actorId);
   const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
   const maxHpToSpend = actor.system.heroPoints.value;
   const data = {
@@ -193,9 +196,10 @@ Hooks.on('updateCombatant', async (combatant) => {
       }
     },
     default: "button1"
-  }).then((response) => {
+  }).render(true).then((response) => {
     console.error(combatant);
-  });
+  }); */
+  combatant.initiative = combatant.initiative + combatant.initiativeBonus;
 });
  
 /* -------------------------------------------- */
