@@ -3,13 +3,20 @@ import { DCHEROES } from "../helpers/config.mjs";
 export default class MEGSCombat extends Combat { 
 
     async rollInitiative(ids, formulaopt, updateTurnopt, messageOptionsopt) {
-        console.error(ids);
         console.error(formulaopt);
-        console.error(updateTurnopt);
-
+        if (!formulaopt) {
+            formulaopt = CONFIG.Combat.initiative;
+            console.error(formulaopt);
+        }
+        console.error(formulaopt);
         await super.rollInitiative(ids, formulaopt, updateTurnopt, messageOptionsopt);
         console.error(this);
-      }
+    }
+
+    // TODO always getting an error here
+    // _manageTurnEvents () {
+
+    // }
 
     _sortCombatants(a, b) {
         const initA = Number.isNumeric(a.initiative) ? a.initiative : -9999;
