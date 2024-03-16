@@ -198,12 +198,13 @@
       "templates": ["baseItem", "attributes", "abilities", "purchasable", "scalable"],
       "type": "skill",
       "img": "icons/svg/light.svg",
-      "unskilled": true
+      "useUnskilled": true
     },
     "subskill": {
       "templates": ["baseItem"],
       "type": "subskill",
-      "linkedSkill": ""
+      "linkedSkill": "",
+      "useUnskilled": true
     },
     "advantage": {
       "templates": ["baseItem", "purchasable"],
