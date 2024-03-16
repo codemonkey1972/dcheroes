@@ -157,7 +157,7 @@ Hooks.once('ready', function () {
 Hooks.on('createCombatant', async (args) => {
   // TODO: add initiative bonus to combatant
   console.error("TEST: createCombatant");
-  console.error(args);
+  console.error(args[0]);
   let actor = game.actors.get(args[0].actorId);
   console.error(actor);
 });
