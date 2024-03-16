@@ -8,6 +8,9 @@ import { DCHeroesItemSheet } from './sheets/item-sheet.mjs';
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { DCHEROES } from './helpers/config.mjs';
 
+// Turn on hooks logging 
+CONFIG.debug.hooks = true;
+
 /* -------------------------------------------- */
 /*  Init Hook                                   */
 /* -------------------------------------------- */
