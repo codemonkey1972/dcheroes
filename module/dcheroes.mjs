@@ -155,24 +155,20 @@ Hooks.once('ready', function () {
 /* -------------------------------------------- */
 
 Hooks.on('createCombatant', async (combatant) => {
-  // TODO: add initiative bonus to combatant
   let actor = game.actors.get(combatant.actorId);
   const initiativeBonus = actor._calculateInitiativeBonus();
   combatant.initiativeBonus = initiativeBonus;
-  actor.system.initiativeBonus = initiativeBonus;
+//  actor.system.initiativeBonus = initiativeBonus;
 });
-
+/*
 Hooks.on('preUpdateCombatant', async (combatant) => {
   // TODO: add initiative bonus to initiative
-  combatant.initiative = combatant.initiative + combatant.initiativeBonus;
+//  combatant.initiative = combatant.initiative + combatant.initiativeBonus;
   console.error(combatant);
 });
- 
+ */
 Hooks.on('updateCombatant', async (combatant) => {
-  // TODO: add initiative bonus to initiative
-  console.error(combatant);
   combatant.initiative = combatant.initiative + combatant.initiativeBonus;
-  console.error(combatant);
 });
  
 /* -------------------------------------------- */
