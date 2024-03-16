@@ -12,7 +12,7 @@ import MEGSCombat from './combat/combat.js';
 //import MEGSCombatTracker from './combat/combatTracker';
 
 // Turn on hooks logging for debugging
-CONFIG.debug.hooks = true;
+// CONFIG.debug.hooks = true;
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -30,6 +30,11 @@ Hooks.once('init', function () {
   // Add custom constants for configuration.
   CONFIG.DCHEROES = DCHEROES;
 
+  // Define custom Document classes
+  CONFIG.Actor.documentClass = DCHeroesActor;
+  CONFIG.Item.documentClass = DCHeroesItem;
+  CONFIG.Combat.documentClass = FS2Combat;
+
   // Load MEGS tables
   _loadData('systems/dcheroes/assets/data/tables.json').then((response) => {
     console.log(`Received response for tables data: ${response.status}`);
@@ -45,9 +50,6 @@ Hooks.once('init', function () {
     decimals: 0,
   };
 
-  // Define custom Document classes
-  CONFIG.Actor.documentClass = DCHeroesActor;
-  CONFIG.Item.documentClass = DCHeroesItem;
 
   // Combat maneuvers
   _loadData('systems/dcheroes/assets/data/combatManeuvers.json').then((response) => {
@@ -156,6 +158,8 @@ Hooks.once('ready', function () {
 /* -------------------------------------------- */
 /*  Combat Tracker                              */
 /* -------------------------------------------- */
+/*
+// TODO keeps resetting
 
 Hooks.on('createCombatant', async (combatant) => {
   let actor = game.actors.get(combatant.actorId);
@@ -163,16 +167,17 @@ Hooks.on('createCombatant', async (combatant) => {
   combatant.initiativeBonus = initiativeBonus;
 //  actor.system.initiativeBonus = initiativeBonus;
 });
-/*
+
 Hooks.on('preUpdateCombatant', async (combatant) => {
   // TODO: add initiative bonus to initiative
 //  combatant.initiative = combatant.initiative + combatant.initiativeBonus;
   console.error(combatant);
 });
- */
+
 Hooks.on('updateCombatant', async (combatant) => {
   combatant.initiative = combatant.initiative + combatant.initiativeBonus;
 });
+ */
  
 /* -------------------------------------------- */
 /*  Load JSON data                              */
