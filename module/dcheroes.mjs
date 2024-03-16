@@ -193,7 +193,9 @@ Hooks.on('updateCombatant', async (combatant) => {
       }
     },
     default: "button1"
-  }).render(true).then({});
+  }).then((response) => {
+    console.error(combatant);
+  });
 });
  
 /* -------------------------------------------- */
