@@ -154,6 +154,8 @@ Hooks.once('ready', function () {
 /*  Combat Tracker                              */
 /* -------------------------------------------- */
 
+// TODO when world is closed and re-entered with CT open, is losing the adjusted values
+
 Hooks.on('createCombatant', async (combatant) => {
   let actor = game.actors.get(combatant.actorId);
   const initiativeBonus = actor._calculateInitiativeBonus();
@@ -171,7 +173,7 @@ Hooks.on('updateCombatant', async (combatant) => {
   };
   let dialogHtml = await renderTemplate(template, data);
   const d = new Dialog({
-    title: localize("Initiative"),
+    title: game.i18n.localize("Initiative"),
     content: dialogHtml,
     buttons: {
       button2: {
