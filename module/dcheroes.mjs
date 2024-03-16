@@ -172,7 +172,7 @@ Hooks.on('updateCombatant', async (combatant) => {
     "maxHpToSpend": maxHpToSpend,
   };
   let dialogHtml = await renderTemplate(template, data);
-  const d = await new Dialog({
+  new Dialog({
     title: game.i18n.localize("Initiative"),
     content: dialogHtml,
     buttons: {
@@ -193,7 +193,7 @@ Hooks.on('updateCombatant', async (combatant) => {
       }
     },
     default: "button1"
-  }).render(true);
+  }).render(true).then({});
 });
  
 /* -------------------------------------------- */
