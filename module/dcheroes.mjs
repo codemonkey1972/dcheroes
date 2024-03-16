@@ -164,12 +164,15 @@ Hooks.on('createCombatant', async (combatant) => {
 
 Hooks.on('preUpdateCombatant', async (combatant) => {
   // TODO: add initiative bonus to initiative
-  console.error(combatant);
   combatant.initiative = combatant.initiative + combatant.initiativeBonus;
+  console.error(args);
 });
  
 Hooks.on('updateCombatant ', async (args) => {
   // TODO: add initiative bonus to initiative
+  console.error(args);
+  args[0].initiative = args[0].initiative + args[0].initiativeBonus;
+  args[1].initiative = args[0].initiative;
   console.error(args);
 });
  
