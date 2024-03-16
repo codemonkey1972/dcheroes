@@ -8,6 +8,9 @@ import { DCHeroesItemSheet } from './sheets/item-sheet.mjs';
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { DCHEROES } from './helpers/config.mjs';
 
+import MEGSCombat from './combat/combat.js';
+import MEGSCombatTracker from './combat/combatTracker';
+
 // Turn on hooks logging for debugging
 CONFIG.debug.hooks = true;
 
