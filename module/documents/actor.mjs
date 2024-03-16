@@ -45,7 +45,7 @@ export class DCHeroesActor extends Actor {
    * Prepare Hero type specific data
    */
   _prepareHeroData(actorData) {
-    if (actorData.type !== 'character') return;
+    if (actorData.type !== DCHEROES.characterTypes.hero) return;
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
@@ -155,7 +155,7 @@ export class DCHeroesActor extends Actor {
    * Prepare hero roll data.
    */
   _getHeroRollData(data) {
-    if (this.type !== 'character') return;
+    if (this.type !== DCHEROES.characterTypes.hero) return;
   }
 
   /**

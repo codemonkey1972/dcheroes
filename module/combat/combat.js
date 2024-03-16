@@ -1,3 +1,5 @@
+import { DCHEROES } from "../helpers/config.mjs";
+
 // @ts-ignore
 export default class MEGSCombat extends Combat { 
     _sortCombatants(a, b) {
@@ -13,10 +15,10 @@ export default class MEGSCombat extends Combat {
         const typeB = b.actor.data.type;
     
         if (typeA != typeB) {
-          if (typeA == "character") {
+          if (typeA == DCHEROES.characterTypes.hero) {
             return -1;
           }
-          if (typeB == "character") {
+          if (typeB == DCHEROES.characterTypes.hero) {
             return 1;
           }
         }

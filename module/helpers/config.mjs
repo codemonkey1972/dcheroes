@@ -28,6 +28,12 @@ DCHEROES.attributeAbbreviations = {
   spirit: 'DCHEROES.Attribute.Spirit.abSbr',
 };
 
+DCHEROES.characterTypes = {
+  hero: 'character',
+  npc: 'npc',
+  villain: 'villain'
+}
+
 DCHEROES.itemTypes = {
   advantage: "advantage", 
   drawback: "drawback", 

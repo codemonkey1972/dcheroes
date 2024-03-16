@@ -49,18 +49,18 @@ export class DCHeroesActorSheet extends ActorSheet {
     context.flags = actorData.flags;
 
     // Prepare character data and items.
-    if (actorData.type == 'character') {
+    if (actorData.type == DCHEROES.characterTypes.hero) {
       this._prepareItems(context);
       this._prepareCharacterData(context);
     }
 
     // Prepare NPC data and items.
-    if (actorData.type == 'npc') {
+    if (actorData.type == DCHEROES.characterTypes.npc) {
       this._prepareItems(context);
     }
 
     // Prepare Villain data and items.
-    if (actorData.type == 'villain') {
+    if (actorData.type == DCHEROES.characterTypes.villain) {
       this._prepareItems(context);
       this._prepareCharacterData(context);
     }
