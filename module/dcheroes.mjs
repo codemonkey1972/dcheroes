@@ -202,7 +202,9 @@ Hooks.on('updateCombatant', async (combatant) => {
   }).render(true).then((response) => {
     console.error(combatant);
   }); */
-  combatant.initiative = combatant.initiative + combatant.initiativeBonus;
+  
+  // TODO
+  //combatant.initiative = combatant.initiative + combatant.initiativeBonus;
 });
  
 /* -------------------------------------------- */
