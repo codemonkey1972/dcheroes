@@ -8,9 +8,6 @@ import { DCHeroesItemSheet } from './sheets/item-sheet.mjs';
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { DCHEROES } from './helpers/config.mjs';
 
-import MEGSCombat from './combat/combat.js';
-import MEGSCombatTracker from './combat/combatTracker';
-
 // Turn on hooks logging for debugging
 CONFIG.debug.hooks = true;
 
@@ -29,9 +26,6 @@ Hooks.once('init', function () {
 
   // Add custom constants for configuration.
   CONFIG.DCHEROES = DCHEROES;
-
-  CONFIG.Combat.entityClass = MEGSCombat;
-  CONFIG.ui.combat = MEGSCombatTracker;
 
   // Load MEGS tables
   _loadData('systems/dcheroes/assets/data/tables.json').then((response) => {
@@ -160,53 +154,23 @@ Hooks.once('ready', function () {
 /*  Combat Tracker                              */
 /* -------------------------------------------- */
 
-// TODO when world is closed and re-entered with CT open, is losing the adjusted values
-/*
 Hooks.on('createCombatant', async (combatant) => {
   let actor = game.actors.get(combatant.actorId);
   const initiativeBonus = actor._calculateInitiativeBonus();
   combatant.initiativeBonus = initiativeBonus;
-  actor.system.initiativeBonus = initiativeBonus;
+//  actor.system.initiativeBonus = initiativeBonus;
 });
-
-Hooks.on('updateCombatant', async (combatant) => {
-  // Allow to spend Hero Points to affect initiative
-  const actor = game.actors.get(combatant.actorId);
-  const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
-  const maxHpToSpend = actor.system.heroPoints.value;
-  const data = {
-    "maxHpToSpend": maxHpToSpend,
-  };
-  let dialogHtml = await renderTemplate(template, data);
-  const d = await new Dialog({
-    title: game.i18n.localize("Initiative"),
-    content: dialogHtml,
-    buttons: {
-      button2: {
-        label: "Close",
-        callback: (html) => {},
-      },
-      button1: {
-        label: "Submit",
-        callback: (html) => {
-          const hpSpentInitiative = parseInt(html[0].querySelector('form').hpSpentInitiative?.value) || 0;
-          console.error("TEST0: " + hpSpentInitiative);
-          // TODO decrease HP by amount entered
-          console.error("TEST1: " + combatant.initiative);
-          combatant.initiative = combatant.initiative + combatant.initiativeBonus + hpSpentInitiative;
-          console.error("TEST2: " + combatant.initiative);
-        }
-      }
-    },
-    default: "button1"
-  }).render(true).then((response) => {
-    console.error(combatant);
-  });
-  
-  // TODO
-  //combatant.initiative = combatant.initiative + combatant.initiativeBonus;
+/*
+Hooks.on('preUpdateCombatant', async (combatant) => {
+  // TODO: add initiative bonus to initiative
+//  combatant.initiative = combatant.initiative + combatant.initiativeBonus;
+  console.error(combatant);
 });
  */
+Hooks.on('updateCombatant', async (combatant) => {
+  combatant.initiative = combatant.initiative + combatant.initiativeBonus;
+});
+ 
 /* -------------------------------------------- */
 /*  Load JSON data                              */
 /* -------------------------------------------- */
