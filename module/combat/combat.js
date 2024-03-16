@@ -7,8 +7,8 @@ export default class MEGSCombat extends Combat {
         const initB = Number.isNumeric(b.initiative) ? b.initiative : -9999;
         console.error("TYPES: "+initA+ " : "+initB);
 
-        const typeA = a.actor.data.type;
-        const typeB = b.actor.data.type;
+        const typeA = a.actor.type;
+        const typeB = b.actor.type;
         console.error("TYPES: "+typeA+ " : "+typeB);
 
         let initDifference = initB - initA;
