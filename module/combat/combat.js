@@ -1,6 +1,5 @@
 import { DCHEROES } from "../helpers/config.mjs";
 
-// @ts-ignore
 export default class MEGSCombat extends Combat { 
 /*
     _sortCombatants(a, b) {
