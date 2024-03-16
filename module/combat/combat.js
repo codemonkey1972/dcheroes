@@ -13,12 +13,13 @@ export default class MEGSCombat extends Combat {
     
         const typeA = a.actor.data.type;
         const typeB = b.actor.data.type;
+        console.error("TYPES: "+typeA+ " : "+typeB);
     
-        if (typeA != typeB) {
-          if (typeA == DCHEROES.characterTypes.hero) {
+        if (typeA !== typeB) {
+          if (typeA === DCHEROES.characterTypes.hero) {
             return -1;
           }
-          if (typeB == DCHEROES.characterTypes.hero) {
+          if (typeB === DCHEROES.characterTypes.hero) {
             return 1;
           }
         }
