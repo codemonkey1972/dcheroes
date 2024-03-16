@@ -67,28 +67,28 @@ export class DCHeroesActor extends Actor {
 
     // calculate initiativeBonus
     console.error(this);
-    let initiativeBonus = context.document.system.attributes.dex.value + context.document.system.attributes.int.value
-        + context.document.system.attributes.infl.value;
+    let initiativeBonus = this.system.attributes.dex.value + this.system.attributes.int.value
+        + this.system.attributes.infl.value;
 
     // Superspeed adds APs of their power
-    if (this._hasAbility(context.powers, DCHEROES.powers.SUPERSPEED)) { 
-      const aps = this._getAbilityAPs(context.powers, DCHEROES.powers.SUPERSPEED);
+    if (this._hasAbility(this.items, DCHEROES.powers.SUPERSPEED)) { 
+      const aps = this._getAbilityAPs(this.items, DCHEROES.powers.SUPERSPEED);
       initiativeBonus = initiativeBonus + aps;
     }
 
     // Martial artist gives a +2
-    if (this._hasAbility(context.skills, DCHEROES.skills.MARTIAL_ARTIST)) {
+    if (this._hasAbility(this.items, DCHEROES.skills.MARTIAL_ARTIST)) {
       initiativeBonus = initiativeBonus + 2;
     }
 
     // Lightning Reflexes gives +2
-    if (this._hasAbility(context.advantages, DCHEROES.advantages.LIGHTNING_REFLEXES)) {
+    if (this._hasAbility(this.items, DCHEROES.advantages.LIGHTNING_REFLEXES)) {
       initiativeBonus = initiativeBonus + 2;
     }
 
     // Water Freedom applies when submerged in water
     // TODO dialog prompt for modifiers
-    if (this._hasAbility(context.powers, DCHEROES.powers.WATER_FREEDOM)) {
+    if (this._hasAbility(this.items, DCHEROES.powers.WATER_FREEDOM)) {
       // TODO add checkbox if has Water Freedom for if is in water
     }
 
