@@ -1,7 +1,7 @@
 import { DCHEROES } from "../helpers/config.mjs";
 
 export default class MEGSCombat extends Combat { 
-/*
+
     _sortCombatants(a, b) {
         const initA = Number.isNumeric(a.initiative) ? a.initiative : -9999;
         const initB = Number.isNumeric(b.initiative) ? b.initiative : -9999;
@@ -25,5 +25,5 @@ export default class MEGSCombat extends Combat {
     
         return a.tokenId - b.tokenId;
       }
- */   
+ 
 }
