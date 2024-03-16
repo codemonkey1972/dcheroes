@@ -3,13 +3,13 @@ import { DCHEROES } from "../helpers/config.mjs";
 export default class MEGSCombat extends Combat { 
 
     _sortCombatants(a, b) {
-        const initA = Number.isNumeric(a.initiative) ? a.initiative : -9999;
-        const initB = Number.isNumeric(b.initiative) ? b.initiative : -9999;
-        console.error("TYPES: "+typeA+ " : "+initB);
+        // const initA = Number.isNumeric(a.initiative) ? a.initiative : -9999;
+        // const initB = Number.isNumeric(b.initiative) ? b.initiative : -9999;
+        // console.error("TYPES: "+typeA+ " : "+initB);
 
-        const typeA = a.actor.data.type;
-        const typeB = b.actor.data.type;
-        console.error("TYPES: "+initA+ " : "+typeB);
+        // const typeA = a.actor.data.type;
+        // const typeB = b.actor.data.type;
+        // console.error("TYPES: "+initA+ " : "+typeB);
 
         super._sortCombatants(a, b);
 /*    
