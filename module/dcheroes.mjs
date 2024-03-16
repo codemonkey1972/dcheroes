@@ -171,7 +171,7 @@ Hooks.on('updateCombatant', async (combatant) => {
   };
   let dialogHtml = await renderTemplate(template, data);
   const d = new Dialog({
-    title: label,
+    title: localize("Initiative"),
     content: dialogHtml,
     buttons: {
       button2: {
