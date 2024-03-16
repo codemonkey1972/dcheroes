@@ -580,7 +580,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     if (shiftedRvIndex <= 0) {
       // calculate column shifts that push past the 0 column
       // If the result is in the +1 Column, add 1 AP to your Result APs for every time you shift into this Column.
-      // TODO pretty sure this is off
       const resultAPs = evAdjusted + (Math.abs(shiftedRvIndex));
 
       // "All" result on table - Result APs = Effect Value
@@ -652,12 +651,21 @@ export class DCHeroesActorSheet extends ActorSheet {
         // dice are both 1s
         data.result = "Double 1s: Automatic failure!"
         data.dice = dice;
-
         await this._showRollResultInChat(data);
         stopRolling = true;
       } else  if (rolledDice[0] === rolledDice[1]) {
-        // TODO prompt for if want to continue
         // dice match but are not 1s
+        const confirmed = await Dialog.confirm({
+          title: "Continue Rolling?",
+          content: "You have rolled doubles; would you like to roll again?",
+          yes: () => true,
+          no: () => false
+        });
+        if (confirmed) {
+          stopRolling = false;
+        } else {
+          stopRolling = true;
+        };
         stopRolling = false;
       } else {
         // dice do not match

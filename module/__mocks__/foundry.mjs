@@ -252,6 +252,22 @@ async function _loadData(jsonPath) {
   }
 }
 
+export class YesDialog {
+  static confirm() {
+    return true;
+  }
+}
+
+export class NoDialog {
+  static confirm() {
+    return false;
+  }
+}
+
+export class Dialog {
+
+}
+global.Dialog = Dialog
 
 /**
  * Localization

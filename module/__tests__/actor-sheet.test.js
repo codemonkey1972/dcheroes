@@ -1,8 +1,9 @@
-import { DCHeroesActorSheet } from "../sheets/actor-sheet.mjs";
-import { jest } from '@jest/globals'
+import { DCHeroesActorSheet, } from "../sheets/actor-sheet.mjs";
+import { YesDialog, NoDialog } from "../__mocks__/foundry.mjs";
 
 test("getData()", () => {
     const actorSheet = new DCHeroesActorSheet();
+    // TODO
 });
  
 test("_prepareCharacterData", () => {
@@ -51,10 +52,11 @@ test("_getAbilityAPs", () => {
     });
 });
 
-test("_rollDice should roll again if have matching dice on first roll", () => {
+test("_rollDice should roll again if have matching dice on first roll and elect to roll again", () => {
     global.rollIndex = 0;
-     const actorSheet = new DCHeroesActorSheet();
-     const data = {
+    global.Dialog = YesDialog
+    const actorSheet = new DCHeroesActorSheet();
+    const data = {
          "result": "",
          "actionValue": 0,
          "opposingValue": 0,
@@ -64,18 +66,43 @@ test("_rollDice should roll again if have matching dice on first roll", () => {
          "resistanceValue": 0,
          "success": false,
          "evResult": ""
-     };
+    };
  
-     const dataset = {
-        roll: [2, 2, 3, 4]
-     };
-     actorSheet._rollDice(dataset , {}).then((response) => {
-         expect(response).toStrictEqual([2, 2, 3, 4]);
-     });
+    const dataset = {
+      roll: [2, 2, 3, 4]
+    };
+    actorSheet._rollDice(dataset , {}).then((response) => {
+      expect(response).toStrictEqual([2, 2, 3, 4]);
+    });
+ });
+ 
+test("_rollDice should not roll again if have matching dice on first roll and user elects not to roll again", () => {
+    global.rollIndex = 0;
+    global.Dialog = NoDialog
+    const actorSheet = new DCHeroesActorSheet();
+    const data = {
+         "result": "",
+         "actionValue": 0,
+         "opposingValue": 0,
+         "difficulty": 0,
+         "columnShifts": 0,
+         "effectValue": 0,
+         "resistanceValue": 0,
+         "success": false,
+         "evResult": ""
+    };
+ 
+    const dataset = {
+      roll: [2, 2, 3, 4]
+    };
+    actorSheet._rollDice(dataset , {}).then((response) => {
+      expect(response).toStrictEqual([2, 2, 3, 4]);
+    });
  });
 
- test("_rollDice should roll again if have matching dice on first and second rolls", () => {
+ test("_rollDice should roll again if have matching dice on first and second rolls and user elects to roll again both times", () => {
     global.rollIndex = 0;
+    global.Dialog = YesDialog
      const actorSheet = new DCHeroesActorSheet();
      const data = {
          "result": "",
