@@ -162,6 +162,7 @@ Hooks.on('createCombatant', async (combatant) => {
   const initiativeBonus = actor._calculateInitiativeBonus();
   console.error("TEST: initiative bonus = " + initiativeBonus);
   combatant.initiativeBonus = initiativeBonus;
+  actor.system.initiativeBonus = initiativeBonus;
 });
 
 Hooks.on('preUpdateCombatant', async (args) => {

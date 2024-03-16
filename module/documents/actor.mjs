@@ -66,6 +66,7 @@ export class DCHeroesActor extends Actor {
 // TODO replace all of this with effects?
 
     // calculate initiativeBonus
+    console.error(context);
     let initiativeBonus = context.document.system.attributes.dex.value + context.document.system.attributes.int.value
         + context.document.system.attributes.infl.value;
 
