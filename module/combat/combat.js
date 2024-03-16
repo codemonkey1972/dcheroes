@@ -3,14 +3,8 @@ import { DCHEROES } from "../helpers/config.mjs";
 export default class MEGSCombat extends Combat { 
 
     async rollInitiative(ids, formulaopt, updateTurnopt, messageOptionsopt) {
-        console.error(formulaopt);
-        if (!formulaopt) {
-            formulaopt = CONFIG.Combat.initiative;
-            console.error(formulaopt);
-        }
-        console.error(formulaopt);
-        await super.rollInitiative(ids, formulaopt, updateTurnopt, messageOptionsopt);
         console.error(this);
+        await super.rollInitiative(ids, formulaopt, updateTurnopt, messageOptionsopt);
     }
 
     // TODO always getting an error here
