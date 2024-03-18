@@ -11,7 +11,7 @@ export default class MEGSCombatant extends Combatant {
 
 
     _getInitiativeFormula(combatant) {
-        console.error(this.actor);
+        console.error(this);
         return super._getInitiativeFormula(combatant);
       }
     
