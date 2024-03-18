@@ -6,6 +6,7 @@ export default class MEGSCombatant extends Combatant {
 
     _getInitiativeFormula(combatant) {
         console.error("TEST: combatant.rollInitiative()")
+        this.actor.system.initiativeBonus  = this.actor._calculateInitiativeBonus();
         console.error(this.actor);
         return super._getInitiativeFormula(combatant);
       }
