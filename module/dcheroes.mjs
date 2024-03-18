@@ -50,7 +50,7 @@ Hooks.once('init', function () {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: '1d10 +@initiativeBonus.value',
+    formula: '1d10',
     decimals: 0,
   };
 
