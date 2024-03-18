@@ -3,6 +3,7 @@ import { DCHEROES } from "../helpers/config.mjs";
 export default class MEGSCombat extends Combat { 
 
     async rollInitiative(ids, formulaopt, updateTurnopt, messageOptionsopt) {
+
         console.error(this);
         await super.rollInitiative(ids, formulaopt, updateTurnopt, messageOptionsopt);
     }
