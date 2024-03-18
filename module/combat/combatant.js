@@ -3,16 +3,21 @@ export default class MEGSCombatant extends Combatant {
 
     // getInitiativeRoll(formula: string): Roll
 
-    getInitiativeRoll(formula) {
-        console.error("TEST: combatant.getInitiativeRoll()")
-        console.error(this.actor);
-        return super.getInitiativeRoll(formula);
-    }
 
+    _getInitiativeFormula(combatant) {
+        console.error("TEST: combatant.rollInitiative()")
+        console.error(this.actor);
+        return super._getInitiativeFormula(combatant);
+      }
+    
     // this.actor
 
     // rollInitiative(formula: string)
-
+    rollInitiative(formula) {
+        console.error("TEST: combatant.rollInitiative()")
+        console.error(this.actor);
+        return super.rollInitiative(formula);
+    }
 
     // prepareDerivedData()
 
