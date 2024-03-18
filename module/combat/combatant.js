@@ -3,7 +3,7 @@ export default class MEGSCombatant extends Combatant {
 
     _onCreate(data, options, userID) {
         super._onCreate(data, options, userID);
-        this.actor.system.initiativeBonus  = this.actor._calculateInitiativeBonus();
+        this.actor.system.initiativeBonus.value = this.actor._calculateInitiativeBonus();
     }
 
     _getInitiativeFormula(combatant) {
