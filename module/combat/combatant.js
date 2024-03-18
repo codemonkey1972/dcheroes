@@ -3,7 +3,6 @@ export default class MEGSCombatant extends Combatant {
 
     _onCreate(data, options, userID) {
         super._onCreate(data, options, userID);
-        console.error("TEST: combatant._onCreate()")
         this.actor.system.initiativeBonus  = this.actor._calculateInitiativeBonus();
     }
 
@@ -16,15 +15,4 @@ export default class MEGSCombatant extends Combatant {
         }
         return baseFormula;
     }
-
-    // rollInitiative(formula: string)
-    rollInitiative(formula) {
-        console.error("TEST: combatant.rollInitiative()")
-        console.error(this.actor);
-        return super.rollInitiative(formula);
-    }
-
-    // prepareDerivedData()
-
-    // _getInitiativeFormula
 }
