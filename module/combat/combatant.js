@@ -7,15 +7,15 @@ export default class MEGSCombatant extends Combatant {
         this.actor.system.initiativeBonus  = this.actor._calculateInitiativeBonus();
     }
 
-    // getInitiativeRoll(formula: string): Roll
-
-
     _getInitiativeFormula(combatant) {
-        console.error(this);
-        return super._getInitiativeFormula(combatant);
-      }
+        let baseFormula = super._getInitiativeFormula(combatant);
+        const initiativeBonus = this.actor._calculateInitiativeBonus();
     
-    // this.actor
+        if (initiativeBonus > 0) {
+          baseFormula += ` + ${initiativeBonus}`;
+        }
+        return baseFormula;
+    }
 
     // rollInitiative(formula: string)
     rollInitiative(formula) {
