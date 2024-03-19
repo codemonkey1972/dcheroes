@@ -15,8 +15,9 @@ export default class MEGSCombatant extends Combatant {
         }
 
         if (this.actor.system.heroPoints.value > 0) {
-            this._handleHPInitiativeDialog().then((response) => {
-                console.error(response);
+            this._handleHPInitiativeDialog().then((hpSpentInitiative) => {
+                console.error(hpSpentInitiative);
+                baseFormula += ` + ${hpSpentInitiative}`;
                 return baseFormula;
             });
         } else {
@@ -41,12 +42,13 @@ export default class MEGSCombatant extends Combatant {
             button1: {
                 label: "Submit",
                 callback: (html) => {
+                    const form = html[0].querySelector('form');
+                    const hpSpentInitiative = parseInt(form.hpSpentInitiative.value) || 0;
                     console.error("TEST123");
                     console.error(html);
-                    // TODO
                     // baseFormula += ` + ${initiativeBonus}`;
 
-                    return baseFormula;
+                    return hpSpentInitiative;
                 }
             }
             },
