@@ -21,15 +21,15 @@ export default class MEGSCombatant extends Combatant {
         };
         renderTemplate(template, data).then((dialogHtml) => {
             const d = new Dialog({
-                title: localize("Spend HP on Initiative?"),
+                title: "Spend HP on Initiative?",
                 content: dialogHtml,
                 buttons: {
                   button2: {
-                    label: localize("Close"),
+                    label: "Close",
                     callback: (html) => {},
                   },
                   button1: {
-                    label: localize("Submit"),
+                    label: "Submit",
                     callback: (html) => {
                         console.error("TEST123");
                         console.error(html);
