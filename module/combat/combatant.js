@@ -13,6 +13,32 @@ export default class MEGSCombatant extends Combatant {
         if (initiativeBonus > 0) {
           baseFormula += ` + ${initiativeBonus}`;
         }
+
+        const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
+        const data = {
+          "maxHpToSpend": this.actor.system.heroPoints.value,
+        };
+        renderTemplate(template, data).then((dialogHtml) => {
+            const d = new Dialog({
+                title: localize("Spend HP on Initiative?"),
+                content: dialogHtml,
+                buttons: {
+                  button2: {
+                    label: localize("Close"),
+                    callback: (html) => {},
+                  },
+                  button1: {
+                    label: localize("Submit"),
+                    callback: (html) => {
+                        console.error("TEST123");
+                        console.error(html);
+                    }
+                  }
+                },
+                default: "button1"
+              }).render(true);
+        });
+
         return baseFormula;
     }
 }
