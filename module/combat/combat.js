@@ -2,10 +2,6 @@ import { DCHEROES } from "../helpers/config.mjs";
 
 export default class MEGSCombat extends Combat { 
 
-    async rollInitiative(ids, formulaopt, updateTurnopt, messageOptionsopt) {
-        await super.rollInitiative(ids, formulaopt, updateTurnopt, messageOptionsopt);
-    }
-
     // TODO always getting an error here
     // _manageTurnEvents () {
 

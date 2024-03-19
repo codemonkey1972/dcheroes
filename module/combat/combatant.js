@@ -15,11 +15,14 @@ export default class MEGSCombatant extends Combatant {
         }
 
         if (this.actor.system.heroPoints.value > 0) {
+            console.error("TEST1");
             this._handleHPInitiativeDialog().then((hpSpentInitiative) => {
+                console.error("TEST2");
                 console.error(hpSpentInitiative);
                 baseFormula += ` + ${hpSpentInitiative}`;
                 return baseFormula;
             });
+            console.error("TEST3");
         } else {
             return baseFormula;
         }
