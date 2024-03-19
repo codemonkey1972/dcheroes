@@ -14,8 +14,7 @@ export default class MEGSCombatant extends Combatant {
           baseFormula += ` + ${initiativeBonus}`;
         }
 
-        console.error(this.actor);
-        if (this.actor.system.heroPoints > 0) {
+        if (this.actor.system.heroPoints.value > 0) {
             console.error(this.actor.system.heroPoints);
             const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
             const data = {
