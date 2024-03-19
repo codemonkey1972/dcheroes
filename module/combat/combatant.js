@@ -7,6 +7,7 @@ export default class MEGSCombatant extends Combatant {
     }
 
     async rollInitiative(formula) {
+        console.log("TEST1");
         if (this.actor.system.heroPoints.value > 0) {
             const hpSpentInitiative = await _handleHPInitiativeDialog()
             if (hpSpentInitiative > 0) {
