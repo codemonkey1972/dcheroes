@@ -15,7 +15,7 @@ export default class MEGSCombatant extends Combatant {
         }
 
         if (this.actor.system.heroPoints.value > 0) {
-            this._handleHPInitiativeDialog.then((response) => {
+            this._handleHPInitiativeDialog().then((response) => {
                 console.error(response);
                 return baseFormula;
             });
