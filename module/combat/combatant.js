@@ -14,6 +14,7 @@ export default class MEGSCombatant extends Combatant {
           baseFormula += ` + ${initiativeBonus}`;
         }
 
+        console.error(this.actor);
         const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
         const data = {
           "maxHpToSpend": this.actor.system.heroPoints.value,
