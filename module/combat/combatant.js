@@ -18,13 +18,17 @@ export default class MEGSCombatant extends Combatant {
             let hasCalled = false;
             let hasReturned = false;
 
+            console.error("TEST1");
             while (!hasReturned) {
                 if (!hasCalled) {
+                    console.error("TEST2");
                     const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
                     const data = {
                         "maxHpToSpend": this.actor.system.heroPoints.value,
                     };
                     let dialogHtml = renderTemplate(template, data);
+                    console.error("TEST3");
+                    console.log(dialogHtml);
                     const d = new Dialog({
                         title: "Spend HP on Initiative?",
                         content: dialogHtml,
@@ -36,17 +40,21 @@ export default class MEGSCombatant extends Combatant {
                             button1: {
                                 label: "Submit",
                                 callback: (html) => {
-                                    const form = html[0].querySelector('form');
-                                    const hpSpentInitiative = parseInt(form.hpSpentInitiative.value) || 0;
-                                    console.error("TEST123");
+                                    console.error("TEST4");
                                     console.error(html);
-                                    // baseFormula += ` + ${initiativeBonus}`;
+                                    const form = html[0].querySelector('form');
+                                    console.error(form);
+                                    const hpSpentInitiative = parseInt(form.hpSpentInitiative.value) || 0;
+                                    console.error(hpSpentInitiative);
+                                    baseFormula += ` + ${hpSpentInitiative}`;
+                                    console.error(baseFormula);
                                     hasReturned = true;
                                 }
                             }
                         },
                         default: "button1"
                     }).render(true);
+                    console.error("TEST5");
                     hasCalled = true;
                 }
             }
