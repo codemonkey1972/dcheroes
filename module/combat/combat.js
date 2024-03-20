@@ -33,9 +33,9 @@ export default class MEGSCombat extends Combat {
 
   async rollInitiative(ids, options) {
     console.error("TEST1");
-    console.error(ids);
-    console.error(options);
-    return super.rollInitiative(ids, options);
+    const initiative = await super.rollInitiative(ids, options);
+    console.error(initiative);
+    return initiative;
   }
 
   async nextRound() {
