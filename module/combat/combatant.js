@@ -11,6 +11,7 @@ export default class MEGSCombatant extends Combatant {
         console.error("TEST2");
         const roll = super.getInitiativeRoll(formula);
         console.error(roll);
+        console.error(this);
         return roll;
     }
 
