@@ -2,6 +2,7 @@ export default class MEGSCombatant extends Combatant {
     // https://foundryvtt.com/api/classes/client.Combatant.html
 
     _onCreate(data, options, userID) {
+        console.error("TEST0");
         super._onCreate(data, options, userID);
         this.actor.system.initiativeBonus.value = this.actor._calculateInitiativeBonus();
     }
@@ -14,6 +15,7 @@ export default class MEGSCombatant extends Combatant {
         //     }
         // }
 
+    /** @override */
     _getInitiativeFormula(combatant) {
         let baseFormula = super._getInitiativeFormula(combatant);
         const initiativeBonus = this.actor._calculateInitiativeBonus();
