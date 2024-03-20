@@ -9,21 +9,7 @@ export default class MEGSCombatant extends Combatant {
     /** @override */
     getInitiativeRoll(formula) {
         console.error("TEST2");
-
-
-        this._handleHPInitiativeDialog().then((response) => {
-            console.error("TEST5: ");
-            console.error(response);
-            const roll = super.getInitiativeRoll(formula);
-            console.error(roll);
-            return roll;
-        });
-    }
-
-    /** @override */
-    async rollInitiative(formula) {
-        console.error("TEST5: rollInitiative");
-        const roll = super.rollInitiative(formula);
+        const roll = super.getInitiativeRoll(formula);
         console.error(roll);
         return roll;
     }
