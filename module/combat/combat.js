@@ -38,6 +38,40 @@ export default class MEGSCombat extends Combat {
     return initiative;
   }
 
+  async setInitiative(id, value) {
+    console.error("TEST4: setInitiative");
+    /*
+            const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
+        const data = {
+            "maxHpToSpend": this.actor.system.heroPoints.value,
+        };
+        let dialogHtml = renderTemplate(template, data);
+        const d = new Dialog({
+            title: "Spend HP on Initiative?",
+            content: dialogHtml,
+            buttons: {
+                button2: {
+                    label: "Close",
+                    callback: (html) => {
+                        hasReturned = true;
+                    },
+                },
+                button1: {
+                    label: "Submit",
+                    callback: (html) => {
+                        const form = html[0].querySelector('form');
+                        const hpSpentInitiative = parseInt(form.hpSpentInitiative.value) || 0;
+                        value += hpSpentInitiative;
+                        super.setInitiative(id, value);
+                    }
+                }
+            },
+            default: "button1"
+        }).render(true);
+        */
+    super.setInitiative(id, value);
+  }
+
   async nextRound() {
     // TODO reroll initiative if no history beyond this exists
     console.error("TEST: MEGSCombat.nextRound()");
