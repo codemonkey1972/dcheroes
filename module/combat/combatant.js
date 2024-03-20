@@ -53,7 +53,7 @@ export default class MEGSCombatant extends Combatant {
             "maxHpToSpend": 999,
         };
         let dialogHtml = renderTemplate(template, data);
-        const d = new Dialog({
+        const d = await new Dialog({
             title: "Spend HP on Initiative?",
             content: dialogHtml,
             buttons: {
