@@ -57,9 +57,7 @@ export default class MEGSCombatant extends Combatant {
             buttons: {
                 button2: {
                     label: "Close",
-                    callback: (html) => {
-                        hasReturned = true;
-                    },
+                    callback: (html) => {},
                 },
                 button1: {
                     label: "Submit",
