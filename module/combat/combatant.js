@@ -8,7 +8,7 @@ export default class MEGSCombatant extends Combatant {
 
     /** @override */
     getInitiativeRoll(formula) {
-        console.error("TEST2");
+        console.error("TEST2: combatant.getInitiativeRoll()");
         const roll = super.getInitiativeRoll(formula);
         console.error(roll);
         return roll;
@@ -34,7 +34,7 @@ export default class MEGSCombatant extends Combatant {
     //     }
     // }
     async _handleHPInitiativeDialog() {
-        console.error("TEST3");
+        console.error("TEST3: combatant._handleHPInitiativeDialog()");
 /*        const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
         const data = {
             // TODO
@@ -65,7 +65,7 @@ export default class MEGSCombatant extends Combatant {
         }).render(true);
 */
         const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
-        const maxHpToSpend = 999;
+        const maxHpToSpend = 999; // TODO
         const data = {
             "maxHpToSpend": maxHpToSpend,
         };

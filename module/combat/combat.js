@@ -30,36 +30,13 @@ export default class MEGSCombat extends Combat {
 
     return a.tokenId - b.tokenId;
   }
-/*
-  async _handleHPInitiativeDialog() {
-    const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
-    const data = {
-        "maxHpToSpend": this.actor.system.heroPoints.value,
-    };
-    let dialogHtml = renderTemplate(template, data);
-    const d = new Dialog({
-        title: "Spend HP on Initiative?",
-        content: dialogHtml,
-        buttons: {
-            button2: {
-                label: "Close",
-                callback: (html) => {
-                    hasReturned = true;
-                },
-            },
-            button1: {
-                label: "Submit",
-                callback: (html) => {
-                    const form = html[0].querySelector('form');
-                    const hpSpentInitiative = parseInt(form.hpSpentInitiative.value) || 0;
-                    return hpSpentInitiative
-                }
-            }
-        },
-        default: "button1"
-    }).render(true);
+
+  async rollInitiative(formula) {
+    // TODO
+    console.error("TEST: combat.rollInitiative (async)");
+    return await this.rollInitiative(formula);
   }
-*/
+
   async nextRound() {
     // TODO reroll initiative if no history beyond this exists
     console.error("TEST: MEGSCombat.nextRound()");
