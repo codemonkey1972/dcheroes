@@ -86,7 +86,7 @@ export default class MEGSCombatant extends Combatant {
         let dialogHtml = await this._renderTemplate(template, data);
 
         new Dialog({
-            title: label,
+            title: "Spend HP on Initiative?",
             content: dialogHtml,
             buttons: {
               button2: {
