@@ -7,6 +7,13 @@ export default class MEGSCombatant extends Combatant {
     }
 
     /** @override */
+    getInitiativeRoll(formula) {
+        console.error("TEST2");
+        const roll = super.getInitiativeRoll(formula);
+        return roll;
+    }
+
+    /** @override */
     _getInitiativeFormula(combatant) {
         let baseFormula = super._getInitiativeFormula(combatant);
         const initiativeBonus = this.actor._calculateInitiativeBonus();

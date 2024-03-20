@@ -31,6 +31,11 @@ export default class MEGSCombat extends Combat {
     return a.tokenId - b.tokenId;
   }
 
+  async rollInitiative(ids, options) {
+    console.error("TEST1");
+    return super.rollInitiative(ids, options);
+  }
+
   async nextRound() {
     // TODO reroll initiative if no history beyond this exists
     console.error("TEST: MEGSCombat.nextRound()");
