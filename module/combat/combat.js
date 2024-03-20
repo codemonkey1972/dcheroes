@@ -30,14 +30,7 @@ export default class MEGSCombat extends Combat {
 
     return a.tokenId - b.tokenId;
   }
-
-  async rollInitiative(ids, options) {
-    console.error("TEST1");
-    const initiative = await super.rollInitiative(ids, options);
-    console.error(initiative);
-    return initiative;
-  }
-
+/*
   async _handleHPInitiativeDialog() {
     const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
     const data = {
@@ -66,7 +59,7 @@ export default class MEGSCombat extends Combat {
         default: "button1"
     }).render(true);
   }
-
+*/
   async nextRound() {
     // TODO reroll initiative if no history beyond this exists
     console.error("TEST: MEGSCombat.nextRound()");

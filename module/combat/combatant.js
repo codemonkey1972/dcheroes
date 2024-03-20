@@ -48,7 +48,9 @@ export default class MEGSCombatant extends Combatant {
     async _handleHPInitiativeDialog() {
         const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
         const data = {
-            "maxHpToSpend": this.actor.system.heroPoints.value,
+            // TODO
+            // "maxHpToSpend": this.actor.system.heroPoints.value,
+            "maxHpToSpend": 999,
         };
         let dialogHtml = renderTemplate(template, data);
         const d = new Dialog({
