@@ -9,8 +9,10 @@ export default class MEGSCombatant extends Combatant {
     /** @override */
     getInitiativeRoll(formula) {
         console.error("TEST2");
+
+
         this._handleHPInitiativeDialog().then((response) => {
-            console.error("TEST2A: ");
+            console.error("TEST5: ");
             console.error(response);
             const roll = super.getInitiativeRoll(formula);
             console.error(roll);
@@ -46,6 +48,7 @@ export default class MEGSCombatant extends Combatant {
     //     }
     // }
     async _handleHPInitiativeDialog() {
+        console.error("TEST3");
         const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
         const data = {
             // TODO
@@ -53,7 +56,8 @@ export default class MEGSCombatant extends Combatant {
             "maxHpToSpend": 999,
         };
         let dialogHtml = renderTemplate(template, data);
-        const d = await new Dialog({
+
+        await new Dialog({
             title: "Spend HP on Initiative?",
             content: dialogHtml,
             buttons: {
@@ -64,6 +68,7 @@ export default class MEGSCombatant extends Combatant {
                 button1: {
                     label: "Submit",
                     callback: (html) => {
+                        console.error("TEST4");
                         const form = html[0].querySelector('form');
                         const hpSpentInitiative = parseInt(form.hpSpentInitiative.value) || 0;
                         return hpSpentInitiative
