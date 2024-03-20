@@ -325,7 +325,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Handle rolls that supply the formula directly.
     if (dataset.roll) {
       this._handleRoll(dataset).then((response) => {
-// TDOD        console.error(response);
+// TODO        console.error(response);
       });
     };
   }
