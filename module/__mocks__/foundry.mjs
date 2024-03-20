@@ -264,10 +264,10 @@ export class NoDialog {
   }
 }
 
-export class Dialog {
+// export class Dialog {
 
-}
-global.Dialog = Dialog
+// }
+// global.Dialog = Dialog
 
 /**
  * Localization
