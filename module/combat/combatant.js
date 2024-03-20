@@ -6,16 +6,13 @@ export default class MEGSCombatant extends Combatant {
         this.actor.system.initiativeBonus.value = this.actor._calculateInitiativeBonus();
     }
 
-    async rollInitiative(formula) {
-        console.log("TEST1");
-        if (this.actor.system.heroPoints.value > 0) {
-            const hpSpentInitiative = await _handleHPInitiativeDialog()
-            if (hpSpentInitiative > 0) {
-                baseFormula += ` + ${hpSpentInitiative}`;
-            }
-        }
-        return await super.rollInitiative(formula)
-    }
+        // TODO
+        // if (this.actor.system.heroPoints.value > 0) {
+        //     const hpSpentInitiative = await _handleHPInitiativeDialog()
+        //     if (hpSpentInitiative > 0) {
+        //         baseFormula += ` + ${hpSpentInitiative}`;
+        //     }
+        // }
 
     _getInitiativeFormula(combatant) {
         let baseFormula = super._getInitiativeFormula(combatant);
@@ -26,6 +23,11 @@ export default class MEGSCombatant extends Combatant {
         }
 
         return baseFormula;
+    }
+
+    async rollInitiative(formula) {
+        console.error("TEST11: combatant.rollInitiative()")
+        return super.rollInitiative(formula);
     }
 
     async _handleHPInitiativeDialog() {
