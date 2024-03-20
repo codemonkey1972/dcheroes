@@ -2,18 +2,9 @@ export default class MEGSCombatant extends Combatant {
     // https://foundryvtt.com/api/classes/client.Combatant.html
 
     _onCreate(data, options, userID) {
-        console.error("TEST0");
         super._onCreate(data, options, userID);
         this.actor.system.initiativeBonus.value = this.actor._calculateInitiativeBonus();
     }
-
-        // TODO
-        // if (this.actor.system.heroPoints.value > 0) {
-        //     const hpSpentInitiative = await _handleHPInitiativeDialog()
-        //     if (hpSpentInitiative > 0) {
-        //         baseFormula += ` + ${hpSpentInitiative}`;
-        //     }
-        // }
 
     /** @override */
     _getInitiativeFormula(combatant) {
@@ -27,18 +18,13 @@ export default class MEGSCombatant extends Combatant {
         return baseFormula;
     }
 
-    /** @override */
-    async rollInitiative(formula) {
-        console.error("TEST1: combatant.rollInitiative()")
-        return super.rollInitiative(formula);
-    }
-
-    /** @override */
-    prepareDerivedData() {
-        console.error("TEST1: combatant.prepareDerivedData()")
-        super.prepareDerivedData();
-    }
-
+    // TODO implement this
+    // if (this.actor.system.heroPoints.value > 0) {
+    //     const hpSpentInitiative = await _handleHPInitiativeDialog()
+    //     if (hpSpentInitiative > 0) {
+    //         baseFormula += ` + ${hpSpentInitiative}`;
+    //     }
+    // }
     async _handleHPInitiativeDialog() {
         const template = "systems/dcheroes/templates/actor/dialogs/initiativeDialog.hbs";
         const data = {
@@ -58,10 +44,7 @@ export default class MEGSCombatant extends Combatant {
                 button1: {
                     label: "Submit",
                     callback: (html) => {
-                        console.error("TEST4");
-                        console.error(html);
                         const form = html[0].querySelector('form');
-                        console.error(form);
                         const hpSpentInitiative = parseInt(form.hpSpentInitiative.value) || 0;
                         return hpSpentInitiative
                     }
