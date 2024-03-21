@@ -162,7 +162,7 @@ Handlebars.registerHelper('getSelectedSkillType', function(skillName) {
   return "N/A";
 });
 
-Handlebars.registerHelper('getSelectedSkilLink', function(skillName) {
+Handlebars.registerHelper('getSelectedSkillLink', function(skillName) {
   for (let i of game.items) {
     if (i.type === 'skill') {
       if (i.name === skillName) {

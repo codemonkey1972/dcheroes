@@ -38,6 +38,12 @@ export class DCHeroesItemSheet extends ItemSheet {
   getData() {
     // Retrieve base data structure.
     const context = super.getData();
+    if (!context.bonuses) {
+      context.bonuses = [];
+    }
+    if (!context.limitations) {
+      context.limitations = [];
+    }
 
     // Use a safe clone of the item data for further operations.
     const itemData = context.data;
@@ -87,6 +93,8 @@ export class DCHeroesItemSheet extends ItemSheet {
     // Render the item sheet for viewing/editing prior to the editable check.
     html.on('click', '.bonus-edit', (ev) => {
       const li = $(ev.currentTarget).parents('.item');
+      console.error("TEST: bonus-edit");
+      console.error(this); // TODO there isn't an actor object
       const item = this.actor.items.get(li.data('itemId'));
       item.sheet.render(true);
     });
