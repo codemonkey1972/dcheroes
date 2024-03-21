@@ -53,7 +53,8 @@ DCHEROES.powerTypes = {
 DCHEROES.powerSources = {
   physical: "Physical",
   mental: "Mental",
-  mystical: "Mystical"
+  mystical: "Mystical",
+  special: "Special"
 }
 
 DCHEROES.ranges = {
