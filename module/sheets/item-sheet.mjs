@@ -1,3 +1,4 @@
+import { DCHeroesItem } from '../documents/item.mjs';
 import { DCHEROES } from '../helpers/config.mjs';
 
 /**
@@ -187,7 +188,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     delete itemData.system['type'];
 
     // Finally, create the item!
-    return await Item.create(itemData, { parent: this.object });
+    return await DCHeroesItem.create(itemData, { parent: this.object });
   }
 
 }
