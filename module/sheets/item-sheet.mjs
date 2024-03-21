@@ -153,6 +153,10 @@ export class DCHeroesItemSheet extends ItemSheet {
    * @private
    */
   async _onSubItemCreate(event) {
+    console.error("TEST: item-sheet._onSubItemCreate()");
+    console.error(event);
+    console.error(this);
+
     event.preventDefault();
     const header = event.currentTarget;
     // Get the type of item to create.
@@ -167,6 +171,7 @@ export class DCHeroesItemSheet extends ItemSheet {
       type: type,
       system: data,
     };
+    console.error(itemData);
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system['type'];
 
