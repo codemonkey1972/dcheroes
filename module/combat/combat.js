@@ -35,7 +35,7 @@ export default class MEGSCombat extends Combat {
     // TODO
     console.error("TEST: combat.rollInitiative (async)");
 
-    this._handleHPInitiativeDialog().then((response) => {
+    await this._handleHPInitiativeDialog().then((response) => {
       console.error(response);
       return super.rollInitiative(formula);    
     });
