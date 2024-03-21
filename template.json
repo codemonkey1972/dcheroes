@@ -176,7 +176,7 @@
       "abilities": {
         "link": "",
         "range": "",
-        "formula": "1d10 + 1d10",
+        "formula": "1d10",
         "linked": false
       }, 
       "purchasable": {
@@ -192,6 +192,8 @@
       "templates": ["baseItem", "attributes", "abilities", "purchasable", "scalable"],
       "type": "power",
       "img": "systems/dcheroes/assets/images/icons/power.png",
+      "bonuses": [],
+      "limitations": [],
       "source": "",
       "activateFree": false
     },
@@ -235,6 +237,8 @@
       "templates": ["baseItem", "attributes"],
       "type": "gadget",
       "img": "icons/commodities/tech/cog-bronze.webp",
+      "powers": [],
+      "skills": [],
       "source": ""
     }
   }
