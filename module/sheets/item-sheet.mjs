@@ -106,21 +106,22 @@ export class DCHeroesItemSheet extends ItemSheet {
 
   _prepareModifiers(context) {
     // Initialize containers.
-    const items = [];
     const bonuses = [];
     const limitations = [];
   
       // Iterate through items, allocating to containers
     // TODO bonus is not a valid choice
-    // for (let i of context.items) {
-    //   i.img = i.img || Item.DEFAULT_ICON;
-    //   if (i.type === 'bonus') {
-    //     bonuses.push(i);
-    //   } 
-    //   else if (i.type === 'limitation') {
-    //     limitations.push(i);
-    //   }
-    // }
+    console.error("TEST: item-sheet._prepareModifiers()");
+    console.error(context);
+    for (let i of context.items) {
+      i.img = i.img || Item.DEFAULT_ICON;
+      if (i.type === 'bonus') {
+        bonuses.push(i);
+      } 
+      else if (i.type === 'limitation') {
+        limitations.push(i);
+      }
+    }
 
     // Assign and return
     context.bonuses = bonuses;
@@ -176,7 +177,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     delete itemData.system['type'];
 
     // Finally, create the item!
-    return await Item.create(itemData, { parent: this.actor });
+    return await Item.create(itemData, { parent: this.object });
   }
 
 }
