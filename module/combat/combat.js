@@ -34,6 +34,7 @@ export default class MEGSCombat extends Combat {
   async rollInitiative(formula) {
     // TODO
     console.error("TEST: combat.rollInitiative (async)");
+    console.error(this);
     return await super.rollInitiative(formula);
   }
 
