@@ -113,12 +113,14 @@ export class DCHeroesItemSheet extends ItemSheet {
     // TODO bonus is not a valid choice
     console.error("TEST: item-sheet._prepareModifiers()");
     console.error(context);
-    for (let i of context.items) {
+    for (let i of context.bonuses) {
       i.img = i.img || Item.DEFAULT_ICON;
       if (i.type === 'bonus') {
         bonuses.push(i);
       } 
-      else if (i.type === 'limitation') {
+    }
+    for (let i of context.limitations) {
+      if (i.type === 'limitation') {
         limitations.push(i);
       }
     }
