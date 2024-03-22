@@ -103,7 +103,7 @@ export class DCHeroesItemSheet extends ItemSheet {
       this._onSubItemCreate(ev).then((response) => {
         console.error("TEST return from sub item create: ");
         console.error(response);
-        console.error(this.system);
+        console.error(this);
 // TODO        this.bonuses.push(item);
       });
 
