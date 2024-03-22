@@ -100,6 +100,8 @@ export class DCHeroesItemSheet extends ItemSheet {
 
     // Add Sub-Item
     html.on('click', '.item-create', this._onSubItemCreate.bind(this));
+    console.error("TEST return from sub item create: ");
+    console.error(this);
 
     // Delete Sub-Item
     html.on('click', '.item-delete', (ev) => {
@@ -192,7 +194,8 @@ export class DCHeroesItemSheet extends ItemSheet {
     // console.error(this.object);
     // this.object.items()
     // const item = DCHeroesItem.create(itemData, { parentId: this.object._id })
-    const item = await DCHeroesItem.create(itemData, { parent: this.actor, parentId: this.object._id });
+    let item = await DCHeroesItem.create(itemData, { parent: this.actor });
+    item.parentId = this.object._id;
     console.error("TEST: item-sheet._onSubItemCreate");
     console.error(item);
     return item;
