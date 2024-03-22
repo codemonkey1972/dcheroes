@@ -10,8 +10,8 @@
           <label for="system.link" class="resource-label">{{localize 'Linked Power'}}</label>
           <div class="resource-content flexrow flex-center flex-between">
           <select  class="resource-select"  name="system.link" data-type="String">
-                <option  value="">Select one</option>
             {{#select system.link}}
+                <option  value="">Select one</option>
                 {{#each powers as |power key|}}
                 <option  value="{{key}}">{{power.name}}</option>
                 {{/each}}

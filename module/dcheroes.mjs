@@ -135,11 +135,6 @@ Handlebars.registerHelper('notCond', function(v1, v2) {
   return (v1 !== v2);
 });
 
-Handlebars.registerHelper('doesSubskillBelongToSkill', function(subskill, skillName) {
-  // TODO console.log("TEST: " + subskill.link + " | " + skillName);
-  return (subskill.link === skillName);
-});
-
 Handlebars.registerHelper('getSelectedSkillRange', function(skillName) {
   for (let i of game.items) {
     if (i.type === 'skill') {

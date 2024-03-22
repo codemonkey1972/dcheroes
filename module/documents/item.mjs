@@ -10,6 +10,10 @@ export class DCHeroesItem extends Item {
   * @override
   */
   constructor(data, context) {
+    // TODO debugging
+    console.error("TEST");
+    console.error(data);
+    console.error(context);
     super(data, context);
   }
 

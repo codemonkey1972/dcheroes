@@ -38,6 +38,7 @@ DCHEROES.itemTypes = {
   advantage: "advantage", 
   drawback: "drawback", 
   gadget: "gadget", 
+  bonus: "bonus",
   limitation: "limitation", 
   power: "power", 
   skill: "skill", 

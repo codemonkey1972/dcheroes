@@ -45,6 +45,10 @@ export class DCHeroesItemSheet extends ItemSheet {
     if (!context.limitations) {
       context.limitations = [];
     }
+  
+    // TODO
+    console.error("TEST: item-sheet.getData()");
+    console.error(context);
 
     // Use a safe clone of the item data for further operations.
     const itemData = context.data;
@@ -62,6 +66,10 @@ export class DCHeroesItemSheet extends ItemSheet {
 
     if (itemData.type === DCHEROES.itemTypes.skill) {
       this._prepareSubskills(context);
+    }
+
+    if (itemData.type === DCHEROES.itemTypes.bonus || itemData.type === DCHEROES.itemTypes.bonus) {
+      // TODO is linked to power?
     }
 
     // store all skills for dropdown on subskill page
@@ -92,7 +100,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     if (!this.isEditable) return;
   
     // Render the item sheet for viewing/editing prior to the editable check.
-    html.on('click', '.bonus-edit', (ev) => {
+    html.on('click', '.item-edit', (ev) => {
       const li = $(ev.currentTarget).parents('.item');
       console.error(this); // TODO there isn't an actor object?
       const item = this.actor.items.get(li.data('itemId'));
@@ -125,7 +133,7 @@ export class DCHeroesItemSheet extends ItemSheet {
       } 
     }
     for (let i of context.limitations) {
-      if (i.type === 'limitation') {
+      if (i.type === DCHEROES.itemTypes.limitation) {
         limitations.push(i);
       }
     }
