@@ -188,6 +188,9 @@ export class DCHeroesItemSheet extends ItemSheet {
     delete itemData.system['type'];
 
     // Finally, create the item!
+    console.error("TEST: item-sheet._onSubItemCreate()");
+    console.error(itemData);
+    console.error(this);
     return await DCHeroesItem.create(itemData, { parent: this.object });
   }
 
