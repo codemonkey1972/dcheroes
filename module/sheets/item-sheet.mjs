@@ -184,12 +184,12 @@ export class DCHeroesItemSheet extends ItemSheet {
     console.error(this);
 
     // TODO delete
-    // console.error("TEST: item-sheet._onSubItemCreate");
     // console.error(itemData);
     // console.error(this.object);
     // this.object.items()
     // const item = DCHeroesItem.create(itemData, { parentId: this.object._id })
     const item = await DCHeroesItem.create(itemData, { parent: this.actor, parentId: this.object._id });
+    console.error("TEST: item-sheet._onSubItemCreate");
     console.error(item);
     return item;
   }
