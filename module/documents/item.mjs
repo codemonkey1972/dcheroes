@@ -10,14 +10,9 @@ export class DCHeroesItem extends Item {
   * @override
   */
   constructor(data, context) {
-    // TODO debugging
-    console.error("TEST");
-    console.error(data);
-    console.error(context);
     super(data, context);
   }
 
-  // TODO do we need this?
   /**
    * Create a new Document using provided input data, saving it to the database.
    * @see {@link Document.createDocuments}
