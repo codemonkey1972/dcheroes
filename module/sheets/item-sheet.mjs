@@ -40,13 +40,16 @@ export class DCHeroesItemSheet extends ItemSheet {
     // Retrieve base data structure.
     const context = super.getData();
     // TODO do we still need these? should be for powers only!
-    context.items = [];
     if (!context.bonuses) {
       context.bonuses = [];
     }
     if (!context.limitations) {
       context.limitations = [];
     }
+  
+    // TODO
+    console.error("TEST: item-sheet.getData()");
+    console.error(context);
 
     // Use a safe clone of the item data for further operations.
     const itemData = context.data;
@@ -189,10 +192,11 @@ export class DCHeroesItemSheet extends ItemSheet {
     delete itemData.system['type'];
 
     // Finally, create the item!
-    console.error("TEST: item-sheet._onSubItemCreate()");
+    // TODO delete
+    console.error("TEST: item-sheet._onSubItemCreate");
     console.error(itemData);
-    console.error(this);
+    console.error(this.object);
     return await DCHeroesItem.create(itemData, { parent: this.object });
-  }
+}
 
 }

@@ -296,6 +296,10 @@ export class DCHeroesActorSheet extends ActorSheet {
     delete itemData.system['type'];
 
     // Finally, create the item!
+    // TODO delete
+    console.error("TEST: item-sheet._onSubItemCreate");
+    console.error(itemData);
+    console.error(this.actor);
     return await Item.create(itemData, { parent: this.actor });
   }
 
