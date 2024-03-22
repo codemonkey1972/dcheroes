@@ -1,6 +1,5 @@
 import { DCHEROES } from '../helpers/config.mjs';
 import {
-  onManageActiveEffect,
   prepareActiveEffectCategories,
 } from '../helpers/effects.mjs';
 
@@ -49,18 +48,18 @@ export class DCHeroesActorSheet extends ActorSheet {
     context.flags = actorData.flags;
 
     // Prepare character data and items.
-    if (actorData.type == DCHEROES.characterTypes.hero) {
+    if (actorData.type === DCHEROES.characterTypes.hero) {
       this._prepareItems(context);
       this._prepareCharacterData(context);
     }
 
     // Prepare NPC data and items.
-    if (actorData.type == DCHEROES.characterTypes.npc) {
+    if (actorData.type === DCHEROES.characterTypes.npc) {
       this._prepareItems(context);
     }
 
     // Prepare Villain data and items.
-    if (actorData.type == DCHEROES.characterTypes.villain) {
+    if (actorData.type === DCHEROES.characterTypes.villain) {
       this._prepareItems(context);
       this._prepareCharacterData(context);
     }
@@ -82,7 +81,7 @@ export class DCHeroesActorSheet extends ActorSheet {
   /**
    * Organize and classify Items for Character sheets.
    *
-   * @param {Object} actorData The actor to prepare.
+   * @param {Object} context The actor to prepare.
    *
    * @return {undefined}
    */
@@ -167,7 +166,7 @@ export class DCHeroesActorSheet extends ActorSheet {
   /**
    * Organize and classify Items for Character sheets.
    *
-   * @param {Object} actorData The actor to prepare.
+   * @param {Object} context The actor to prepare.
    *
    * @return {undefined}
    */
@@ -296,10 +295,6 @@ export class DCHeroesActorSheet extends ActorSheet {
     delete itemData.system['type'];
 
     // Finally, create the item!
-    // TODO delete
-    console.error("TEST: item-sheet._onSubItemCreate");
-    console.error(itemData);
-    console.error(this.actor);
     return await Item.create(itemData, { parent: this.actor });
   }
 
@@ -316,7 +311,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     // Handle item rolls.
     if (dataset.rollType) {
 
-      if (dataset.rollType == 'item') {
+      if (dataset.rollType === 'item') {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) {
@@ -329,7 +324,7 @@ export class DCHeroesActorSheet extends ActorSheet {
     if (dataset.roll) {
       this._handleRoll(dataset).then((response) => {
       });
-    };
+    }
   }
 
   /**
@@ -634,7 +629,7 @@ export class DCHeroesActorSheet extends ActorSheet {
           stopRolling = false;
         } else {
           stopRolling = true;
-        };
+        }
         stopRolling = false;
       } else {
         // dice do not match
@@ -710,6 +705,7 @@ export class DCHeroesActorSheet extends ActorSheet {
    */
   _getTargetActor() {
     let targetActor;
+    // TODO fix this
     for (const value of game.user.targets) {
       targetActor = game.actors.get(value.document.actorId);
       break;

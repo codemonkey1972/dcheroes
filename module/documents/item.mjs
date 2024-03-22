@@ -44,6 +44,7 @@ export class DCHeroesItem extends Item {
     const createData = data instanceof Array ? data : [data];
     console.error(createData);
     console.error(context);
+    console.error(context.parentId);
     const created = await this.createDocuments(createData, context);
     return data instanceof Array ? created : created.shift();
   }

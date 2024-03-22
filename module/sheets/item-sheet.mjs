@@ -40,25 +40,6 @@ export class DCHeroesItemSheet extends ItemSheet {
     // Retrieve base data structure.
     const context = super.getData();
 
-    // TDOO is this working?
-    if (!context.data.items) {
-      context.data.items = [];
-    }
-    context.items = context.data.items;
-    context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-
-    // TODO do we still need these? should be for powers only!
-    // if (!context.bonuses) {
-    //   context.bonuses = [];
-    // }
-    // if (!context.limitations) {
-    //   context.limitations = [];
-    // }
-  
-    // TODO
-    console.error("TEST: item-sheet.getData()");
-    console.error(context);
-
     // Use a safe clone of the item data for further operations.
     const itemData = context.data;
 
@@ -77,7 +58,7 @@ export class DCHeroesItemSheet extends ItemSheet {
       this._prepareSubskills(context);
     }
 
-    if (itemData.type === DCHEROES.itemTypes.bonus || itemData.type === DCHEROES.itemTypes.bonus) {
+    if (itemData.type === DCHEROES.itemTypes.bonus || itemData.type === DCHEROES.itemTypes.limitation) {
       // TODO is linked to power?
     }
 
@@ -140,7 +121,7 @@ export class DCHeroesItemSheet extends ItemSheet {
       // Iterate through items, allocating to containers
     for (let i of context.items) {
       i.img = i.img || Item.DEFAULT_ICON;
-      if (i.type === 'bonus') {
+      if (i.type === DCHEROES.itemTypes.bonus) {
         bonuses.push(i);
       } 
     }
@@ -200,11 +181,17 @@ export class DCHeroesItemSheet extends ItemSheet {
     delete itemData.system['type'];
 
     // Finally, create the item!
+    console.error(this);
+
     // TODO delete
-    console.error("TEST: item-sheet._onSubItemCreate");
-    console.error(itemData);
-    console.error(this.object);
-    return await DCHeroesItem.create(itemData, { parent: this.object });
-}
+    // console.error("TEST: item-sheet._onSubItemCreate");
+    // console.error(itemData);
+    // console.error(this.object);
+    // this.object.items()
+    // const item = DCHeroesItem.create(itemData, { parentId: this.object._id })
+    const item = await DCHeroesItem.create(itemData, { parent: this.actor, parentId: this.object._id });
+    console.error(item);
+    return item;
+  }
 
 }

@@ -183,17 +183,19 @@
         "baseCost": 0,
         "totalCost": 0
        }, 
-       "scalable": {
+      "scalable": {
         "factorCost": 0,
         "aps": 0
-       }
+       },
+      "modifiers": {
+        "bonuses": [],
+        "limitations": []
+      }
     },
     "power": {
-      "templates": ["baseItem", "attributes", "abilities", "purchasable", "scalable"],
+      "templates": ["baseItem", "attributes", "abilities", "purchasable", "scalable", "modifiers"],
       "type": "power",
       "img": "systems/dcheroes/assets/images/icons/power.png",
-      "bonuses": [],
-      "limitations": [],
       "source": "",
       "activateFree": false
     },
