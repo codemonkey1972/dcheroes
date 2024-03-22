@@ -94,8 +94,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     // Render the item sheet for viewing/editing prior to the editable check.
     html.on('click', '.bonus-edit', (ev) => {
       const li = $(ev.currentTarget).parents('.item');
-      console.error("TEST: bonus-edit");
-      console.error(this); // TODO there isn't an actor object
+      console.error(this); // TODO there isn't an actor object?
       const item = this.actor.items.get(li.data('itemId'));
       item.sheet.render(true);
     });
@@ -119,9 +118,6 @@ export class DCHeroesItemSheet extends ItemSheet {
     const limitations = [];
   
       // Iterate through items, allocating to containers
-    // TODO bonus is not a valid choice
-    console.error("TEST: item-sheet._prepareModifiers()");
-    console.error(context);
     for (let i of context.bonuses) {
       i.img = i.img || Item.DEFAULT_ICON;
       if (i.type === 'bonus') {
@@ -165,10 +161,6 @@ export class DCHeroesItemSheet extends ItemSheet {
    * @private
    */
   async _onSubItemCreate(event) {
-    console.error("TEST: item-sheet._onSubItemCreate()");
-    console.error(event);
-    console.error(this);
-
     event.preventDefault();
     const header = event.currentTarget;
     // Get the type of item to create.
@@ -183,7 +175,7 @@ export class DCHeroesItemSheet extends ItemSheet {
       type: type,
       system: data,
     };
-    console.error(itemData);
+
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system['type'];
 
