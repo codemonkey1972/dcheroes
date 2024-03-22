@@ -119,6 +119,10 @@ export class DCHeroesItemSheet extends ItemSheet {
     const limitations = [];
   
       // Iterate through items, allocating to containers
+    console.error(context);
+    if (!context.items) {
+      context.items = [];
+    }
     for (let i of context.items) {
       i.img = i.img || Item.DEFAULT_ICON;
       if (i.type === DCHEROES.itemTypes.bonus) {
