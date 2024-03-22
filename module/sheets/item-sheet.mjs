@@ -39,13 +39,18 @@ export class DCHeroesItemSheet extends ItemSheet {
   getData() {
     // Retrieve base data structure.
     const context = super.getData();
+
+    // TDOO is this working?
+    context.items = context.data.items;
+    context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+
     // TODO do we still need these? should be for powers only!
-    if (!context.bonuses) {
-      context.bonuses = [];
-    }
-    if (!context.limitations) {
-      context.limitations = [];
-    }
+    // if (!context.bonuses) {
+    //   context.bonuses = [];
+    // }
+    // if (!context.limitations) {
+    //   context.limitations = [];
+    // }
   
     // TODO
     console.error("TEST: item-sheet.getData()");
