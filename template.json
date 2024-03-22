@@ -126,7 +126,7 @@
     }
   },
   "Item": {
-    "types": ["advantage", "drawback", "gadget", "limitation", "power", "skill", "subskill"],
+    "types": ["advantage", "drawback", "gadget", "bonus", "limitation", "power", "skill", "subskill"],
     "templates": {
       "baseItem": {
         "name": "",
