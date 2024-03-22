@@ -13,38 +13,40 @@ export class DCHeroesItem extends Item {
     super(data, context);
   }
 
-    /**
-     * Create a new Document using provided input data, saving it to the database.
-     * @see {@link Document.createDocuments}
-     * @param {object} [data={}]                  Initial data used to create this Document
-     * @param {DocumentModificationContext} [context={}] Additional context which customizes the creation workflow
-     * @return {Promise<Document>}                The created Document instance
-     *
-     * @example Create a World-level Item
-     * ```js
-     * const data = [{name: "Special Sword", type: "weapon"}];
-     * const created = await Item.create(data);
-     * ```
-     *
-     * @example Create an Actor-owned Item
-     * ```js
-     * const data = [{name: "Special Sword", type: "weapon"}];
-     * const actor = game.actors.getName("My Hero");
-     * const created = await Item.create(data, {parent: actor});
-     * ```
-     *
-     * @example Create an Item in a Compendium pack
-     * ```js
-     * const data = [{name: "Special Sword", type: "weapon"}];
-     * const created = await Item.create(data, {pack: "mymodule.mypack"});
-     * ```
-     */
-    static async create(data, context={}) {
-      console.error("TEST: item.create()");
-      const createData = data instanceof Array ? data : [data];
-      const created = await this.createDocuments(createData, context);
-      return data instanceof Array ? created : created.shift();
-    }
+  /**
+   * Create a new Document using provided input data, saving it to the database.
+   * @see {@link Document.createDocuments}
+   * @param {object} [data={}]                  Initial data used to create this Document
+   * @param {DocumentModificationContext} [context={}] Additional context which customizes the creation workflow
+   * @return {Promise<Document>}                The created Document instance
+   *
+   * @example Create a World-level Item
+   * ```js
+   * const data = [{name: "Special Sword", type: "weapon"}];
+   * const created = await Item.create(data);
+   * ```
+   *
+   * @example Create an Actor-owned Item
+   * ```js
+   * const data = [{name: "Special Sword", type: "weapon"}];
+   * const actor = game.actors.getName("My Hero");
+   * const created = await Item.create(data, {parent: actor});
+   * ```
+   *
+   * @example Create an Item in a Compendium pack
+   * ```js
+   * const data = [{name: "Special Sword", type: "weapon"}];
+   * const created = await Item.create(data, {pack: "mymodule.mypack"});
+   * ```
+   */
+  static async create(data, context={}) {
+    console.error("TEST: item.create()");
+    const createData = data instanceof Array ? data : [data];
+    console.error(createData);
+    console.error(context);
+    const created = await this.createDocuments(createData, context);
+    return data instanceof Array ? created : created.shift();
+  }
 
   /**
    * Augment the basic Item data model with additional dynamic data.

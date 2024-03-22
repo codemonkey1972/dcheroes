@@ -188,7 +188,8 @@ export class DCHeroesItemSheet extends ItemSheet {
     delete itemData.system['type'];
 
     // Finally, create the item!
-    return await DCHeroesItem.create(itemData, { parent: this.object });
-  }
+//    return await DCHeroesItem.create(itemData, { parent: this.object });
+    return await DCHeroesItem.create(itemData, {  });
+}
 
 }
