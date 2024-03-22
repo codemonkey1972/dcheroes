@@ -100,7 +100,7 @@ export class DCHeroesItemSheet extends ItemSheet {
 
     // Add Sub-Item
     html.on('click', '.item-create', (ev) => {
-      this._onSubItemCreate().then((response) => {
+      this._onSubItemCreate(ev).then((response) => {
         console.error("TEST return from sub item create: ");
         console.error(response);
         console.error(this.system);
