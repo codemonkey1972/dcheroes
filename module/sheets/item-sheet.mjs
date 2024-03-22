@@ -195,6 +195,7 @@ export class DCHeroesItemSheet extends ItemSheet {
 let item = await DCHeroesItem.create(itemData, {  });
 console.error("TEST: item-sheet._onSubItemCreate");
 console.error(this);
+console.error(item);
 item.parent = this.object;
 //    return await DCHeroesItem.create(itemData, { parent: this.object });
 return this;
