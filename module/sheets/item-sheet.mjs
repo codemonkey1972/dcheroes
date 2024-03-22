@@ -138,13 +138,13 @@ export class DCHeroesItemSheet extends ItemSheet {
     const limitations = [];
   
       // Iterate through items, allocating to containers
-    for (let i of context.bonuses) {
+    for (let i of context.items) {
       i.img = i.img || Item.DEFAULT_ICON;
       if (i.type === 'bonus') {
         bonuses.push(i);
       } 
     }
-    for (let i of context.limitations) {
+    for (let i of context.items) {
       if (i.type === DCHEROES.itemTypes.limitation) {
         limitations.push(i);
       }
