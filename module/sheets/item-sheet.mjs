@@ -102,8 +102,9 @@ export class DCHeroesItemSheet extends ItemSheet {
     html.on('click', '.item-create', (ev) => {
       const item = this._onSubItemCreate.bind(this)
       console.error("TEST return from sub item create: ");
-      console.error(this);
-      this.items.push(item);
+      console.error(item);
+      console.error(this.system);
+      this.bonuses.push(item);
     });
 
     // Delete Sub-Item
@@ -124,6 +125,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     const limitations = [];
   
       // Iterate through items, allocating to containers
+    // TODO get from bonus and limitation items
     console.error(context);
     if (!context.items) {
       context.items = [];
