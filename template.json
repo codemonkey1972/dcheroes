@@ -194,6 +194,7 @@
       "img": "systems/dcheroes/assets/images/icons/power.png",
       "bonuses": [],
       "limitations": [],
+      "items": [],
       "source": "",
       "activateFree": false
     },
