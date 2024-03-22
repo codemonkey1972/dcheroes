@@ -189,7 +189,10 @@ export class DCHeroesItemSheet extends ItemSheet {
 
     // Finally, create the item!
 //    return await DCHeroesItem.create(itemData, { parent: this.object });
-    return await DCHeroesItem.create(itemData, {  });
+    const item = await DCHeroesItem.create(itemData, {  });
+    console.error(item);
+//    return await DCHeroesItem.create(itemData, {  });
+return;
 }
 
 }
