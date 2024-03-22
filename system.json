@@ -16,7 +16,7 @@
   "media": [
     {
       "type": "setup",
-      "url": "https://raw.githubusercontent.com/codemonkey1972/dcheroes/main/system.json",
+      "url": "https://raw.githubusercontent.com/codemonkey1972/dcheroes/Revert-92c38cb/system.json",
       "thumbnail": "systems/dcheroes/assets/images/megs-logo-multiversal.jpg"
     }
   ],
@@ -37,8 +37,8 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "https://raw.githubusercontent.com/codemonkey1972/dcheroes/main/system.json",
-  "download": "https://github.com/codemonkey1972/dcheroes/zipball/master/",
+  "manifest": "https://raw.githubusercontent.com/codemonkey1972/dcheroes/Revert-92c38cb/system.json",
+  "download": "https://github.com/codemonkey1972/dcheroes/zipball/Revert-92c38cb/",
   "background": "systems/dcheroes/assets/images/megs-logo-multiversal.jpg",
   "gridDistance": 5,
   "gridUnits": "ft",
