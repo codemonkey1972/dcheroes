@@ -41,6 +41,9 @@ export class DCHeroesItemSheet extends ItemSheet {
     const context = super.getData();
 
     // TDOO is this working?
+    if (!context.data.items) {
+      context.data.items = [];
+    }
     context.items = context.data.items;
     context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
