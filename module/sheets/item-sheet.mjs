@@ -100,13 +100,16 @@ export class DCHeroesItemSheet extends ItemSheet {
 
     // Add Sub-Item
     html.on('click', '.item-create', (ev) => {
-      this._onSubItemCreate(ev).then((response) => {
+      this._onSubItemCreate(ev).then((modifier) => {
         console.error("TEST return from sub item create: ");
-        console.error(response);
-        console.error(this);
-// TODO        this.bonuses.push(item);
+        console.error(modifier);
+        console.error(this.object.system);
+        if (modifier.type === DCHEROES.itemTypes.bonus) {
+          this.object.system.bonuses.push(modifier);
+        } else if (modifier.type === DCHEROES.itemTypes.limitation) {
+          this.object.system.limitations.push(modifier);
+        }
       });
-
     });
 
     // Delete Sub-Item
