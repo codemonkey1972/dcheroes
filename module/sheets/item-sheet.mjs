@@ -103,7 +103,7 @@ export class DCHeroesItemSheet extends ItemSheet {
       this._onSubItemCreate(ev).then((modifier) => {
         console.error("TEST return from sub item create: ");
         console.error(modifier);
-        console.error(this.object.system);
+        console.error(this);
         const context = super.getData();
         if (modifier.type === DCHEROES.itemTypes.bonus) {
           this.object.system.bonuses.push(modifier);
@@ -113,6 +113,8 @@ export class DCHeroesItemSheet extends ItemSheet {
           context.limitations = this.object.system.limitations;
         }
       });
+      console.error(context);
+      console.error(this);
     });
 
     // Delete Sub-Item
@@ -124,7 +126,6 @@ export class DCHeroesItemSheet extends ItemSheet {
       item.delete();
       li.slideUp(200, () => this.render(false));
     });
-
   }
 
   _prepareModifiers(context) {
