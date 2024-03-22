@@ -101,8 +101,9 @@ export class DCHeroesItemSheet extends ItemSheet {
     if (!this.isEditable) return;
   
     // Render the item sheet for viewing/editing prior to the editable check.
-    html.on('click', '.item-edit', (ev) => {
+    html.on('click', '.bonus-edit', (ev) => {
       const li = $(ev.currentTarget).parents('.item');
+      console.error("TEST: bonus-edit");
       console.error(this); // TODO there isn't an actor object?
       const item = this.actor.items.get(li.data('itemId'));
       item.sheet.render(true);
@@ -114,6 +115,8 @@ export class DCHeroesItemSheet extends ItemSheet {
     // Delete Sub-Item
     html.on('click', '.item-delete', (ev) => {
       const li = $(ev.currentTarget).parents('.item');
+      console.error("TEST: item-delete");
+      console.error(this); // TODO there isn't an actor object?
       const item = this.actor.items.get(li.data('itemId'));
       item.delete();
       li.slideUp(200, () => this.render(false));
