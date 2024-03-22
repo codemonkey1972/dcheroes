@@ -104,10 +104,13 @@ export class DCHeroesItemSheet extends ItemSheet {
         console.error("TEST return from sub item create: ");
         console.error(modifier);
         console.error(this.object.system);
+        const context = super.getData();
         if (modifier.type === DCHEROES.itemTypes.bonus) {
           this.object.system.bonuses.push(modifier);
+          context.bonuses = this.object.system.bonuses;
         } else if (modifier.type === DCHEROES.itemTypes.limitation) {
           this.object.system.limitations.push(modifier);
+          context.limitations = this.object.system.limitations;
         }
       });
     });
@@ -132,9 +135,6 @@ export class DCHeroesItemSheet extends ItemSheet {
       // Iterate through items, allocating to containers
     // TODO get from bonus and limitation items
     console.error(context);
-    if (!context.items) {
-      context.items = [];
-    }
     for (let i of context.items) {
       i.img = i.img || Item.DEFAULT_ICON;
       if (i.type === DCHEROES.itemTypes.bonus) {
