@@ -81,7 +81,7 @@ export class DCHeroesActorSheet extends ActorSheet {
   /**
    * Organize and classify Items for Character sheets.
    *
-   * @param {Object} context The actor to prepare.
+   * @param {Object} actorData The actor to prepare.
    *
    * @return {undefined}
    */
@@ -166,7 +166,7 @@ export class DCHeroesActorSheet extends ActorSheet {
   /**
    * Organize and classify Items for Character sheets.
    *
-   * @param {Object} context The actor to prepare.
+   * @param {Object} actorData The actor to prepare.
    *
    * @return {undefined}
    */

@@ -99,23 +99,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     });
 
     // Add Sub-Item
-    html.on('click', '.item-create', (ev) => {
-      this._onSubItemCreate(ev).then((modifier) => {
-        console.error("TEST return from sub item create: ");
-        console.error(modifier);
-        console.error(this);
-        const context = super.getData();
-        if (modifier.type === DCHEROES.itemTypes.bonus) {
-          this.object.system.bonuses.push(modifier);
-          context.bonuses = this.object.system.bonuses;
-        } else if (modifier.type === DCHEROES.itemTypes.limitation) {
-          this.object.system.limitations.push(modifier);
-          context.limitations = this.object.system.limitations;
-        }
-      });
-      console.error(context);
-      console.error(this);
-    });
+    html.on('click', '.item-create', this._onSubItemCreate.bind(this));
 
     // Delete Sub-Item
     html.on('click', '.item-delete', (ev) => {
@@ -126,6 +110,7 @@ export class DCHeroesItemSheet extends ItemSheet {
       item.delete();
       li.slideUp(200, () => this.render(false));
     });
+
   }
 
   _prepareModifiers(context) {
@@ -200,18 +185,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     delete itemData.system['type'];
 
     // Finally, create the item!
-    console.error(this);
-
-    // TODO delete
-    // console.error(itemData);
-    // console.error(this.object);
-    // this.object.items()
-    // const item = DCHeroesItem.create(itemData, { parentId: this.object._id })
-    let item = await DCHeroesItem.create(itemData, { parent: this.actor });
-    item.parentId = this.object._id;
-    console.error("TEST: item-sheet._onSubItemCreate");
-    console.error(item);
-    return item;
+    return await DCHeroesItem.create(itemData, { parent: this.actor });
   }
 
 }
