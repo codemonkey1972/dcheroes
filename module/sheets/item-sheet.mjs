@@ -128,28 +128,30 @@ export class DCHeroesItemSheet extends ItemSheet {
   }
 
   _prepareModifiers(context) {
-    // Initialize containers.
-    const bonuses = [];
-    const limitations = [];
-  
-      // Iterate through items, allocating to containers
-    // TODO get from bonus and limitation items
+    console.error("TEST: _prepareModifiers");
     console.error(context);
-    for (let i of context.items) {
-      i.img = i.img || Item.DEFAULT_ICON;
-      if (i.type === DCHEROES.itemTypes.bonus) {
-        bonuses.push(i);
-      } 
-    }
-    for (let i of context.items) {
-      if (i.type === DCHEROES.itemTypes.limitation) {
-        limitations.push(i);
-      }
-    }
-
-    // Assign and return
-    context.bonuses = bonuses;
-    context.limitations = limitations;
+    // Initialize containers.
+    // const bonuses = [];
+    // const limitations = [];
+    //
+    //   // Iterate through items, allocating to containers
+    // // TODO get from bonus and limitation items
+    // console.error(context);
+    // for (let i of context.items) {
+    //   i.img = i.img || Item.DEFAULT_ICON;
+    //   if (i.type === DCHEROES.itemTypes.bonus) {
+    //     bonuses.push(i);
+    //   }
+    // }
+    // for (let i of context.items) {
+    //   if (i.type === DCHEROES.itemTypes.limitation) {
+    //     limitations.push(i);
+    //   }
+    // }
+    //
+    // // Assign and return
+    // context.bonuses = bonuses;
+    // context.limitations = limitations;
   }
   
   /**
