@@ -40,6 +40,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     // Retrieve base data structure.
     const context = super.getData();
     // TODO do we still need these? should be for powers only!
+    context.items = [];
     if (!context.bonuses) {
       context.bonuses = [];
     }
