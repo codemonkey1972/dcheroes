@@ -46,10 +46,6 @@ export class DCHeroesItemSheet extends ItemSheet {
     if (!context.limitations) {
       context.limitations = [];
     }
-  
-    // TODO
-    console.error("TEST: item-sheet.getData()");
-    console.error(context);
 
     // Use a safe clone of the item data for further operations.
     const itemData = context.data;
@@ -192,13 +188,7 @@ export class DCHeroesItemSheet extends ItemSheet {
     delete itemData.system['type'];
 
     // Finally, create the item!
-let item = await DCHeroesItem.create(itemData, {  });
-console.error("TEST: item-sheet._onSubItemCreate");
-console.error(this);
-console.error(item);
-item.parent = this.object;
-//    return await DCHeroesItem.create(itemData, { parent: this.object });
-return this;
-}
+    return await DCHeroesItem.create(itemData, { parent: this.object });
+  }
 
 }
