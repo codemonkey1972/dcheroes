@@ -14,6 +14,21 @@ export class DCHeroesItem extends Item {
   }
 
   /**
+   * Obtain a reference to the Array of source data within the data object for a certain embedded Document name
+   * @param {string} embeddedName   The name of the embedded Document type
+   * @return {DocumentCollection}   The Collection instance of embedded Documents of the requested type
+   */
+  getEmbeddedCollection(embeddedName) {
+    const collectionName = this.constructor.getCollectionName(embeddedName);
+    console.error("TEST: getEmbeddedCollection(): " + embeddedName + " : " + collectionName);
+    if ( !collectionName ) {
+      throw new Error(`${embeddedName} is not a valid embedded Document within the ${this.documentName} Document`);
+    }
+    const field = this.constructor.hierarchy[collectionName];
+    return field.getCollection(this);
+  }
+
+  /**
    * Create a new Document using provided input data, saving it to the database.
    * @see {@link Document.createDocuments}
    * @param {object} [data={}]                  Initial data used to create this Document
