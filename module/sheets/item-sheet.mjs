@@ -183,13 +183,13 @@ export class DCHeroesItemSheet extends ItemSheet {
       type: type,
       system: data,
     };
-    console.error(itemData);
+
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system['type'];
 
     // Finally, create the item!
-//    return await DCHeroesItem.create(itemData, { parent: this.object });
-    return await DCHeroesItem.create(itemData, {  });
-}
+    console.error(this.object);
+    return await DCHeroesItem.create(itemData, { parent: this.object });
+  }
 
 }
